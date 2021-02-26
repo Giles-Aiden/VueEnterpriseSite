@@ -30,7 +30,10 @@ Please make sure to update tests as appropriate.
 
 ---
 
-Credit to... | Aiden Giles | Ethan Tayloe | James Blackman | |------------- |:------------: |----------------- | | Lily Zalit | Luke Dujmic | Matthew Crowell |
+Credit to...
+| Aiden Giles 	| Ethan Tayloe 	| Ethan Roldan    	| James Blackman 	|
+|-------------	|--------------	|-----------------	|----------------	|
+| Lily Zalit  	| Luke Dujmic  	| Matthew Crowell 	|                	|
 
 ## License
 
