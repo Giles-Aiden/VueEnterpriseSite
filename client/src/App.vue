@@ -1,12 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <router-view />
+    <div class="bodyContent1">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+</script>
 
 <style lang="scss">
 #app {
@@ -17,7 +21,13 @@
   color: #2c3e50;
 }
 
-#nav {
+router-view {
+  margin: 0;
+
+}
+
+.bodyContent1 {
+  margin: 3rem 1rem;
   padding: 30px;
 
   a {
