@@ -1,73 +1,199 @@
 <template>
     <nav>
-        <ul>
-            <li>yes</li>
-            <li>yes</li>
-            <li>yes</li>
-            <li>yes</li>
+        <input type="checkbox">
+        <ul class="navBar">
+            <li><p>Home</p></li>
+            <li><p>Store</p></li>
+            <li><p>Fundraising Opportunities</p></li>
+            <li><p>Marketing and Business</p></li>
+            <li><i class="fa fa-shopping-cart fa-2x"></i></li>
         </ul>
+        <h1 class="title">Custom Laser Engraving and Cutting</h1>
+        <div class="icons">
+            <i class="fa fa-bars fa-2x bars hidden"></i>
+            <i class="fa fa-close fa-2x close hidden"></i>
+            <i class="cartIcon fa fa-shopping-cart fa-2x hidden"></i>
+        </div>
+        <ul class="dropdownNav">
+            <li><p>Home</p></li>
+            <li><p>Store</p></li>
+            <li><p>Fundraising Opportunities</p></li>
+            <li><p>Marketing and Business</p></li>
+        </ul>
+
     </nav>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-    name: "Navbar",
-    methods: {
-        
-    }
 })
 </script>
 
 <style lang="scss" scoped>
-    $navBackground: "primary";
-
+@import "@/assets/styles/_variables.scss";
     nav {
-        margin: 1rem 0 0 0;
-        background-color: $navBackground;
-        position: absolute;
-        top: -1rem;
+        background-image: url("../assets/navBackground.png");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        color: $navTextColor;
+        font-size: 2vh;
+        height: calc(30vh + 9px);
+        position: fixed;
+        top: 0;
         left: 0;
-        width: 100vw;
-        ul {
-            height: 3rem;
-            list-style-type: none;
-            display: flex;
-            place-items: center;
-            justify-content: space-around;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .title {
+            z-index: 0;
+            margin: auto 5rem;
+            font-size: 250%;
+        }
+        .navBar {
             margin: 0;
             padding: 0;
+            height: 5vh;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
             li {
+                background: $navBackground;
+                cursor: pointer;
+                width: 100%;
+                height:  100%;
                 display: grid;
                 place-items: center;
-                width: 100%;
-                height: 100%;
-
-
                 &::after {
                     content: '';
-                    background: rgba(0,0,0,.2);
-                    width: 25%;
+                    width: 20%;
                     height: 5px;
                     position: absolute;
-                    bottom: 0;
+                    bottom: 0px;
+                    background: rgba(0,0,0,.2);
+
+                    transition: transform 100ms ease-in;
 
                     transform: scaleY(0);
-
-                    transition: transform 50ms ease-out;
-                    
-                    transform-origin: right;
                 }
                 &:hover {
-                    background: rgba(0,0,0,.1);
+                    background: rgba(255,255,255,.2);
                     &::after {
-                    transition: transform 200ms ease-in;
-                        transform-origin: left;
                         transform: scaleY(1);
-                        transform: scaleX(1);
                     }
                 }
+                p {
+                    margin: 0;
+                    padding: 0 1rem;
+                }
             }
+        }
+        .close {
+            opacity: 0;
+        }
+    }
+    .dropdownNav, .dropdownNav li {
+        display: none;
+    }
+    .dropdownNav {
+        transition: transform 400ms ease-in-out;
+        transform-origin: top;
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 5vh;
+        margin: 0;
+        list-style-type: none;
+        padding: 0;
+        li {
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            background: $navBackground;
+            &:hover {
+                background: rgba(100,100,100,0.9);
+            }
+            p {
+                transition: opacity 100ms ease-in;
+                opacity: 0;
+            }
+        }
+        transform: scaleY(0);
+    }
+    input[type=checkbox]:checked ~ .dropdownNav {
+        transform: scaleY(1);
+        li p {
+            transition: opacity 500ms ease-in;
+            opacity: 1;
+        }
+    }
+    input[type=checkbox] {
+        display: none;
+        z-index: 100;
+    }
+    
+    @media screen and (min-width: 800px) {
+        .dropdownNav {
+            visibility: hidden;
+            display: none;
+        }
+        .hidden {
+            display: none;
+            visibility: hidden;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        nav .title {
+            font-size: 200%;
+            margin: auto 3rem;
+        }
+        nav .navBar {
+            display: none;
+        }
+        input[type=checkbox] {
+            display: block;
+            height: 5vh;
+            width: 5vh;
+            border: none;
+            opacity: 0;
+            cursor: pointer;
+            &:checked ~ .close {
+                opacity: 1;
+                transition: opacity 500ms ease-in;
+            }
+            &:checked ~ .bars {
+                opacity: 0;
+                transition: opacity 0ms ease-in;
+            }
+            & ~ .close {
+                transition: opacity 0ms ease-in;
+            }
+            & ~ .bars {
+                transition: opacity 500ms ease-in;
+            }
+        }
+        i {
+            z-index: -1;
+            display: grid;
+            place-items: center;
+            visibility: visible;
+            position: absolute;
+            width: 5vh;
+            height: 5vh;
+            top: 0;
+            margin: 0.2rem;
+            cursor: pointer;
+        }
+        .cartIcon {
+            right: 0;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        nav .title {
+            font-size: 150%;
+            margin: auto 2rem;
         }
     }
 </style>
