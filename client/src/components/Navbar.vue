@@ -2,23 +2,23 @@
     <nav>
         <input type="checkbox">
         <ul class="navBar">
-            <li><p>Home</p></li>
-            <li><p>Store</p></li>
-            <li><p>Fundraising Opportunities</p></li>
-            <li><p>Marketing and Business</p></li>
-            <li><i class="fa fa-shopping-cart fa-2x"></i></li>
+            <router-link to="/" class="link" tag="li"><li><p>Home</p></li></router-link>
+            <router-link to="/" class="link" tag="li"><li><p>Store</p></li></router-link>
+            <router-link to="/" class="link" tag="li"><li><p>Fundraising Opportunities</p></li></router-link>
+            <router-link to="/" class="link" tag="li"><li><p>Marketing and Business</p></li></router-link>
+            <router-link to="/" class="link" tag="li"><i class="fa fa-shopping-cart fa-2x"></i></router-link>
         </ul>
-        <h1 class="title">Custom Laser Engraving and Cutting</h1>
+        <h1 class="title">{{ title }}</h1>
         <div class="icons">
             <i class="fa fa-bars fa-2x bars hidden"></i>
             <i class="fa fa-close fa-2x close hidden"></i>
             <i class="cartIcon fa fa-shopping-cart fa-2x hidden"></i>
         </div>
         <ul class="dropdownNav">
-            <li><p>Home</p></li>
-            <li><p>Store</p></li>
-            <li><p>Fundraising Opportunities</p></li>
-            <li><p>Marketing and Business</p></li>
+            <router-link to="/" class="link" tag="li"><li><p>Home</p></li></router-link>
+            <router-link to="/" class="link" tag="li"><li><p>Store</p></li></router-link>
+            <router-link to="/" class="link" tag="li"><li><p>Fundraising Opportunities</p></li></router-link>
+            <router-link to="/" class="link" tag="li"><li><p>Marketing and Business</p></li></router-link>
         </ul>
 
     </nav>
@@ -27,6 +27,9 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+    props: {
+        title: String,
+    }
 })
 </script>
 
@@ -35,11 +38,11 @@ export default Vue.extend({
     nav {
         background-image: url("../assets/navBackground.png");
         background-repeat: no-repeat;
-        background-size: 100% auto;
+        background-position: center center;
+        background-size: 100%;
         color: $navTextColor;
         font-size: 2vh;
-        height: calc(30vh + 9px);
-        position: fixed;
+        height: calc(30vh + 5px);
         top: 0;
         left: 0;
         width: 100%;
@@ -57,7 +60,7 @@ export default Vue.extend({
             list-style-type: none;
             display: flex;
             justify-content: space-around;
-            li {
+            .link {
                 background: $navBackground;
                 cursor: pointer;
                 width: 100%;
@@ -82,9 +85,14 @@ export default Vue.extend({
                         transform: scaleY(1);
                     }
                 }
-                p {
-                    margin: 0;
-                    padding: 0 1rem;
+                li {
+                    color: $navTextColor;
+                    p {
+                        color: $navTextColor;
+                        text-decoration: none;
+                        margin: 0;
+                        padding: 0 1rem;
+                    }
                 }
             }
         }
@@ -134,7 +142,7 @@ export default Vue.extend({
         z-index: 100;
     }
     
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 955px) {
         .dropdownNav {
             visibility: hidden;
             display: none;
@@ -144,7 +152,7 @@ export default Vue.extend({
             visibility: hidden;
         }
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 955px) {
         nav .title {
             font-size: 200%;
             margin: auto 3rem;
@@ -159,23 +167,23 @@ export default Vue.extend({
             border: none;
             opacity: 0;
             cursor: pointer;
-            &:checked ~ .close {
+            &:checked ~ .icons .close {
                 opacity: 1;
                 transition: opacity 500ms ease-in;
             }
-            &:checked ~ .bars {
+            &:checked ~ .icons .bars {
                 opacity: 0;
                 transition: opacity 0ms ease-in;
             }
-            & ~ .close {
+            & ~ .icons .close {
                 transition: opacity 0ms ease-in;
             }
-            & ~ .bars {
+            & ~ .icons .bars {
                 transition: opacity 500ms ease-in;
             }
         }
         i {
-            z-index: -1;
+            z-index: 1;
             display: grid;
             place-items: center;
             visibility: visible;
@@ -188,6 +196,11 @@ export default Vue.extend({
         }
         .cartIcon {
             right: 0;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        nav {
+            background-size: auto 100%;
         }
     }
     @media screen and (max-width: 400px) {
