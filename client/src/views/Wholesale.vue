@@ -1,6 +1,6 @@
 <template>
-  <div class="About">
-    <Navbar title="About"/>
+  <div class="Wholesale">
+    <Navbar title="Wholesale"/>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import Navbar from '@/components/Navbar.vue'
 
 export default {
-  name: 'About',
+  name: 'Wholesale',
   components: {
     Navbar
   }

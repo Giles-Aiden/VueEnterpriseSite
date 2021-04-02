@@ -3,10 +3,11 @@
         <input type="checkbox">
         <ul class="navBar">
             <router-link to="/" class="link" tag="li"><li><p>Home</p></li></router-link>
-            <router-link to="/" class="link" tag="li"><li><p>Store</p></li></router-link>
-            <router-link to="/" class="link" tag="li"><li><p>Fundraising Opportunities</p></li></router-link>
-            <router-link to="/" class="link" tag="li"><li><p>Marketing and Business</p></li></router-link>
-            <router-link to="/" class="link" tag="li"><i class="fa fa-shopping-cart fa-2x"></i></router-link>
+            <router-link to="/about" class="link" tag="li"><li><p>About</p></li></router-link>
+            <router-link to="/store" class="link" tag="li"><li><p>Store</p></li></router-link>
+            <router-link to="/fundraising" class="link" tag="li"><li><p>Fundraising Opportunities</p></li></router-link>
+            <router-link to="/wholesale" class="link" tag="li"><li><p>Marketing and Business</p></li></router-link>
+            <router-link to="/cart" class="link" tag="li"><i class="fa fa-shopping-cart fa-2x"></i></router-link>
         </ul>
         <h1 class="title">{{ title }}</h1>
         <div class="icons">
@@ -16,9 +17,10 @@
         </div>
         <ul class="dropdownNav">
             <router-link to="/" class="link" tag="li"><li><p>Home</p></li></router-link>
-            <router-link to="/" class="link" tag="li"><li><p>Store</p></li></router-link>
-            <router-link to="/" class="link" tag="li"><li><p>Fundraising Opportunities</p></li></router-link>
-            <router-link to="/" class="link" tag="li"><li><p>Marketing and Business</p></li></router-link>
+            <router-link to="/about" class="link" tag="li"><li><p>About</p></li></router-link>
+            <router-link to="/store" class="link" tag="li"><li><p>Store</p></li></router-link>
+            <router-link to="/fundraising" class="link" tag="li"><li><p>Fundraising Opportunities</p></li></router-link>
+            <router-link to="/wholesale" class="link" tag="li"><li><p>Marketing and Business</p></li></router-link>
         </ul>
 
     </nav>
@@ -68,21 +70,8 @@ export default Vue.extend({
                 height:  100%;
                 display: grid;
                 place-items: center;
-                &::after {
-                    content: '';
-                    width: 20%;
-                    height: 5px;
-                    position: absolute;
-                    bottom: 0px;
-                    background: rgba(0,0,0,.2);
-                    transition: transform 100ms ease-in;
-                    transform: scaleY(0);
-                }
                 &:hover {
                     background: rgba(255,255,255,.2);
-                    &::after {
-                        transform: scaleY(1);
-                    }
                 }
                 li {
                     color: $navTextColor;
@@ -152,6 +141,9 @@ export default Vue.extend({
         }
     }
     @media screen and (max-width: 955px) {
+        nav {
+            height: calc(36vh + 5px);
+        }
         nav .title {
             font-size: 200%;
             margin: auto 3rem;
@@ -197,7 +189,7 @@ export default Vue.extend({
             right: 0;
         }
     }
-    @media screen and (max-width: 580px) {
+    @media screen and (max-width: 690px) {
         nav {
             background-size: auto 100%;
         }
