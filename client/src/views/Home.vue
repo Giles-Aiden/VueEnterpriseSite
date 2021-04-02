@@ -1,17 +1,18 @@
 <template>
   <div class="home">
-    <Navbar title="Custom Laser Engraving and Cutting"/>
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import Navbar from "@/components/Navbar.vue"
+<script>
+// @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld.vue";
 
-export default Vue.extend({
+export default {
   name: "Home",
   components: {
-    Navbar,
-  }
-});
+    HelloWorld,
+  },
+};
 </script>

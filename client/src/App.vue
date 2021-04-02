@@ -1,24 +1,14 @@
 <template>
   <div id="app">
-    <router-view />
-    <div class="bodyContent1">
+    <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <router-view />
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-})
-</script>
-
 <style lang="scss">
-html, body {
-  margin: 0;
-  padding: 0;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,13 +17,7 @@ html, body {
   color: #2c3e50;
 }
 
-router-view {
-  margin: 0;
-
-}
-
-.bodyContent1 {
-  margin: 3rem 1rem;
+#nav {
   padding: 30px;
 
   a {
