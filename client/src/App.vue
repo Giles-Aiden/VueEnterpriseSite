@@ -18,6 +18,10 @@ export default Vue.extend({
 html, body {
   margin: 0;
   padding: 0;
+  
+  & * {
+    font-family: 'Roboto', sans-serif;
+  }
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

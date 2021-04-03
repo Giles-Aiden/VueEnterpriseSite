@@ -68,6 +68,7 @@ export default Vue.extend({
                 cursor: pointer;
                 width: 100%;
                 height:  100%;
+                font-weight: bold;
                 display: grid;
                 place-items: center;
                 &:hover {
@@ -147,6 +148,8 @@ export default Vue.extend({
         nav .title {
             font-size: 200%;
             margin: auto 3rem;
+            position: relative;
+            bottom: 1.5rem;
         }
         nav .navBar {
             display: none;
