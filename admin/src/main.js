@@ -6,6 +6,7 @@ import Vuesax from "vuesax"
 
 import "vuesax/dist/vuesax.css" //Vuesax styles
 Vue.use(Vuesax, {
+  /*
   colors: {
     primary:'#113F70',
     secondary: '#185CA3',
@@ -14,6 +15,7 @@ Vue.use(Vuesax, {
     warning:'rgb(255, 130, 0)',
     dark:'rgb(36, 33, 69)',
   }
+  */
 })
 
 
