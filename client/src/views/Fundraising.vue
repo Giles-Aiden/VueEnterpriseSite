@@ -100,46 +100,6 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import Navbar from '@/components/Navbar.vue';
-import { Carousel, Slide } from 'vue-carousel';
-
-export default {
-  name: 'Fundraising',
-  components: {
-    Navbar,
-    Carousel,
-    Slide
-  },
-    data:() => ({
-    picked: 1,
-    imgNum: 1,
-    items: [
-        'https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg',
-        'https://img.buzzfeed.com/buzzfeed-static/static/2018-10/2/18/campaign_images/buzzfeed-prod-web-06/15-of-the-weirdest-and-darkest-stock-photos-that--2-21628-1538520564-0_dblbig.jpg',
-        'https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-59-5a3bb8d9f422e__700.jpg'
-    ],
-    }),
-
-}
-console.log('Hello this is a fundraiser page!')
-/*const dots = document.querySelectorAll(".dots");
-function imageNum() {
-    console.log('function activated');
-    for (var i = 0; i < dots.length; i++){
-        if (dots[i].checked == true) {
-            console.log(parseInt(dots[i].val));
-            return parseInt(dots[i].val);
-        }
-    }*/
-
-
-
-
-
-</script>
-
 <style lang="scss" scoped>
 
 // image scrolling stuff
@@ -176,12 +136,12 @@ ul{
             border-radius: 0.25em;
             margin: 0em 2em;
             width: 10em;
-            display: inline-block;
             text-align: center;
             padding: 14px;
             text-decoration: none;
             white-space: normal;
             font-size: 1.5em;
+            display: inline-block;
 
             p{
                 white-space: wrap;
@@ -195,11 +155,123 @@ ul{
     padding: 1em 0em;
     #info{
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         div{
             border: solid black 0.15em;
             padding: 0.4em;
-
+            margin: 0.4em;
         }
     }
 }
 </style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+<script>
+//gsap for special styling
+import gsap from "gsap";
+// @ is an alias to /src
+import Navbar from '@/components/Navbar.vue';
+import { Carousel, Slide } from 'vue-carousel';
+
+export default {
+  name: 'Fundraising',
+  components: {
+    Navbar,
+    Carousel,
+    Slide
+  },
+    data:() => ({
+    picked: 1,
+    imgNum: 1,
+    items: [
+        'https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg',
+        'https://img.buzzfeed.com/buzzfeed-static/static/2018-10/2/18/campaign_images/buzzfeed-prod-web-06/15-of-the-weirdest-and-darkest-stock-photos-that--2-21628-1538520564-0_dblbig.jpg',
+        'https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-59-5a3bb8d9f422e__700.jpg'
+    ],
+    }),
+
+}
+console.log('Hello this is a fundraiser page!')
+
+// Special css styling
+/*class HoverButton {
+  constructor(el) {
+    this.el = el;
+    console.log(el);
+    this.hover = false;
+    this.calculatePosition();
+    this.attachEventsListener();
+  }
+  
+  attachEventsListener() {
+    window.addEventListener('mousemove', e => this.onMouseMove(e));
+    window.addEventListener('resize', e => this.calculatePosition(e));
+  }
+  
+  calculatePosition() {
+    gsap.set(this.el, {
+      x: 0,
+      y: 0,
+      scale: 1
+    });
+    const box = this.el.getBoundingClientRect();
+    this.x = box.left + (box.width * 0.5);
+    this.y = box.top + (box.height * 0.5);
+    this.width = box.width;
+    this.height = box.height;
+  }
+  
+  onMouseMove(e) {
+    let hover = false;
+    let hoverArea = (this.hover ? 0.7 : 0.5);
+    let x = e.clientX - this.x;
+    let y = e.clientY - this.y;
+    let distance = Math.sqrt( x*x + y*y );
+    if (distance < (this.width * hoverArea)) {
+       hover = true;
+        if (!this.hover) {
+          this.hover = true;
+        }
+        this.onHover(e.clientX, e.clientY);
+    }
+    
+    if(!hover && this.hover) {
+      this.onLeave();
+      this.hover = false;
+    }
+  }
+  
+  onHover(x, y) {
+    gsap.to(this.el,  {
+      x: (x - this.x) * 0.4,
+      y: (y - this.y) * 0.4,
+      scale: 1.15,
+      ease: 'power2.out',
+      duration: 0.4
+    });
+    this.el.style.zIndex = 10;
+  }
+  onLeave() {
+    gsap.to(this.el, {
+      x: 0,
+      y: 0,
+      scale: 1,
+      ease: 'elastic.out(1.2, 0.4)',
+      duration: 0.7
+    });
+    this.el.style.zIndex = 1;
+  }
+}*/
+console.log(document.querySelector('#reviews > div'));
+const card1 = document.querySelector('#reviews > div:nth-of-type(1)');
+//new HoverButton(card1);
+
+const card2 = document.querySelector('#reviews > div:nth-of-type(2)');
+//new HoverButton(card2);
+
+const card3 = document.querySelector('#reviews > div:nth-of-type(3)');
+//new HoverButton(card3);
+</script>
+
