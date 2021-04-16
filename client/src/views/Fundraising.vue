@@ -3,9 +3,10 @@
     <Navbar title="Fundraising"/>
 
     <!-- Image Scrolling Section -->
+    
     <div id="imageArea">
         <div id="imageScroll">
-            <img src="" alt="Image1">
+          <!--<carousel :data="data"></carousel>-->
             <form id="imgSelect">
                 <!--<input class="dots" type="radio" value="1" name="images" checked>
                 <input class="dots" value="2" name="images">
@@ -26,10 +27,12 @@
                         <img :src="items[0]">
                     </slide>
                 </carousel>
+                
             </form>
         </div>
     </div>  
 
+    <hr>
     <!-- Main Content -->
     <div id="contentArea">
         <h2>Fundraising Information</h2>
@@ -55,42 +58,45 @@
                 </p>
             </div>
         </div>
+        
     </div>
-
+    
+    <hr>
     <!-- Reviews/Experience Section -->
     <div id="reviewsArea">
+      <a href="Fundraising.vue#r5"></a>
         <div id="reviews">
-            <div> 
+            <div id="r1"> 
                 <h4>Review #1</h4>
                 <hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             
-            <div> 
+            <div id="r2"> 
                 <h4>Review #2</h4>
                 <hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
 
-            <div> 
+            <div id="r3"> 
                 <h4>Review #3</h4>
                 <hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
 
-            <div> 
+            <div id="r4"> 
                 <h4>Review #4</h4>
                 <hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
 
-            <div> 
+            <div id="r5"> 
                 <h4>Review #5</h4>
                 <hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
 
-            <div> 
+            <div id="r6"> 
                 <h4>Review #6</h4>
                 <hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -100,12 +106,21 @@
   </div>
 </template>
 
+<!-- los stylos -->
 <style lang="scss" scoped>
 
 // image scrolling stuff
-ul{
-    list-style: none;
+.example-slide {
+  align-items: center;
+  background-color: #666;
+  color: #999;
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: center;
+  min-height: 10rem;
 }
+
+/* ------ */
 .hidden{   
     opacity: 0;
 }
@@ -120,19 +135,26 @@ ul{
     border: black solid 0.1em;
     margin: 1em;
 }
+hr{
+  border: solid #6CACF0 0.05em;
+  border-radius: 1000000em;
+  margin: 0em 2em;
+}
 #reviewsArea{
     margin: 3em;
-    border: solid black 0.2em;
-    padding: 1em 0em;
-    background: linear-gradient(gray, white, gray);
     #reviews{
         overflow: auto;
         white-space: nowrap;
+        background-color: #6CACF0;
+        padding: 1em 35em;
+        box-shadow: inset 0em 0em 0.5em;
+        border-radius: 1em;
+        border: solid #113F70 0.05em;
 
         div{
             background-color: white;
-            box-shadow: 0em 0.5em 0.5em black;
-            border: black solid 0.1em;
+            color: #113F70;
+            box-shadow: 0.1em 0.3em 0.5em 0.1em black;
             border-radius: 0.25em;
             margin: 0em 2em;
             width: 10em;
@@ -146,27 +168,68 @@ ul{
             p{
                 white-space: wrap;
             }
+            hr{
+              background-color: #113F70;
+              border: solid #113F70 0.05em;
+            }
         }
     }
 }
+@media (max-width: 800px) {
+  #reviewsArea{
+    margin: 0em;
+      #reviews {
+      padding: 0.5em;
+    }
+  }
+}
+
 #contentArea{
     margin: 3em;
-    border: solid black 0.2em;
-    padding: 1em 0em;
+    h2{
+      color: #113F70;
+      text-shadow: black 0.03em 0.03em 0.05em;
+      font-size: 2em;
+    }
     #info{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         div{
-            border: solid black 0.15em;
-            padding: 0.4em;
-            margin: 0.4em;
+            box-shadow: black 0.1em 0.3em 0.5em 0.1em;
+            border-radius: 1em;
+            padding: 1em;
+            margin: 0.5em 1.5em;
+            flex: 1 1 160px;
+            background-color: #185CA3;
+            color: white;
+            line-height: 2em;
+            text-align: left;
+            text-indent: 2.5em;
+            h4{
+              font-size: 1.5em;
+              text-shadow: #113F70 0.05em 0.05em 0.05em;
+            }
+            ul{
+              list-style: visible;
+              text-indent: 0em;
+            }
         }
     }
 }
+@media (max-width: 800px) {
+  #contentArea{
+    margin: 0em;
+    padding: 1em 0em;
+      #info {
+      flex-direction: column;
+      padding: 0em;
+    }
+  }
+}
 </style>
 
-
+<!-- functiony things -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 <script>
 //gsap for special styling
@@ -182,7 +245,7 @@ export default {
     Carousel,
     Slide
   },
-    data:() => ({
+    /*data:() => ({
     picked: 1,
     imgNum: 1,
     items: [
@@ -190,16 +253,26 @@ export default {
         'https://img.buzzfeed.com/buzzfeed-static/static/2018-10/2/18/campaign_images/buzzfeed-prod-web-06/15-of-the-weirdest-and-darkest-stock-photos-that--2-21628-1538520564-0_dblbig.jpg',
         'https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-59-5a3bb8d9f422e__700.jpg'
     ],
-    }),
+    }),*/
+    data() {
+    return {
+      data: [
+        '<div class="example-slide">Slide 1</div>',
+        '<div class="example-slide">Slide 2</div>',
+        '<div class="example-slide">Slide 3</div>',
+      ],
+    };
+  },
 
 }
 console.log('Hello this is a fundraiser page!')
-
+console.log("logging the query selector: "+document.querySelector('#reviews > div'));
+console.log(document.querySelector('#reviews > div'));
 // Special css styling
 /*class HoverButton {
   constructor(el) {
     this.el = el;
-    console.log(el);
+    console.log("logging the el variable in the class constructor: "+el);
     this.hover = false;
     this.calculatePosition();
     this.attachEventsListener();
@@ -264,7 +337,7 @@ console.log('Hello this is a fundraiser page!')
     this.el.style.zIndex = 1;
   }
 }*/
-console.log(document.querySelector('#reviews > div'));
+
 const card1 = document.querySelector('#reviews > div:nth-of-type(1)');
 //new HoverButton(card1);
 
