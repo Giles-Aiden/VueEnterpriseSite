@@ -4,29 +4,47 @@
     <br>
     <div class="grid">
       <vs-row>
-        <vs-col w="4" >
-          <!--<img src="" class="blur-collage" style="z-index:1;">-->
-          <h1 class="collage-text" style="z-index: 2;">Something Here</h1>
+        <vs-col w="4">
+          <div class="blur-collage">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU" id="responsive">
+          </div>
+          <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
+          <h1 class="collage-text">Something Here</h1>
+          
         </vs-col>
         <vs-col w="8">
-          <!--<img src="" class="blur-collage" style="z-index:1;">-->
-          <h1 class="collage-text" style="z-index: 2;">Where we started</h1>
+          <div class="blur-collage">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU" id="responsive">
+          </div>
+            <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
+          <h1 class="collage-text">Where we started</h1>
         </vs-col>
       </vs-row>
+
       <vs-row>
         <vs-col w="12">
-          <!--<img src="" class="blur-collage" style="z-index:1;">-->
-          <h1 class="collage-text" style="z-index: 2;">Our Journey</h1>
+          <div class="blur-collage">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU" id="responsive">
+          </div>
+            <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
+          <h1 class="collage-text" style="filter: blur(0px);z-index: 2;">Our Journey</h1>
         </vs-col>
       </vs-row>
+
       <vs-row>
         <vs-col w="8">
-          <!--<img src="" class="blur-collage" style="z-index:1;">-->
-          <h1>Idea Behind the Product</h1>
+          <div class="blur-collage">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU" id="responsive">
+          </div>
+            <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
+          <h1 class="collage-text" style="filter: blur(0px);z-index: 2;">Idea Behind the Product</h1>
         </vs-col>
         <vs-col w="4">
-          <!--<img src="" class="blur-collage" style="z-index:1;">-->
-          <h1 style="position:relative;z-index: 2;">Looking to the Future</h1>
+          <div class="blur-collage">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU" id="responsive">
+          </div>
+           <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
+          <h1 class="collage-text">Looking to the Future</h1>
         </vs-col>
       </vs-row>
     </div>
@@ -44,6 +62,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .grid{
   width: 80%;
@@ -56,11 +75,25 @@ export default {
 
  
 }
-collage-text{
+.collage-text{
   z-index: 2;
+  position: absolute;
+  text-align: center;
+  top: 25%;
+  left: 25%;
+  right: 25%;
+  bottom: 25%;
 }
-blur-collage{
-  z-index: 1;
-  filter: blur(50px);
+
+.blur-collage{
+  z-index: -1;
+  filter: blur(2.5px);
 }
+
+#responsive {
+  max-width: 100%; 
+  height: auto;
+}
+
+
 </style>
