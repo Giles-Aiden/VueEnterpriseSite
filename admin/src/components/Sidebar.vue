@@ -14,8 +14,9 @@
           <img
             id="logoImg"
             src="@/assets/logo.png"
-            style="object-fit: cover; width: 100%; height: 500px"
+            style="object-fit: cover; width: 100%; height: auto"
           />
+          <!--<h1 style="margin: 0; padding: 0; text-decoration: line-through;">WFBM</h1>-->
         </template>
         <router-link to="/">
           <vs-sidebar-item id="sales">
@@ -52,12 +53,25 @@
             <h1>Users</h1>
           </vs-sidebar-item>
         </router-link>
+        <br>
+        <router-link to="/">
+          <vs-sidebar-item id="mainSite">
+            <template #icon>
+              <h1 style="color: white">H</h1>
+            </template>
+            <h1>Home Site</h1>
+          </vs-sidebar-item>
+        </router-link>
         <template #footer>
           <vs-row justify="space-between">
             <table id="sidebar-footer">
               <tr>
                 <td><h3>David Ray</h3></td>
-                <td><button id="logout">Logout</button></td>
+                <td>
+                  <router-link to="/login">
+                    <button id="logout">Logout</button>
+                  </router-link>
+                </td>
               </tr>
             </table>
           </vs-row>
