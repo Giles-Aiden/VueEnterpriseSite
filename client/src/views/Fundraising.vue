@@ -1,114 +1,150 @@
 <template>
   <div class="Fundraising">
-    <Navbar title="Fundraising"/>
+    <Navbar title="Fundraising" />
 
     <!-- Image Scrolling Section -->
-    
-    <div id="imageArea">
-        <div id="imageScroll">
-          <!--<carousel :data="data"></carousel>-->
-            <form id="imgSelect">
-                <!--<input class="dots" type="radio" value="1" name="images" checked>
-                <input class="dots" value="2" name="images">
-                <input class="dots" value="3" name="images">
-                <input class="dots" value="4" name="images">
-                <vs-radio class="dots" v-model="picked" val="1" v-on:click="imageNum"> </vs-radio>
-                <vs-radio class="dots" v-model="picked" val="2" v-on:click="imageNum"> </vs-radio>
-                <vs-radio class="dots" v-model="picked" val="3" v-on:click="imageNum"> </vs-radio>
-                <vs-radio class="dots" v-model="picked" val="4" v-on:click="imageNum"> </vs-radio>-->
-                <carousel :per-page="1" :mouse-drag="false">
-                    <slide>
-                        <img :src="items[0]">
-                    </slide>
-                    <slide>
-                        <img :src="items[1]">
-                    </slide>
-                    <slide>
-                        <img :src="items[0]">
-                    </slide>
-                </carousel>
-                
-            </form>
-        </div>
-    </div>  
 
-    <hr>
+    <div id="imageArea">
+      <div id="imageScroll">
+          <!--<carousel :per-page="1" :mouse-drag="false">
+            <slide>
+              <img :src="items[0]" />
+            </slide>
+            <slide>
+              <img :src="items[1]" />
+            </slide>
+            <slide>
+              <img :src="items[0]" />
+            </slide>
+          </carousel>-->
+            <carousel :per-page="1" id="carousel">
+              <slide
+                  data-index="0"
+                  data-name="MySlideName"
+                  @slideclick="handleSlideClick">
+                <img :src="items[0]" />
+              </slide>
+              <slide
+                  data-index="1"
+                  data-name="MySlideName"
+                  @slideclick="handleSlideClick">
+                <img :src="items[1]" />
+              </slide>
+              <slide
+                  data-index="2"
+                  data-name="MySlideName"
+                  @slideclick="handleSlideClick">
+                <img :src="items[0]" />
+              </slide>
+            </carousel>
+      </div>
+    </div>
+
+    <hr />
     <!-- Main Content -->
     <div id="contentArea">
-        <h2>Fundraising Information</h2>
-        <div id="info">
-            <div>
-                <h4>Filler Text</h4>
-                <ul>
-                    <li>cool stuff</li>
-                    <li>amazing things</li>
-                    <li>awesome company</li>
-                </ul>
-            </div>
-
-            <div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-
-            <div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
+      <h2>Fundraising Information</h2>
+      <div id="info">
+        <div>
+          <h4>Filler Text</h4>
+          <ul>
+            <li>cool stuff</li>
+            <li>amazing things</li>
+            <li>awesome company</li>
+          </ul>
         </div>
-        
+
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
     </div>
-    
-    <hr>
+
+    <hr />
     <!-- Reviews/Experience Section -->
     <div id="reviewsArea">
       <a href="Fundraising.vue#r5"></a>
-        <div id="reviews">
-            <div id="r1"> 
-                <h4>Review #1</h4>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            
-            <div id="r2"> 
-                <h4>Review #2</h4>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-
-            <div id="r3"> 
-                <h4>Review #3</h4>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-
-            <div id="r4"> 
-                <h4>Review #4</h4>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-
-            <div id="r5"> 
-                <h4>Review #5</h4>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-
-            <div id="r6"> 
-                <h4>Review #6</h4>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+      <div id="reviews">
+        <div id="r1">
+          <h4>Review #1</h4>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
         </div>
+
+        <div id="r2">
+          <h4>Review #2</h4>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+
+        <div id="r3">
+          <h4>Review #3</h4>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+
+        <div id="r4">
+          <h4>Review #4</h4>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+
+        <div id="r5">
+          <h4>Review #5</h4>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+
+        <div id="r6">
+          <h4>Review #6</h4>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <!-- los stylos -->
 <style lang="scss" scoped>
-
 // image scrolling stuff
 .example-slide {
   align-items: center;
@@ -121,112 +157,114 @@
 }
 
 /* ------ */
-.hidden{   
-    opacity: 0;
+.hidden {
+  opacity: 0;
 }
-.shown{
-    opacity: 1;
+.shown {
+  opacity: 1;
 }
-.dots{
-    display: inline-block;
-    margin: 0.25em;
-}
-#imageScroll{
-    border: black solid 0.1em;
-    margin: 1em;
-}
-hr{
-  border: solid #6CACF0 0.05em;
+hr {
+  border: solid #6cacf0 0.05em;
   border-radius: 1000000em;
   margin: 0em 2em;
 }
-#reviewsArea{
-    margin: 3em;
-    #reviews{
-        overflow: auto;
-        white-space: nowrap;
-        background-color: #6CACF0;
-        padding: 1em 35em;
-        box-shadow: inset 0em 0em 0.5em;
-        border-radius: 1em;
-        border: solid #113F70 0.05em;
+/* -- CAROUSEL STYLES -- */
+#carousel{
+  border-radius: 1em;
+  border: gray 0.05em solid;
+  box-shadow: black 0em 0em 0.5em inset;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+/* ------ */
+#reviewsArea {
+  margin: 3em;
+  #reviews {
+    overflow: auto;
+    white-space: nowrap;
+    background-color: #6cacf0;
+    padding: 1em 35em;
+    box-shadow: inset 0em 0em 0.5em;
+    border-radius: 1em;
+    border: solid #113f70 0.05em;
 
-        div{
-            background-color: white;
-            color: #113F70;
-            box-shadow: 0.1em 0.3em 0.5em 0.1em black;
-            border-radius: 0.25em;
-            margin: 0em 2em;
-            width: 10em;
-            text-align: center;
-            padding: 14px;
-            text-decoration: none;
-            white-space: normal;
-            font-size: 1.5em;
-            display: inline-block;
+    div {
+      background-color: white;
+      color: #113f70;
+      box-shadow: 0.1em 0.3em 0.5em 0.1em black;
+      border-radius: 0.25em;
+      margin: 0em 2em;
+      width: 10em;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+      white-space: normal;
+      font-size: 1.5em;
+      display: inline-block;
 
-            p{
-                white-space: wrap;
-            }
-            hr{
-              background-color: #113F70;
-              border: solid #113F70 0.05em;
-            }
-        }
+      p {
+        white-space: wrap;
+      }
+      hr {
+        background-color: #113f70;
+        border: solid #113f70 0.05em;
+      }
     }
+  }
 }
 @media (max-width: 800px) {
-  #reviewsArea{
+  #reviewsArea {
     margin: 0em;
-      #reviews {
+    #reviews {
       padding: 0.5em;
     }
   }
 }
 
-#contentArea{
-    margin: 3em;
-    h2{
-      color: #113F70;
-      text-shadow: black 0.03em 0.03em 0.05em;
-      font-size: 2em;
+#contentArea {
+  margin: 3em;
+  h2 {
+    color: #113f70;
+    text-shadow: black 0.03em 0.03em 0.05em;
+    font-size: 2em;
+  }
+  #info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    div {
+      box-shadow: black 0.1em 0.3em 0.5em 0.1em;
+      border-radius: 1em;
+      padding: 1em;
+      margin: 0.5em 1em;
+      flex: 1 1 160px;
+      background-color: #185ca3;
+      color: white;
+      line-height: 2em;
+      text-align: left;
+      text-indent: 2.5em;
+      h4 {
+        font-size: 1.5em;
+        text-shadow: #113f70 0.05em 0.05em 0.05em;
+      }
+      ul {
+        list-style: visible;
+        text-indent: 0em;
+      }
     }
-    #info{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        div{
-            box-shadow: black 0.1em 0.3em 0.5em 0.1em;
-            border-radius: 1em;
-            padding: 1em;
-            margin: 0.5em 1.5em;
-            flex: 1 1 160px;
-            background-color: #185CA3;
-            color: white;
-            line-height: 2em;
-            text-align: left;
-            text-indent: 2.5em;
-            h4{
-              font-size: 1.5em;
-              text-shadow: #113F70 0.05em 0.05em 0.05em;
-            }
-            ul{
-              list-style: visible;
-              text-indent: 0em;
-            }
-        }
-    }
+  }
 }
 @media (max-width: 800px) {
-  #contentArea{
+  #contentArea {
     margin: 0em;
     padding: 1em 0em;
-      #info {
+    #info {
       flex-direction: column;
       padding: 0em;
     }
   }
 }
+
 </style>
 
 <!-- functiony things -->
@@ -235,17 +273,18 @@ hr{
 //gsap for special styling
 import gsap from "gsap";
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue';
-import { Carousel, Slide } from 'vue-carousel';
+import Navbar from "@/components/Navbar.vue";
+import VueCarousel from 'vue-carousel';
+import { Carousel, Slide } from "vue-carousel";
 
 export default {
-  name: 'Fundraising',
+  name: "Fundraising",
   components: {
     Navbar,
     Carousel,
-    Slide
+    Slide,
   },
-    /*data:() => ({
+  data:() => ({
     picked: 1,
     imgNum: 1,
     items: [
@@ -253,8 +292,9 @@ export default {
         'https://img.buzzfeed.com/buzzfeed-static/static/2018-10/2/18/campaign_images/buzzfeed-prod-web-06/15-of-the-weirdest-and-darkest-stock-photos-that--2-21628-1538520564-0_dblbig.jpg',
         'https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-59-5a3bb8d9f422e__700.jpg'
     ],
-    }),*/
-    data() {
+  }),
+  /*
+  data() {
     return {
       data: [
         '<div class="example-slide">Slide 1</div>',
@@ -263,11 +303,13 @@ export default {
       ],
     };
   },
-
-}
-console.log('Hello this is a fundraiser page!')
-console.log("logging the query selector: "+document.querySelector('#reviews > div'));
-console.log(document.querySelector('#reviews > div'));
+  */
+};
+console.log("Hello this is a fundraiser page!");
+console.log(
+  "logging the query selector: " + document.querySelector("#reviews > div")
+);
+console.log(document.querySelector("#reviews > div"));
 // Special css styling
 /*class HoverButton {
   constructor(el) {
@@ -338,13 +380,12 @@ console.log(document.querySelector('#reviews > div'));
   }
 }*/
 
-const card1 = document.querySelector('#reviews > div:nth-of-type(1)');
+const card1 = document.querySelector("#reviews > div:nth-of-type(1)");
 //new HoverButton(card1);
 
-const card2 = document.querySelector('#reviews > div:nth-of-type(2)');
+const card2 = document.querySelector("#reviews > div:nth-of-type(2)");
 //new HoverButton(card2);
 
-const card3 = document.querySelector('#reviews > div:nth-of-type(3)');
+const card3 = document.querySelector("#reviews > div:nth-of-type(3)");
 //new HoverButton(card3);
 </script>
-

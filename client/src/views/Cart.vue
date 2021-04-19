@@ -1,17 +1,17 @@
 <template>
   <div class="Cart">
-    <Navbar title="Cart"/>
+    <Navbar title="Cart" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue'
+import Navbar from "@/components/Navbar.vue";
 
 export default {
-  name: 'Cart',
+  name: "Cart",
   components: {
-    Navbar
-  }
-}
+    Navbar,
+  },
+};
 </script>
