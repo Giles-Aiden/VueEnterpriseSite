@@ -2,14 +2,14 @@
     <div class="userCard">
         <div class="center grid">
             <vs-row>
-                <vs-col v-if="0" w="1">
+                <vs-col v-if="admin" w="1">
                     <h1>A</h1>
                 </vs-col>
                 <vs-col v-else w="1">
                     <h1></h1>
                 </vs-col>
                 <vs-col w="2">
-                    {{ image }}
+                    <img class="icon" :src="require(`../assets/${image}`)" />
                 </vs-col>
                 <vs-col w="4">
                     {{ email }}
@@ -28,11 +28,16 @@
 <style lang="scss" scoped>
 @import "src/assets/styles/_variables.scss";
 
+*{
+    padding: 0;
+    margin: 0;
+}
+
 .userCard{
-    img{
+    img.icon{
         border-radius: 0.5;
-        height: 4rem;
-        width: 4rem;
+        height: 3rem;
+        width: 3rem;
     }
     button{
         background-color: $sidebarElementColor;
@@ -55,6 +60,6 @@
 
 <script>
 export default {
-    props: ['image', 'email','username'],
+    props: ['admin','image', 'email','username'],
 }
 </script>
