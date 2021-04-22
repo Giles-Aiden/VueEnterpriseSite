@@ -6,6 +6,7 @@
 
     <div id="imageArea">
       <div id="imageScroll">
+        <div></div>
           <!--<carousel :per-page="1" :mouse-drag="false">
             <slide>
               <img :src="items[0]" />
@@ -17,7 +18,7 @@
               <img :src="items[0]" />
             </slide>
           </carousel>-->
-            <carousel :per-page="1" id="carousel">
+            <carousel :per-page="2" id="carousel">
               <slide
                   data-index="0"
                   data-name="MySlideName"
@@ -34,9 +35,10 @@
                   data-index="2"
                   data-name="MySlideName"
                   @slideclick="handleSlideClick">
-                <img :src="items[0]" />
+                <img :src="items[2]" />
               </slide>
             </carousel>
+            <div></div>
       </div>
     </div>
 
@@ -173,9 +175,25 @@ hr {
   border-radius: 1em;
   border: gray 0.05em solid;
   box-shadow: black 0em 0em 0.5em inset;
-  margin: 0.5em;
+  margin: 0.5em 5em;
   padding: 0.5em;
 }
+#carousel img{
+  width: 50%;
+}
+@media (max-width: 800px) {
+  #carousel{
+    border-radius: 1em;
+    border: gray 0.05em solid;
+    box-shadow: black 0em 0em 0.5em inset;
+    margin: 0.5em 2.5em;
+    padding: 0.5em;
+  }
+  #carousel img{
+    width: 100%;
+  }
+}
+
 /* ------ */
 #reviewsArea {
   margin: 3em;
@@ -214,7 +232,7 @@ hr {
 }
 @media (max-width: 800px) {
   #reviewsArea {
-    margin: 0em;
+    margin: 0em 0.25em;
     #reviews {
       padding: 0.5em;
     }
@@ -288,9 +306,9 @@ export default {
     picked: 1,
     imgNum: 1,
     items: [
-        'https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg',
-        'https://img.buzzfeed.com/buzzfeed-static/static/2018-10/2/18/campaign_images/buzzfeed-prod-web-06/15-of-the-weirdest-and-darkest-stock-photos-that--2-21628-1538520564-0_dblbig.jpg',
-        'https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-59-5a3bb8d9f422e__700.jpg'
+        'img/bottleRed.JPG',
+        'img/bottleBlack.JPG',
+        'img/bottleGreen.JPG'
     ],
   }),
   /*
