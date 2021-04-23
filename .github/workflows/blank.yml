@@ -1,0 +1,29 @@
+name: Docker
+
+on:
+  push:
+    # Publish `beta` as Docker `latest` image.
+    branches:
+      - beta
+
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
+env:
+  MAIN_IMAGE_NAME: client
+  ADMIN_IMAGE_NAME: admin
+  API_IMAGE_NAME: api
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: docker build client
+        run: docker build ./client -t ${{ env.MAIN_IMAGE_NAME }}
+      - name: docker build admin
+        run: docker build ./admin -t ${{ env.ADMIN_IMAGE_NAME }}
+      - name: docker build api
+        run: docker build ./api -t ${{ env.API_IMAGE_NAME }}
