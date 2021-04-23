@@ -2,7 +2,7 @@
   <div class="productPage">
     <Sidebar></Sidebar>
     <div id="product">
-      <productCard></productCard>
+      <productCard productName="Hydro Flask" productImage="flask.jpg"></productCard>
     </div>
   </div>
 </template>
