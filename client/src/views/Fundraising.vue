@@ -5,41 +5,30 @@
     <!-- Image Scrolling Section -->
 
     <div id="imageArea">
+      <div class="arrows">&lt;</div>
       <div id="imageScroll">
-        <div></div>
-          <!--<carousel :per-page="1" :mouse-drag="false">
-            <slide>
-              <img :src="items[0]" />
-            </slide>
-            <slide>
-              <img :src="items[1]" />
-            </slide>
-            <slide>
-              <img :src="items[0]" />
-            </slide>
-          </carousel>-->
-            <carousel :per-page="2" id="carousel">
-              <slide
-                  data-index="0"
-                  data-name="MySlideName"
-                  @slideclick="handleSlideClick">
-                <img :src="items[0]" />
-              </slide>
-              <slide
-                  data-index="1"
-                  data-name="MySlideName"
-                  @slideclick="handleSlideClick">
-                <img :src="items[1]" />
-              </slide>
-              <slide
-                  data-index="2"
-                  data-name="MySlideName"
-                  @slideclick="handleSlideClick">
-                <img :src="items[2]" />
-              </slide>
-            </carousel>
-            <div></div>
+        <carousel :per-page="2" id="carousel">
+          <slide
+              data-index="0"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+            <img :src="items[0]" />
+          </slide>
+          <slide
+              data-index="1"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+            <img :src="items[1]" />
+          </slide>
+          <slide
+              data-index="2"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+            <img :src="items[2]" />
+          </slide>
+        </carousel>
       </div>
+      <div class="arrows">&gt;</div>
     </div>
 
     <hr />
@@ -85,61 +74,89 @@
     <hr />
     <!-- Reviews/Experience Section -->
     <div id="reviewsArea">
+      <h2>Fundraising Experience</h2>
       <a href="Fundraising.vue#r5"></a>
       <div id="reviews">
-        <div id="r1">
-          <h4>Review #1</h4>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-
-        <div id="r2">
-          <h4>Review #2</h4>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-
-        <div id="r3">
-          <h4>Review #3</h4>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-
-        <div id="r4">
-          <h4>Review #4</h4>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-
-        <div id="r5">
-          <h4>Review #5</h4>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-
-        <div id="r6">
-          <h4>Review #6</h4>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
+        <carousel :per-page="2" id="carousel2">
+          <slide
+              data-index="0"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+              <div id="r1" class="reviewCards">
+                <h4>Review #1</h4>
+                <hr />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+          </slide>
+          <slide
+              data-index="1"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+              <div id="r2" class="reviewCards">
+                <h4>Review #2</h4>
+                <hr />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+          </slide>
+          <slide
+              data-index="2"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+              <div id="r3" class="reviewCards">
+                <h4>Review #3</h4>
+                <hr />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+          </slide>
+          <slide
+              data-index="3"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+              <div id="r4" class="reviewCards">
+                <h4>Review #4</h4>
+                <hr />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+          </slide>
+          <slide
+              data-index="4"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+              <div id="r5" class="reviewCards">
+                <h4>Review #5</h4>
+                <hr />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+          </slide>
+          <slide
+              data-index="5"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick">
+              <div id="r6" class="reviewCards">
+                <h4>Review #6</h4>
+                <hr />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+          </slide>
+        </carousel>
       </div>
     </div>
   </div>
@@ -169,14 +186,29 @@ hr {
   border: solid #6cacf0 0.05em;
   border-radius: 1000000em;
   margin: 0em 2em;
+  box-shadow: black 0em 0.1em 0.1em;
 }
 /* -- CAROUSEL STYLES -- */
-#carousel{
+#imageArea{
+  display: flex;
+  flex-direction: row;
   border-radius: 1em;
   border: gray 0.05em solid;
   box-shadow: black 0em 0em 0.5em inset;
   margin: 0.5em 5em;
   padding: 0.5em;
+  /* -- first and last div (the arrows for the carousel) -- */
+  .arrows{
+    padding: 1em;
+  }
+  .arrows:first-of-type{
+    border: none;
+    border-right: rgba(0, 0, 0, 0.2) solid 0.1em;
+  }
+  .arrows:last-of-type{
+    border: none;
+    border-left: rgba(0, 0, 0, 0.2) solid 0.1em;
+  }
 }
 #carousel img{
   width: 50%;
@@ -197,28 +229,33 @@ hr {
 /* ------ */
 #reviewsArea {
   margin: 3em;
-  #reviews {
+  h2 {
+    color: #113f70;
+    text-shadow: black 0.03em 0.03em 0.05em;
+    font-size: 2em;
+  }
+  #carousel2 {
     overflow: auto;
     white-space: nowrap;
     background-color: #6cacf0;
-    padding: 1em 35em;
+    padding: 1em 10em;
     box-shadow: inset 0em 0em 0.5em;
     border-radius: 1em;
     border: solid #113f70 0.05em;
 
-    div {
+    .reviewCards {
       background-color: white;
       color: #113f70;
       box-shadow: 0.1em 0.3em 0.5em 0.1em black;
       border-radius: 0.25em;
       margin: 0em 2em;
-      width: 10em;
       text-align: center;
       padding: 14px;
       text-decoration: none;
       white-space: normal;
       font-size: 1.5em;
       display: inline-block;
+      width: 75%;
 
       p {
         white-space: wrap;
@@ -232,9 +269,14 @@ hr {
 }
 @media (max-width: 800px) {
   #reviewsArea {
-    margin: 0em 0.25em;
-    #reviews {
-      padding: 0.5em;
+    margin: 0em 1em;
+    #carousel2 {
+      margin: 0.25em;
+      padding: 1em;
+      .reviewCards
+      {
+        margin: 0em;
+      }
     }
   }
 }
