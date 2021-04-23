@@ -13,7 +13,7 @@
         <template class="logo" #logo>
           <img
             id="logoImg"
-            src="@/assets/logo.png"
+            src="@/assets/WFMB Logo.png"
             style="object-fit: cover; width: 100%; height: auto"
           />
           <!--<h1 style="margin: 0; padding: 0; text-decoration: line-through;">WFBM</h1>-->

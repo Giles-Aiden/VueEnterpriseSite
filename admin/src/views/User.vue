@@ -56,8 +56,9 @@ div.user{
         width: calc(100% - 50px);
         background-color: #185CA3;
         margin-bottom: 1rem;
+        margin-left: -10px;
         height: 4rem;
-        padding: 1rem;
+        padding: 2rem;
         position: sticky;
         top: 0;   
         z-index: 2;
