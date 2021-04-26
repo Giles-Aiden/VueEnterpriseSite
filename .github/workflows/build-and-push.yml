@@ -17,6 +17,9 @@ env:
   DOCKER_USER: ${{ secrets.DOCKER_USER }}
   DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
   DOCKER_REG: ${{ secrets.DOCKER_REG }}
+  MAIN_TAG: ${{env.DOCKER_REG}}/${{env.DOCKER_USER}}/${{env.MAIN_IMAGE_NAME}}
+  ADMIN_TAG: ${{env.DOCKER_REG}}/${{env.DOCKER_USER}}/${{env.MAIN_IMAGE_NAME}}
+  API_TAG: ${{env.DOCKER_REG}}/${{env.DOCKER_USER}}/${{env.MAIN_IMAGE_NAME}}
 
 jobs:
   build:
@@ -26,14 +29,20 @@ jobs:
       - name: docker login
         run: docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASS }} ${{ env.DOCKER_REG }}
       - name: docker build client
-        run: docker build ./client -t ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}${{ env.MAIN_IMAGE_NAME }}
+        run: |
+          docker build ./client -t ${{ env.MAIN_IMAGE_NAME }}
+          docker image tag ${{ env.MAIN_IMAGE_NAME }}:latest ${{ env.MAIN_TAG }}:latest
       - name: docker build admin
-        run: docker build ./admin -t ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}${{ env.ADMIN_IMAGE_NAME }}
+        run: |
+          docker build ./admin -t ${{ env.ADMIN_IMAGE_NAME }}
+          docker image tag ${{ env.ADMIN_IMAGE_NAME }}:latest ${{ env.ADMIN_TAG }}:latest
       - name: docker build api
-        run: docker build ./api -t ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}${{ env.API_IMAGE_NAME }}
+        run: |
+          docker build ./api -t ${{ env.API_IMAGE_NAME }}
+          docker image tag ${{ env.API_IMAGE_NAME }}:latest ${{ env.API_TAG }}:latest
       
       - name: docker push
         run: |
-          docker push www.${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.MAIN_IMAGE_NAME  }}
-          docker push www.${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.ADMIN_IMAGE_NAME  }}
-          docker push www.${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.API_IMAGE_NAME  }}
+          docker push ${{ env.MAIN_TAG }}
+          docker push ${{ env.ADMIN_TAG }}
+          docker push ${{ env.API_TAG }}
