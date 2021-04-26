@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: docker login
-        run: docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REG
+        run: docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASS }} ${{ env.DOCKER_REG }}
       - name: docker build client
         run: docker build ./client -t ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}${{ env.MAIN_IMAGE_NAME }}
       - name: docker build admin
