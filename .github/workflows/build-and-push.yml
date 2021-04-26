@@ -17,9 +17,9 @@ env:
   DOCKER_USER: ${{ secrets.DOCKER_USER }}
   DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
   DOCKER_REG: ${{ secrets.DOCKER_REG }}
-  MAIN_TAG: $DOCKER_REG/$DOCKER_USER/$MAIN_IMAGE_NAME
-  ADMIN_TAG: $DOCKER_REG/$DOCKER_USER/$MAIN_IMAGE_NAME
-  API_TAG: $DOCKER_REG/$DOCKER_USER/$MAIN_IMAGE_NAME
+  MAIN_TAG: $DOCKER_REG/registry/$DOCKER_USER/$MAIN_IMAGE_NAME
+  ADMIN_TAG: $DOCKER_REG/registry/$DOCKER_USER/$MAIN_IMAGE_NAME
+  API_TAG: $DOCKER_REG/registry/$DOCKER_USER/$MAIN_IMAGE_NAME
 
 jobs:
   build:
@@ -47,16 +47,14 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Docker run 
+      - name: Docker run
         uses: fifsky/ssh-action@master
         with:
           command: |
-            cd /tmp
-            ls -a
-            echo "env_var:$FIRST_NAME"
-          host: ${{ secrets.HOST }}
+            cd ~/wfbm
+            docker-compose down
+            docker-compose up -d
+          host: ${{ secrets.DOCKER_REG }}
           user: root
-          key: ${{ secrets.PRIVATE_KEY}}
-#          pass: ${{ secrets.PASS }}
+          key: ${{ secrets.DOCKER_REG_KEY }}
           args: "-tt -vvv"
-    
