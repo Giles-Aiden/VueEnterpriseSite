@@ -32,17 +32,31 @@ jobs:
         run: |
           docker build ./client -t ${{ env.MAIN_IMAGE_NAME }}
           docker image tag ${{ env.MAIN_IMAGE_NAME }}:latest ${{ env.MAIN_TAG }}:latest
+          docker image push ${{ env.MAIN_TAG }}
       - name: docker build admin
         run: |
           docker build ./admin -t ${{ env.ADMIN_IMAGE_NAME }}
           docker image tag ${{ env.ADMIN_IMAGE_NAME }}:latest ${{ env.ADMIN_TAG }}:latest
+          docker image push ${{ env.ADMIN_TAG }}
       - name: docker build api
         run: |
           docker build ./api -t ${{ env.API_IMAGE_NAME }}
           docker image tag ${{ env.API_IMAGE_NAME }}:latest ${{ env.API_TAG }}:latest
-      
-      - name: docker push
-        run: |
-          docker push ${{ env.MAIN_TAG }}
-          docker push ${{ env.ADMIN_TAG }}
-          docker push ${{ env.API_TAG }}
+          docker image push ${{ env.API_TAG }}        
+          
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker run 
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /tmp
+            ls -a
+            echo "env_var:$FIRST_NAME"
+          host: ${{ secrets.HOST }}
+          user: root
+          key: ${{ secrets.PRIVATE_KEY}}
+#          pass: ${{ secrets.PASS }}
+          args: "-tt -vvv"
+    
