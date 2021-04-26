@@ -14,16 +14,26 @@ env:
   MAIN_IMAGE_NAME: client
   ADMIN_IMAGE_NAME: admin
   API_IMAGE_NAME: api
-  
+  DOCKER_USER: ${{ secrets.DOCKER_USER }}
+  DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+  DOCKER_REG: ${{ secrets.DOCKER_REG }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: docker login
+        run: docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REG
       - name: docker build client
-        run: docker build ./client -t ${{ env.MAIN_IMAGE_NAME }}
+        run: docker build ./client -t ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}${{ env.MAIN_IMAGE_NAME }}
       - name: docker build admin
-        run: docker build ./admin -t ${{ env.ADMIN_IMAGE_NAME }}
+        run: docker build ./admin -t ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}${{ env.ADMIN_IMAGE_NAME }}
       - name: docker build api
-        run: docker build ./api -t ${{ env.API_IMAGE_NAME }}
+        run: docker build ./api -t ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}${{ env.API_IMAGE_NAME }}
+      
+      - name: docker push
+        run: |
+          docker push ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.MAIN_IMAGE_NAME  }}
+          docker push ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.ADMIN_IMAGE_NAME  }}
+          docker push ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.API_IMAGE_NAME  }}
