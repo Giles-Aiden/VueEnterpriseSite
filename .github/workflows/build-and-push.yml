@@ -34,6 +34,6 @@ jobs:
       
       - name: docker push
         run: |
-          docker push ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.MAIN_IMAGE_NAME  }}
-          docker push ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.ADMIN_IMAGE_NAME  }}
-          docker push ${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.API_IMAGE_NAME  }}
+          docker push www.${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.MAIN_IMAGE_NAME  }}
+          docker push www.${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.ADMIN_IMAGE_NAME  }}
+          docker push www.${{ env.DOCKER_REG }}/${{ env.DOCKER_USER }}/${{ env.API_IMAGE_NAME  }}
