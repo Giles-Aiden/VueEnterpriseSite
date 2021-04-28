@@ -2,21 +2,20 @@
   <div>
     <div class="center-grid">
       <div vs-type="flex" vs-justify="center" vs-align="center">
-        <vs-card>
+        <vs-card class="shadow">
           <template #title>
             <h3 id="custom">Custom</h3>
             <h4>Laser Engraving</h4>
           </template>
         </vs-card>
       </div>
+    </div>
+    <div class="center-grid">
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card>
+        <vs-card class="shadow">
           <template #title>
             <h3>Custom</h3>
           </template>
-          <!-- <template #img>
-            <img src="/foto5.png" alt="" />
-          </template> -->
           <template #text>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -34,7 +33,7 @@
         </vs-card>
       </div>
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card>
+        <vs-card class="shadow">
           <template #title>
             <h3>Professional</h3>
           </template>
@@ -58,7 +57,7 @@
         </vs-card>
       </div>
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card>
+        <vs-card class="shadow">
           <template #title>
             <h3>Precise</h3>
           </template>
@@ -90,7 +89,7 @@
       </div>
     </div>
     <div class="center-grid" vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card>
+        <vs-card class="shadow">
           <template #title>
             <h3>Precise</h3>
           </template>
@@ -132,12 +131,22 @@ export default Vue.extend({
 $bg-main: #185ca3;
 $bg-secondary: #2486f0;
 $text-color: #fefefe;
+
+.shadow {
+  box-shadow: 2rem $bg-secondary;
+  :hover {
+    box-shadow: 2rem $bg-main;
+  }
+}
+
 .button-color {
   background-color: $bg-main;
 }
+
 .card-color {
   background-color: $bg-secondary;
 }
+
 #fundraising {
   background-image: url("../assets/fundraisingHomePage.png");
   background-repeat: no-repeat;
