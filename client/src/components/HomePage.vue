@@ -90,7 +90,7 @@
     <div class="center-grid" vs-type="flex" vs-justify="center" vs-align="center" w="12">
         <vs-card class="shadow">
           <template #title>
-            <h3>Precise</h3>
+            <h3>More About Our Fundraisers</h3>
           </template>
           <template #text>
             <p>
@@ -140,10 +140,10 @@ $bg-secondary: #2486f0;
 $text-color: #fefefe;
 
 .shadow {
-  box-shadow: 2rem $bg-secondary;
-  :hover {
-    box-shadow: 2rem $bg-main;
-  }
+  /*box-shadow: 18px $bg-secondary;*/
+  box-shadow: 5px 10px 18px $bg-secondary;
+  background: transparent;
+  border-radius: 2rem;
 }
 
 .button-color {
