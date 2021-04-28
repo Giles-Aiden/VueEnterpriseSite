@@ -5,7 +5,6 @@
         sticky
         square
         hover-expand
-        v-model="active"
         open
         background="#113F70"
         textWhite
@@ -18,50 +17,61 @@
           />
           <!--<h1 style="margin: 0; padding: 0; text-decoration: line-through;">WFBM</h1>-->
         </template>
-        <router-link to="/">
+        
           <vs-sidebar-item id="sales">
+            
             <template #icon>
               <h1 style="color: white">$</h1>
             </template>
+            <router-link to="/">
             <h1>Sales</h1>
+            </router-link>
           </vs-sidebar-item>
-        </router-link>
+        
         <br />
-        <router-link to="/products">
+        
           <vs-sidebar-item id="products">
             <template #icon>
               <h1 style="color: white">P</h1>
             </template>
+            <router-link to="/products">
             <h1>Products</h1>
+            </router-link>
           </vs-sidebar-item>
-        </router-link>
+        
         <br />
-        <router-link to="/orders">
+        
           <vs-sidebar-item id="orders">
             <template #icon>
               <h1 style="color: white">O</h1>
             </template>
+            <router-link to="/orders">
             <h1>Orders</h1>
+            </router-link>
           </vs-sidebar-item>
-        </router-link>
+        
         <br />
-        <router-link to="/users">
+        
           <vs-sidebar-item id="users">
             <template #icon>
               <h1 style="color: white">U</h1>
             </template>
+            <router-link to="/users">
             <h1>Users</h1>
+            </router-link>
           </vs-sidebar-item>
-        </router-link>
+        
         <br>
-        <router-link to="/">
+        
           <vs-sidebar-item id="mainSite">
             <template #icon>
               <h1 style="color: white">H</h1>
             </template>
+            <router-link to="/">
             <h1>Home Site</h1>
+            </router-link>
           </vs-sidebar-item>
-        </router-link>
+        
         <template #footer>
           <vs-row justify="space-between">
             <table id="sidebar-footer">
@@ -111,6 +121,10 @@ img#logoImg {
 
 div#sidebar {
   overflow: hidden;
+  h1{
+    color: $sidebarTextColor;
+    text-decoration: none;
+  }
   table#sidebar-footer {
     width: 100%;
 
