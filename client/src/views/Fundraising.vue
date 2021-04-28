@@ -5,30 +5,41 @@
     <!-- Image Scrolling Section -->
 
     <div id="imageArea">
-      <div class="arrows">&lt;</div>
+      <!--<button class="arrows" id="leftArrow"><img src="img/arrowLeft.png"></button>-->
       <div id="imageScroll">
-        <carousel :per-page="2" id="carousel">
+        <!--   -->
+        <carousel
+          :per-page="2"
+          :navigation-enabled="true"
+          :navigation-next-label="arrows[1]"
+          :navigation-prev-label="arrows[0]"
+          :pagination-active-color="'#113F70'"
+          id="carousel"
+        >
           <slide
-              data-index="0"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick">
+            data-index="0"
+            data-name="MySlideName"
+            @slideclick="handleSlideClick"
+          >
             <img :src="items[0]" />
           </slide>
           <slide
-              data-index="1"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick">
+            data-index="1"
+            data-name="MySlideName"
+            @slideclick="handleSlideClick"
+          >
             <img :src="items[1]" />
           </slide>
           <slide
-              data-index="2"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick">
+            data-index="2"
+            data-name="MySlideName"
+            @slideclick="handleSlideClick"
+          >
             <img :src="items[2]" />
           </slide>
         </carousel>
       </div>
-      <div class="arrows">&gt;</div>
+      <!--<button class="arrows"  id="rightArrow"><img src="img/arrowRight.png"></button>-->
     </div>
 
     <hr />
@@ -77,86 +88,37 @@
       <h2>Fundraising Experience</h2>
       <a href="Fundraising.vue#r5"></a>
       <div id="reviews">
-        <carousel :per-page="2" id="carousel2">
-          <slide
+        <!--<button class="arrows" id="leftArrow2"><img src="img/arrowLeft.png"></button>-->
+        <carousel
+          :per-page="2"
+          :navigation-enabled="true"
+          :navigation-next-label="arrows[1]"
+          :navigation-prev-label="arrows[0]"
+          :pagination-active-color="'#113F70'"
+          id="carousel2"
+        >
+          <div
+            v-for="item-in-reviewerInfo"
+            :key="item[0]"
+            id="workPLEASE"
+          >
+            <slide
               data-index="0"
               data-name="MySlideName"
-              @slideclick="handleSlideClick">
+              @slideclick="handleSlideClick"
+            >
               <div id="r1" class="reviewCards">
                 <h4>Review #1</h4>
                 <hr />
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               </div>
-          </slide>
-          <slide
-              data-index="1"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick">
-              <div id="r2" class="reviewCards">
-                <h4>Review #2</h4>
-                <hr />
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-          </slide>
-          <slide
-              data-index="2"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick">
-              <div id="r3" class="reviewCards">
-                <h4>Review #3</h4>
-                <hr />
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-          </slide>
-          <slide
-              data-index="3"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick">
-              <div id="r4" class="reviewCards">
-                <h4>Review #4</h4>
-                <hr />
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-          </slide>
-          <slide
-              data-index="4"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick">
-              <div id="r5" class="reviewCards">
-                <h4>Review #5</h4>
-                <hr />
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-          </slide>
-          <slide
-              data-index="5"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick">
-              <div id="r6" class="reviewCards">
-                <h4>Review #6</h4>
-                <hr />
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-          </slide>
+            </slide>
+          </div>
         </carousel>
+        <!--<button class="arrows" id="rightArrow2"><img src="img/arrowRight.png"></button>-->
       </div>
     </div>
   </div>
@@ -189,93 +151,131 @@ hr {
   box-shadow: black 0em 0.1em 0.1em;
 }
 /* -- CAROUSEL STYLES -- */
-#imageArea{
+#imageArea {
   display: flex;
   flex-direction: row;
   border-radius: 1em;
-  border: gray 0.05em solid;
-  box-shadow: black 0em 0em 0.5em inset;
   margin: 0.5em 5em;
   padding: 0.5em;
+
+  #imageScroll {
+    border: #113f70 0.5em solid;
+    border-radius: 1em;
+    box-shadow: black 0em 0em 0.5em inset, black 0em 0em 1em;
+    padding: 0.5em;
+    margin: auto;
+  }
   /* -- first and last div (the arrows for the carousel) -- */
-  .arrows{
-    padding: 1em;
+  .arrows {
+    position: relative;
+    padding: 3em;
+    background-color: #113f70;
+    transition: 0.2s;
+    img {
+      position: absolute;
+      width: 2em;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
-  .arrows:first-of-type{
+  .arrows:first-of-type {
     border: none;
-    border-right: rgba(0, 0, 0, 0.2) solid 0.1em;
+    border-radius: 1em 0em 0em 1em;
+    img {
+      transform: translate(-50%, -50%);
+    }
   }
-  .arrows:last-of-type{
+  .arrows:last-of-type {
     border: none;
-    border-left: rgba(0, 0, 0, 0.2) solid 0.1em;
+    border-radius: 0em 1em 1em 0em;
   }
 }
-#carousel img{
+#carousel img {
   width: 50%;
+  max-width: 50em;
 }
 @media (max-width: 800px) {
-  #carousel{
-    border-radius: 1em;
-    border: gray 0.05em solid;
-    box-shadow: black 0em 0em 0.5em inset;
-    margin: 0.5em 2.5em;
+  #imageArea {
+    margin: 0.5em 5em;
     padding: 0.5em;
+    #imageScroll {
+      border: gray 0.05em solid;
+      box-shadow: black 0em 0em 0.5em inset;
+      padding: 0.5em;
+    }
+    .arrows {
+      padding: 1.5em;
+    }
   }
-  #carousel img{
+  #carousel img {
     width: 100%;
+  }
+}
+@media (min-width: 800px) {
+  .arrows:hover {
+    transition: 0.2s;
+    transform: translateY(-0.33em);
+    box-shadow: black 0em 0.33em, black 0em 0.33em 0.5em;
+    filter: opacity(0.95);
   }
 }
 
 /* ------ */
 #reviewsArea {
-  margin: 3em;
+  margin: 0.5em 5em;
+  #reviews {
+    padding: 0.5em;
+    margin: auto;
+    max-width: 200em;
+
+    #carousel2 {
+      background-color: #6cacf0;
+      padding: 1em 0em;
+      box-shadow: inset 0em 0em 0.5em;
+      border: solid #113f70 0.5em;
+      border-radius: 1em;
+
+      .reviewCards {
+        background-color: white;
+        color: #113f70;
+        box-shadow: 0.1em 0.3em 0.5em 0.1em black;
+        border-radius: 0.25em;
+        text-align: center;
+        padding: 1em;
+        text-decoration: none;
+        font-size: 1.5em;
+        display: inline-block;
+        width: 75%;
+        max-width: 40em;
+
+        p {
+          white-space: wrap;
+        }
+        hr {
+          background-color: #113f70;
+          border: solid #113f70 0.05em;
+        }
+      }
+    }
+  }
   h2 {
     color: #113f70;
     text-shadow: black 0.03em 0.03em 0.05em;
     font-size: 2em;
   }
-  #carousel2 {
-    overflow: auto;
-    white-space: nowrap;
-    background-color: #6cacf0;
-    padding: 1em 10em;
-    box-shadow: inset 0em 0em 0.5em;
-    border-radius: 1em;
-    border: solid #113f70 0.05em;
-
-    .reviewCards {
-      background-color: white;
-      color: #113f70;
-      box-shadow: 0.1em 0.3em 0.5em 0.1em black;
-      border-radius: 0.25em;
-      margin: 0em 2em;
-      text-align: center;
-      padding: 14px;
-      text-decoration: none;
-      white-space: normal;
-      font-size: 1.5em;
-      display: inline-block;
-      width: 75%;
-
-      p {
-        white-space: wrap;
-      }
-      hr {
-        background-color: #113f70;
-        border: solid #113f70 0.05em;
-      }
-    }
-  }
 }
 @media (max-width: 800px) {
   #reviewsArea {
     margin: 0em 1em;
-    #carousel2 {
-      margin: 0.25em;
-      padding: 1em;
-      .reviewCards
-      {
-        margin: 0em;
+    #reviews {
+      width: 85%;
+      #carousel2 {
+        margin: 0.25em;
+        padding: 0em;
+        .reviewCards {
+          margin: 0em;
+        }
       }
     }
   }
@@ -292,6 +292,7 @@ hr {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     div {
       box-shadow: black 0.1em 0.3em 0.5em 0.1em;
       border-radius: 1em;
@@ -303,6 +304,7 @@ hr {
       line-height: 2em;
       text-align: left;
       text-indent: 2.5em;
+      max-width: 50em;
       h4 {
         font-size: 1.5em;
         text-shadow: #113f70 0.05em 0.05em 0.05em;
@@ -311,6 +313,9 @@ hr {
         list-style: visible;
         text-indent: 0em;
       }
+    }
+    div:last-of-type {
+      flex: 1.5 1 160px;
     }
   }
 }
@@ -324,17 +329,13 @@ hr {
     }
   }
 }
-
 </style>
 
 <!-- functiony things -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 <script>
-//gsap for special styling
-import gsap from "gsap";
 // @ is an alias to /src
 import Navbar from "@/components/Navbar.vue";
-import VueCarousel from 'vue-carousel';
+//import VueCarousel from 'vue-carousel';
 import { Carousel, Slide } from "vue-carousel";
 
 export default {
@@ -344,15 +345,47 @@ export default {
     Carousel,
     Slide,
   },
-  data:() => ({
-    picked: 1,
-    imgNum: 1,
-    items: [
-        'img/bottleRed.JPG',
-        'img/bottleBlack.JPG',
-        'img/bottleGreen.JPG'
-    ],
-  }),
+  data() {
+    return {
+      picked: 1,
+      imgNum: 1,
+      items: [
+        "img/bottleRed.JPG",
+        "img/bottleBlack.JPG",
+        "img/bottleGreen.JPG",
+      ],
+      reviewerInfo: [
+        [
+          "Review #1",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+          "Review #1",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+          "Review #1",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+          "Review #1",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+          "Review #1",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+          "Review #1",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+      ],
+      arrows: [
+        '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
+        '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
+      ],
+    };
+  },
   /*
   data() {
     return {
@@ -365,87 +398,5 @@ export default {
   },
   */
 };
-console.log("Hello this is a fundraiser page!");
-console.log(
-  "logging the query selector: " + document.querySelector("#reviews > div")
-);
-console.log(document.querySelector("#reviews > div"));
-// Special css styling
-/*class HoverButton {
-  constructor(el) {
-    this.el = el;
-    console.log("logging the el variable in the class constructor: "+el);
-    this.hover = false;
-    this.calculatePosition();
-    this.attachEventsListener();
-  }
-  
-  attachEventsListener() {
-    window.addEventListener('mousemove', e => this.onMouseMove(e));
-    window.addEventListener('resize', e => this.calculatePosition(e));
-  }
-  
-  calculatePosition() {
-    gsap.set(this.el, {
-      x: 0,
-      y: 0,
-      scale: 1
-    });
-    const box = this.el.getBoundingClientRect();
-    this.x = box.left + (box.width * 0.5);
-    this.y = box.top + (box.height * 0.5);
-    this.width = box.width;
-    this.height = box.height;
-  }
-  
-  onMouseMove(e) {
-    let hover = false;
-    let hoverArea = (this.hover ? 0.7 : 0.5);
-    let x = e.clientX - this.x;
-    let y = e.clientY - this.y;
-    let distance = Math.sqrt( x*x + y*y );
-    if (distance < (this.width * hoverArea)) {
-       hover = true;
-        if (!this.hover) {
-          this.hover = true;
-        }
-        this.onHover(e.clientX, e.clientY);
-    }
-    
-    if(!hover && this.hover) {
-      this.onLeave();
-      this.hover = false;
-    }
-  }
-  
-  onHover(x, y) {
-    gsap.to(this.el,  {
-      x: (x - this.x) * 0.4,
-      y: (y - this.y) * 0.4,
-      scale: 1.15,
-      ease: 'power2.out',
-      duration: 0.4
-    });
-    this.el.style.zIndex = 10;
-  }
-  onLeave() {
-    gsap.to(this.el, {
-      x: 0,
-      y: 0,
-      scale: 1,
-      ease: 'elastic.out(1.2, 0.4)',
-      duration: 0.7
-    });
-    this.el.style.zIndex = 1;
-  }
-}*/
-
-const card1 = document.querySelector("#reviews > div:nth-of-type(1)");
-//new HoverButton(card1);
-
-const card2 = document.querySelector("#reviews > div:nth-of-type(2)");
-//new HoverButton(card2);
-
-const card3 = document.querySelector("#reviews > div:nth-of-type(3)");
-//new HoverButton(card3);
+//var arrowHeight = document.getElementById("leftArrow").style.height;
 </script>
