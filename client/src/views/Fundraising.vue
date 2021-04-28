@@ -97,26 +97,19 @@
           :pagination-active-color="'#113F70'"
           id="carousel2"
         >
-          <div
-            v-for="item-in-reviewerInfo"
+          <slide
+            v-for="item in reviewerInfo"
             :key="item[0]"
-            id="workPLEASE"
+            data-index="0"
+            data-name="MySlideName"
+            @slideclick="handleSlideClick"
           >
-            <slide
-              data-index="0"
-              data-name="MySlideName"
-              @slideclick="handleSlideClick"
-            >
-              <div id="r1" class="reviewCards">
-                <h4>Review #1</h4>
-                <hr />
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            </slide>
-          </div>
+            <div id="r1" class="reviewCards">
+              <h4>{{item[0]}}</h4>
+              <hr />
+              <p>{{item[1]}}</p>
+            </div>
+          </slide>
         </carousel>
         <!--<button class="arrows" id="rightArrow2"><img src="img/arrowRight.png"></button>-->
       </div>
