@@ -105,9 +105,9 @@
             @slideclick="handleSlideClick"
           >
             <div id="r1" class="reviewCards">
-              <h4>{{item[0]}}</h4>
+              <h4>{{ item[0] }}</h4>
               <hr />
-              <p>{{item[1]}}</p>
+              <p>{{ item[1] }}</p>
             </div>
           </slide>
         </carousel>
