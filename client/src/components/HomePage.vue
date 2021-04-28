@@ -4,89 +4,83 @@
       <div vs-type="flex" vs-justify="center" vs-align="center">
         <vs-card>
           <template #title>
-              <h3 id="custom">Custom</h3>
-              <h4>Laser Engraving</h4>
-            </template>
+            <h3 id="custom">Custom</h3>
+            <h4>Laser Engraving</h4>
+          </template>
         </vs-card>
       </div>
-        <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-          <vs-card>
-            <template #title>
-              <h3>Custom</h3>
-            </template>
-            <template #img>
-              <img src="/foto5.png" alt="" />
-            </template>
-            <template #text>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
-                deleniti, delectus cumque, voluptates inventore soluta ipsam
-                commodi sequi mollitia assumenda aliquam quidem repudiandae
-                autem fugiat non dignissimos ducimus animi corporis! Reiciendis
-                aliquam nihil doloremque et corrupti accusamus dolorum
-                reprehenderit rerum ullam vel?
-              </p>
-              <vs-button
-                :active="active == 0"
-                @click="active = 0"
-              >                
-              <a href="Store.vue">Shop now!</a>
-              </vs-button>
-            </template>
-          </vs-card>
-        </div>
-        <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-          <vs-card>
-            <template #title>
-              <h3>Professional</h3>
-            </template>
-            <template #img>
-              <img src="/foto5.png" alt="" />
-            </template>
-            <template #text>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
-                deleniti, delectus cumque, voluptates inventore soluta ipsam
-                commodi sequi mollitia assumenda aliquam quidem repudiandae
-                autem fugiat non dignissimos ducimus animi corporis! Reiciendis
-                aliquam nihil doloremque et corrupti accusamus dolorum
-                reprehenderit rerum ullam vel?
-              </p>
-              <vs-button>
-                <a href="About.vue">Check it out!</a>
-              </vs-button>
-            </template>
-          </vs-card>
-        </div>
-        <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-          <vs-card>
-            <template #title>
-              <h3>Precise</h3>
-            </template>
-            <template #img>
-              <img src="/foto5.png" alt="" />
-            </template>
-            <template #text>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
-                deleniti, delectus cumque, voluptates inventore soluta ipsam
-                commodi sequi mollitia assumenda aliquam quidem repudiandae
-                autem fugiat non dignissimos ducimus animi corporis! Reiciendis
-                aliquam nihil doloremque et corrupti accusamus dolorum
-                reprehenderit rerum ullam vel?
-              </p>
-              <vs-button
-                :active="active == 0"
-                @click="active = 0"
-              >
-                <a href="Fundraising.vue">Tell me more!</a>
-              </vs-button>
-            </template>
-          </vs-card>
-        </div>
+      <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
+        <vs-card>
+          <template #title>
+            <h3>Custom</h3>
+          </template>
+          <!-- <template #img>
+            <img src="/foto5.png" alt="" />
+          </template> -->
+          <template #text>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
+              deleniti, delectus cumque, voluptates inventore soluta ipsam
+              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
+              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
+              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
+              ullam vel?
+            </p>
+            <vs-button class="button-color">
+              <a href="store">Shop now!</a>
+            </vs-button>
+          </template>
+        </vs-card>
+      </div>
+      <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
+        <vs-card>
+          <template #title>
+            <h3>Professional</h3>
+          </template>
+          <!-- <template #img>
+            <img src="/foto5.png" alt="" />
+          </template> -->
+          <template #text>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
+              deleniti, delectus cumque, voluptates inventore soluta ipsam
+              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
+              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
+              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
+              ullam vel?
+            </p>
+            <vs-button class="button-color">
+              <a href="about">Check it out!</a>
+            </vs-button>
+          </template>
+        </vs-card>
+      </div>
+      <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
+        <vs-card>
+          <template #title>
+            <h3>Precise</h3>
+          </template>
+          <!-- <template #img>
+            <img src="/foto5.png" alt="" />
+          </template> -->
+          <template #text>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
+              deleniti, delectus cumque, voluptates inventore soluta ipsam
+              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
+              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
+              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
+              ullam vel?
+            </p>
+            <vs-button class="button-color">
+              <a href="fundraising">Tell me more!</a>
+            </vs-button>
+          </template>
+        </vs-card>
+      </div>
     </div>
     <div class="center-grid" id="fundraising">
       <div>
@@ -95,13 +89,30 @@
         </div>
       </div>
     </div>
-    <!-- <div class="center-grid">
-      <div><p>item</p></div>
-      <div><p>item</p></div>
-      <div><p>item</p></div>
-      <div><p>item</p></div>
-      <div><p>item</p></div>
-    </div> -->
+    <div class="center-grid" vs-type="flex" vs-justify="center" vs-align="center" w="12">
+        <vs-card>
+          <template #title>
+            <h3>Precise</h3>
+          </template>
+          <template #text>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
+              deleniti, delectus cumque, voluptates inventore soluta ipsam
+              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
+              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
+              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
+              ullam vel? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quod ipsum quas harum doloribus dicta itaque sunt dolores veniam excepturi. Possimus magnam molestias itaque iure. Eveniet autem, fugit, animi illo ea error molestiae ratione expedita commodi voluptatum dolore ullam, ipsam maiores. Culpa, iste? Quas deleniti unde enim explicabo voluptatum quidem.
+            </p>
+            <vs-button class="button-color">
+              <a href="fundraising">Tell me more!</a>
+            </vs-button>
+          </template>
+        </vs-card>
+        <template class="imageChange" >
+          <img src="../assets/Fundraising Collage.png">
+        </template>
+      </div>
   </div>
 </template>
 
@@ -112,10 +123,9 @@ export default Vue.extend({
     title: String,
   },
   data: () => ({
-    active: 0
-  })
+    active: 0,
+  }),
 });
-
 </script>
 
 <style lang="scss" scoped>
@@ -161,7 +171,7 @@ $text-color: #fefefe;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  margin: .5rem;
+  margin: 1rem;
 }
 
 .rowOne {
@@ -173,6 +183,10 @@ a {
   text-decoration: none;
   color: $text-color;
   // background-color: $bg-main;
+}
 
+.imageChange {
+  max-width: 2rem;
+  max-height: 2rem;
 }
 </style>
