@@ -1,8 +1,15 @@
 <template>
   <div>
     <div class="center-grid">
-      <vs-row>
-        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+      <div vs-type="flex" vs-justify="center" vs-align="center">
+        <vs-card>
+          <template #title>
+              <h3 id="custom">Custom</h3>
+              <h4>Laser Engraving</h4>
+            </template>
+        </vs-card>
+      </div>
+        <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
           <vs-card>
             <template #title>
               <h3>Custom</h3>
@@ -20,19 +27,16 @@
                 aliquam nihil doloremque et corrupti accusamus dolorum
                 reprehenderit rerum ullam vel?
               </p>
-            </template>
-            <template #interactions>
-              <vs-button danger icon>
-                <i class="bx bx-heart"></i>
-              </vs-button>
-              <vs-button class="btn-chat" shadow primary>
-                <i class="bx bx-chat"></i>
-                <span class="span"> Shop Here </span>
+              <vs-button
+                :active="active == 0"
+                @click="active = 0"
+              >                
+              <a href="Store.vue">Shop now!</a>
               </vs-button>
             </template>
           </vs-card>
-        </vs-col>
-        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+        </div>
+        <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
           <vs-card>
             <template #title>
               <h3>Professional</h3>
@@ -50,19 +54,13 @@
                 aliquam nihil doloremque et corrupti accusamus dolorum
                 reprehenderit rerum ullam vel?
               </p>
-            </template>
-            <template #interactions>
-              <vs-button danger icon>
-                <i class="bx bx-heart"></i>
-              </vs-button>
-              <vs-button class="btn-chat" shadow primary>
-                <i class="bx bx-chat"></i>
-                <span class="span"> 54 </span>
+              <vs-button>
+                <a href="About.vue">Check it out!</a>
               </vs-button>
             </template>
           </vs-card>
-        </vs-col>
-        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+        </div>
+        <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
           <vs-card>
             <template #title>
               <h3>Precise</h3>
@@ -80,19 +78,30 @@
                 aliquam nihil doloremque et corrupti accusamus dolorum
                 reprehenderit rerum ullam vel?
               </p>
+              <vs-button
+                :active="active == 0"
+                @click="active = 0"
+              >
+                <a href="Fundraising.vue">Tell me more!</a>
+              </vs-button>
             </template>
           </vs-card>
-        </vs-col>
-      </vs-row>
+        </div>
     </div>
     <div class="center-grid" id="fundraising">
-      <vs-row>
-        <vs-col vs-type="flex" vs-justify="center" style="align-items: center;">
-            <h1 class="title">{{ title }}</h1>
-        </vs-col>
-      </vs-row>
+      <div>
+        <div vs-type="flex" vs-justify="center" style="align-items: center">
+          <h1 class="title">{{ title }}</h1>
+        </div>
+      </div>
     </div>
-    <div class="center-grid"></div>
+    <!-- <div class="center-grid">
+      <div><p>item</p></div>
+      <div><p>item</p></div>
+      <div><p>item</p></div>
+      <div><p>item</p></div>
+      <div><p>item</p></div>
+    </div> -->
   </div>
 </template>
 
@@ -102,16 +111,21 @@ export default Vue.extend({
   props: {
     title: String,
   },
-});</script>
+  data: () => ({
+    active: 0
+  })
+});
+
+</script>
 
 <style lang="scss" scoped>
 $bg-main: #185ca3;
 $bg-secondary: #2486f0;
 $text-color: #fefefe;
-vs-button {
+.button-color {
   background-color: $bg-main;
 }
-vs-card {
+.card-color {
   background-color: $bg-secondary;
 }
 #fundraising {
@@ -127,12 +141,38 @@ vs-card {
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin: 0;
 }
 
 .title {
-    z-index: 0;
-    margin: calc((25vh + 5px) / 2);
-    font-size: 250%;
-    color: $text-color;
+  z-index: 0;
+  margin: calc((25vh + 5px) / 2);
+  font-size: 250%;
+  color: $text-color;
+}
+
+/*
+.center-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto;
+}*/
+.center-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: .5rem;
+}
+
+.rowOne {
+  grid-row: 1/1;
+  grid-column: 1/4;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+  // background-color: $bg-main;
+
 }
 </style>
