@@ -3,9 +3,8 @@
     <div class="center-grid">
       <div vs-type="flex" vs-justify="center" vs-align="center">
         <vs-card class="shadow">
-          <template #title>
-            <h3 id="custom">Custom</h3>
-            <h4>Laser Engraving</h4>
+          <template #text>
+            <h1>Professional Laser Engraving</h1>
           </template>
         </vs-card>
       </div>
@@ -108,8 +107,8 @@
             </vs-button>
           </template>
         </vs-card>
-        <template class="imageChange" >
-          <img src="../assets/Fundraising Collage.png">
+        <template>
+          <img class="imageChange" src="../assets/Fundraising Collage.png">
         </template>
       </div>
   </div>
@@ -195,7 +194,6 @@ a {
 }
 
 .imageChange {
-  max-width: 2rem;
-  max-height: 2rem;
+  max-height: 20rem;
 }
 </style>
