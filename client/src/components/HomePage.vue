@@ -125,13 +125,13 @@ export default Vue.extend({
   }),
 });
 
-var switchWord = document.getElementById('precise').innerHTML;
-var switchWord2 = document.getElementById('custom').innerHTML;
-var switchWord3 = document.getElementById('professional').innerHTML;
+// var switchWord = document.getElementById('precise').innerHTML;
+// var switchWord2 = document.getElementById('custom').innerHTML;
+// var switchWord3 = document.getElementById('professional').innerHTML;
 
-function rotate() {
-  
-};
+// function rotate() {
+
+// };
 </script>
 
 <style lang="scss" scoped>
