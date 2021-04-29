@@ -347,7 +347,6 @@ hr{
   vs-row {
     align-content: center;
     text-align: center;
-
   }
 }
 
