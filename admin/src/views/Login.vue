@@ -8,7 +8,7 @@
 
     <div class="center content-inputs grid" id="loginScreen">
       <vs-row justify="center">
-        <vs-input v-model="value1" label-placeholder="Username">
+        <vs-input label-placeholder="Username">
           <template #icon>
             <i class='bx bx-user'>U</i>
           </template>
@@ -16,7 +16,7 @@
       </vs-row>
       <br>
       <vs-row justify="center">
-        <vs-input type="password" v-model="value2" label-placeholder="Password">
+        <vs-input type="password" label-placeholder="Password">
           <template #icon>
             <i class='bx bx-lock-open-alt'>P</i>
           </template>

@@ -15,7 +15,7 @@
         <div id="lidType">
             <h2>Lid Types:</h2>
             <ul id="typeList">
-                <li v-for="type in types" :key="type"><h4>{{type}}</h4></li>
+                <li v-for="type in types" :key="type"><h4 class="deletion">{{type}}</h4></li>
             </ul>
             <vs-button id="addType">Add Lid Type</vs-button>
         </div>
@@ -83,6 +83,11 @@ div.productCard{
         justify-content: start;
         #typeList{
             margin-left: 3rem;
+            .deletion{
+                :hover{
+                    color: red;
+                }
+            }
         }
         #addType{
             background-color: $sidebarColor;
