@@ -1,17 +1,15 @@
 <template>
   <div>
     <div class="center-grid">
-      <div vs-type="flex" vs-justify="center" vs-align="center">
-        <vs-card class="shadow">
-          <template #text>
-            <h1>Professional Laser Engraving</h1>
-          </template>
-        </vs-card>
+      <div vs-type="flex" vs-justify="center" vs-align="center" style="display: flex; justify-content: center; min-width: 100vw;">
+        <div class="shadow titleCard">
+            <h1>{{ Cardtitle }} Laser Engraving</h1>
+        </div>
       </div>
     </div>
     <div class="center-grid">
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow">
+        <vs-card class="shadow" @mouseover="showCustom()">
           <template #title>
             <h3>Custom</h3>
           </template>
@@ -32,7 +30,7 @@
         </vs-card>
       </div>
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow">
+        <vs-card class="shadow" @mouseover="showProfessional()">
           <template #title>
             <h3>Professional</h3>
           </template>
@@ -56,7 +54,7 @@
         </vs-card>
       </div>
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow">
+        <vs-card class="shadow" @mouseover="showPrecise()">
           <template #title>
             <h3>Precise</h3>
           </template>
@@ -87,30 +85,41 @@
         </div>
       </div>
     </div>
-    <div class="center-grid" vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow">
-          <template #title>
-            <h3>More About Our Fundraisers</h3>
-          </template>
-          <template #text>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
-              deleniti, delectus cumque, voluptates inventore soluta ipsam
-              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
-              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
-              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
-              ullam vel? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quod ipsum quas harum doloribus dicta itaque sunt dolores veniam excepturi. Possimus magnam molestias itaque iure. Eveniet autem, fugit, animi illo ea error molestiae ratione expedita commodi voluptatum dolore ullam, ipsam maiores. Culpa, iste? Quas deleniti unde enim explicabo voluptatum quidem.
-            </p>
-            <vs-button class="button-color">
-              <a href="fundraising">Tell me more!</a>
-            </vs-button>
-          </template>
-        </vs-card>
-        <template>
-          <img class="imageChange" src="../assets/Fundraising Collage.png">
+    <div
+      class="center-grid"
+      vs-type="flex"
+      vs-justify="center"
+      vs-align="center"
+      w="12"
+    >
+      <vs-card class="shadow">
+        <template #title>
+          <h3>More About Our Fundraisers</h3>
         </template>
-      </div>
+        <template #text>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
+            vel rem. Minus tempora voluptas at incidunt eveniet deleniti,
+            delectus cumque, voluptates inventore soluta ipsam commodi sequi
+            mollitia assumenda aliquam quidem repudiandae autem fugiat non
+            dignissimos ducimus animi corporis! Reiciendis aliquam nihil
+            doloremque et corrupti accusamus dolorum reprehenderit rerum ullam
+            vel? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+            quod ipsum quas harum doloribus dicta itaque sunt dolores veniam
+            excepturi. Possimus magnam molestias itaque iure. Eveniet autem,
+            fugit, animi illo ea error molestiae ratione expedita commodi
+            voluptatum dolore ullam, ipsam maiores. Culpa, iste? Quas deleniti
+            unde enim explicabo voluptatum quidem.
+          </p>
+          <vs-button class="button-color">
+            <a href="fundraising">Tell me more!</a>
+          </vs-button>
+        </template>
+      </vs-card>
+      <template>
+        <img class="imageChange" src="../assets/Fundraising Collage.png" />
+      </template>
+    </div>
   </div>
 </template>
 
@@ -122,7 +131,19 @@ export default Vue.extend({
   },
   data: () => ({
     active: 0,
+    Cardtitle: "Professional",
   }),
+  methods: {
+    showCustom() {
+      this.Cardtitle = "Custom";
+    },
+    showProfessional() {
+      this.Cardtitle = "Professional";
+    },
+    showPrecise() {
+      this.Cardtitle = "Precise";
+    }
+  }
 });
 
 // var switchWord = document.getElementById('precise').innerHTML;
@@ -144,6 +165,11 @@ $text-color: #fefefe;
   box-shadow: 5px 10px 18px $bg-secondary;
   background: transparent;
   border-radius: 2rem;
+}
+
+.titleCard {
+  width: 100vw;
+  margin: 0 2rem;
 }
 
 .button-color {
