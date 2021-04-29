@@ -7,12 +7,16 @@
           <div class="salesData">
             <h2>Earnings</h2>
             <hr />
+            <br>
+            <h1>$1000</h1>
           </div>
         </vs-col>
         <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="6">
           <div class="salesData">
             <h2>Overview</h2>
             <hr />
+            <br>
+            <h1>You are profitting</h1>
           </div>
         </vs-col>
         <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
@@ -20,7 +24,7 @@
             <h2>Balance</h2>
             <hr />
             <br />
-            <h1 style="text-align: center">$10000</h1>
+            <h1>$10000</h1>
           </div>
         </vs-col>
       </vs-row>
@@ -75,6 +79,9 @@ div#sales {
     border-radius: 0.5rem;
     text-align: left;
     box-shadow: 5px 10px 10px #333333;
+    h1{
+      text-align: center;
+    }
   }
 }
 @media screen and (max-width: 1015px) {

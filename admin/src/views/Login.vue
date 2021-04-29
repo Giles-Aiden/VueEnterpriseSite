@@ -31,11 +31,19 @@
         </router-link>
       </div>
     </div>
+    <div id="footer">
+      <vs-button id="mainSite">Back to Main Site</vs-button>
+      <p id="copyright">&copy; Copyright Info</p>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import "src/assets/styles/_variables.scss";
+
+div#login{
+  margin-top: 10%;
+}
 
 div#loginLogo{
   display: block;
@@ -65,6 +73,21 @@ div#buttonPanel{
     background-color: $sidebarColor;
     width: 15%;
     margin-left: 85%;
+  }
+}
+
+div#footer{
+  display: flex;
+  margin-top: 15rem;
+  p#copyright{
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+  }
+  button#mainSite{
+    display: inline-block;
+    background-color: $sidebarColor;
+    width: 10rem;
   }
 }
 </style>
