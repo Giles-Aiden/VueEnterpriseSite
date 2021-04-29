@@ -187,6 +187,7 @@ export default {
   width: 80%;
   margin: 0 auto;
   border: solid black 2px;
+  scroll-behavior: smooth;
   vs-row {
     align-content: center;
     text-align: center;
@@ -207,6 +208,7 @@ export default {
   width: 80%;
   margin: 0 auto;
   border: solid black 2px;
+
 }
 
 .section-header {
@@ -217,10 +219,13 @@ export default {
 .blur-collage {
   z-index: -1;
   filter: blur(1px);
+  scroll-behavior: smooth;
 }
 
 #responsive {
   max-width: 100%;
   height: auto;
 }
+
+
 </style>
