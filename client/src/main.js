@@ -2,7 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
-import Vuesax from "vuesax";
 
 import Vuesax from "vuesax";
 import "vuesax/dist/vuesax.css"; //Vuesax styles
