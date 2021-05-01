@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="hidden" id="sidebar">
+    <div class="hidden" id="sidebar" @mouseenter="lengthen" @mouseleave="shorten">
       <vs-sidebar
         sticky
         square
@@ -9,11 +9,11 @@
         background="#113F70"
         textWhite
       >
-        <template class="logo" #logo>
+        <template class="logo" #logo id="logoTemplate">
           <img
             id="logoImg"
             src="@/assets/WFMB Logo.png"
-            style="object-fit: cover; width: 100%; height: auto"
+            style=" width: 100%; height: auto"
           />
           <!--<h1 style="margin: 0; padding: 0; text-decoration: line-through;">WFBM</h1>-->
         </template>
@@ -54,7 +54,7 @@
         
           <vs-sidebar-item id="users">
             <template #icon>
-              <h1 style="color: white">U</h1>
+              <i class="bx bx-user"></i>
             </template>
             <router-link to="/users">
             <h1>Users</h1>
@@ -74,9 +74,12 @@
         
         <template #footer>
           <vs-row justify="space-between">
-            <table id="sidebar-footer">
+            <table id="sidebar-footer" ref="footer">
               <tr>
-                <td><h3>David Ray</h3></td>
+                <td>
+                  <h3 v-if="sidebarOpen">{{ user.split(' ')[0] + ' ' + user.split(' ')[1] }}</h3>
+                  <h1 v-else>{{ user.split(' ')[0].substring(0,1) + user.split(' ')[1].substring(0,1) }}</h1>
+                </td>
                 <td>
                   <router-link to="/login">
                     <button id="logout">Logout</button>
@@ -92,13 +95,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "sidebar",
-  components: {},
-};
-</script>
-
 <style lang="scss">
 @import "src/assets/styles/_variables.scss";
 
@@ -111,12 +107,15 @@ html {
 .vs-sidebar__logo {
   padding: 0;
 }
-img#logoImg {
-  filter: invert(100%);
-  width: 100%;
-  height: 100%;
-  display: block;
-  padding: 0;
+#logoTemplate{
+  height: 500%;
+  img#logoImg {
+    filter: invert(100%);
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 0;
+  }
 }
 
 div#sidebar {
@@ -127,6 +126,10 @@ div#sidebar {
   }
   table#sidebar-footer {
     width: 100%;
+
+    td{
+      width: 50%;
+    }
 
     button#logout {
       background-color: $sidebarElementColor;
@@ -143,3 +146,25 @@ div#sidebar {
   }
 }
 </style>
+
+<script>
+export default {
+  name: 'sidebar',
+  data: function () {
+    return{
+      user: 'David Ray',
+      sidebarOpen: true,
+    }
+  },
+  methods: {
+    lengthen: function() {
+      setTimeout(() => {
+        this.sidebarOpen = true;
+      }, 120);
+    },
+    shorten: function() {
+      this.sidebarOpen = false;
+    }
+  }
+}
+</script>
