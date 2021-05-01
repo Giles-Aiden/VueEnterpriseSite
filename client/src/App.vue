@@ -1,21 +1,18 @@
 <template>
   <div id="app">
     <router-view />
-    <div class="bodyContent1">
-      
-    </div>
+    <div class="bodyContent1"></div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-
-})
+import Vue from "vue";
+export default Vue.extend({});
 </script>
 
 <style lang="scss">
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -29,7 +26,6 @@ html, body {
 
 router-view {
   margin: 0;
-
 }
 
 .bodyContent1 {
