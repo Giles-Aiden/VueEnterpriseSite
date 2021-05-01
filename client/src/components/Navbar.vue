@@ -17,15 +17,11 @@
       <router-link to="/wholesale" class="link" tag="li"
         ><li><p>Marketing and Business</p></li></router-link
       >
-      <router-link to="/cart" class="link" tag="li"
-        ><i class="fa fa-shopping-cart fa-2x"></i
-      ></router-link>
     </ul>
     <h1 class="title">{{ title }}</h1>
     <div class="icons">
       <i class="fa fa-bars fa-2x bars hidden"></i>
       <i class="fa fa-close fa-2x close hidden"></i>
-      <i class="cartIcon fa fa-shopping-cart fa-2x hidden"></i>
     </div>
     <ul class="dropdownNav">
       <router-link to="/" class="link" tag="li"
@@ -59,17 +55,15 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import "@/assets/styles/_variables.scss";
 nav {
+  width: auto;
+  height: calc(30vh + 5px);
   background-image: url("../assets/navBackgroundBottles.png");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   backdrop-filter: blur(100px);
-  background-size: 100%;
+  background-size: cover;
   color: $navTextColor;
   font-size: 2vh;
-  height: calc(30vh + 5px);
-  top: 0;
-  left: 0;
-  width: 100%;
   display: flex;
   flex-direction: column;
   .title {
@@ -213,7 +207,7 @@ input[type="checkbox"] {
 }
 @media screen and (max-width: 690px) {
   nav {
-    background-size: auto 100%;
+    background-size: cover;
   }
 }
 @media screen and (max-width: 400px) {

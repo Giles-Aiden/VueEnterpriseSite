@@ -117,6 +117,7 @@
 <script>
 import Vue from "vue";
 export default Vue.extend({
+  name: "HomeElement",
   props: {
     title: String,
   },
@@ -144,6 +145,7 @@ $text-color: #fefefe;
   box-shadow: 5px 10px 18px $bg-secondary;
   background: transparent;
   border-radius: 2rem;
+  margin-block: 1rem;
 }
 
 .button-color {
