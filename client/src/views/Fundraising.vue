@@ -5,45 +5,46 @@
     <!-- Image Scrolling Section -->
 
     <div id="imageArea">
-      <!--<button class="arrows" id="leftArrow"><img src="img/arrowLeft.png"></button>-->
-      <div id="imageScroll">
-        <!--   -->
+      <div id="imageScroll">  <!-- The navigation labels are set to an index of an array with images that are arrows -->
         <carousel
           :per-page="2"
           :navigation-enabled="true"
-          :navigation-next-label="arrows[1]"
+          :navigation-next-label="arrows[1]"  
           :navigation-prev-label="arrows[0]"
           :pagination-active-color="'#113F70'"
           id="carousel"
         >
           <slide
             data-index="0"
-            data-name="MySlideName"
+            data-name="imageSlide"
+            class="imgSlides"
             @slideclick="handleSlideClick"
           >
             <img :src="items[0]" />
           </slide>
           <slide
             data-index="1"
-            data-name="MySlideName"
+            data-name="imageSlide"
+            class="imgSlides"
             @slideclick="handleSlideClick"
           >
             <img :src="items[1]" />
           </slide>
           <slide
             data-index="2"
-            data-name="MySlideName"
+            data-name="imageSlide"
+            class="imgSlides"
             @slideclick="handleSlideClick"
           >
             <img :src="items[2]" />
           </slide>
         </carousel>
       </div>
-      <!--<button class="arrows"  id="rightArrow"><img src="img/arrowRight.png"></button>-->
     </div>
 
     <hr />
     <!-- Main Content -->
+    <!-- Will cover the fundraising campaign and all of its necessary details -->
     <div id="contentArea">
       <h2>Fundraising Information</h2>
       <div id="info">
@@ -88,7 +89,6 @@
       <h2>Fundraising Experience</h2>
       <a href="Fundraising.vue#r5"></a>
       <div id="reviews">
-        <!--<button class="arrows" id="leftArrow2"><img src="img/arrowLeft.png"></button>-->
         <carousel
           :per-page="2"
           :navigation-enabled="true"
@@ -111,15 +111,14 @@
             </div>
           </slide>
         </carousel>
-        <!--<button class="arrows" id="rightArrow2"><img src="img/arrowRight.png"></button>-->
       </div>
     </div>
   </div>
 </template>
 
-<!-- los stylos -->
+<!-- The style rules for the page -->
 <style lang="scss" scoped>
-// image scrolling stuff
+// image scrolling styles
 .example-slide {
   align-items: center;
   background-color: #666;
@@ -158,35 +157,12 @@ hr {
     padding: 0.5em;
     margin: auto;
   }
-  /* -- first and last div (the arrows for the carousel) -- */
-  .arrows {
-    position: relative;
-    padding: 3em;
-    background-color: #113f70;
-    transition: 0.2s;
-    img {
-      position: absolute;
-      width: 2em;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-  .arrows:first-of-type {
-    border: none;
-    border-radius: 1em 0em 0em 1em;
-    img {
-      transform: translate(-50%, -50%);
-    }
-  }
-  .arrows:last-of-type {
-    border: none;
-    border-radius: 0em 1em 1em 0em;
-  }
 }
 #carousel img {
   width: 50%;
   max-width: 50em;
+  border: solid black 1px;
+  z-index: -1;
 }
 @media (max-width: 800px) {
   #imageArea {
@@ -214,7 +190,7 @@ hr {
   }
 }
 
-/* ------ */
+/* Review carousel styles */
 #reviewsArea {
   margin: 0.5em 5em;
   #reviews {
@@ -347,6 +323,7 @@ export default {
         "img/bottleBlack.JPG",
         "img/bottleGreen.JPG",
       ],
+      // This is the info that gets passed into the v-for elements for the 2nd carousel
       reviewerInfo: [
         [
           "Review #1",
@@ -377,19 +354,14 @@ export default {
         '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
         '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
       ],
+      
     };
   },
-  /*
-  data() {
-    return {
-      data: [
-        '<div class="example-slide">Slide 1</div>',
-        '<div class="example-slide">Slide 2</div>',
-        '<div class="example-slide">Slide 3</div>',
-      ],
-    };
-  },
-  */
+
 };
-//var arrowHeight = document.getElementById("leftArrow").style.height;
+
+var resizeEvent = window.document.createEvent('UIEvents');
+resizeEvent.initUIEvent('resize', true, false, window, 0);
+window.dispatchEvent(resizeEvent);
+
 </script>
