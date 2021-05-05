@@ -3,9 +3,9 @@
     <Navbar title="Store" />
     <ProgressBar :value="progress" />
     <div class="storeNav">
-      <router-link to='/store/items' @click="setProgress(10)" class='storeLink'><vs-button>go</vs-button></router-link>
-      <router-link to='/store/editor' @click="this.progress=60" class='storeLink'><vs-button>go</vs-button></router-link>
-      <router-link to='/store/checkout' @click="this.preogess=90" class='storeLink'><vs-button>go</vs-button></router-link>
+      <router-link to='/store/items' @click.native="progress=10" class='storeLink'><vs-button>Shop for Items</vs-button></router-link>
+      <router-link to='/store/editor' @click.native="progress=50" class='storeLink'><vs-button>Edit Logo Image</vs-button></router-link>
+      <router-link to='/store/checkout' @click.native="progress=90" class='storeLink'><vs-button>Purchase</vs-button></router-link>
     </div>
     <router-view />
   </div>
@@ -37,11 +37,14 @@ export default {
     Navbar,
   },
   methods: {
-    setProgress: (num) => this.progress = num,
+    setProgress: (num) => {
+      console.log('called func');
+      this.progress = num;
+    },
   },
   data() {
     return {
-      progress: 40,
+      progress: 0,
     }
   }
 };

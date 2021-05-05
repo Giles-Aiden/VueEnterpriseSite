@@ -19,6 +19,9 @@ Vue.component('Splitter', Splitter);
 Vue.component('SplitterPanel', SplitterPanel);
 Vue.component('ProgressBar', ProgressBar);
 
+import Editor from 'vue-image-markup';
+Vue.component('Editor', Editor);
+
 Vue.config.productionTip = false;
 
 new Vue({
