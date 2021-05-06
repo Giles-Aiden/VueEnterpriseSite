@@ -49,15 +49,24 @@
       <h2>Fundraising Information</h2>
       <div id="info">
         <div>
-          <h4>Filler Text</h4>
-          <ul>
-            <li>cool stuff</li>
-            <li>amazing things</li>
-            <li>awesome company</li>
-          </ul>
+          <h4>How does it work?</h4>
+          <hr>
+          <p>
+            Your organization can earn money while selling a great product that is popular, customizable, and environmentally friendly. 
+          </p>
         </div>
 
         <div>
+          <h4>How do I benefit?</h4>
+          <hr>
+          <p>
+            By participating in a WFBM laser engraving fundraiser, your organization can earn money in a fun and effective way. Based on our recommended sales pricing of $25 for the 24 oz and $40 for the 40 oz, your organization will earn $5 or $10 respectively per bottle.
+          </p>
+        </div>
+
+        <div>
+          <h4>Why your organization should participate</h4>
+          <hr>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -70,14 +79,10 @@
         </div>
 
         <div>
+          <h4>Sales &#38; Delivery</h4>
+          <hr>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            A 2-3 week sales window is recommended for your fundraiser but you are free to set a longer or shorter time frame.
           </p>
         </div>
       </div>
@@ -143,6 +148,11 @@ hr {
   box-shadow: black 0em 0.1em 0.1em;
 }
 /* -- CAROUSEL STYLES -- */
+.VueCarousel-slide {
+visibility: visible;
+flex-basis: 50%;
+width: 100%;
+}
 #imageArea {
   display: flex;
   flex-direction: row;
@@ -267,7 +277,7 @@ hr {
       border-radius: 1em;
       padding: 1em;
       margin: 0.5em 1em;
-      flex: 1 1 160px;
+      flex: 1 1 30em;
       background-color: #185ca3;
       color: white;
       line-height: 2em;
@@ -282,9 +292,6 @@ hr {
         list-style: visible;
         text-indent: 0em;
       }
-    }
-    div:last-of-type {
-      flex: 1.5 1 160px;
     }
   }
 }
