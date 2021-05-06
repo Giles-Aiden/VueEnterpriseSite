@@ -35,13 +35,39 @@ const routes = [
     path: '/store',
     name: 'Store',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Store.vue'),
+      import(/* webpackChunkName: "store" */ '../views/Store.vue'),
+    children: [
+      {
+        path: 'items',
+        name: 'StoreItems',
+        component: () =>
+          import(
+            /* webpackChunkName: "storeitems" */ '../views/StoreItems.vue'
+          ),
+      },
+      {
+        path: 'editor',
+        name: 'StoreEditor',
+        component: () =>
+          import(
+            /* webpackChunkName: "storeeditor" */ '../views/StoreEditor.vue'
+          ),
+      },
+      {
+        path: 'checkout',
+        name: 'StoreCheckout',
+        component: () =>
+          import(
+            /* webpackChunkName: "storecheckout" */ '../views/StorePayment.vue'
+          ),
+      },
+    ],
   },
   {
     path: '/wholesale',
     name: 'Wholesale',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Wholesale.vue'),
+      import(/* webpackChunkName: "wholesale" */ '../views/Wholesale.vue'),
   },
 ];
 
