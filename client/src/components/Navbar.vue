@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
   props: {
     title: String,
@@ -57,9 +57,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/_variables.scss";
+@import '@/assets/styles/_variables.scss';
 nav {
-  background-image: url("../assets/navBackgroundBottles.png");
+  background-image: url('../assets/navBackgroundBottles.png');
   background-repeat: no-repeat;
   background-position: center center;
   backdrop-filter: blur(100px);
@@ -140,14 +140,14 @@ nav {
   }
   transform: scaleY(0);
 }
-input[type="checkbox"]:checked ~ .dropdownNav {
+input[type='checkbox']:checked ~ .dropdownNav {
   transform: scaleY(1);
   li p {
     transition: opacity 500ms ease-in;
     opacity: 1;
   }
 }
-input[type="checkbox"] {
+input[type='checkbox'] {
   display: none;
   z-index: 100;
 }
@@ -173,7 +173,7 @@ input[type="checkbox"] {
   nav .navBar {
     display: none;
   }
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     display: block;
     height: 5vh;
     width: 5vh;
