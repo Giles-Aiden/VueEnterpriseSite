@@ -1,23 +1,13 @@
 <template>
-<<<<<<< HEAD
-  <div class="About"></div>
-</template>
-
-<script>
-export default {
-  name: 'About',
-  components: {},
-=======
-  <div class="About">
+  <div class="Payment">
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'About',
+  name: 'Payment',
   components: {
   },
->>>>>>> giles
 };
 </script>
