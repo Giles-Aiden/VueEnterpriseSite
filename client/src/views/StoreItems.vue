@@ -4,11 +4,15 @@
       <SplitterPanel :size="20">
         <div class="shopOptions">
           <div v-for="(item, index) in optionCheckboxItems" :key="index">
+<<<<<<< HEAD
             <vs-checkbox
               v-if="!item.title"
               :val="item.name"
               v-model="userSelections.lid"
             >
+=======
+            <vs-checkbox v-if="!item.title" :val="item.name" v-model="userSelections.lid">
+>>>>>>> giles
               <template #icon>
                 <i class="pi pi-check"></i>
               </template>
@@ -116,7 +120,11 @@ export default {
         },
       ],
       userSelections: {
+<<<<<<< HEAD
         lid: [],
+=======
+        'lid': [],
+>>>>>>> giles
       },
       optionCheckboxItems: [
         { title: 'Size' },

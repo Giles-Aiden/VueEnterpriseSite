@@ -23,13 +23,12 @@ const routes = [
     path: '/fundraising',
     name: 'Fundraising',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Fundraising.vue'),
+      import(/* webpackChunkName: "fundraiding" */ '../views/Fundraising.vue'),
   },
   {
     path: '/cart',
     name: 'Cart',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Cart.vue'),
+    component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue'),
   },
   {
     path: '/store',
@@ -41,25 +40,19 @@ const routes = [
         path: 'items',
         name: 'StoreItems',
         component: () =>
-          import(
-            /* webpackChunkName: "storeitems" */ '../views/StoreItems.vue'
-          ),
+          import(/* webpackChunkName: "storeitems" */ '../views/StoreItems.vue'),
       },
       {
         path: 'editor',
         name: 'StoreEditor',
         component: () =>
-          import(
-            /* webpackChunkName: "storeeditor" */ '../views/StoreEditor.vue'
-          ),
+          import(/* webpackChunkName: "storeeditor" */ '../views/StoreEditor.vue'),
       },
       {
         path: 'checkout',
         name: 'StoreCheckout',
         component: () =>
-          import(
-            /* webpackChunkName: "storecheckout" */ '../views/StorePayment.vue'
-          ),
+          import(/* webpackChunkName: "storecheckout" */ '../views/StorePayment.vue'),
       },
     ],
   },
