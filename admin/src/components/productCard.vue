@@ -5,11 +5,12 @@
         <br>
         <div id="colors">
             <h2>Colors:</h2>
-            <div class="color" v-for="color in colors" :key='color'>
+            <div class="color" v-for="(color, index) in colors" :key='color'>
                 <div :style="{'background-color': color }" style="width: 100%; height: 100%"></div>
-                <div class="delete" :id="{color}">X</div>
+                <div class="delete" :id="{color}" @click="deleteColor({index})">X</div>
             </div>
             <div class="color"><h2>+</h2></div>
+            <input type="color" id="color">
         </div>
         <br>
         <div id="lidType">
@@ -66,6 +67,11 @@ div.productCard{
             :hover{
                 background-color: black;
             }
+        }
+        input#color{
+            position: relative;
+            top: -2rem;
+            left: -2rem;
         }
     }
     div.delete{
@@ -140,6 +146,12 @@ export default {
                 '40oz'
             ],
         };
+    },
+    methods:{
+        deleteColor: function(i){
+            console.log(this.colors);
+            this.colors.splice(i.index,1);
+        }
     }
 }
 </script>
