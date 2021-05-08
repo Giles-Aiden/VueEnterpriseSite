@@ -7,10 +7,17 @@
             <h2>Colors:</h2>
             <div class="color" v-for="(color, index) in colors" :key='color'>
                 <div :style="{'background-color': color }" style="width: 100%; height: 100%"></div>
-                <div class="delete" :id="{color}" @click="deleteColor({index})">X</div>
+                <div class="delete" @click="deleteColor({index})">X</div>
             </div>
-            <div class="color"><h2>+</h2></div>
-            <input type="color" id="color">
+            <div class="color">
+                <h2>            
+                    <form>
+                        <input type="color" :id="productName">
+                        <br>
+                        <button type="button" @click="addColor({productName})">Add</button>
+                    </form>
+                </h2>
+            </div>
         </div>
         <br>
         <div id="lidType">
@@ -54,6 +61,7 @@ div.productCard{
         width: 100%;
         display: flex;
         justify-content:start;
+        /* overflow-x: auto; */
         div.color{
             width: 2rem;
             height: 2rem;
@@ -64,11 +72,14 @@ div.productCard{
                 width: 100%;
                 height: 100%;
             }
-            :hover{
-                background-color: black;
+            form{
+                width: 100%;
+                input{
+                    width: 100%;
+                }
             }
         }
-        input#color{
+        input.color{
             position: relative;
             top: -2rem;
             left: -2rem;
@@ -151,6 +162,11 @@ export default {
         deleteColor: function(i){
             console.log(this.colors);
             this.colors.splice(i.index,1);
+        },
+        addColor: function(picker){
+            if(this.colors.indexOf(document.getElementById(picker.productName).value) == -1){
+                this.colors.push(document.getElementById(picker.productName).value);
+            }
         }
     }
 }
