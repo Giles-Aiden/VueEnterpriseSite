@@ -123,6 +123,7 @@
 
 <!-- The style rules for the page -->
 <style lang="scss" scoped>
+@import "@/assets/styles/_variables.scss";
 // image scrolling styles
 .example-slide {
   align-items: center;
@@ -161,9 +162,9 @@ width: 100%;
   padding: 0.5em;
 
   #imageScroll {
-    border: #113f70 0.5em solid;
+    border: $bg-main 0.5em solid;
     border-radius: 1em;
-    box-shadow: black 0em 0em 0.5em inset, black 0em 0em 1em;
+    box-shadow: $shadow 0em 0em 0.5em inset, $shadow 0em 0em 1em;
     padding: 0.5em;
     margin: auto;
   }
@@ -195,7 +196,7 @@ width: 100%;
   .arrows:hover {
     transition: 0.2s;
     transform: translateY(-0.33em);
-    box-shadow: black 0em 0.33em, black 0em 0.33em 0.5em;
+    box-shadow: black 0em 0.33em;
     filter: opacity(0.95);
   }
 }
