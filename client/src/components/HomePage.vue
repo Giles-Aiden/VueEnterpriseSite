@@ -81,7 +81,7 @@
       </div>
     </div>
     <div class="center-grid" id="fundraising">
-      <div>
+      <div class="titleCard">
         <div vs-type="flex" vs-justify="center" style="align-items: center">
           <h1 class="title">{{ title }}</h1>
         </div>
@@ -199,6 +199,12 @@ $text-color: #fefefe;
   flex-flow: row wrap;
   justify-content: space-evenly;
   margin: 1rem;
+  & > div {
+    padding: 0;
+  }
+}
+.titleCard {
+  padding: 1rem !important;
 }
 
 .rowOne {
