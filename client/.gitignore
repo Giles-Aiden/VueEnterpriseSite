@@ -2,6 +2,8 @@
 node_modules
 /dist
 
+#This file breaks windows if pushed
+\\
 
 # local env files
 .env.local
