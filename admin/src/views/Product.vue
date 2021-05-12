@@ -3,6 +3,10 @@
     <Sidebar></Sidebar>
     <div id="product">
       <productCard productName="Hydro Flask" productImage="flask.jpg"></productCard>
+      <productCard productName="Hydro Flask" productImage="flask.jpg"></productCard>
+      <productCard productName="Hydro Flask" productImage="flask.jpg"></productCard>
+      <productCard productName="Hydro Flask" productImage="flask.jpg"></productCard>
+      <productCard productName="Hydro Flask" productImage="flask.jpg"></productCard>
     </div>
   </div>
 </template>
@@ -11,6 +15,9 @@
 
 div#product{
   margin-left: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 </style>
 
