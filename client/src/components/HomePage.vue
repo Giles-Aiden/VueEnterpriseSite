@@ -3,15 +3,15 @@
     <div class="center-grid">
       <div vs-type="flex" vs-justify="center" vs-align="center">
         <vs-card class="shadow">
-          <template #text>
-            <h1>Professional Laser Engraving</h1>
+          <template #text style="padding-top: 15px;">
+            <h1 style="padding-top: 15px; margin: 0;">{{titleCard}} Laser Engraving</h1>
           </template>
         </vs-card>
       </div>
     </div>
     <div class="center-grid">
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow">
+        <vs-card class="shadow" @mouseover="titleCard = 'Custom'">
           <template #title>
             <h3>Custom</h3>
           </template>
@@ -32,7 +32,7 @@
         </vs-card>
       </div>
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow">
+        <vs-card class="shadow" @mouseover="titleCard = 'Professional'">
           <template #title>
             <h3>Professional</h3>
           </template>
@@ -56,7 +56,7 @@
         </vs-card>
       </div>
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow">
+        <vs-card class="shadow" @mouseover="titleCard = 'Precise'">
           <template #title>
             <h3>Precise</h3>
           </template>
@@ -133,6 +133,7 @@ export default Vue.extend({
   },
   data: () => ({
     active: 0,
+    titleCard: 'Professional',
   }),
 });
 
@@ -165,10 +166,14 @@ $text-color: #fefefe;
   background-color: $bg-secondary;
 }
 
+[class*=vs-] {
+  padding-bottom: 0;
+}
+
 #fundraising {
   background-image: url('../assets/fundraisingHomePage.png');
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   backdrop-filter: blur(100px);
   background-size: 100%;
   font-size: 2vh;
@@ -187,7 +192,9 @@ $text-color: #fefefe;
   font-size: 250%;
   color: $text-color;
 }
-
+.vs-card__text {
+  padding: 0;
+}
 /*
 .center-grid {
   display: grid;
@@ -199,6 +206,7 @@ $text-color: #fefefe;
   flex-flow: row wrap;
   justify-content: space-evenly;
   margin: 1rem;
+  grid-gap: 1rem;
   & > div {
     padding: 0;
   }
