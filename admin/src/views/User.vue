@@ -1,9 +1,9 @@
 <template>
   <div class="user">
     <Sidebar></Sidebar>
-    <div id="searchBar">
+<!--     <div id="searchBar">
         <h1>Users</h1>
-    </div>
+    </div> -->
     <!--
     <div class="userCard">
         <div class="center grid">
