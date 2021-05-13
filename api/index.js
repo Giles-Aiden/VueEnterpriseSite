@@ -3,9 +3,28 @@ const app = express();
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const helmet = require('helmet');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/wfbm')
+let db = mongoose.connection;
+
+// DB models
+//let User = require('./models/user.js');
+let Product = require('./models/product.js');
+
+// Check connection
+db.once('open', function() {
+  console.log('Connected to mongo');
+});
+
+// Check for and log errors
+db.on('error', function(err) {
+  console.error('\n\nThe following DB error was thrown:\n' + err);
+});
 
 const users = [];
 
+// Setup express 
 app.use(helmet());
 app.use(express.json());
 /*
@@ -23,8 +42,21 @@ app.use(
 );
 */
 
+/*
+ * Below are all server requests that can be made
+ * 
+ * Documentation in README.md
+ * -----------------------
+ */
 app.get('/', (req, res) => {
-  res.send("<h1>WFBL Server</h1>");
+  res.send('<h1>WFBM Laser Engraving Server</h1><br><a href="localhost:5000"><h3>return to site</h3></a>');
+});
+
+app.get('/api/products', (req, res) => {
+  Product.find({}, function(err, products) {
+    if(err) console.log(err);
+    else res.json(products);
+  });
 });
 
 app.get('/api/users', (req, res) => {
@@ -43,10 +75,9 @@ app.post('/api/users', async (req, res) => {
     console.log(hashedPassword);
     const user = { username: req.body.username, password: hashedPassword };
     users.push(user);
-    res.status(201).send('Account Sucessfully Created!');
   } catch {
-    res.status(500).send();
-  }
+    res.status(500).send()
+  };
 });
 
 app.post('/api/users/login', async (req, res) => {
