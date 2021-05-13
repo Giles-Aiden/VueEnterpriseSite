@@ -8,9 +8,15 @@
       <vs-button @click="$refs.editor.set('selectMode')">
         <i class="pi pi-window-minimize" />
       </vs-button>
-      <vs-button @click="$refs.editor.undo()"><i class="pi pi-undo" /></vs-button>
-      <vs-button @click="$refs.editor.redo()"><i class="pi pi-refresh" /></vs-button>
-      <vs-button @click="$refs.editor.clear()"><i class="pi pi-trash" /></vs-button>
+      <vs-button @click="$refs.editor.undo()"
+        ><i class="pi pi-undo"
+      /></vs-button>
+      <vs-button @click="$refs.editor.redo()"
+        ><i class="pi pi-refresh"
+      /></vs-button>
+      <vs-button @click="$refs.editor.clear()"
+        ><i class="pi pi-trash"
+      /></vs-button>
     </div>
     <div id="editContain">
       <Editor
@@ -49,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .ImageEditor {
-    display: flex;
-  }
+.ImageEditor {
+  display: flex;
+}
 </style>

@@ -1,13 +1,7 @@
 <template>
   <div>
     <div class="center-grid">
-      <div vs-type="flex" vs-justify="center" vs-align="center">
-        <vs-card class="shadow">
-          <template #text style="padding-top: 15px;">
-            <h1 style="padding-top: 15px; margin: 0;">{{titleCard}} Laser Engraving</h1>
-          </template>
-        </vs-card>
-      </div>
+      <TitleCard :titleCard="titleCard" />
     </div>
     <div class="center-grid">
       <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
@@ -127,7 +121,11 @@
 
 <script>
 import Vue from 'vue';
+import TitleCard from '@/components/titleCard.vue';
 export default Vue.extend({
+  components: {
+    TitleCard,
+  },
   props: {
     title: String,
   },
@@ -166,7 +164,7 @@ $text-color: #fefefe;
   background-color: $bg-secondary;
 }
 
-[class*=vs-] {
+[class*='vs-'] {
   padding-bottom: 0;
 }
 

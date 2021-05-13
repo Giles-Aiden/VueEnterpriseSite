@@ -40,19 +40,25 @@ const routes = [
         path: 'items',
         name: 'StoreItems',
         component: () =>
-          import(/* webpackChunkName: "storeitems" */ '../views/StoreItems.vue'),
+          import(
+            /* webpackChunkName: "storeitems" */ '../views/StoreItems.vue'
+          ),
       },
       {
         path: 'editor',
         name: 'StoreEditor',
         component: () =>
-          import(/* webpackChunkName: "storeeditor" */ '../views/StoreEditor.vue'),
+          import(
+            /* webpackChunkName: "storeeditor" */ '../views/StoreEditor.vue'
+          ),
       },
       {
         path: 'checkout',
         name: 'StoreCheckout',
         component: () =>
-          import(/* webpackChunkName: "storecheckout" */ '../views/StorePayment.vue'),
+          import(
+            /* webpackChunkName: "storecheckout" */ '../views/StorePayment.vue'
+          ),
       },
     ],
   },

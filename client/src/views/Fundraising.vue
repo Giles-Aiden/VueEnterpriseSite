@@ -2,8 +2,8 @@
   <div class="Fundraising">
     <Navbar title="Fundraising" />
     <!-- Image Scrolling Section -->
- 
-     <div id="imageArea">
+
+    <div id="imageArea">
       <div id="imageScroll">
         <carousel
           :per-page="2"
