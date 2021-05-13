@@ -6,7 +6,7 @@
         </ul>
         <vs-button id="addType" v-if="adding" @click="addType()">Add {{ productAttr.charAt(0).toUpperCase() + productAttr.slice(1) }}</vs-button>
         <div class="inputDiv" v-else>
-            <vs-input class="typeInput" v-model="attrInput"></vs-input>
+            <input class="typeInput" v-model="attrInput">
             <vs-button @click="addType(attrInput)" class="typeInputButton">+</vs-button>
         </div>
         <br>
@@ -26,7 +26,11 @@ div#types{
     border: 0.1rem black groove;
     margin: 0.5rem;
     padding: 0.25rem;
+    h2{
+        flex-grow: 1;
+    }
     #typeList{
+        flex-grow: 1;
         margin-left: 3rem;
         li{
             :hover{
@@ -36,11 +40,14 @@ div#types{
     }
     .inputDiv{
         display: flex;
-        justify-content: flex-start;
+        justify-content: flex-end;
+        text-align: right;
         .typeInputButton{
             background-color: $sidebarColor;
             height: 2rem;
             position: relative;
+            top: 2rem;
+            left: -2rem;
         }
     }
     #addType{
@@ -52,7 +59,9 @@ div#types{
     .typeInput{
         width: 10rem;
         height: 2rem;
-        margin-left: 6rem;
+        border-radius: 12px;
+        border: none;
+        margin-left: 8rem;
         margin-top: 2rem;
     }
 }
