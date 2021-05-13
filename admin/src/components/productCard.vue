@@ -52,7 +52,7 @@ div.productCard{
         display: flex;
         justify-content:start;
         align-items: center;
-        height: 4rem;
+        height: 6rem;
         overflow-x: auto;
         border: 0.1rem black groove;
         margin: 0.5rem;
@@ -130,6 +130,7 @@ export default {
     props: [
         'productName',
         'productImage',
+        'productColors',
     ],
     data: function () {
         return {
