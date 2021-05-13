@@ -20,23 +20,8 @@
                 </form>
             </div>
         </div>
-        <br>
-        <div id="lidType">
-            <h2>Lid Types:</h2>
-            <ul id="typeList">
-                <li v-for="(type, index) in types" :key="type"><h4 class="deletion" @click="deleteType({index});">{{type}}</h4></li>
-            </ul>
-            <vs-button id="addType">Add Lid Type</vs-button>
-        </div>
-        <br>
-        <div id="size">
-            <h2>Sizes:</h2>
-            <pre>      </pre>
-            <ul id="sizeList">
-                <li v-for="(size, index) in sizes" :key="size"><h4 @click="deleteSize({index})">{{size}}</h4></li>
-            </ul>
-            <vs-button id="addSize">Add Size</vs-button>
-        </div>
+        <ProductAttribute productAttr="lids" :productAttrItems="['lid1','lid2','lid3']"></ProductAttribute>
+        <ProductAttribute productAttr="sizes" :productAttrItems="['20oz','40oz']"></ProductAttribute>
         <br>
         <div id="menu">
             <vs-button class="menuButton">Delete</vs-button>
@@ -64,12 +49,17 @@ div.productCard{
     border-radius: 0.5rem;
     display: inline-block;
     div#colors{
-        width: 100%;
         display: flex;
         justify-content:start;
-        /* overflow-x: auto; */
+        align-items: center;
+        height: 4rem;
+        overflow-x: auto;
+        border: 0.1rem black groove;
+        margin: 0.5rem;
+        padding: 0.25rem;
         div.color{
             width: 2rem;
+            min-width: 2rem;
             height: 2rem;
             border: black 0.1rem solid;
             margin-left: 0.5rem;
@@ -119,44 +109,7 @@ div.productCard{
         width: 1.25rem;
         height: 1.25rem;
     }
-    div#lidType{
-        display: flex;
-        justify-content: start;
-        #typeList{
-            margin-left: 3rem;
-            li{
-                :hover{
-                    text-decoration: red solid line-through;
-                }
-            }
-        }
-        #addType{
-            background-color: $sidebarColor;
-            width: 10rem;
-            height: 2rem;
-            margin-left: 6rem;
-            margin-top: 2rem;
-        }
-    }
-        div#size{
-        display: flex;
-        justify-content: start;
-        #sizeList{
-            margin-left: 3rem;
-            li{
-                :hover{
-                    text-decoration: red solid line-through;
-                }
-            }
-        }
-        #addSize{
-            background-color: $sidebarColor;
-            width: 10rem;
-            height: 2rem;
-            margin-left: 6rem;
-            margin-top: 2rem;
-        }
-    }
+   
     div#menu{
         display: flex;
         flex-flow: row wrap;
@@ -170,28 +123,17 @@ div.productCard{
 </style>
 
 <script>
+import ProductAttribute from "@/components/ProductAttribute.vue";
+
 export default {
+    components: {ProductAttribute},
     props: [
         'productName',
         'productImage',
     ],
     data: function () {
         return {
-            colors: [
-                '#ff0000',
-                '#00ff00',
-                '#0000ff',
-                '#ff00ff',
-            ],
-            types: [
-                'lid1',
-                'lid2',
-                'lid3'
-            ],
-            sizes: [
-                '24oz',
-                '40oz'
-            ],
+            colors: this.productColors,
             showing: true,
         };
     },
@@ -212,14 +154,6 @@ export default {
                 this.showing = true;
             }
         },
-        deleteType: function(i){
-            console.log(this.types);
-            this.types.splice(i.index,1);
-        },
-        deleteSize: function(i){
-            console.log(this.sizes);
-            this.sizes.splice(i.index,1);
-        }
     },
 }
 </script>
