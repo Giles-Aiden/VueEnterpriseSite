@@ -59,10 +59,10 @@ nav {
   background-repeat: no-repeat;
   background-position: center center;
   backdrop-filter: blur(100px);
-  background-size: 100%;
+  background-size: cover;
   color: $navTextColor;
-  font-size: 2vh;
-  height: calc(30vh + 5px);
+  font-size: 1.5em;
+  height: calc(20rem + 5px);
   top: 0;
   left: 0;
   width: 100%;
@@ -76,7 +76,7 @@ nav {
   .navBar {
     margin: 0;
     padding: 0;
-    height: 5vh;
+    height: 5rem;
     list-style-type: none;
     display: flex;
     justify-content: space-around;
@@ -115,7 +115,7 @@ nav {
   display: block;
   position: absolute;
   width: 100%;
-  top: 5vh;
+  top: calc(4rem + 8px);
   margin: 0;
   list-style-type: none;
   padding: 0;
@@ -160,7 +160,7 @@ input[type='checkbox'] {
 }
 @media screen and (max-width: 955px) {
   nav {
-    height: calc(36vh + 5px);
+    height: calc(27rem + 20px);
   }
   nav .title {
     font-size: 200%;
@@ -205,11 +205,6 @@ input[type='checkbox'] {
   }
   .cartIcon {
     right: 0;
-  }
-}
-@media screen and (max-width: 690px) {
-  nav {
-    background-size: auto 100%;
   }
 }
 @media screen and (max-width: 400px) {
