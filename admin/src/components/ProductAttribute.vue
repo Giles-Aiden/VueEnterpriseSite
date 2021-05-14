@@ -43,18 +43,24 @@ div#types{
         justify-content: flex-end;
         text-align: right;
         .typeInputButton{
-            background-color: $sidebarColor;
+            background-color: $bg-secondary;
             height: 2rem;
             position: relative;
             top: 2rem;
             left: -2rem;
+            &:hover {
+                box-shadow: 0 .25rem .5rem $shadow;
+            }
         }
     }
     #addType{
-        background-color: $sidebarColor;
+        background-color: $bg-secondary;
         width: 10rem;
         height: 2rem;
         margin-top: 2rem;
+        &:hover {
+            box-shadow: 0 .25rem .5rem $shadow;
+        }
     }
     .typeInput{
         width: 10rem;

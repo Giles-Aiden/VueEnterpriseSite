@@ -8,7 +8,11 @@
 </template>
 <style lang="scss" scoped>
 @import "src/assets/styles/_variables.scss";
-
+.productPage {
+  background: $bg-main;
+  margin: 0;
+  height: 100vh;
+}
 div#product{
   margin-left: 50px;
   display: flex;

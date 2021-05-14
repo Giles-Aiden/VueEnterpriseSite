@@ -41,13 +41,12 @@
 div.productCard{
     background-color: $bodyElementColor;
     color: $bodyElementTextColor;
-    width: 31%;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    width: 25rem;
     padding: 0.5rem;
     text-align: center;
     border-radius: 0.5rem;
     display: inline-block;
+    margin-block: 0.5rem;
     div#colors{
         display: flex;
         justify-content:start;
@@ -56,7 +55,6 @@ div.productCard{
         overflow-x: auto;
         border: 0.1rem black groove;
         margin: 0.5rem;
-        padding: 0.25rem;
         div.color{
             width: 2rem;
             min-width: 2rem;
@@ -104,6 +102,7 @@ div.productCard{
         top: -2.5rem;
         left: 1.25rem;
         background-color: red;
+        color: white;
         border: black 0.001rem solid;
         border-radius: 50%;
         width: 1.25rem;
@@ -115,7 +114,10 @@ div.productCard{
         flex-flow: row wrap;
         justify-content: space-around;
         .menuButton{
-            background-color: $sidebarColor;
+            background-color: $bg-secondary;
+            &:hover {
+                box-shadow: 0 .25rem .5rem $shadow;
+            }
         }
     }
 }
