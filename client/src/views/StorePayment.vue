@@ -1,13 +1,10 @@
 <template>
-  <div class="Payment">
-  </div>
+  <div class="Payment"></div>
 </template>
 
 <script>
-
 export default {
   name: 'Payment',
-  components: {
-  },
+  components: {},
 };
 </script>

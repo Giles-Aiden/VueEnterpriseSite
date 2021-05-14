@@ -33,11 +33,8 @@ export default {
   .itemContain {
     width: 20rem;
     height: auto;
-    border: 1em solid #2486f0;
     border-radius: 2.5em;
     box-shadow: 20px 20px 30px 10px grey;
-    min-width: 10px;
-    max-width: 80vw;
   }
 }
 </style>
