@@ -1,7 +1,12 @@
 <template>
   <div id="orders">
     <Sidebar></Sidebar>
-    <OrderComp :totalCost="1999" :items="['Water Bottle', 'Another Water Bottle']" :user="User" :orderID="1"/>
+    <OrderComp
+      :totalCost="1999"
+      :items="['Water Bottle', 'Another Water Bottle']"
+      :user="User"
+      :orderID="1"
+    />
   </div>
 </template>
 
@@ -24,8 +29,8 @@ export default {
         name: "Jeff",
         lastName: "Smith",
         email: "Email10@gmail.com",
-      }
-    }
-  }
+      },
+    };
+  },
 };
 </script>
