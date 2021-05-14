@@ -36,7 +36,7 @@ export default {
     $text-color: #fefefe;
     .shadow {
         /*box-shadow: 18px $bg-secondary;*/
-        box-shadow: 5px 10px 18px $bg-secondary;
+        box-shadow: .5rem 1rem 20px $bg-secondary;
         background: transparent;
         border-radius: 2rem;
         width: 100vw;
