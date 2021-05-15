@@ -37,8 +37,8 @@
           <div class="salesData" style="width: 96.6%">
             <h2>Sales By The Day</h2>
             <hr />
-            <div style="backgroundcolor: white; color: black; height: 20rem">
-              <SalesChart></SalesChart>
+            <div style="backgroundcolor: white; color: black; height: 45rem">
+              <SalesChart :dates="['5/8','5/9','5/10','5/11','5/12','5/13','5/14',]" :sales="[65, 59, 80, 81, 56, 55, 40]"></SalesChart>
             </div>
           </div>
         </vs-col>
