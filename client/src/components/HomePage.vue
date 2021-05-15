@@ -7,17 +7,41 @@
       <div class="card">
         <h2>Custom</h2>
         <p class="cardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.</p>
-        <button class="cardButton">Shop Now!</button>
+        <!--<button class="cardButton">Shop Now!</button>-->
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Shop Now!
+        </vs-button>
       </div>
       <div class="card">
         <h2>Professional</h2>
         <p class="cardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.</p>
-        <button class="cardButton">Check it out!</button>
+        <!-- <button class="cardButton">Check it out!</button> -->
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Check it out!
+        </vs-button>
       </div>
       <div class="card">
         <h2>Precise</h2>
         <p class="cardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur. Lorem ipsum dolor sit amet.</p>
-        <button class="cardButton">Tell me more!</button>
+        <!-- <button class="cardButton">Tell me more!</button> -->
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Tell me more!
+        </vs-button>
       </div>
     </div>
 
@@ -29,7 +53,15 @@
       <div class="card">
         <h2>More About Our Fundraisers</h2>
         <p class="cardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.</p>
-        <button class="cardButton">Check it out!</button>
+        <!-- <button class="cardButton">Check it out!</button> -->
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Check it out!
+        </vs-button>
       </div>
       <div class="card imgCard">
         <img src="@/assets/Fundraising Collage.png" alt="">
@@ -51,6 +83,7 @@ export default Vue.extend({
   data: () => ({
     active: 0,
     titleCard: 'Professional',
+    buttonColor:'#185ca3'
   }),
 });
 </script>
@@ -109,6 +142,10 @@ $card-background: #fff;
   border-radius: 0;
   box-shadow: none;
   padding: 0;
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
 #fundraising {
   background-image: url('../assets/fundraisingHomePage.png');
