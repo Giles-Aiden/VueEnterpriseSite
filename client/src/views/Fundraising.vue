@@ -118,6 +118,7 @@
 
 <!-- los stylos -->
 <style lang="scss" scoped>
+@import '@/assets/styles/_variables.scss';
 // image scrolling stuff
 .example-slide {
   align-items: center;

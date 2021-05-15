@@ -28,6 +28,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$bg-main: #185CA3;
+$bg-secondary: #6CACF0;
+$shadow: #113F70;
+
+.button-color {
+  background-color: $bg-main;
+  box-shadow: $shadow;
+}
 .shopItem {
   margin-top: 1em;
   .itemContain {
