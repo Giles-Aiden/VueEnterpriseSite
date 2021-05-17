@@ -23,36 +23,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-<<<<<<< HEAD
-* {
-  box-sizing: border-box;
-}
-
-.card {
-  width: 280px;
-  height: 360px;
-  border-radius: 15px;
-  margin-block: 0.5rem;
-  padding: 1.5rem;
-  background: white;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  transition: 0.4s ease-out;
-  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
-}
-.card:hover:before {
-  opacity: 1;
-}
-.card:hover .info {
-  opacity: 1;
-  transform: translateY(0px);
-  p {
-    opacity: 1;
-=======
-$bg-main: #185CA3;
-$bg-secondary: #6CACF0;
-$shadow: #113F70;
+$bg-main: #185ca3;
+$bg-secondary: #6cacf0;
+$shadow: #113f70;
 
 .button-color {
   background-color: $bg-main;
@@ -65,7 +38,6 @@ $shadow: #113F70;
     height: auto;
     border-radius: 2.5em;
     box-shadow: 20px 20px 30px 10px grey;
->>>>>>> 01c1417 (Update Store.vue)
   }
   button {
     opacity: 1;
