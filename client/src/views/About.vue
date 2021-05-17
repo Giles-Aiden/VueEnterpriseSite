@@ -102,7 +102,7 @@
         </vs-col>
       </vs-row>
     </div>
-  <AboutCard/>
+    <AboutCard />
   </div>
 </template>
 
