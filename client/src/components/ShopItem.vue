@@ -28,9 +28,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-$bg-main: #185CA3;
-$bg-secondary: #6CACF0;
-$shadow: #113F70;
+$bg-main: #185ca3;
+$bg-secondary: #6cacf0;
+$shadow: #113f70;
 
 .button-color {
   background-color: $bg-main;
