@@ -78,15 +78,24 @@ app.get('/', (req, res) => {
 });
 
 // User Requests
-app.get('/api/users', (req, res) => {
+app.get('/api/users', isAdmin, (req, res) => {
+  if (req.body.uid) {
+    req.body._id = req.body.uid
+    delete req.body.uid;
+  }
   User.find(req.body, (err, users) => {
     if (err) {
       console.error(err);
-      res.status(500).send();
+      res.status(404).send();
     }
-    else res.json(users);
+    else res.json(users).status(200).send();
   })
 });
+
+passGen = async req => {
+  const salt = await bcrypt.genSalt();
+  return await bcrypt.hash(req.body.pass, salt);
+}
 
 //Requires password, username
 app.post('/api/users/register', async (req, res) => {
@@ -94,15 +103,11 @@ app.post('/api/users/register', async (req, res) => {
   if (user) res.status(406).send("User Exists");
   else {
     try {
-      const salt = await bcrypt.genSalt();
-      const hashedPassword = await bcrypt.hash(req.body.pass, salt);
-      const uinfo = req.body;
-      delete uinfo.pass;
-      uinfo.hash = hashedPassword;
+      const uinfo = passGen(req);
       user = new User(uinfo);
       user.save((err) => {
-        if (err) res.status(500).send();
-        else res.status(201).send();
+        if (err) res.status(406).send();
+        else res.status(201).send(user._id);
       })
     } catch (err) {
       console.error(err);
@@ -112,13 +117,12 @@ app.post('/api/users/register', async (req, res) => {
 });
 
 app.post('/api/users/login', async (req, res) => {
-  const user = users.find((user) => user.username = req.body.username);
+  const user = users.findOne(user => user.email = req.body.email);
   if (user == null) res.status(400).send('Cound not find user');
   try {
-    if (await bcrypt.compare(req.body.password, user.password)) {
+    if (await bcrypt.compare(req.body.pass, user.pass)) {
       req.session.isAuth = true;
-      re
-      res.status(200).send('Success');
+      res.status(200).send(user._id);
     }
     else res.status(401).send('Not allowed');
   } catch (err) {
@@ -129,6 +133,10 @@ app.post('/api/users/login', async (req, res) => {
 
 app.put('/api/users/update', isUser, async (req, res) => {
   try {
+    if (req.body.pass) {
+      req.body.hash = passGen(req);
+      delete req.body.pass;
+    }
     await User.findOneAndUpdate({ _id: req.session.uid }, req.body, (err, user) => {
       if (err) res.status(404).send();
       else res.json(user).status(202).send();
@@ -142,23 +150,21 @@ app.put('/api/users/update', isUser, async (req, res) => {
 app.put('/api/users/aupdate', isAdmin, async (req, res) => {
   try {
     const uid = req.body.uid;
-    delete req.body.id;
+    delete req.body.uid;
+    if (req.body.isAdmin) {
+      let admin = Admin.findById(uid);
+      if (!admin && req.body.isAdmin) {
+        Admin.deleteOne({ _id: uid });
+      } else if(admin && !req.body.isAdmin) {
+        let newAdmin = new Admin();
+        newAdmin.uid = uid;
+        newAdmin.save();
+      }
+    }
     User.findOneAndUpdate({ _id: uid }, req.body, (err, user) => {
-      if (err) res.status(404).send();
+      if (err) res.status(400).send();
       else res.json(user).status(202).send();
     });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send();
-  }
-});
-
-app.put('/api/users/admin', isAdmin, (req, res) => {
-  try {
-    const adminUser = new Admin();
-    adminUser.uid = req.body.uid;
-    adminUser.save();
-    res.status(200).json(adminUser).send();
   } catch (err) {
     console.error(err);
     res.status(500).send();
@@ -172,10 +178,11 @@ app.delete('/api/users', isAdmin, (req, res) => {
         console.error(err);
         res.status(400).send();
       } else res.json(deleted).status(200).send();
-    })
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send();
+  }
 });
 
 // Products requests
