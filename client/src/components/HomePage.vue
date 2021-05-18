@@ -1,137 +1,117 @@
 <template>
   <div>
     <div class="center-grid">
-      <div vs-type="flex" vs-justify="center" vs-align="center" style="display: flex; justify-content: center; min-width: 100vw;">
-        <div class="shadow titleCard">
-            <h1>{{ Cardtitle }} Laser Engraving</h1>
-        </div>
-      </div>
+      <TitleCard :titleCard="titleCard" />
     </div>
     <div class="center-grid">
-      <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow" @mouseover="showCustom()">
-          <template #title>
-            <h3>Custom</h3>
-          </template>
-          <template #text>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
-              deleniti, delectus cumque, voluptates inventore soluta ipsam
-              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
-              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
-              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
-              ullam vel?
-            </p>
-            <vs-button class="button-color">
-              <a href="store">Shop now!</a>
-            </vs-button>
-          </template>
-        </vs-card>
+      <div class="card">
+        <h2>Custom</h2>
+        <p class="cardText">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+          suscipit exercitationem voluptatibus atque similique sunt beatae hic
+          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
+          similique sunt beatae hic aut aperiam tenetur.
+        </p>
+        <!--<button class="cardButton">Shop Now!</button>-->
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Shop Now!
+        </vs-button>
       </div>
-      <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow" @mouseover="showProfessional()">
-          <template #title>
-            <h3>Professional</h3>
-          </template>
-          <!-- <template #img>
-            <img src="/foto5.png" alt="" />
-          </template> -->
-          <template #text>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
-              deleniti, delectus cumque, voluptates inventore soluta ipsam
-              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
-              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
-              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
-              ullam vel?
-            </p>
-            <vs-button class="button-color">
-              <a href="about">Check it out!</a>
-            </vs-button>
-          </template>
-        </vs-card>
+      <div class="card">
+        <h2>Professional</h2>
+        <p class="cardText">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+          suscipit exercitationem voluptatibus atque similique sunt beatae hic
+          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
+          similique sunt beatae hic aut aperiam tenetur.
+        </p>
+        <!-- <button class="cardButton">Check it out!</button> -->
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Check it out!
+        </vs-button>
       </div>
-      <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow" @mouseover="showPrecise()">
-          <template #title>
-            <h3>Precise</h3>
-          </template>
-          <!-- <template #img>
-            <img src="/foto5.png" alt="" />
-          </template> -->
-          <template #text>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
-              deleniti, delectus cumque, voluptates inventore soluta ipsam
-              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
-              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
-              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
-              ullam vel?
-            </p>
-            <vs-button class="button-color">
-              <a href="fundraising">Tell me more!</a>
-            </vs-button>
-          </template>
-        </vs-card>
+      <div class="card">
+        <h2>Precise</h2>
+        <p class="cardText">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+          suscipit exercitationem voluptatibus atque similique sunt beatae hic
+          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
+          similique sunt beatae hic aut aperiam tenetur. Lorem ipsum dolor sit
+          amet.
+        </p>
+        <!-- <button class="cardButton">Tell me more!</button> -->
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Tell me more!
+        </vs-button>
       </div>
     </div>
-    <div class="center-grid" id="fundraising">
-      <div>
-        <div vs-type="flex" vs-justify="center" style="align-items: center">
-          <h1 class="title">{{ title }}</h1>
-        </div>
+
+    <div class="subtitleCard">
+      <h1>Fundraising</h1>
+    </div>
+
+    <div class="center-grid">
+      <div class="card">
+        <h2>More About Our Fundraisers</h2>
+        <p class="cardText">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+          suscipit exercitationem voluptatibus atque similique sunt beatae hic
+          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
+          similique sunt beatae hic aut aperiam tenetur.
+        </p>
+        <!-- <button class="cardButton">Check it out!</button> -->
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Check it out!
+        </vs-button>
+      </div>
+      <div class="card imgCard">
+        <img src="@/assets/Fundraising Collage.png" alt="" />
       </div>
     </div>
-    <div
-      class="center-grid"
-      vs-type="flex"
-      vs-justify="center"
-      vs-align="center"
-      w="12"
-    >
-      <vs-card class="shadow">
-        <template #title>
-          <h3>More About Our Fundraisers</h3>
-        </template>
-        <template #text>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
-            vel rem. Minus tempora voluptas at incidunt eveniet deleniti,
-            delectus cumque, voluptates inventore soluta ipsam commodi sequi
-            mollitia assumenda aliquam quidem repudiandae autem fugiat non
-            dignissimos ducimus animi corporis! Reiciendis aliquam nihil
-            doloremque et corrupti accusamus dolorum reprehenderit rerum ullam
-            vel? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-            quod ipsum quas harum doloribus dicta itaque sunt dolores veniam
-            excepturi. Possimus magnam molestias itaque iure. Eveniet autem,
-            fugit, animi illo ea error molestiae ratione expedita commodi
-            voluptatum dolore ullam, ipsam maiores. Culpa, iste? Quas deleniti
-            unde enim explicabo voluptatum quidem.
-          </p>
-          <vs-button class="button-color">
-            <a href="fundraising">Tell me more!</a>
-          </vs-button>
-        </template>
-      </vs-card>
-      <template>
-        <img class="imageChange" src="../assets/Fundraising Collage.png" />
-      </template>
-    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
-import Vue from "vue";
+import Vue from 'vue';
+import TitleCard from '@/components/titleCard.vue';
+import Footer from '@/components/Footer.vue';
 export default Vue.extend({
+  components: {
+    TitleCard,
+    Footer,
+  },
   props: {
     title: String,
   },
   data: () => ({
     active: 0,
-    Cardtitle: "Professional",
+    titleCard: 'Professional',
+    buttonColor: '#185ca3',
   }),
   methods: {
     showCustom() {
@@ -145,45 +125,69 @@ export default Vue.extend({
     }
   }
 });
-
-// var switchWord = document.getElementById('precise').innerHTML;
-// var switchWord2 = document.getElementById('custom').innerHTML;
-// var switchWord3 = document.getElementById('professional').innerHTML;
-
-// function rotate() {
-
-// };
 </script>
 
 <style lang="scss" scoped>
 $bg-main: #185ca3;
 $bg-secondary: #2486f0;
 $text-color: #fefefe;
+$card-background: #fff;
+.card {
+  padding: 1rem;
+  width: 25rem;
+  position: relative;
 
-.shadow {
-  /*box-shadow: 18px $bg-secondary;*/
-  box-shadow: 5px 10px 18px $bg-secondary;
-  background: transparent;
+  box-shadow: 0.5rem 1rem 20px $bg-secondary;
+  background: $card-background;
   border-radius: 2rem;
-}
 
-.titleCard {
-  width: 100vw;
-  margin: 0 2rem;
+  transition: transform 100ms ease-in-out, box-shadow 100ms ease-in-out;
+  .cardText {
+    padding-inline: 1rem;
+    margin-bottom: 4rem;
+    text-align: left;
+    &::first-letter {
+      margin-left: 2rem;
+    }
+  }
+  .cardButton {
+    background: $bg-main;
+    padding: 0.5rem 1rem;
+    border-radius: 100rem;
+    color: $text-color;
+    outline: none;
+    border: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 1.25rem;
+    &:active {
+      transform: scale(1.05);
+      box-shadow: 0.25rem 0.2rem 10px $bg-secondary;
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0.5rem 1.25rem 20px $bg-secondary;
+  }
 }
-
-.button-color {
-  background-color: $bg-main;
+.imgCard {
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
-
-.card-color {
-  background-color: $bg-secondary;
-}
-
 #fundraising {
-  background-image: url("../assets/fundraisingHomePage.png");
+  background-image: url('../assets/fundraisingHomePage.png');
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   backdrop-filter: blur(100px);
   background-size: 100%;
   font-size: 2vh;
@@ -202,32 +206,29 @@ $text-color: #fefefe;
   font-size: 250%;
   color: $text-color;
 }
-
-/*
-.center-grid {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto auto;
-}*/
+.subtitleCard {
+  background-image: url('../assets/fundraisingHomePage.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  backdrop-filter: blur(100px);
+  background-size: cover;
+  color: white;
+  font-size: 1.5em;
+  height: calc(20rem + 5px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    margin-block: auto;
+  }
+}
 .center-grid {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
   margin: 1rem;
-}
-
-.rowOne {
-  grid-row: 1/1;
-  grid-column: 1/4;
-}
-
-a {
-  text-decoration: none;
-  color: $text-color;
-  // background-color: $bg-main;
-}
-
-.imageChange {
-  max-height: 20rem;
+  grid-gap: 1rem;
 }
 </style>
