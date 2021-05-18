@@ -6,7 +6,13 @@
     <div class="center-grid">
       <div class="card">
         <h2>Custom</h2>
-        <p class="cardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.</p>
+        <p class="cardText">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+          suscipit exercitationem voluptatibus atque similique sunt beatae hic
+          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
+          similique sunt beatae hic aut aperiam tenetur.
+        </p>
         <!--<button class="cardButton">Shop Now!</button>-->
         <vs-button
           :active="active == 1"
@@ -19,7 +25,13 @@
       </div>
       <div class="card">
         <h2>Professional</h2>
-        <p class="cardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.</p>
+        <p class="cardText">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+          suscipit exercitationem voluptatibus atque similique sunt beatae hic
+          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
+          similique sunt beatae hic aut aperiam tenetur.
+        </p>
         <!-- <button class="cardButton">Check it out!</button> -->
         <vs-button
           :active="active == 1"
@@ -32,7 +44,14 @@
       </div>
       <div class="card">
         <h2>Precise</h2>
-        <p class="cardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur. Lorem ipsum dolor sit amet.</p>
+        <p class="cardText">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+          suscipit exercitationem voluptatibus atque similique sunt beatae hic
+          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
+          similique sunt beatae hic aut aperiam tenetur. Lorem ipsum dolor sit
+          amet.
+        </p>
         <!-- <button class="cardButton">Tell me more!</button> -->
         <vs-button
           :active="active == 1"
@@ -52,7 +71,13 @@
     <div class="center-grid">
       <div class="card">
         <h2>More About Our Fundraisers</h2>
-        <p class="cardText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque similique sunt beatae hic aut aperiam tenetur.</p>
+        <p class="cardText">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
+          suscipit exercitationem voluptatibus atque similique sunt beatae hic
+          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
+          similique sunt beatae hic aut aperiam tenetur.
+        </p>
         <!-- <button class="cardButton">Check it out!</button> -->
         <vs-button
           :active="active == 1"
@@ -64,18 +89,21 @@
         </vs-button>
       </div>
       <div class="card imgCard">
-        <img src="@/assets/Fundraising Collage.png" alt="">
+        <img src="@/assets/Fundraising Collage.png" alt="" />
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
 import TitleCard from '@/components/titleCard.vue';
+import Footer from '@/components/Footer.vue';
 export default Vue.extend({
   components: {
     TitleCard,
+    Footer,
   },
   props: {
     title: String,
@@ -83,7 +111,7 @@ export default Vue.extend({
   data: () => ({
     active: 0,
     titleCard: 'Professional',
-    buttonColor:'#185ca3'
+    buttonColor: '#185ca3',
   }),
 });
 </script>
@@ -97,14 +125,12 @@ $card-background: #fff;
   padding: 1rem;
   width: 25rem;
   position: relative;
-  
-  box-shadow: .5rem 1rem 20px $bg-secondary;
+
+  box-shadow: 0.5rem 1rem 20px $bg-secondary;
   background: $card-background;
   border-radius: 2rem;
 
-  transition: 
-    transform 100ms ease-in-out,
-    box-shadow 100ms ease-in-out;
+  transition: transform 100ms ease-in-out, box-shadow 100ms ease-in-out;
   .cardText {
     padding-inline: 1rem;
     margin-bottom: 4rem;
@@ -115,7 +141,7 @@ $card-background: #fff;
   }
   .cardButton {
     background: $bg-main;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 100rem;
     color: $text-color;
     outline: none;
@@ -126,7 +152,7 @@ $card-background: #fff;
     margin: 1.25rem;
     &:active {
       transform: scale(1.05);
-      box-shadow: .25rem .2rem 10px $bg-secondary;
+      box-shadow: 0.25rem 0.2rem 10px $bg-secondary;
     }
   }
   img {
@@ -134,8 +160,8 @@ $card-background: #fff;
     height: 100%;
   }
   &:hover {
-    transform: translateY(-.25rem);
-    box-shadow: .5rem 1.25rem 20px $bg-secondary;
+    transform: translateY(-0.25rem);
+    box-shadow: 0.5rem 1.25rem 20px $bg-secondary;
   }
 }
 .imgCard {
