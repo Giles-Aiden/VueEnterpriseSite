@@ -56,5 +56,14 @@ export default {
             height: 3rem;
         }
     }
-
+    @media screen and (max-width: 495px) {
+        h1 {
+            font-size: 1.25rem;
+        }
+    }
+    @media screen and (max-width: 300px) {
+        h1 {
+            font-size: 1.1rem;
+        }
+    }
 </style>
