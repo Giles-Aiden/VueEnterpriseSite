@@ -78,6 +78,8 @@ app.get('/', (req, res) => {
 });
 
 // User Requests
+// Below 
+// app.get('/api/users', isAdmin, (req, res) => {
 app.get('/api/users', isAdmin, (req, res) => {
   if (req.body.uid) {
     req.body._id = req.body.uid
@@ -105,7 +107,7 @@ app.post('/api/users/register', async (req, res) => {
     try {
       const uinfo = passGen(req);
       user = new User(uinfo);
-      user.save((err) => {
+      user.save(err => {
         if (err) res.status(406).send();
         else res.status(201).send(user._id);
       })
