@@ -18,6 +18,7 @@
           '#B6458A',
           '#3B236D',
         ]"
+        :productPrice="20"
       ></productCard>
     </div>
   </div>

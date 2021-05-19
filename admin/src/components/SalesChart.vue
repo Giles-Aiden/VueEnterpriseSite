@@ -1,6 +1,8 @@
 <template>
   <div id="chart">
-    <Chart type="line" :data="basicData" />
+    <div class="card">
+      <Chart type="bar" :data="basicData" :options="basicOptions" />
+    </div>
   </div>
 </template>
 
@@ -17,17 +19,25 @@ export default {
   data() {
     return {
       basicData: {
-        labels: this.dates,
-        datasets: [
-          {
-            label: "Daily Sales",
-            data: this.sales,
-            fill: false,
-            borderColor: "#ffffff",
-            color: "#ffffff",
-          },
-        ],
+          labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          datasets: [
+              {
+                  label: 'Sales',
+                  backgroundColor: '#185CA3',
+                  data: [65, 59, 80, 81, 56, 55, 40],
+              }
+          ]
       },
+      basicOptions: {
+        plugins: {
+          legend: {
+            labels: {
+              display: true,
+              color: 'rgb(255, 99, 132)'
+            }
+          }
+        }
+      }
     };
   },
 };

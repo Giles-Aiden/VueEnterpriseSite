@@ -14,9 +14,7 @@
     >
     <div class="inputDiv" v-else>
       <input class="typeInput" v-model="attrInput" />
-      <vs-button @click="addType(attrInput)" class="typeInputButton"
-        >+</vs-button
-      >
+      <vs-button @click="addType(attrInput)" class="typeInputButton"> + </vs-button>
     </div>
     <br />
   </div>
@@ -49,14 +47,16 @@ div#types {
   }
   .inputDiv {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     width: 30%;
     .typeInputButton {
       background-color: $sidebarColor;
+      width: 2rem;
       height: 2rem;
-      position: relative;
+/*       position: relative;
       top: 2rem;
-      left: -2rem;
+      left: -2rem; */
+      position: absolute;
     }
   }
   #addType {
