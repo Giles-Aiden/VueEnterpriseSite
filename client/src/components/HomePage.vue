@@ -87,35 +87,46 @@
         </div>
       </div>
     </div>
-    <div class="center-grid" vs-type="flex" vs-justify="center" vs-align="center" w="12">
-        <vs-card class="shadow">
-          <template #title>
-            <h3>More About Our Fundraisers</h3>
-          </template>
-          <template #text>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
-              deleniti, delectus cumque, voluptates inventore soluta ipsam
-              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
-              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
-              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
-              ullam vel? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quod ipsum quas harum doloribus dicta itaque sunt dolores veniam excepturi. Possimus magnam molestias itaque iure. Eveniet autem, fugit, animi illo ea error molestiae ratione expedita commodi voluptatum dolore ullam, ipsam maiores. Culpa, iste? Quas deleniti unde enim explicabo voluptatum quidem.
-            </p>
-            <vs-button class="button-color">
-              <a href="fundraising">Tell me more!</a>
-            </vs-button>
-          </template>
-        </vs-card>
-        <template>
-          <img class="imageChange" src="../assets/Fundraising Collage.png">
+    <div
+      class="center-grid"
+      vs-type="flex"
+      vs-justify="center"
+      vs-align="center"
+      w="12"
+    >
+      <vs-card class="shadow">
+        <template #title>
+          <h3>More About Our Fundraisers</h3>
         </template>
-      </div>
+        <template #text>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
+            vel rem. Minus tempora voluptas at incidunt eveniet deleniti,
+            delectus cumque, voluptates inventore soluta ipsam commodi sequi
+            mollitia assumenda aliquam quidem repudiandae autem fugiat non
+            dignissimos ducimus animi corporis! Reiciendis aliquam nihil
+            doloremque et corrupti accusamus dolorum reprehenderit rerum ullam
+            vel? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+            quod ipsum quas harum doloribus dicta itaque sunt dolores veniam
+            excepturi. Possimus magnam molestias itaque iure. Eveniet autem,
+            fugit, animi illo ea error molestiae ratione expedita commodi
+            voluptatum dolore ullam, ipsam maiores. Culpa, iste? Quas deleniti
+            unde enim explicabo voluptatum quidem.
+          </p>
+          <vs-button class="button-color">
+            <a href="fundraising">Tell me more!</a>
+          </vs-button>
+        </template>
+      </vs-card>
+      <template>
+        <img class="imageChange" src="../assets/Fundraising Collage.png" />
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
   props: {
     title: String,
@@ -155,7 +166,7 @@ $text-color: #fefefe;
 }
 
 #fundraising {
-  background-image: url("../assets/fundraisingHomePage.png");
+  background-image: url('../assets/fundraisingHomePage.png');
   background-repeat: no-repeat;
   background-position: center center;
   backdrop-filter: blur(100px);

@@ -118,6 +118,7 @@
 
 <!-- los stylos -->
 <style lang="scss" scoped>
+@import '@/assets/styles/_variables.scss';
 // image scrolling stuff
 .example-slide {
   align-items: center;
@@ -326,12 +327,12 @@ hr {
 <!-- functiony things -->
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
+import Navbar from '@/components/Navbar.vue';
 //import VueCarousel from 'vue-carousel';
-import { Carousel, Slide } from "vue-carousel";
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
-  name: "Fundraising",
+  name: 'Fundraising',
   components: {
     Navbar,
     Carousel,
@@ -342,37 +343,37 @@ export default {
       picked: 1,
       imgNum: 1,
       items: [
-        "img/bottleRed.JPG",
-        "img/bottleBlack.JPG",
-        "img/bottleGreen.JPG",
+        'img/bottleRed.JPG',
+        'img/bottleBlack.JPG',
+        'img/bottleGreen.JPG',
       ],
       reviewerInfo: [
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
       ],
-     arrows: [
+      arrows: [
         '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
         '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
       ],
