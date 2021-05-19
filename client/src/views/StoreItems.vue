@@ -116,7 +116,7 @@ export default {
         },
       ],
       userSelections: {
-        'lid': [],
+        lid: [],
       },
       optionCheckboxItems: [
         { title: 'Size' },
