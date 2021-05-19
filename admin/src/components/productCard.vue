@@ -3,6 +3,11 @@
     <img height="300rem" :src="require(`../assets/${productImage}`)" />
     <h1>{{ productName }}</h1>
     <br />
+    <div id="price">
+      <h2>Price: ${{ price }}</h2>
+      <input type="number" :id="productName">
+      <vs-button @click="changePrice({ productName })" class="priceButton">Change Price</vs-button>
+    </div>
     <div id="colors">
       <h2>Colors:</h2>
       <div class="color" v-for="(color, index) in colors" :key="color">
@@ -65,6 +70,14 @@ div.productCard {
   text-align: center;
   border-radius: 0.5rem;
   display: inline-block;
+  div#price{
+    border: 0.1rem black groove;
+    display: flex;
+    justify-content: space-evenly;
+    .priceButton{
+      background-color: $sidebarColor;
+    }
+  }
   div#colors {
     display: flex;
     justify-content: start;
@@ -143,11 +156,12 @@ import ProductAttribute from "@/components/ProductAttribute.vue";
 
 export default {
   components: { ProductAttribute },
-  props: ["productName", "productImage", "productColors"],
+  props: ["productName", "productImage", "productColors", "productPrice"],
   data: function () {
     return {
       colors: this.productColors,
       showing: true,
+      price: this.productPrice,
     };
   },
   methods: {
@@ -171,6 +185,9 @@ export default {
         this.showing = true;
       }
     },
+    changePrice: function (product) {
+      this.price = document.getElementById(product.productName).value;
+    }
   },
 };
 </script>

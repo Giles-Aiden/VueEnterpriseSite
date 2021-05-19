@@ -8,7 +8,7 @@
 
     <div class="center content-inputs grid" id="loginScreen">
       <vs-row justify="center">
-        <vs-input label-placeholder="Username">
+        <vs-input label-placeholder="Username" id="username">
           <template #icon>
             <i class="bx bx-user">U</i>
           </template>
@@ -16,7 +16,7 @@
       </vs-row>
       <br />
       <vs-row justify="center">
-        <vs-input type="password" label-placeholder="Password">
+        <vs-input type="password" label-placeholder="Password" id="password">
           <template #icon>
             <i class="bx bx-lock-open-alt">P</i>
           </template>
@@ -27,6 +27,8 @@
         <router-link to="/">
           <vs-button id="loginButton"> Login </vs-button>
         </router-link>
+        <br>
+        <h2 v-if="wrong">There was an error</h2>
       </div>
     </div>
     <div id="footer">
@@ -91,9 +93,31 @@ div#footer {
 </style>
 
 <script>
-// @ is an alias to /src
+const axios = require('axios');
+
 export default {
   name: "Home",
   components: {},
+  methods: {
+    login: async function(inpJson) {
+      const json = JSON.stringify(inpJson);
+        // uname: this.document.getElementById(''),
+        // pass: 'stirng
+      await axios.post('https://httpbin.org/post', json, {
+        headers: {
+          // Overwrite Axios's automatically set Content-Type
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+          if(response.status == 200) {
+            console.log('login')
+          } else {
+            //unsucess
+            console.log('fail')
+          }
+      })
+    },      
+  }
 };
 </script>
