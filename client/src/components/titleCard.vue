@@ -36,7 +36,7 @@ $bg-secondary: #2486f0;
 $text-color: #fefefe;
 .shadow {
   background: transparent;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

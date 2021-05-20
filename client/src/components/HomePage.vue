@@ -31,8 +31,8 @@
           </p>
 
           <vs-button
-            :active="active == 1"
-            @click="active = 1"
+            :active="active == 2"
+            @click="active = 2"
             :color="buttonColor"
             type="filled"
           >
@@ -49,8 +49,8 @@
           </p>
 
           <vs-button
-            :active="active == 1"
-            @click="active = 1"
+            :active="active == 3"
+            @click="active = 3"
             :color="buttonColor"
             type="filled"
           >
@@ -118,7 +118,6 @@ export default Vue.extend({
   background: #eee;
   display: flex;
   flex-direction: column;
-  padding-block: 3rem;
 }
 .card {
   width: 30rem;
@@ -127,6 +126,10 @@ export default Vue.extend({
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 5px 5px 10px $shadow;
+  border-radius: 1rem;
+  margin-block: 3rem;
+  overflow: hidden;
   p {
     text-align: left;
     padding-inline: 2.5rem;
@@ -137,10 +140,8 @@ export default Vue.extend({
   }
   img {
     max-width: 100%;
-    margin: 1rem;
   }
   button {
-    background: $bg-secondary;
     color: $text-color;
     border: none;
     outline: none;

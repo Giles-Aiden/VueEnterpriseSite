@@ -1,5 +1,5 @@
 <template>
-  <div class="itemViewContainer" @click.self="close">
+  <div class="itemViewContainer" @clwick.self="close">
     <div class="itemView">
       <i class="closeButton fa fa-close" @click="close"></i>
       <div class="imgContainer">
