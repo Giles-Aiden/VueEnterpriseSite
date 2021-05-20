@@ -78,7 +78,9 @@ app.get('/', (req, res) => {
 });
 
 // User Requests
-app.get('/api/users', isAdmin, (req, res) => {
+// Below 
+// app.get('/api/users', isAdmin, (req, res) => {
+app.get('/api/users', (req, res) => {
   if (req.body.uid) {
     req.body._id = req.body.uid
     delete req.body.uid;
@@ -92,7 +94,7 @@ app.get('/api/users', isAdmin, (req, res) => {
   })
 });
 
-passGen = async req => {
+const passGen = async (req) => {
   const salt = await bcrypt.genSalt();
   return await bcrypt.hash(req.body.pass, salt);
 }
@@ -103,15 +105,16 @@ app.post('/api/users/register', async (req, res) => {
   if (user) res.status(406).send("User Exists");
   else {
     try {
-      const uinfo = passGen(req);
-      user = new User(uinfo);
-      user.save((err) => {
-        if (err) res.status(406).send();
+      req.body.hash = await passGen(req);
+      delete req.body.pass;
+      user = new User(req.body);
+      user.save(err => {
+        if (err) res.status(406).json(err).send();
         else res.status(201).send(user._id);
       })
     } catch (err) {
       console.error(err);
-      res.status(500).send()
+      res.status(500).json(err).send()
     }
   }
 });
