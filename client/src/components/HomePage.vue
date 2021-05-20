@@ -115,15 +115,15 @@ export default Vue.extend({
   }),
   methods: {
     showCustom() {
-      this.Cardtitle = "Custom";
+      this.Cardtitle = 'Custom';
     },
     showProfessional() {
-      this.Cardtitle = "Professional";
+      this.Cardtitle = 'Professional';
     },
     showPrecise() {
-      this.Cardtitle = "Precise";
-    }
-  }
+      this.Cardtitle = 'Precise';
+    },
+  },
 });
 </script>
 
