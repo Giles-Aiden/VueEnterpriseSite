@@ -50,7 +50,7 @@
   }
   background-color: $bodyElementColor;
   color: $bodyElementTextColor;
-  width: 95%;
+  width: 100%;
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 5px 10px 10px #333333;

@@ -94,7 +94,7 @@ app.get('/api/users', isAdmin, (req, res) => {
   })
 });
 
-passGen = async req => {
+let passGen = async req => {
   const salt = await bcrypt.genSalt();
   return await bcrypt.hash(req.body.pass, salt);
 }

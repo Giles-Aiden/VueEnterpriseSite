@@ -99,24 +99,26 @@ export default {
   name: "Home",
   components: {},
   methods: {
-    login: async function(inpJson) {
-      const json = JSON.stringify(inpJson);
+    login: async function() {
         // uname: this.document.getElementById(''),
         // pass: 'stirng
-      await axios.post('https://httpbin.org/post', json, {
+      axios.get('/api/users/login',
+      {
+        "email": "unique@email.com",
+        "pass": "super secure password"
+      }, {
         headers: {
-          // Overwrite Axios's automatically set Content-Type
           'Content-Type': 'application/json'
         }
       })
-      .then(response => {
-          if(response.status == 200) {
-            console.log('login')
-          } else {
-            //unsucess
-            console.log('fail')
-          }
-      })
+      .then(function (response) {
+        // Returned info
+        console.log(response.data);
+        // Response status code
+        console.log(response.status);
+        // Returned message
+        console.log(response.statusText);
+      });
     },      
   }
 };
