@@ -78,7 +78,9 @@ app.get('/', (req, res) => {
 });
 
 // User Requests
-app.get('/api/users', isAdmin, (req, res) => {
+// Below should be uncommented in production
+// app.get('/api/users', isAdmin, (req, res) => {
+app.get('/api/users', (req, res) => {
   if (req.body.uid) {
     req.body._id = req.body.uid
     delete req.body.uid;
@@ -92,9 +94,9 @@ app.get('/api/users', isAdmin, (req, res) => {
   })
 });
 
-passGen = async req => {
+const passGen = async (pass) => {
   const salt = await bcrypt.genSalt();
-  return await bcrypt.hash(req.body.pass, salt);
+  return await bcrypt.hash(pass, salt);
 }
 
 //Requires password, username
@@ -103,21 +105,22 @@ app.post('/api/users/register', async (req, res) => {
   if (user) res.status(406).send("User Exists");
   else {
     try {
-      const uinfo = passGen(req);
-      user = new User(uinfo);
-      user.save((err) => {
-        if (err) res.status(406).send();
-        else res.status(201).send(user._id);
+      req.body.hash = await passGen(req);
+      delete req.body.pass;
+      user = new User(req.body);
+      user.save(err => {
+        if (err) res.status(406).json(err).send();
+        else res.status(201).json({"uid": user._id}).send();
       })
     } catch (err) {
       console.error(err);
-      res.status(500).send()
+      res.status(500).json(err).send();
     }
   }
 });
 
 app.post('/api/users/login', async (req, res) => {
-  const user = users.findOne(user => user.email = req.body.email);
+  const user = User.findOne(user => user.email = req.body.email);
   if (user == null) res.status(400).send('Cound not find user');
   try {
     if (await bcrypt.compare(req.body.pass, user.pass)) {
@@ -134,7 +137,7 @@ app.post('/api/users/login', async (req, res) => {
 app.put('/api/users/update', isUser, async (req, res) => {
   try {
     if (req.body.pass) {
-      req.body.hash = passGen(req);
+      req.body.hash = passGen(req.body.pass);
       delete req.body.pass;
     }
     await User.findOneAndUpdate({ _id: req.session.uid }, req.body, (err, user) => {
@@ -149,6 +152,10 @@ app.put('/api/users/update', isUser, async (req, res) => {
 
 app.put('/api/users/aupdate', isAdmin, async (req, res) => {
   try {
+    if (req.body.pass) {
+      req.body.hash = passGen(req.body.pass);
+      delete req.body.pass;
+    }
     const uid = req.body.uid;
     delete req.body.uid;
     if (req.body.isAdmin) {
