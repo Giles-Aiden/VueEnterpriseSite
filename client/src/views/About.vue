@@ -5,13 +5,26 @@
     
 
     <AboutCard 
-    itemName="About Us"
-    itemBody=" Content About them "
+    itemName="The Company"
+    itemBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque ornare aenean euismod elementum nisi quis eleifend."
     :img="require('@/assets/stock_photo1.jpg')"
     imgAlt=""/>
+    
     <AboutCard 
-    itemName="About Us"
-    itemBody=" Content About them "
+    itemName="Where We Started"
+    itemBody="Dolor morbi non arcu risus quis varius. Vitae auctor eu augue ut lectus arcu. Sem integer vitae justo eget magna fermentum iaculis. Rhoncus mattis rhoncus urna neque viverra justo. Sit amet risus nullam eget felis eget nunc lobortis. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Sapien faucibus et molestie ac feugiat sed lectus. "
+    :img="require('@/assets/stock_photo2.jpg')"
+    imgAlt=""/>
+
+    <AboutCard 
+    itemName="Our Journey"
+    itemBody="Enim facilisis gravida neque convallis. Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Facilisis leo vel fringilla est. Egestas sed sed risus pretium. Sit amet volutpat consequat mauris nunc congue nisi vitae suscipit. "
+    :img="require('@/assets/stock_photo2.jpg')"
+    imgAlt=""/>
+
+    <AboutCard 
+    itemName="Idea behind the Product"
+    itemBody="Sit amet tellus cras adipiscing enim. Risus nullam eget felis eget nunc lobortis mattis aliquam. Eget nunc scelerisque viverra mauris in aliquam. Malesuada proin libero nunc consequat interdum. Pulvinar mattis nunc sed blandit libero. "
     :img="require('@/assets/stock_photo2.jpg')"
     imgAlt=""/>
   </div>
@@ -115,5 +128,9 @@ div.vs-card {
 #responsive {
   height: auto;
   border: none;
+}
+
+.center-grid{
+  display: flex;
 }
 </style>
