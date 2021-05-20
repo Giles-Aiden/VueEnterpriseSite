@@ -13,13 +13,13 @@
         to="/store/editor"
         @click.native="progress = 50"
         class="storeLink"
-        ><vs-button>Edit Logo Image</vs-button></router-link
+        ><vs-button class="button-color">Edit Logo Image</vs-button></router-link
       >
       <router-link
         to="/store/checkout"
         @click.native="progress = 90"
         class="storeLink"
-        ><vs-button>Purchase</vs-button></router-link
+        ><vs-button class="button-color">Purchase</vs-button></router-link
       >
     </div>
     <router-view />
@@ -66,6 +66,7 @@ $shadow: #113f70;
   margin: auto;
   .storeLink {
     width: 100%;
+    text-decoration: none;
     * {
       width: 80%;
     }
