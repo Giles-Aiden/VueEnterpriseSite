@@ -1,5 +1,5 @@
 <template>
-    <div class="itemViewContainer">
+    <div class="itemViewContainer" @click.self="close">
         <div class="itemView">
             <i class="closeButton fa fa-close" @click="close"></i>
             <div class="imgContainer">
@@ -9,6 +9,7 @@
                 <h1>{{itemName}}</h1>
                 <p>{{itemBody}}</p>
             </div>
+            <button class="addToCart">Add to cart</button>
         </div>
     </div>
 </template>
@@ -31,6 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_variables.scss';
     .itemViewContainer {
         position: fixed;
         left: 0;
@@ -45,11 +47,39 @@ export default {
             position: relative;
             height: 100%;
             border-radius: 2rem;
-            padding-block: auto;
-            column-count: 2;
-            column-fill: balance;
-            align-items: center;
-            vertical-align: middle
+            display: flex;
+            .contentContainer {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 50%;
+            }
+            .imgContainer {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 50%;
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+            .addToCart {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 1.5em;
+                border: none;
+                outline: none;
+                background: $bg-main;
+                color: white;
+                padding: 1em 1.5em;
+                border-radius: 1em;
+            }
         }
         .closeButton {
             font-size: 2rem;

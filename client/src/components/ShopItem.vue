@@ -50,11 +50,10 @@ export default {
   height: 360px;
   border-radius: 15px;
   margin-block: 0.5rem;
-  padding: 0 1.5rem;
+  padding: 1.5rem;
   background: white;
   position: relative;
   display: flex;
-  align-items: flex-end;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
@@ -63,7 +62,7 @@ export default {
 }
 .card:hover .info {
   opacity: 1;
-  transform: translateY(10px);
+  transform: translateY(-30px);
   p {
     opacity: 1;
   }
@@ -101,7 +100,10 @@ export default {
   cursor: pointer;
   z-index: 3;
   color: white;
-  transform: translateY(40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transition: 0.5s;
   .title {
     opacity: 1 !important;
