@@ -110,6 +110,7 @@ app.post('/api/users/register', async (req, res) => {
       user = new User(req.body);
       user.save(err => {
         if (err) res.status(406).json(err).send();
+<<<<<<< HEAD
         else res.status(201).json({"uid": user._id}).send();
       })
     } catch (err) {
