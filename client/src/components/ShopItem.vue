@@ -1,20 +1,24 @@
 <template>
-  <div class="card"><img :src="img" :alt="imgAlt"/>
-    <div class="info"  @click="isOpen = true">
-      <h1 class="title">{{itemName}}</h1>
-      <p>{{itemBody}}</p>
+  <div class="card">
+    <img :src="img" :alt="imgAlt" />
+    <div class="info" @click="isOpen = true">
+      <h1 class="title">{{ itemName }}</h1>
+      <p>{{ itemBody }}</p>
       <button>Add to cart</button>
     </div>
-    <ItemView v-if="isOpen" @close="close()" 
-    :itemName="itemName"
-    :itemBody="itemBody"
-    :img="img"
-    :imgAlt="imgAlt"/>
+    <ItemView
+      v-if="isOpen"
+      @close="close()"
+      :itemName="itemName"
+      :itemBody="itemBody"
+      :img="img"
+      :imgAlt="imgAlt"
+    />
   </div>
 </template>
 
 <script>
-import ItemView from '@/components/itemView.vue'
+import ItemView from '@/components/itemView.vue';
 export default {
   name: 'ShopItem',
   components: {
@@ -29,13 +33,13 @@ export default {
   data() {
     return {
       isOpen: false,
-    }
+    };
   },
   methods: {
     close() {
       this.isOpen = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
