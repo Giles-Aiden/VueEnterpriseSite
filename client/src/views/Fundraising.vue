@@ -4,9 +4,7 @@
     <!-- Image Scrolling Section -->
 
     <div id="imageArea">
-      <!--<button class="arrows" id="leftArrow"><img src="img/arrowLeft.png"></button>-->
       <div id="imageScroll">
-        <!--   -->
         <carousel
           :per-page="2"
           :navigation-enabled="true"
@@ -38,10 +36,8 @@
           </slide>
         </carousel>
       </div>
-      <!--<button class="arrows"  id="rightArrow"><img src="img/arrowRight.png"></button>-->
     </div>
 
-    <hr />
     <!-- Main Content -->
     <div id="contentArea">
       <h2>Fundraising Information</h2>

@@ -17,15 +17,11 @@
       <router-link to="/wholesale" class="link" tag="li"
         ><li><p>Marketing and Business</p></li></router-link
       >
-      <router-link to="/cart" class="link" tag="li"
-        ><i class="fa fa-shopping-cart fa-2x"></i
-      ></router-link>
     </ul>
     <h1 class="title">{{ title }}</h1>
     <div class="icons">
       <i class="fa fa-bars fa-2x bars hidden"></i>
       <i class="fa fa-close fa-2x close hidden"></i>
-      <i class="cartIcon fa fa-shopping-cart fa-2x hidden"></i>
     </div>
     <ul class="dropdownNav">
       <router-link to="/" class="link" tag="li"
@@ -63,10 +59,10 @@ nav {
   background-repeat: no-repeat;
   background-position: center center;
   backdrop-filter: blur(100px);
-  background-size: 100%;
+  background-size: cover;
   color: $navTextColor;
-  font-size: 2vh;
-  height: calc(30vh + 5px);
+  font-size: 1em;
+  height: 15rem;
   top: 0;
   left: 0;
   width: 100%;
@@ -80,7 +76,7 @@ nav {
   .navBar {
     margin: 0;
     padding: 0;
-    height: 5vh;
+    height: 3rem;
     list-style-type: none;
     display: flex;
     justify-content: space-around;
@@ -119,7 +115,7 @@ nav {
   display: block;
   position: absolute;
   width: 100%;
-  top: 5vh;
+  top: 3rem;
   margin: 0;
   list-style-type: none;
   padding: 0;
@@ -164,7 +160,7 @@ input[type='checkbox'] {
 }
 @media screen and (max-width: 955px) {
   nav {
-    height: calc(36vh + 5px);
+    height: calc(18rem + 10px);
   }
   nav .title {
     font-size: 200%;
@@ -175,10 +171,11 @@ input[type='checkbox'] {
   }
   input[type='checkbox'] {
     display: block;
-    height: 5vh;
-    width: 5vh;
+    height: 4vh;
+    width: 4vh;
     border: none;
     opacity: 0;
+    margin: 0.5rem;
     cursor: pointer;
     &:checked ~ .icons .close {
       opacity: 1;
@@ -201,19 +198,14 @@ input[type='checkbox'] {
     place-items: center;
     visibility: visible;
     position: absolute;
-    width: 5vh;
-    height: 5vh;
+    width: 4vh;
+    height: 4vh;
     top: 0;
-    margin: 0.2rem;
+    margin: 0.5rem;
     cursor: pointer;
   }
   .cartIcon {
     right: 0;
-  }
-}
-@media screen and (max-width: 690px) {
-  nav {
-    background-size: auto 100%;
   }
 }
 @media screen and (max-width: 400px) {

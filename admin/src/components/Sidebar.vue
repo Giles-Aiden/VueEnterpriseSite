@@ -54,7 +54,7 @@
         
           <vs-sidebar-item id="users">
             <template #icon>
-              <i class="bx bx-user"></i>
+              <h1>U</h1>
             </template>
             <router-link to="/users">
             <h1>Users</h1>

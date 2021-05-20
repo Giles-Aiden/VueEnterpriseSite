@@ -80,10 +80,9 @@ export default {
     return {
       shopItems: [
         {
-          name:
-            'These titles should all totally be color and not size. Oh well.',
+          name: 'This is a cool title. (Awesome Sauce)',
           body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/logo.png'),
+          imgSrc: require('@/assets/bottles/24 oz Black Arizona.jpg'),
           imgAlt: 'Water Bottle Image',
         },
         {

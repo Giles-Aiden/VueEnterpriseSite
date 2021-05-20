@@ -5,28 +5,27 @@
         <br>
         <div id="colors">
             <h2>Colors:</h2>
-            <div class="color" v-for="color in colors" :key='color'>
+            <div class="color" v-for="(color, index) in colors" :key='color'>
                 <div :style="{'background-color': color }" style="width: 100%; height: 100%"></div>
-                <div class="delete" :id="{color}">X</div>
+                <div class="delete" @click="deleteColor({index})">X</div>
             </div>
-            <div class="color"><h2>+</h2></div>
+            <div class="color">
+                <form v-if="this.showing" @click="colorMenu();">   
+                    <h2>+</h2>
+                </form>      
+                <form v-else>
+                    <input type="color" :id="productName">
+                    <br>
+                    <vs-button type="button" @click="addColor({productName}); colorMenu();" id="add">Add</vs-button>
+                </form>
+            </div>
         </div>
+        <ProductAttribute productAttr="lids" :productAttrItems="['lid1','lid2','lid3']"></ProductAttribute>
+        <ProductAttribute productAttr="sizes" :productAttrItems="['20oz','40oz']"></ProductAttribute>
         <br>
-        <div id="lidType">
-            <h2>Lid Types:</h2>
-            <ul id="typeList">
-                <li v-for="type in types" :key="type"><h4 class="deletion">{{type}}</h4></li>
-            </ul>
-            <vs-button id="addType">Add Lid Type</vs-button>
-        </div>
-        <br>
-        <div id="size">
-            <h2>Sizes:</h2>
-            <pre>      </pre>
-            <ul id="sizeList">
-                <li v-for="size in sizes" :key="size"><h4>{{size}}</h4></li>
-            </ul>
-            <vs-button id="addSize">Add Size</vs-button>
+        <div id="menu">
+            <vs-button class="menuButton">Delete</vs-button>
+            <vs-button class="menuButton">Save</vs-button>
         </div>
     </div>
 </template>
@@ -42,19 +41,23 @@
 div.productCard{
     background-color: $bodyElementColor;
     color: $bodyElementTextColor;
-    width: 31%;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    width: 25rem;
     padding: 0.5rem;
     text-align: center;
     border-radius: 0.5rem;
     display: inline-block;
+    margin-block: 0.5rem;
     div#colors{
-        width: 100%;
         display: flex;
         justify-content:start;
+        align-items: center;
+        height: 6rem;
+        overflow-x: auto;
+        border: 0.1rem black groove;
+        margin: 0.5rem;
         div.color{
             width: 2rem;
+            min-width: 2rem;
             height: 2rem;
             border: black 0.1rem solid;
             margin-left: 0.5rem;
@@ -63,9 +66,35 @@ div.productCard{
                 width: 100%;
                 height: 100%;
             }
-            :hover{
-                background-color: black;
+            form{
+                width: 100%;
+                input[type="color"] {
+                    -webkit-appearance: none;
+                    border: none;
+                    width: 2rem;
+                    height: 2rem;
+                }
+                input[type="color"]::-webkit-color-swatch-wrapper {
+                    padding: 0;
+                }
+                input[type="color"]::-webkit-color-swatch {
+                    border: none;
+                }
+                #add{
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 1rem;
+                    background-color: $sidebarColor;
+                    color: white;
+                }
             }
+        }
+        input.color{
+            position: relative;
+            top: -2rem;
+            left: -2rem;
         }
     }
     div.delete{
@@ -73,42 +102,22 @@ div.productCard{
         top: -2.5rem;
         left: 1.25rem;
         background-color: red;
+        color: white;
         border: black 0.001rem solid;
         border-radius: 50%;
         width: 1.25rem;
         height: 1.25rem;
     }
-    div#lidType{
+   
+    div#menu{
         display: flex;
-        justify-content: start;
-        #typeList{
-            margin-left: 3rem;
-            .deletion{
-                :hover{
-                    color: red;
-                }
+        flex-flow: row wrap;
+        justify-content: space-around;
+        .menuButton{
+            background-color: $bg-secondary;
+            &:hover {
+                box-shadow: 0 .25rem .5rem $shadow;
             }
-        }
-        #addType{
-            background-color: $sidebarColor;
-            width: 10rem;
-            height: 2rem;
-            margin-left: 6rem;
-            margin-top: 2rem;
-        }
-    }
-        div#size{
-        display: flex;
-        justify-content: start;
-        #sizeList{
-            margin-left: 3rem;
-        }
-        #addSize{
-            background-color: $sidebarColor;
-            width: 10rem;
-            height: 2rem;
-            margin-left: 6rem;
-            margin-top: 2rem;
         }
     }
 }
@@ -116,30 +125,38 @@ div.productCard{
 </style>
 
 <script>
+import ProductAttribute from "@/components/ProductAttribute.vue";
+
 export default {
+    components: {ProductAttribute},
     props: [
         'productName',
         'productImage',
+        'productColors',
     ],
     data: function () {
         return {
-            flaskImg: require('@/assets/flask.jpg'),
-            colors: [
-                '#ff0000',
-                '#00ff00',
-                '#0000ff',
-                '#ff00ff',
-            ],
-            types: [
-                'lid1',
-                'lid2',
-                'lid3'
-            ],
-            sizes: [
-                '24oz',
-                '40oz'
-            ],
+            colors: this.productColors,
+            showing: true,
         };
-    }
+    },
+    methods:{
+        deleteColor: function(i){
+            console.log(this.colors);
+            this.colors.splice(i.index,1);
+        },
+        addColor: function(picker){
+            if(this.colors.indexOf(document.getElementById(picker.productName).value) == -1){
+                this.colors.push(document.getElementById(picker.productName).value);
+            }
+        },
+        colorMenu: function(){
+            if(this.showing){
+                this.showing = false;
+            }else{
+                this.showing = true;
+            }
+        },
+    },
 }
 </script>
