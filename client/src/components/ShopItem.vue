@@ -23,6 +23,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+<<<<<<< HEAD
 * {
   box-sizing: border-box;
 }
@@ -48,6 +49,23 @@ export default {
   transform: translateY(0px);
   p {
     opacity: 1;
+=======
+$bg-main: #185CA3;
+$bg-secondary: #6CACF0;
+$shadow: #113F70;
+
+.button-color {
+  background-color: $bg-main;
+  box-shadow: $shadow;
+}
+.shopItem {
+  margin-top: 1em;
+  .itemContain {
+    width: 20rem;
+    height: auto;
+    border-radius: 2.5em;
+    box-shadow: 20px 20px 30px 10px grey;
+>>>>>>> 01c1417 (Update Store.vue)
   }
   button {
     opacity: 1;
