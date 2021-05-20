@@ -10,7 +10,7 @@
               v-model="userSelections.lid"
             >
               <template #icon>
-                <i class="pi pi-check"></i>
+                <i class="pi pi-check button-color"></i>
               </template>
               {{ item.name }}
             </vs-checkbox>
@@ -36,6 +36,14 @@
 </template>
 
 <style lang="scss" scoped>
+$bg-main: #185ca3;
+$bg-secondary: #6cacf0;
+$shadow: #113f70;
+
+.button-color {
+  background-color: $bg-main;
+  box-shadow: $shadow;
+}
 .shopContain {
   height: 65vh;
   overflow-y: scroll;
