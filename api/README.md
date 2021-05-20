@@ -185,7 +185,7 @@ _Body:_
   /*
    * All update self options apply here
    * Aditional isAdmin option to create Administrators
-   * Removes admin if false, adds admin if true
+   * Removes admin if false, adds admin if true`
    */
   isAdmin: true
 }

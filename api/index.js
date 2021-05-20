@@ -105,10 +105,11 @@ app.post('/api/users/register', async (req, res) => {
   if (user) res.status(406).send("User Exists");
   else {
     try {
-      const uinfo = passGen(req);
+      req.body.hash = passGen(req);
+      delete req.body.pass;
       user = new User(uinfo);
       user.save(err => {
-        if (err) res.status(406).send();
+        if (err) res.status(406).json(err).send();
         else res.status(201).send(user._id);
       })
     } catch (err) {
