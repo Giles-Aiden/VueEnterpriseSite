@@ -35,10 +35,14 @@ $bg-main: #185ca3;
 $bg-secondary: #2486f0;
 $text-color: #fefefe;
 .shadow {
+<<<<<<< HEAD
   /*box-shadow: 18px $bg-secondary;*/
   box-shadow: 0.5rem 1rem 20px $bg-secondary;
   background: transparent;
   border-radius: 2rem;
+=======
+  background: transparent;
+>>>>>>> 7d9eabc (Merge of blackman branch)
   width: 100vw;
   display: flex;
   align-items: center;

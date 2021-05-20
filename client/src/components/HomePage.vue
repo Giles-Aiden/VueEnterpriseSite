@@ -1,5 +1,6 @@
 <template>
   <div>
+<<<<<<< HEAD
     <div class="center-grid">
       <TitleCard :titleCard="titleCard" />
     </div>
@@ -92,6 +93,96 @@
         <img src="@/assets/Fundraising Collage.png" alt="" />
       </div>
     </div>
+=======
+    <div class="header">
+      <TitleCard :titleCard="titleCard" />
+      <div class="container">
+        <div class="card">
+          <h2>Custom</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
+            placeat amet aliquid repudiandae iure modi libero eveniet
+            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Impedit, nemo!
+          </p>
+
+          <vs-button
+            :active="active == 1"
+            @click="active = 1"
+            :color="buttonColor"
+            type="filled"
+          >
+            Shop Now!
+          </vs-button>
+        </div>
+        <div class="card">
+          <h2>Professional</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
+            placeat amet aliquid repudiandae iure modi libero eveniet
+            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Impedit, nemo!
+          </p>
+
+          <vs-button
+            :active="active == 1"
+            @click="active = 1"
+            :color="buttonColor"
+            type="filled"
+          >
+            Shop Now!
+          </vs-button>
+        </div>
+        <div class="card">
+          <h2>Precise</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
+            placeat amet aliquid repudiandae iure modi libero eveniet
+            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Impedit, nemo!
+          </p>
+
+          <vs-button
+            :active="active == 1"
+            @click="active = 1"
+            :color="buttonColor"
+            type="filled"
+          >
+            Shop Now!
+          </vs-button>
+        </div>
+      </div>
+    </div>
+    <div id="fundraising">
+      <h1>Fundraising</h1>
+    </div>
+    <div class="container">
+      <div class="card">
+        <h2>Professional</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
+          placeat amet aliquid repudiandae iure modi libero eveniet
+          reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+          amet consectetur adipisicing elit. Impedit, nemo!
+        </p>
+
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
+          :color="buttonColor"
+          type="filled"
+        >
+          Shop Now!
+        </vs-button>
+      </div>
+      <div class="card">
+        <img
+          src="@/assets/Fundraising Collage.png"
+          alt="Cool Laser Engraved Bottles"
+        />
+      </div>
+    </div>
+>>>>>>> 7d9eabc (Merge of blackman branch)
     <Footer />
   </div>
 </template>
@@ -128,6 +219,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+<<<<<<< HEAD
 $bg-main: #185ca3;
 $bg-secondary: #2486f0;
 $text-color: #fefefe;
@@ -183,6 +275,53 @@ $card-background: #fff;
     transform: none;
     box-shadow: none;
   }
+=======
+@import '@/assets/styles/_variables.scss';
+.header {
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  padding-block: 3rem;
+}
+.card {
+  width: 30rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    text-align: left;
+    padding-inline: 2.5rem;
+    margin-bottom: 6rem;
+    &::first-letter {
+      padding-left: 2rem;
+    }
+  }
+  img {
+    max-width: 100%;
+    margin: 1rem;
+  }
+  button {
+    background: $bg-secondary;
+    color: $text-color;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0.25em 0.5em;
+    margin: 1.5rem;
+    border-radius: 1em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+>>>>>>> 7d9eabc (Merge of blackman branch)
 }
 #fundraising {
   background-image: url('../assets/fundraisingHomePage.png');
@@ -196,9 +335,13 @@ $card-background: #fff;
   left: 0;
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
   flex-direction: row;
   margin: 0;
 }
+<<<<<<< HEAD
 
 .title {
   z-index: 0;
@@ -231,4 +374,6 @@ $card-background: #fff;
   margin: 1rem;
   grid-gap: 1rem;
 }
+=======
+>>>>>>> 7d9eabc (Merge of blackman branch)
 </style>

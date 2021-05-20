@@ -18,6 +18,7 @@
         <i class="pi pi-window-minimize" />
       </vs-button>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <vs-button @click="$refs.editor.set('rect')"> <i class="pi pi-tablet"/> </vs-button>
       <vs-button @click="$refs.editor.set('circle')"> <i class="pi pi-circle-off"/> </vs-button>
       <vs-button @click="$refs.editor.set('arrow')"> <i class="pi pi-arrow-circle-up"/> </vs-button>
@@ -32,9 +33,13 @@
       /></vs-button>
       <vs-button @click="$refs.editor.set('arrow')"
         ><i class="pi pi-arrow-circle-up"
+=======
+      <vs-button @click="$refs.editor.undo()"
+        ><i class="pi pi-undo"
+>>>>>>> 7d9eabc (Merge of blackman branch)
       /></vs-button>
-      <vs-button @click="$refs.editor.set('freeDrawing')"
-        ><i class="pi pi-pencil"
+      <vs-button @click="$refs.editor.redo()"
+        ><i class="pi pi-refresh"
       /></vs-button>
       <vs-button @click="$refs.editor.clear()"
         ><i class="pi pi-trash"
