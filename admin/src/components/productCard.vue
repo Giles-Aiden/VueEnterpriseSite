@@ -5,8 +5,10 @@
     <br />
     <div id="price">
       <h2>Price: ${{ price }}</h2>
-      <input type="number" :id="productName">
-      <vs-button @click="changePrice({ productName })" class="priceButton">Change Price</vs-button>
+      <input type="number" :id="productName" />
+      <vs-button @click="changePrice({ productName })" class="priceButton"
+        >Change Price</vs-button
+      >
     </div>
     <div id="colors">
       <h2>Colors:</h2>
@@ -70,11 +72,11 @@ div.productCard {
   text-align: center;
   border-radius: 0.5rem;
   display: inline-block;
-  div#price{
+  div#price {
     border: 0.1rem black groove;
     display: flex;
     justify-content: space-evenly;
-    .priceButton{
+    .priceButton {
       background-color: $sidebarColor;
     }
   }
@@ -120,28 +122,28 @@ div.productCard {
         }
       }
     }
-    div.delete{
-        position: relative;
-        top: -2.5rem;
-        left: 1.25rem;
-        background-color: red;
-        color: white;
-        border: black 0.001rem solid;
-        border-radius: 50%;
-        width: 1.25rem;
-        height: 1.25rem;
+    div.delete {
+      position: relative;
+      top: -2.5rem;
+      left: 1.25rem;
+      background-color: red;
+      color: white;
+      border: black 0.001rem solid;
+      border-radius: 50%;
+      width: 1.25rem;
+      height: 1.25rem;
     }
-   
-    div#menu{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        .menuButton{
-            background-color: $bg-secondary;
-            &:hover {
-                box-shadow: 0 .25rem .5rem $shadow;
-            }
+
+    div#menu {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      .menuButton {
+        background-color: $bg-secondary;
+        &:hover {
+          box-shadow: 0 0.25rem 0.5rem $shadow;
         }
+      }
     }
   }
 }
@@ -183,7 +185,7 @@ export default {
     },
     changePrice: function (product) {
       this.price = document.getElementById(product.productName).value;
-    }
+    },
   },
 };
 </script>

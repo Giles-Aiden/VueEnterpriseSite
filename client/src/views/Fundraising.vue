@@ -81,7 +81,7 @@
 
 <!-- The style rules for the page -->
 <style lang="scss" scoped>
-@import "@/assets/styles/_variables.scss";
+@import '@/assets/styles/_variables.scss';
 .example-slide {
   align-items: center;
   background-color: #666;
@@ -269,7 +269,7 @@ width: 100%;
 <script>
 // @ is an alias to /src
 import Navbar from "@/components/Navbar.vue";
-//import VueCarousel from 'vue-carousel';
+import MyCarousel from "@/components/MyCarousel.vue";
 
 export default {
   name: 'Fundraising',

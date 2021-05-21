@@ -2,7 +2,7 @@
   <div id="Sales">
     <Sidebar></Sidebar>
     <div class="center grid" id="sales">
-<!--       <vs-row>
+      <!--       <vs-row>
         <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4">
           <div class="salesData">
             <h2>Earnings</h2>
@@ -65,7 +65,10 @@
             <h2>Sales By The Day</h2>
             <hr />
             <div style="backgroundcolor: white; color: black; height: 45rem">
-              <SalesChart :dates="['5/8','5/9','5/10','5/11','5/12','5/13','5/14',]" :sales="[65, 59, 80, 81, 56, 55, 40]"></SalesChart>
+              <SalesChart
+                :dates="['5/8', '5/9', '5/10', '5/11', '5/12', '5/13', '5/14']"
+                :sales="[65, 59, 80, 81, 56, 55, 40]"
+              ></SalesChart>
             </div>
           </div>
         </vs-col>
@@ -92,7 +95,7 @@
 div#sales {
   text-align: center;
   margin-left: 50px;
-  #statistics{
+  #statistics {
     display: flex;
     justify-content: space-between;
   }

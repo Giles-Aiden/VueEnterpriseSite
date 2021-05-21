@@ -2,19 +2,23 @@
   <div id="types">
     <h2>{{ productAttr.charAt(0).toUpperCase() + productAttr.slice(1) }}:</h2>
     <ul id="typeList">
-      <li v-for="(type, index) in types" :key="type" style="listStyleType: none">
+      <li
+        v-for="(type, index) in types"
+        :key="type"
+        style="liststyletype: none"
+      >
         <h4 class="deletion" @click="deleteType({ index })">{{ type }}</h4>
       </li>
     </ul>
-    <vs-button id="addType" v-if="adding" @click="addType()"
-      >Add
-      {{
-        productAttr.charAt(0).toUpperCase() + productAttr.slice(1)
-      }}</vs-button
-    >
+    <vs-button id="addType" v-if="adding" @click="addType()">
+      Add
+      {{ productAttr.charAt(0).toUpperCase() + productAttr.slice(1) }}
+    </vs-button>
     <div class="inputDiv" v-else>
       <input class="typeInput" v-model="attrInput" />
-      <vs-button @click="addType(attrInput)" class="typeInputButton"> + </vs-button>
+      <vs-button @click="addType(attrInput)" class="typeInputButton">
+        +
+      </vs-button>
     </div>
     <br />
   </div>
@@ -27,61 +31,46 @@
   padding: 0;
   margin: 0;
 }
-div#types{
-    display: flex;
-    justify-content: space-between;
-    border: 0.1rem black groove;
-    margin: 0.5rem;
-    padding: 0.25rem;
-    h2{
-        flex-grow: 1;
-    }
-    #typeList{
-        flex-grow: 1;
-        margin-left: 3rem;
-        li{
-            :hover{
-                text-decoration: red solid line-through;
-            }
-        }
-    }
-    .inputDiv{
-        display: flex;
-        justify-content: flex-end;
-        text-align: right;
-        .typeInputButton{
-            background-color: $bg-secondary;
-            height: 2rem;
-            position: relative;
-            top: 2rem;
-            left: -2rem;
-            &:hover {
-                box-shadow: 0 .25rem .5rem $shadow;
-            }
-        }
-    }
-    #addType{
-        background-color: $bg-secondary;
-        width: 10rem;
-        height: 2rem;
-        margin-top: 2rem;
-        &:hover {
-            box-shadow: 0 .25rem .5rem $shadow;
-        }
+div#types {
+  display: flex;
+  justify-content: space-between;
+  border: 0.1rem black groove;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  h2 {
+    flex-grow: 1;
+  }
+  #typeList {
+    flex-grow: 1;
+    margin-left: 3rem;
+    li {
+      :hover {
+        text-decoration: red solid line-through;
+      }
     }
   }
   .inputDiv {
     display: flex;
-    justify-content: space-evenly;
-    width: 30%;
+    justify-content: flex-end;
+    text-align: right;
     .typeInputButton {
-      background-color: $sidebarColor;
-      width: 2rem;
+      background-color: $bg-secondary;
       height: 2rem;
-/*       position: relative;
+      position: relative;
       top: 2rem;
-      left: -2rem; */
-      position: absolute;
+      left: -2rem;
+      &:hover {
+        box-shadow: 0 0.25rem 0.5rem $shadow;
+      }
+    }
+  }
+  #addType {
+    background-color: $bg-secondary;
+    width: 10rem;
+    height: 2rem;
+    margin-top: 2rem;
+    &:hover {
+      box-shadow: 0 0.25rem 0.5rem $shadow;
     }
   }
   #addType {

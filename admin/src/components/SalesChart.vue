@@ -6,38 +6,41 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
 
 <script>
 export default {
-  props: [
-    "dates",
-    "sales"
-  ],
+  props: ["dates", "sales"],
   data() {
     return {
       basicData: {
-          labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          datasets: [
-              {
-                  label: 'Sales',
-                  backgroundColor: '#185CA3',
-                  data: [65, 59, 80, 81, 56, 55, 40],
-              }
-          ]
+        labels: [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        datasets: [
+          {
+            label: "Sales",
+            backgroundColor: "#185CA3",
+            data: [65, 59, 80, 81, 56, 55, 40],
+          },
+        ],
       },
       basicOptions: {
         plugins: {
           legend: {
             labels: {
               display: true,
-              color: 'rgb(255, 99, 132)'
-            }
-          }
-        }
-      }
+              color: "rgb(255, 99, 132)",
+            },
+          },
+        },
+      },
     };
   },
 };
