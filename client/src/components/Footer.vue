@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shadow: #113f70;
+$shadow: grey;
 $text-color: white;
 
 .center {
@@ -57,10 +57,31 @@ $text-color: white;
   .contact {
     text-align: left;
   }
+  .background {
+    background-image: url('../assets/navBackgroundBottles.png');
+    opacity: 20%;
+
+  }
   background-size: cover;
   background-position: center;
 }
-
+.item {
+  flex: 1 1 0px;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 1rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    margin-block: 1rem;
+    max-width: 100%;
+    min-width: 250px;
+    max-height: 100px;
+  }
+}
 .icons {
   display: flex;
   .icon {
