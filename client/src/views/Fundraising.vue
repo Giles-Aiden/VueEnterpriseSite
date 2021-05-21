@@ -2,32 +2,29 @@
   <div class="Fundraising">
     <Navbar title="Fundraising" />
     <!-- Main Content -->
+    <!-- Will cover the fundraising campaign and all of its necessary details -->
     <div id="contentArea">
       <h2>Fundraising Information</h2>
       <div id="info">
         <div>
           <h4>How does it work?</h4>
-          <hr />
+          <hr>
           <p>
-            Your organization can earn money while selling a great product that
-            is popular, customizable, and environmentally friendly.
+            Your organization can earn money while selling a great product that is popular, customizable, and environmentally friendly. 
           </p>
         </div>
 
         <div>
           <h4>How do I benefit?</h4>
-          <hr />
+          <hr>
           <p>
-            By participating in a WFBM laser engraving fundraiser, your
-            organization can earn money in a fun and effective way. Based on our
-            recommended sales pricing of $25 for the 24 oz and $40 for the 40
-            oz, your organization will earn $5 or $10 respectively per bottle.
+            By participating in a WFBM laser engraving fundraiser, your organization can earn money in a fun and effective way. Based on our recommended sales pricing of $25 for the 24 oz and $40 for the 40 oz, your organization will earn $5 or $10 respectively per bottle.
           </p>
         </div>
 
         <div>
           <h4>Why your organization should participate</h4>
-          <hr />
+          <hr>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -41,10 +38,9 @@
 
         <div>
           <h4>Sales &#38; Delivery</h4>
-          <hr />
+          <hr>
           <p>
-            A 2-3 week sales window is recommended for your fundraiser but you
-            are free to set a longer or shorter time frame.
+            A 2-3 week sales window is recommended for your fundraiser but you are free to set a longer or shorter time frame.
           </p>
         </div>
       </div>
@@ -80,7 +76,6 @@
         </carousel>
       </div>
     </div>
-    <MyCarousel />
   </div>
 </template>
 
@@ -112,9 +107,9 @@ hr {
 }
 /* -- CAROUSEL STYLES -- */
 .VueCarousel-slide {
-  visibility: visible;
-  flex-basis: 50%;
-  width: 100%;
+visibility: visible;
+flex-basis: 50%;
+width: 100%;
 }
 #imageArea {
   display: flex;
@@ -274,7 +269,6 @@ hr {
 <script>
 // @ is an alias to /src
 import Navbar from "@/components/Navbar.vue";
-import MyCarousel from "@/components/MyCarousel.vue";
 //import VueCarousel from 'vue-carousel';
 
 export default {
@@ -323,11 +317,14 @@ export default {
         '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
         '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
       ],
+      
     };
   },
+
 };
 
-var resizeEvent = window.document.createEvent("UIEvents");
-resizeEvent.initUIEvent("resize", true, false, window, 0);
+var resizeEvent = window.document.createEvent('UIEvents');
+resizeEvent.initUIEvent('resize', true, false, window, 0);
 window.dispatchEvent(resizeEvent);
+
 </script>
