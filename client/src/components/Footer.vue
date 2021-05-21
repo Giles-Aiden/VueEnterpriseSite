@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shadow: grey;
+$shadow: #113f70;
 $text-color: white;
 
 .center {
@@ -55,11 +55,6 @@ $text-color: white;
   flex-wrap: wrap;
   .contact {
     text-align: left;
-  }
-  .background {
-    background-image: url('../assets/navBackgroundBottles.png');
-    opacity: 20%;
-
   }
   background-size: cover;
   background-position: center;
@@ -79,12 +74,14 @@ $text-color: white;
     max-width: 100%;
     min-width: 250px;
     max-height: 100px;
+    filter: brightness(0) invert(1);
   }
 }
 .icons {
   display: flex;
   .icon {
     display: flex;
+    font-size: 200%;
   }
 }
 
