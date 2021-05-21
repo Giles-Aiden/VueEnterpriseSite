@@ -275,7 +275,6 @@ export default {
   name: 'Fundraising',
   components: {
     Navbar,
-    MyCarousel,
   },
   data() {
     return {
