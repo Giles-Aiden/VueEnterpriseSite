@@ -6,20 +6,23 @@
       <h3>Phone- (480)-226-6529</h3>
       <h3>Email- Sales@WFBMlaserengraving.com</h3>
     </div>
-    <div></div>
-    <div>
-      <div>
-        <h1>Social Media</h1>
-      </div>
+    <div class="logo item">
+      <img src="@/assets/WFBM Logo.png" alt="">
+    </div>
+    <div class="icons item">
+      <vs-button
+        class="button-icon"
+        icon
+        color="facebook"
+        href="http://business.facebook.com/WFBM-Laser-Engraving-102699948274177/"
+      >
+        <i class="fa fa-facebook-square"></i>
+      </vs-button>
 
-      <div class="icons">
-        <vs-button
-          class="button-icon"
-          icon
-          color="facebook"
-          href="http://business.facebook.com/WFBM-Laser-Engraving-102699948274177/"
-        >
-          <i class="fa fa-facebook-square"></i>
+      <div class="icon">
+        <vs-button class="button-icon" icon color="twitter">
+          <i class="fa fa-twitter-square"></i>
+          <!--@LaserWfbm-->
         </vs-button>
 
         <div class="icon">
@@ -32,30 +35,27 @@
         <vs-button class="button-icon" icon color="linkedin">
           <i class="fa fa-linkedin-square"></i>
         </vs-button>
-
-        <div class="icon">
-          <vs-button class="button-icon" icon color="instagram">
-            <i class="fa fa-instagram"></i>
-            <!--@wfbmlaserengraving-->
-          </vs-button>
-        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-@import '../assets/styles/_variables.scss';
-ul {
-  background: red;
+<script>
+export default {
+  name: 'footer',
 }
+</script>
+
+<style lang="scss" scoped>
+$shadow: #113f70;
+$text-color: white;
 
 .center {
   display: flex;
   justify-content: space-around;
-  .background {
-    background-image: url('../assets/navBackgroundBottles.png');
-    opacity: 20%;
+  flex-wrap: wrap;
+  .contact {
+    text-align: left;
   }
   background-size: cover;
   background-position: center;
@@ -63,8 +63,6 @@ ul {
 
 .icons {
   display: flex;
-  float: right;
-  flex-wrap: wrap;
   .icon {
     display: flex;
   }

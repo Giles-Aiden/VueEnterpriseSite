@@ -61,7 +61,6 @@
     </div>
     <div id="fundraising">
       <h1>Fundraising</h1>
-    </div>
     <div class="container">
       <div class="card">
         <h2>Professional</h2>
@@ -88,7 +87,8 @@
         />
       </div>
     </div>
-    <Footer/>
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -142,6 +142,8 @@ export default Vue.extend({
   border-radius: 1rem;
   margin-block: 3rem;
   overflow: hidden;
+  background: white;
+  color: black;
   p {
     text-align: left;
     padding-inline: 2.5rem;
@@ -173,23 +175,19 @@ export default Vue.extend({
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
 }
 #fundraising {
   background-image: url('../assets/fundraisingHomePage.png');
   background-repeat: no-repeat;
   background-position: center;
-  backdrop-filter: blur(100px);
-  background-size: 100%;
-  font-size: 2vh;
-  height: calc(30vh + 5px);
-  top: 0;
-  left: 0;
+  backdrop-filter: grayscale(1);
+  background-size: cover;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   color: white;
-  flex-direction: row;
-  margin: 0;
 }
 </style>
