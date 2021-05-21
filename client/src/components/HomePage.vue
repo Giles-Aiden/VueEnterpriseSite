@@ -1,97 +1,5 @@
 <template>
   <div>
-    <div class="center-grid">
-      <TitleCard :titleCard="titleCard" />
-    </div>
-    <div class="center-grid">
-      <div class="card">
-        <h2>Custom</h2>
-        <p class="cardText">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-          suscipit exercitationem voluptatibus atque similique sunt beatae hic
-          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
-          similique sunt beatae hic aut aperiam tenetur.
-        </p>
-        <!--<button class="cardButton">Shop Now!</button>-->
-        <vs-button
-          :active="active == 1"
-          @click="active = 1"
-          :color="buttonColor"
-          type="filled"
-        >
-          Shop Now!
-        </vs-button>
-      </div>
-      <div class="card">
-        <h2>Professional</h2>
-        <p class="cardText">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-          suscipit exercitationem voluptatibus atque similique sunt beatae hic
-          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
-          similique sunt beatae hic aut aperiam tenetur.
-        </p>
-        <!-- <button class="cardButton">Check it out!</button> -->
-        <vs-button
-          :active="active == 1"
-          @click="active = 1"
-          :color="buttonColor"
-          type="filled"
-        >
-          Check it out!
-        </vs-button>
-      </div>
-      <div class="card">
-        <h2>Precise</h2>
-        <p class="cardText">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-          suscipit exercitationem voluptatibus atque similique sunt beatae hic
-          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
-          similique sunt beatae hic aut aperiam tenetur. Lorem ipsum dolor sit
-          amet.
-        </p>
-        <!-- <button class="cardButton">Tell me more!</button> -->
-        <vs-button
-          :active="active == 1"
-          @click="active = 1"
-          :color="buttonColor"
-          type="filled"
-        >
-          Tell me more!
-        </vs-button>
-      </div>
-    </div>
-
-    <div class="subtitleCard">
-      <h1>Fundraising</h1>
-    </div>
-
-    <div class="center-grid">
-      <div class="card">
-        <h2>More About Our Fundraisers</h2>
-        <p class="cardText">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-          suscipit exercitationem voluptatibus atque similique sunt beatae hic
-          aut aperiam tenetur.Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Nesciunt suscipit exercitationem voluptatibus atque
-          similique sunt beatae hic aut aperiam tenetur.
-        </p>
-        <!-- <button class="cardButton">Check it out!</button> -->
-        <vs-button
-          :active="active == 1"
-          @click="active = 1"
-          :color="buttonColor"
-          type="filled"
-        >
-          Check it out!
-        </vs-button>
-      </div>
-      <div class="card imgCard">
-        <img src="@/assets/Fundraising Collage.png" alt="" />
-      </div>
-    </div>
     <div class="header">
       <TitleCard :titleCard="titleCard" />
       <div class="container">
@@ -123,8 +31,8 @@
           </p>
 
           <vs-button
-            :active="active == 1"
-            @click="active = 1"
+            :active="active == 2"
+            @click="active = 2"
             :color="buttonColor"
             type="filled"
           >
@@ -141,8 +49,8 @@
           </p>
 
           <vs-button
-            :active="active == 1"
-            @click="active = 1"
+            :active="active == 3"
+            @click="active = 3"
             :color="buttonColor"
             type="filled"
           >
@@ -180,7 +88,7 @@
         />
       </div>
     </div>
-    <Footer />
+    <Footer/>
   </div>
 </template>
 
@@ -230,6 +138,10 @@ export default Vue.extend({
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 5px 5px 10px $shadow;
+  border-radius: 1rem;
+  margin-block: 3rem;
+  overflow: hidden;
   p {
     text-align: left;
     padding-inline: 2.5rem;
@@ -279,37 +191,5 @@ export default Vue.extend({
   color: white;
   flex-direction: row;
   margin: 0;
-}
-
-.title {
-  z-index: 0;
-  margin: calc((25vh + 5px) / 2);
-  font-size: 250%;
-  color: $text-color;
-}
-.subtitleCard {
-  background-image: url('../assets/fundraisingHomePage.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  backdrop-filter: blur(100px);
-  background-size: cover;
-  color: white;
-  font-size: 1.5em;
-  height: calc(20rem + 5px);
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  h1 {
-    margin-block: auto;
-  }
-}
-.center-grid {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  margin: 1rem;
-  grid-gap: 1rem;
 }
 </style>

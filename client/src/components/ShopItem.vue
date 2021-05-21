@@ -103,9 +103,14 @@ $shadow: #113f70;
 }
 .card .info {
   position: relative;
+  height: 100%;
+  cursor: pointer;
   z-index: 3;
   color: white;
-  transform: translateY(30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transition: 0.5s;
   .title {
     opacity: 1 !important;

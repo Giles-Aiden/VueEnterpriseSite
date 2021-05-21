@@ -35,11 +35,8 @@ $bg-main: #185ca3;
 $bg-secondary: #2486f0;
 $text-color: #fefefe;
 .shadow {
-  /*box-shadow: 18px $bg-secondary;*/
-  box-shadow: 0.5rem 1rem 20px $bg-secondary;
   background: transparent;
-  border-radius: 2rem;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
