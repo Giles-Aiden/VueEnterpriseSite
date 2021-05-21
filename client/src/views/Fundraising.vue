@@ -269,7 +269,6 @@ width: 100%;
 <script>
 // @ is an alias to /src
 import Navbar from "@/components/Navbar.vue";
-import MyCarousel from "@/components/MyCarousel.vue";
 
 export default {
   name: 'Fundraising',
