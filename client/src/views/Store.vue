@@ -13,7 +13,9 @@
         to="/store/editor"
         @click.native="progress = 50"
         class="storeLink"
-        ><vs-button class="button-color">Edit Logo Image</vs-button></router-link
+        ><vs-button class="button-color"
+          >Edit Logo Image</vs-button
+        ></router-link
       >
       <router-link
         to="/store/checkout"

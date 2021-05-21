@@ -8,7 +8,6 @@ export default {
   components: {},
 };
 </script>
- 
 
 <style lang="scss" scoped>
 $bg-main: #185ca3;

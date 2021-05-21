@@ -1,6 +1,5 @@
 <template>
   <div>
-<<<<<<< HEAD
     <div class="center-grid">
       <TitleCard :titleCard="titleCard" />
     </div>
@@ -93,7 +92,6 @@
         <img src="@/assets/Fundraising Collage.png" alt="" />
       </div>
     </div>
-=======
     <div class="header">
       <TitleCard :titleCard="titleCard" />
       <div class="container">
@@ -182,7 +180,6 @@
         />
       </div>
     </div>
->>>>>>> 7d9eabc (Merge of blackman branch)
     <Footer />
   </div>
 </template>
@@ -219,63 +216,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
-$bg-main: #185ca3;
-$bg-secondary: #2486f0;
-$text-color: #fefefe;
-$card-background: #fff;
-.card {
-  padding: 1rem;
-  width: 25rem;
-  position: relative;
-
-  box-shadow: 0.5rem 1rem 20px $bg-secondary;
-  background: $card-background;
-  border-radius: 2rem;
-
-  transition: transform 100ms ease-in-out, box-shadow 100ms ease-in-out;
-  .cardText {
-    padding-inline: 1rem;
-    margin-bottom: 4rem;
-    text-align: left;
-    &::first-letter {
-      margin-left: 2rem;
-    }
-  }
-  .cardButton {
-    background: $bg-main;
-    padding: 0.5rem 1rem;
-    border-radius: 100rem;
-    color: $text-color;
-    outline: none;
-    border: none;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    margin: 1.25rem;
-    &:active {
-      transform: scale(1.05);
-      box-shadow: 0.25rem 0.2rem 10px $bg-secondary;
-    }
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-  &:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0.5rem 1.25rem 20px $bg-secondary;
-  }
-}
-.imgCard {
-  border-radius: 0;
-  box-shadow: none;
-  padding: 0;
-  &:hover {
-    transform: none;
-    box-shadow: none;
-  }
-=======
 @import '@/assets/styles/_variables.scss';
 .header {
   background: #eee;
@@ -321,7 +261,6 @@ $card-background: #fff;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
->>>>>>> 7d9eabc (Merge of blackman branch)
 }
 #fundraising {
   background-image: url('../assets/fundraisingHomePage.png');
@@ -341,7 +280,6 @@ $card-background: #fff;
   flex-direction: row;
   margin: 0;
 }
-<<<<<<< HEAD
 
 .title {
   z-index: 0;
@@ -374,6 +312,4 @@ $card-background: #fff;
   margin: 1rem;
   grid-gap: 1rem;
 }
-=======
->>>>>>> 7d9eabc (Merge of blackman branch)
 </style>

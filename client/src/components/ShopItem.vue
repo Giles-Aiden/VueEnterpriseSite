@@ -1,17 +1,11 @@
 <template>
   <div class="card">
     <img :src="img" :alt="imgAlt" />
-<<<<<<< HEAD
-    <div class="info">
-=======
     <div class="info" @click="isOpen = true">
->>>>>>> 7d9eabc (Merge of blackman branch)
       <h1 class="title">{{ itemName }}</h1>
       <p>{{ itemBody }}</p>
       <button>Add to cart</button>
     </div>
-<<<<<<< HEAD
-=======
     <ItemView
       v-if="isOpen"
       @close="close()"
@@ -20,7 +14,6 @@
       :img="img"
       :imgAlt="imgAlt"
     />
->>>>>>> 7d9eabc (Merge of blackman branch)
   </div>
 </template>
 
