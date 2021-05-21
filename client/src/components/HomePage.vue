@@ -59,26 +59,27 @@
         </div>
       </div>
     </div>
-    <div id="fundraising">
-      <h1>Fundraising</h1>
-    <div class="container">
-      <div class="card">
-        <h2>Professional</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
-          placeat amet aliquid repudiandae iure modi libero eveniet
-          reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Impedit, nemo!
-        </p>
-
-        <vs-button
-          :active="active == 1"
-          @click="active = 1"
-          :color="buttonColor"
-          type="filled"
-        >
-          Shop Now!
-        </vs-button>
+    <div class="center-grid" data-aos="fade-down" data-aos-duration="1000">
+      <div vs-type="flex" vs-justify="center" vs-align="center" w="12">
+        <vs-card class="shadow">
+          <template #title>
+            <h3>Custom</h3>
+          </template>
+          <template #text>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias, vel rem. Minus tempora voluptas at incidunt eveniet
+              deleniti, delectus cumque, voluptates inventore soluta ipsam
+              commodi sequi mollitia assumenda aliquam quidem repudiandae autem
+              fugiat non dignissimos ducimus animi corporis! Reiciendis aliquam
+              nihil doloremque et corrupti accusamus dolorum reprehenderit rerum
+              ullam vel?
+            </p>
+            <vs-button class="button-color">
+              <a href="store">Shop now!</a>
+            </vs-button>
+          </template>
+        </vs-card>
       </div>
       <div class="card">
         <img
@@ -87,6 +88,40 @@
         />
       </div>
     </div>
+    <div
+      class="center-grid"
+      vs-type="flex"
+      vs-justify="center"
+      vs-align="center"
+      w="12"
+    >
+      <vs-card class="shadow"  data-aos="fade-right" data-aos-duration="1000">
+        <template #title>
+          <h3>More About Our Fundraisers</h3>
+        </template>
+        <template #text>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
+            vel rem. Minus tempora voluptas at incidunt eveniet deleniti,
+            delectus cumque, voluptates inventore soluta ipsam commodi sequi
+            mollitia assumenda aliquam quidem repudiandae autem fugiat non
+            dignissimos ducimus animi corporis! Reiciendis aliquam nihil
+            doloremque et corrupti accusamus dolorum reprehenderit rerum ullam
+            vel? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+            quod ipsum quas harum doloribus dicta itaque sunt dolores veniam
+            excepturi. Possimus magnam molestias itaque iure. Eveniet autem,
+            fugit, animi illo ea error molestiae ratione expedita commodi
+            voluptatum dolore ullam, ipsam maiores. Culpa, iste? Quas deleniti
+            unde enim explicabo voluptatum quidem.
+          </p>
+          <vs-button class="button-color">
+            <a href="fundraising">Tell me more!</a>
+          </vs-button>
+        </template>
+      </vs-card>
+      <template>
+        <img class="imageChange" src="../assets/Fundraising Collage.png"  data-aos="fade-left" data-aos-duration="1000" />
+      </template>
     </div>
     <Footer />
   </div>
