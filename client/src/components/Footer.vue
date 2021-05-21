@@ -7,7 +7,7 @@
       <h3>Email- Sales@WFBMlaserengraving.com</h3>
     </div>
     <div class="logo item">
-      <img src="@/assets/WFBM Logo.png" alt="">
+      <img src="@/assets/WFBM Logo.png" alt="" />
     </div>
     <div class="icons item">
       <vs-button
@@ -43,7 +43,7 @@
 <script>
 export default {
   name: 'footer',
-}
+};
 </script>
 
 <style lang="scss" scoped>

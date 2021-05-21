@@ -1,8 +1,9 @@
 <template>
-  <div class="card"><img :src="img" :alt="imgAlt"/>
+  <div class="card">
+    <img :src="img" :alt="imgAlt" />
     <div class="info">
-      <h1 class="title">{{itemName}}</h1>
-      <p>{{itemBody}}</p>
+      <h1 class="title">{{ itemName }}</h1>
+      <p>{{ itemBody }}</p>
     </div>
   </div>
 </template>
@@ -54,7 +55,7 @@ export default {
   }
 }
 .card:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -71,7 +72,7 @@ export default {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -86,10 +87,7 @@ export default {
   transition: 0.8s;
   .title {
     opacity: 1 !important;
-    text-shadow:
-      -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
   }
   p {

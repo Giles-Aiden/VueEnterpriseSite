@@ -45,10 +45,10 @@
 <!-- functiony things -->
 <script>
 //import VueCarousel from 'vue-carousel';
-import { Carousel, Slide } from "vue-carousel";
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
-  name: "Fundraising",
+  name: 'Fundraising',
   components: {
     Carousel,
     Slide,
@@ -58,35 +58,35 @@ export default {
       picked: 1,
       imgNum: 1,
       items: [
-        "img/bottleRed.JPG",
-        "img/bottleBlack.JPG",
-        "img/bottleGreen.JPG",
+        'img/bottleRed.JPG',
+        'img/bottleBlack.JPG',
+        'img/bottleGreen.JPG',
       ],
       // This is the info that gets passed into the v-for elements for the 2nd carousel
       reviewerInfo: [
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
-          "Review #1",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          'Review #1',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
       ],
       arrows: [
@@ -97,13 +97,13 @@ export default {
   },
 };
 
-var resizeEvent = window.document.createEvent("UIEvents");
-resizeEvent.initUIEvent("resize", true, false, window, 0);
+var resizeEvent = window.document.createEvent('UIEvents');
+resizeEvent.initUIEvent('resize', true, false, window, 0);
 window.dispatchEvent(resizeEvent);
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/_variables.scss";
+@import '@/assets/styles/_variables.scss';
 // image scrolling styles
 .example-slide {
   align-items: center;

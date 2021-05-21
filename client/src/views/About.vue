@@ -2,19 +2,19 @@
   <div class="About">
     <Navbar title="About" />
 
-    
+    <AboutCard
+      itemName="The Company"
+      itemBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque ornare aenean euismod elementum nisi quis eleifend."
+      :img="require('@/assets/stock_photo1.jpg')"
+      imgAlt=""
+    />
 
-    <AboutCard 
-    itemName="The Company"
-    itemBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque ornare aenean euismod elementum nisi quis eleifend."
-    :img="require('@/assets/stock_photo1.jpg')"
-    imgAlt=""/>
-    
-    <AboutCard 
-    itemName="Where We Started"
-    itemBody="Dolor morbi non arcu risus quis varius. Vitae auctor eu augue ut lectus arcu. Sem integer vitae justo eget magna fermentum iaculis. Rhoncus mattis rhoncus urna neque viverra justo. Sit amet risus nullam eget felis eget nunc lobortis. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Sapien faucibus et molestie ac feugiat sed lectus. "
-    :img="require('@/assets/stock_photo2.jpg')"
-    imgAlt=""/>
+    <AboutCard
+      itemName="Where We Started"
+      itemBody="Dolor morbi non arcu risus quis varius. Vitae auctor eu augue ut lectus arcu. Sem integer vitae justo eget magna fermentum iaculis. Rhoncus mattis rhoncus urna neque viverra justo. Sit amet risus nullam eget felis eget nunc lobortis. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Sapien faucibus et molestie ac feugiat sed lectus. "
+      :img="require('@/assets/stock_photo2.jpg')"
+      imgAlt=""
+    />
 
     <hr />
 
@@ -248,8 +248,8 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
-import AboutCard from "@/components/AboutCard.vue";
+import Navbar from '@/components/Navbar.vue';
+import AboutCard from '@/components/AboutCard.vue';
 
 export default {
   name: 'About',
@@ -345,7 +345,7 @@ div.vs-card {
   border: none;
 }
 
-.center-grid{
+.center-grid {
   display: flex;
 }
 </style>

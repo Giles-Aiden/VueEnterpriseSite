@@ -2,11 +2,11 @@
   <div class="user">
     <Sidebar></Sidebar>
     <div id="searchBar">
-        <h1>Users</h1>
-        <input type="text" placeholder="Email" id="email" />
-        <input type="text" placeholder="Username" id="uname" />
-        <input type="text" placeholder="Password" id="pass" />
-        <vs-button id="registerBtn" @click="createUser">Register</vs-button>
+      <h1>Users</h1>
+      <input type="text" placeholder="Email" id="email" />
+      <input type="text" placeholder="Username" id="uname" />
+      <input type="text" placeholder="Password" id="pass" />
+      <vs-button id="registerBtn" @click="createUser">Register</vs-button>
     </div>
     <!--
     <div class="userCard">
@@ -122,7 +122,8 @@ div.user {
     color: $bodyElementTextColor;
     display: flex;
     justify-items: middle;
-    input, #registerBtn{
+    input,
+    #registerBtn {
       height: 1.5rem;
     }
     h1 {
@@ -144,28 +145,28 @@ export default {
     Sidebar,
     UserCard,
   },
-  data: function(){
-    return{
+  data: function () {
+    return {
       users: [
         {
-          "email": "email@email.com",
-          "uname": "username",
-          "pass": "password"
-        }
-      ]
-    }
+          email: "email@email.com",
+          uname: "username",
+          pass: "password",
+        },
+      ],
+    };
   },
   methods: {
-    createUser: function(){
+    createUser: function () {
       let user = {
-        "email": document.getElementById('email').value,
-        "uname": document.getElementById('uname').value,
-        "pass": document.getElementById('pass').value
-      }
+        email: document.getElementById("email").value,
+        uname: document.getElementById("uname").value,
+        pass: document.getElementById("pass").value,
+      };
       console.log(user);
       this.users.push(user);
       console.log(this.users);
-    }
-  }
+    },
+  },
 };
 </script>

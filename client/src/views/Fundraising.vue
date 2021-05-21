@@ -86,7 +86,7 @@
 
 <!-- The style rules for the page -->
 <style lang="scss" scoped>
-@import "@/assets/styles/_variables.scss";
+@import '@/assets/styles/_variables.scss';
 .example-slide {
   align-items: center;
   background-color: #666;
@@ -273,19 +273,14 @@ hr {
 <!-- functiony things -->
 <script>
 // @ is an alias to /src
-<<<<<<< HEAD
 import Navbar from '@/components/Navbar.vue';
-=======
-import Navbar from "@/components/Navbar.vue";
-import MyCarousel from "@/components/MyCarousel.vue";
->>>>>>> 5712ee494a8af46d5b9870a888242c25c2ad6b8b
-//import VueCarousel from 'vue-carousel';
+import MyCarousel from '@/components/MyCarousel.vue';
 import { Carousel, Slide } from 'vue-carousel';
-
 export default {
   name: 'Fundraising',
   components: {
     Navbar,
+    MyCarousel,
     Carousel,
     Slide,
   },
@@ -333,7 +328,7 @@ export default {
   },
 };
 
-var resizeEvent = window.document.createEvent("UIEvents");
-resizeEvent.initUIEvent("resize", true, false, window, 0);
+var resizeEvent = window.document.createEvent('UIEvents');
+resizeEvent.initUIEvent('resize', true, false, window, 0);
 window.dispatchEvent(resizeEvent);
 </script>

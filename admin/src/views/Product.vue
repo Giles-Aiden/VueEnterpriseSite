@@ -21,7 +21,7 @@
         :productPrice="20"
       ></productCard>
 
-            <productCard
+      <productCard
         productName="Hydro Flask"
         productImage="flask.jpg"
         :productColors="[
@@ -49,7 +49,7 @@
   margin: 0;
   height: 100vh;
 }
-div#product{
+div#product {
   margin-left: 50px;
   display: flex;
   flex-flow: row wrap;

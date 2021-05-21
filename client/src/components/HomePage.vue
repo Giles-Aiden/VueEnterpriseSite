@@ -95,7 +95,7 @@
       vs-align="center"
       w="12"
     >
-      <vs-card class="shadow"  data-aos="fade-right" data-aos-duration="1000">
+      <vs-card class="shadow" data-aos="fade-right" data-aos-duration="1000">
         <template #title>
           <h3>More About Our Fundraisers</h3>
         </template>
@@ -120,7 +120,12 @@
         </template>
       </vs-card>
       <template>
-        <img class="imageChange" src="../assets/Fundraising Collage.png"  data-aos="fade-left" data-aos-duration="1000" />
+        <img
+          class="imageChange"
+          src="../assets/Fundraising Collage.png"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        />
       </template>
     </div>
     <Footer />
