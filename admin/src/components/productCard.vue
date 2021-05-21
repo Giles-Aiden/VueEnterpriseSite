@@ -63,7 +63,7 @@
 div.productCard {
   background-color: $bodyElementColor;
   color: $bodyElementTextColor;
-  width: 31%;
+  min-width: 45%;
   margin-right: 1rem;
   margin-bottom: 1rem;
   padding: 0.5rem;

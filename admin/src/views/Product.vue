@@ -20,6 +20,25 @@
         ]"
         :productPrice="20"
       ></productCard>
+
+            <productCard
+        productName="Hydro Flask"
+        productImage="flask.jpg"
+        :productColors="[
+          '#FF0000',
+          '#FF4000',
+          '#FFC800',
+          '#333F35',
+          '#3DA8BC',
+          '#20283A',
+          '#000000',
+          '#372727',
+          '#FFFFFF',
+          '#B6458A',
+          '#3B236D',
+        ]"
+        :productPrice="20"
+      ></productCard>
     </div>
   </div>
 </template>

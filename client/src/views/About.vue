@@ -86,7 +86,7 @@
 
     <hr />
 
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="something" class="section-header">Something Here</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -132,7 +132,7 @@
     </div>
 
     <br /><br /><br />
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="start" class="section-header">Where We Started</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -177,7 +177,7 @@
       <img src="" />
     </div>
     <br /><br /><br />
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="journey" class="section-header">Our Journey</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -222,7 +222,7 @@
       <img src="" />
     </div>
     <br /><br /><br />
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="idea" class="section-header">Idea Behind the Product</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -267,7 +267,7 @@
       <img src="" />
     </div>
     <br /><br /><br />
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="future" class="section-header">Looking to the Future</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -368,7 +368,6 @@ hr {
   padding: 1em;
   box-shadow: black 0.2em 0.2em 0.4em;
   border-radius: 1em;
-  margin: 0.5em 1em;
   background-color: #185ca3;
   color: white;
   line-height: 2em;

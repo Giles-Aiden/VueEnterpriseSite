@@ -2,7 +2,7 @@
   <div id="types">
     <h2>{{ productAttr.charAt(0).toUpperCase() + productAttr.slice(1) }}:</h2>
     <ul id="typeList">
-      <li v-for="(type, index) in types" :key="type">
+      <li v-for="(type, index) in types" :key="type" style="listStyleType: none">
         <h4 class="deletion" @click="deleteType({ index })">{{ type }}</h4>
       </li>
     </ul>
