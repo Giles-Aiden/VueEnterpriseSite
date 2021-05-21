@@ -1,9 +1,9 @@
 <template>
   <div class="center background">
     <div class="contact item">
-      <h3>David Ray- Owner</h3>
-      <h3>Phone- (480)-226-6529</h3>
-      <h3>Email- Sales@WFBMlaserengraving.com</h3>
+      <h3><i class="fa fa-user-circle"></i>- David Ray</h3>
+      <h3><i class="fa fa-phone-square"></i>- (123)-456-7890</h3>
+      <h3><i class="fa fa-envelope"></i>- sales@WFBMlaserengraving.com</h3>
     </div>
     <div class="logo item">
       <img src="@/assets/WFBM Logo.png" alt="">
@@ -42,14 +42,14 @@
 <style lang="scss" scoped>
 $shadow: grey;
 $text-color: white;
-ul {
-  background: red;
-}
 
 .center {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  .contact {
+    text-align: left;
+  }
   .background {
     background-image: url('../assets/navBackgroundBottles.png');
     opacity: 20%;
