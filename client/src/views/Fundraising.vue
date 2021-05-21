@@ -273,21 +273,15 @@ hr {
 <!-- functiony things -->
 <script>
 // @ is an alias to /src
-<<<<<<< HEAD
-import Navbar from '@/components/Navbar.vue';
-=======
 import Navbar from "@/components/Navbar.vue";
 import MyCarousel from "@/components/MyCarousel.vue";
->>>>>>> 5712ee494a8af46d5b9870a888242c25c2ad6b8b
 //import VueCarousel from 'vue-carousel';
-import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   name: 'Fundraising',
   components: {
     Navbar,
-    Carousel,
-    Slide,
+    MyCarousel,
   },
   data() {
     return {
