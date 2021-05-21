@@ -18,4 +18,8 @@ $shadow: #113f70;
   background-color: $bg-main;
   box-shadow: $shadow;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 7d9eabc4e59cbfb25cb8df08598480caae88929c
