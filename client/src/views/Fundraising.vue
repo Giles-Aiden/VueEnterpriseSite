@@ -293,31 +293,31 @@ export default {
         'img/bottleBlack.JPG',
         'img/bottleGreen.JPG',
       ],
-      // This is the info that gets passed into the v-for elements for the 2nd carousel
+            // This is the info that gets passed into the v-for elements for the 2nd carousel
       reviewerInfo: [
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Jack F.',
+          '"Fantastic, I\'m totally blown away by Testimonial Generator."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Israel L.',
+          '" I am so pleased with this product. The service was excellent."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Tonnie O.',
+          '"I\'m good to go. You guys rock! The service was excellent."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Jefferson H.',
+          '"I can\'t say enough about Laser Engraved Water Bottles."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Berrie A.',
+          '"WFBM Laser Engraving is exactly what I\'ve been looking for."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Malory J.',
+          '"Best. Product. Ever! The customization aspect really wonderful."',
         ],
       ],
       arrows: [
