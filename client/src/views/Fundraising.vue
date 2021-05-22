@@ -52,16 +52,23 @@
     </div>
 
     <hr />
-    <!-- Reviews/Experience Section -->
+
     <div id="reviewsArea">
+      <h1>Fundraising Experience</h1>
+      <div id="reviews">
+        <div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- Reviews/Experience Section -->
+    <!-- <div id="reviewsArea">
       <h2>Fundraising Experience</h2>
       <a href="Fundraising.vue#r5"></a>
       <div id="reviews">
         <carousel
           :per-page="2"
           :navigation-enabled="true"
-          :navigation-next-label="arrows[1]"
-          :navigation-prev-label="arrows[0]"
           :pagination-active-color="'#113F70'"
           id="carousel2"
         >
@@ -80,7 +87,7 @@
           </slide>
         </carousel>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -170,30 +177,27 @@ hr {
     padding: 0.5em;
     margin: auto;
     max-width: 200em;
-
     #carousel2 {
       background-color: #6cacf0;
       padding: 1em 0em;
       box-shadow: inset 0em 0em 0.5em;
       border: solid #113f70 0.5em;
       border-radius: 1em;
-
-      .reviewCards {
-        background-color: white;
-        color: #113f70;
-        box-shadow: 0.1em 0.3em 0.5em 0.1em black;
-        border-radius: 0.25em;
-        text-align: center;
-        padding: 1em;
-        text-decoration: none;
-        font-size: 1.5em;
-        display: inline-block;
-        width: 75%;
-        max-width: 40em;
-
-        p {
-          white-space: wrap;
-        }
+        .reviewCards {
+          background-color: white;
+          color: #113f70;
+          box-shadow: 0.1em 0.3em 0.5em 0.1em black;
+          border-radius: 0.25em;
+          text-align: center;
+          padding: 1em;
+          text-decoration: none;
+          font-size: 1.5em;
+          display: inline-block;
+          width: 75%;
+          max-width: 40em;
+            p {
+              white-space: wrap;
+            }
         hr {
           background-color: #113f70;
           border: solid #113f70 0.05em;
@@ -207,6 +211,7 @@ hr {
     font-size: 2em;
   }
 }
+
 @media (max-width: 800px) {
   #reviewsArea {
     margin: 0em 1em;
@@ -274,6 +279,7 @@ hr {
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue';
+import { slider, slideritem } from 'vue-concise-slider'
 //import MyCarousel from "@/components/MyCarousel.vue";
 
 export default {
@@ -318,10 +324,10 @@ export default {
           '"Best. Product. Ever! The customization aspect really wonderful."',
         ],
       ],
-      arrows: [
-        '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
-        '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
-      ],
+      // arrows: [
+      //   '<div style="background-color: "#113F70""><i class="fas fa-arrow-right" width="75" height="75"><i/></div>',
+      //   '<div style="background-color: "#113F70""><i class="fas fa-arrow-right" width="75" height="75"><i/></div>',
+      // ],
     };
   },
 };
