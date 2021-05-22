@@ -19,6 +19,7 @@
       >
     </ul>
     <h1 class="title">{{ title }}</h1>
+    <img class="logo" src="../assets/WFBM Logo.png" alt="">
     <div class="icons">
       <i class="fa fa-bars fa-2x bars hidden"></i>
       <i class="fa fa-close fa-2x close hidden"></i>
@@ -55,12 +56,14 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '@/assets/styles/_variables.scss';
 nav {
-  background-image: url('../assets/navBackgroundBottles.png');
+  /*
+  background-image: url('../assets/navBackground.png');
   background-repeat: no-repeat;
   background-position: center center;
   backdrop-filter: blur(100px);
-  background-size: cover;
-  color: $navTextColor;
+  background-size: cover;*/
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='408' height='49' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222222' stroke-width='12.7' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");  color: $navTextColor;
   font-size: 1em;
   height: 15rem;
   top: 0;
@@ -68,6 +71,12 @@ nav {
   width: 100%;
   display: flex;
   flex-direction: column;
+  .logo {
+    filter: grayscale(1) invert(1);
+    height: 100vh;
+    width: 70vh;
+    margin-inline: auto;
+  }
   .title {
     z-index: 0;
     margin: auto 5rem;
