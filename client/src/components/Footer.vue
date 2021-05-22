@@ -60,7 +60,6 @@ $text-color: white;
   .background {
     background-image: url('../assets/navBackgroundBottles.png');
     opacity: 20%;
-
   }
   background-size: cover;
   background-position: center;
