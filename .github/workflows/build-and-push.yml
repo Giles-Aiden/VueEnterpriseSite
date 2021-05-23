@@ -11,9 +11,9 @@ on:
       - v*
 
 env:
-  MAIN_IMAGE_NAME: client:latest
-  ADMIN_IMAGE_NAME: admin:latest
-  API_IMAGE_NAME: api:latest
+  MAIN_IMAGE_NAME: client
+  ADMIN_IMAGE_NAME: admin
+  API_IMAGE_NAME: api
   DOCKER_USER: ${{ secrets.DOCKER_USER }}
   DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
   DOCKER_REG: ${{ secrets.DOCKER_REG }}
@@ -30,16 +30,16 @@ jobs:
         run: docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASS }} ${{ env.DOCKER_REG }}
       - name: docker build client
         run: |
-          docker build ./client -t ${{ env.MAIN_IMAGE_NAME }}
-          docker image tag ${{ env.MAIN_IMAGE_NAME }} ${{ env.MAIN_TAG }}
+          docker build ./client -t ${{ env.MAIN_IMAGE_NAME }}:latest
+          docker image tag ${{ env.MAIN_IMAGE_NAME }} ${{ env.MAIN_TAG }}:latest
           docker image push ${{ env.MAIN_TAG }}
       - name: docker build admin
         run: |
-          docker build ./admin -t ${{ env.ADMIN_IMAGE_NAME }}
-          docker image tag ${{ env.ADMIN_IMAGE_NAME }} ${{ env.ADMIN_TAG }}
+          docker build ./admin -t ${{ env.ADMIN_IMAGE_NAME }}:latest
+          docker image tag ${{ env.ADMIN_IMAGE_NAME }} ${{ env.ADMIN_TAG }}:latest
           docker image push ${{ env.ADMIN_TAG }}
       - name: docker build api
         run: |
-          docker build ./api -t ${{ env.API_IMAGE_NAME }}
-          docker image tag ${{ env.API_IMAGE_NAME }} ${{ env.API_TAG }}
+          docker build ./api -t ${{ env.API_IMAGE_NAME }}:latest
+          docker image tag ${{ env.API_IMAGE_NAME }} ${{ env.API_TAG }}:latest
           docker image push ${{ env.API_TAG }}
