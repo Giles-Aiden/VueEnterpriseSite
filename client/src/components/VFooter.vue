@@ -10,6 +10,7 @@
       <img src="@/assets/WFBM Logo.png" alt="" />
     </div>
     <div class="icons item">
+      <div class="icon">
       <vs-button
         class="button-icon"
         icon
@@ -19,7 +20,6 @@
         <i class="fa fa-facebook-square"></i>
       </vs-button>
 
-      <div class="icon">
         <vs-button class="button-icon" icon color="twitter">
           <i class="fa fa-twitter-square"></i>
           <!--@LaserWfbm-->
@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'footer',
+  name: 'VFooter',
 };
 </script>
 
@@ -87,6 +87,8 @@ export default {
 }
 .icons {
   display: flex;
+  align-items: center;
+  flex-direction: column;
   .icon {
     display: flex;
   }

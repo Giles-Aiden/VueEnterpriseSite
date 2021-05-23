@@ -96,7 +96,7 @@
 <script>
 import Vue from 'vue';
 import TitleCard from '@/components/titleCard.vue';
-import VFooter from '@/components/Footer.vue';
+import VFooter from '@/components/VFooter.vue';
 export default Vue.extend({
   components: {
     TitleCard,
