@@ -56,9 +56,7 @@
     <div id="reviewsArea">
       <h1>Fundraising Experience</h1>
       <div id="reviews">
-        <div>
-          
-        </div>
+        <div></div>
       </div>
     </div>
     <!-- Reviews/Experience Section -->
@@ -183,21 +181,21 @@ hr {
       box-shadow: inset 0em 0em 0.5em;
       border: solid #113f70 0.5em;
       border-radius: 1em;
-        .reviewCards {
-          background-color: white;
-          color: #113f70;
-          box-shadow: 0.1em 0.3em 0.5em 0.1em black;
-          border-radius: 0.25em;
-          text-align: center;
-          padding: 1em;
-          text-decoration: none;
-          font-size: 1.5em;
-          display: inline-block;
-          width: 75%;
-          max-width: 40em;
-            p {
-              white-space: wrap;
-            }
+      .reviewCards {
+        background-color: white;
+        color: #113f70;
+        box-shadow: 0.1em 0.3em 0.5em 0.1em black;
+        border-radius: 0.25em;
+        text-align: center;
+        padding: 1em;
+        text-decoration: none;
+        font-size: 1.5em;
+        display: inline-block;
+        width: 75%;
+        max-width: 40em;
+        p {
+          white-space: wrap;
+        }
         hr {
           background-color: #113f70;
           border: solid #113f70 0.05em;
@@ -279,7 +277,7 @@ hr {
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue';
-import { slider, slideritem } from 'vue-concise-slider'
+//import { slider, slideritem } from 'vue-concise-slider';
 //import MyCarousel from "@/components/MyCarousel.vue";
 
 export default {
@@ -297,7 +295,7 @@ export default {
         'img/bottleBlack.JPG',
         'img/bottleGreen.JPG',
       ],
-            // This is the info that gets passed into the v-for elements for the 2nd carousel
+      // This is the info that gets passed into the v-for elements for the 2nd carousel
       reviewerInfo: [
         [
           'Jack F.',
