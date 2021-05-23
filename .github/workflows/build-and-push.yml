@@ -31,15 +31,15 @@ jobs:
       - name: docker build client
         run: |
           docker build ./client -t ${{ env.MAIN_IMAGE_NAME }}:latest
-          docker image tag ${{ env.MAIN_IMAGE_NAME }} ${{ env.MAIN_TAG }}:latest
+          docker image tag ${{ env.MAIN_IMAGE_NAME }}:latest ${{ env.MAIN_TAG }}:latest
           docker image push ${{ env.MAIN_TAG }}
       - name: docker build admin
         run: |
           docker build ./admin -t ${{ env.ADMIN_IMAGE_NAME }}:latest
-          docker image tag ${{ env.ADMIN_IMAGE_NAME }} ${{ env.ADMIN_TAG }}:latest
+          docker image tag ${{ env.ADMIN_IMAGE_NAME }}:latest ${{ env.ADMIN_TAG }}:latest
           docker image push ${{ env.ADMIN_TAG }}
       - name: docker build api
         run: |
           docker build ./api -t ${{ env.API_IMAGE_NAME }}:latest
-          docker image tag ${{ env.API_IMAGE_NAME }} ${{ env.API_TAG }}:latest
+          docker image tag ${{ env.API_IMAGE_NAME }}:latest ${{ env.API_TAG }}:latest
           docker image push ${{ env.API_TAG }}
