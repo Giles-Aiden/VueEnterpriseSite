@@ -56,6 +56,11 @@ $text-color: white;
   flex-wrap: wrap;
   .contact {
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    * {
+      margin-block: 0.25rem;
+    }
   }
   .background {
     background-image: url('../assets/navBackgroundBottles.png');

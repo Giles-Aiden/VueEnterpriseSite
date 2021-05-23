@@ -61,16 +61,15 @@
     </div>
     <div id="fundraising">
       <h1>Fundraising</h1>
-    </div>
-    <div class="container">
-      <div class="card">
-        <h2>Professional</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
-          placeat amet aliquid repudiandae iure modi libero eveniet
-          reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Impedit, nemo!
-        </p>
+      <div class="container">
+        <div class="card">
+          <h2>Professional</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
+            placeat amet aliquid repudiandae iure modi libero eveniet
+            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Impedit, nemo!
+          </p>
 
         <vs-button
           :active="active == 1"
@@ -88,18 +87,20 @@
         />
       </div>
     </div>
-    <Footer />
+
+    <VFooter />
+  </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
 import TitleCard from '@/components/titleCard.vue';
-import Footer from '@/components/Footer.vue';
+import VFooter from '@/components/VFooter.vue';
 export default Vue.extend({
   components: {
     TitleCard,
-    Footer,
+    VFooter,
   },
   props: {
     title: String,

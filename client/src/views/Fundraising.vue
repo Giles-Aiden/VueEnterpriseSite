@@ -277,8 +277,6 @@ hr {
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue';
-//import { slider, slideritem } from 'vue-concise-slider';
-//import MyCarousel from "@/components/MyCarousel.vue";
 
 export default {
   name: 'Fundraising',
@@ -322,10 +320,10 @@ export default {
           '"Best. Product. Ever! The customization aspect really wonderful."',
         ],
       ],
-      // arrows: [
-      //   '<div style="background-color: "#113F70""><i class="fas fa-arrow-right" width="75" height="75"><i/></div>',
-      //   '<div style="background-color: "#113F70""><i class="fas fa-arrow-right" width="75" height="75"><i/></div>',
-      // ],
+      arrows: [
+        '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
+        '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
+      ],
     };
   },
 };
