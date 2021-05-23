@@ -67,36 +67,36 @@
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
             placeat amet aliquid repudiandae iure modi libero eveniet
-            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Impedit, nemo!
+            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Impedit, nemo!
           </p>
 
-        <vs-button
-          :active="active == 1"
-          @click="active = 1"
-          :color="buttonColor"
-          type="filled"
-        >
-          Shop Now!
-        </vs-button>
-      </div>
-      <div class="card">
-        <img
-          src="@/assets/Fundraising Collage.png"
-          alt="Cool Laser Engraved Bottles"
-        />
+          <vs-button
+            :active="active == 1"
+            @click="active = 1"
+            :color="buttonColor"
+            type="filled"
+          >
+            Shop Now!
+          </vs-button>
+        </div>
+        <div class="card">
+          <img
+            src="@/assets/Fundraising Collage.png"
+            alt="Cool Laser Engraved Bottles"
+          />
+        </div>
       </div>
     </div>
-
+    
     <VFooter />
-  </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
 import TitleCard from '@/components/titleCard.vue';
-import VFooter from '@/components/VFooter.vue';
+import VFooter from '@/components/Footer.vue';
 export default Vue.extend({
   components: {
     TitleCard,
@@ -142,6 +142,8 @@ export default Vue.extend({
   border-radius: 1rem;
   margin-block: 3rem;
   overflow: hidden;
+  background: white;
+  color: black;
   p {
     text-align: left;
     padding-inline: 2.5rem;
@@ -152,17 +154,11 @@ export default Vue.extend({
   }
   img {
     max-width: 100%;
-    margin: 1rem;
   }
   button {
-    background: $bg-secondary;
     color: $text-color;
-    border: none;
-    outline: none;
-    font-size: 1em;
     padding: 0.25em 0.5em;
     margin: 1.5rem;
-    border-radius: 1em;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -173,23 +169,24 @@ export default Vue.extend({
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
 }
 #fundraising {
-  background-image: url('../assets/fundraisingHomePage.png');
+  background-image: url('../assets/navBackgroundBottles.png');
   background-repeat: no-repeat;
   background-position: center;
   backdrop-filter: blur(100px);
-  background-size: 100%;
+  background-size: cover;
+  /*background-color: #999;*/
   font-size: 2vh;
-  height: calc(30vh + 5px);
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  flex-direction: row;
   margin: 0;
 }
 </style>
