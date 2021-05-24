@@ -57,6 +57,7 @@ export default {
     text-align: left;
     display: flex;
     flex-direction: column;
+    padding-inline: 3rem ;
     * {
       margin-block: .25rem;
     }

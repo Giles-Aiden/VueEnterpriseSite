@@ -7,7 +7,7 @@
             <router-link to="/about" class="link" tag="li"
                 ><p>About</p></router-link
             >
-            <router-link to="/store" class="link" tag="li"
+            <router-link to="/store/items" class="link" tag="li"
                 ><p>Store</p></router-link
             >
             <router-link to="/fundraising" class="link" tag="li"
@@ -30,7 +30,7 @@
             <router-link to="/about" class="link" tag="li"
                 ><p>About</p></router-link
             >
-            <router-link to="/store" class="link" tag="li"
+            <router-link to="/store/items" class="link" tag="li"
                 ><p>Store</p></router-link
             >
             <router-link to="/fundraising" class="link" tag="li"

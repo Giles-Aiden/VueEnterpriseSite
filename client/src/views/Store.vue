@@ -59,6 +59,10 @@ $shadow: #113f70;
   background-color: $bg-main;
   box-shadow: $shadow;
 }
+.storeLink {
+  display: flex;
+  justify-content: center;
+}
 .storeNav {
   display: flex;
   flex-flow: row nowrap;
