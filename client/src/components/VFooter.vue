@@ -1,15 +1,16 @@
 <template>
   <div class="center background">
-    <div>
-      <h1>Contact Information</h1>
-      <h3>David Ray- Owner</h3>
-      <h3>Phone- (480)-226-6529</h3>
-      <h3>Email- Sales@WFBMlaserengraving.com</h3>
+    <div class="contact item">
+      <h1 style="text-align: center;">Contact Information</h1>
+      <h3><i class="fa fa-user"></i> - David Ray</h3>
+      <h3><i class="fa fa-phone"></i> - (480)-226-6529</h3>
+      <h3><i class="fa fa-envelope"></i> - Sales@WFBMlaserengraving.com</h3>
     </div>
     <div class="logo item">
       <img src="@/assets/WFBM Logo.png" alt="" />
     </div>
     <div class="icons item">
+      <div class="icon">
       <vs-button
         class="button-icon"
         icon
@@ -19,7 +20,6 @@
         <i class="fa fa-facebook-square"></i>
       </vs-button>
 
-      <div class="icon">
         <vs-button class="button-icon" icon color="twitter">
           <i class="fa fa-twitter-square"></i>
           <!--@LaserWfbm-->
@@ -42,13 +42,12 @@
 
 <script>
 export default {
-  name: 'footer',
+  name: 'VFooter',
 };
 </script>
 
 <style lang="scss" scoped>
-$shadow: grey;
-$text-color: white;
+@import '@/assets/styles/_variables.scss';
 
 .center {
   display: flex;
@@ -56,6 +55,11 @@ $text-color: white;
   flex-wrap: wrap;
   .contact {
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    * {
+      margin-block: .25rem;
+    }
   }
   .background {
     background-image: url('../assets/navBackgroundBottles.png');
@@ -67,8 +71,6 @@ $text-color: white;
 .item {
   flex: 1 1 0px;
   justify-content: center;
-  align-items: center;
-  margin-inline: 1rem;
 }
 .logo {
   display: flex;
@@ -79,10 +81,13 @@ $text-color: white;
     max-width: 100%;
     min-width: 250px;
     max-height: 100px;
+    filter: grayscale(1) invert(1);
   }
 }
 .icons {
   display: flex;
+  align-items: center;
+  flex-direction: column;
   .icon {
     display: flex;
   }

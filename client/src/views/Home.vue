@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Navbar title="Custom Laser Engraving and Cutting" />
+    <Navbar />
     <HomePage title="Fundraising" />
   </div>
 </template>
