@@ -10,7 +10,7 @@
       <vs-row justify="center">
         <vs-input label-placeholder="Username" id="username">
           <template #icon>
-            <i class="bx bx-user">U</i>
+            <i class="pi pi-user"></i>
           </template>
         </vs-input>
       </vs-row>
@@ -18,7 +18,7 @@
       <vs-row justify="center">
         <vs-input type="password" label-placeholder="Password" id="password">
           <template #icon>
-            <i class="bx bx-lock-open-alt">P</i>
+            <i class="pi pi-lock"></i>
           </template>
         </vs-input>
       </vs-row>

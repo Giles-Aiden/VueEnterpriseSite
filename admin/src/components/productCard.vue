@@ -5,10 +5,15 @@
     <br />
     <div id="price">
       <h2>Price: ${{ price }}</h2>
+<<<<<<< HEAD
       <input type="number" :id="productName" />
       <vs-button @click="changePrice({ productName })" class="priceButton"
         >Change Price</vs-button
       >
+=======
+      <input type="number" :id="productName + ' Price'">
+      <vs-button @click="changePrice({ productName })" class="priceButton">Change Price</vs-button>
+>>>>>>> 242cab6dc1476cb8ab1966eac2bedd8710d1c202
     </div>
     <div id="colors">
       <h2>Colors:</h2>
@@ -24,7 +29,7 @@
           <h2>+</h2>
         </form>
         <form v-else>
-          <input type="color" :id="productName" />
+          <input type="color" :id="productName + ' Color'" />
           <br />
           <vs-button
             type="button"
@@ -38,13 +43,8 @@
         </form>
       </div>
     </div>
-    <ProductAttribute
-      productAttr="lids"
-      :productAttrItems="['lid1', 'lid2', 'lid3']"
-    ></ProductAttribute>
-    <ProductAttribute
-      productAttr="sizes"
-      :productAttrItems="['20oz', '40oz']"
+    <ProductAttribute v-for="(attr, index) in attributes" :key="index"
+      :attribute="attributes[index]"
     ></ProductAttribute>
     <br />
     <div id="menu">
@@ -63,9 +63,10 @@
 }
 
 div.productCard {
-  background-color: $bodyElementColor;
-  color: $bodyElementTextColor;
+  background-color: $bg-secondary;
+  color: $bodyElementColor;
   min-width: 45%;
+  max-width: 45%;
   margin-right: 1rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -133,6 +134,7 @@ div.productCard {
       width: 1.25rem;
       height: 1.25rem;
     }
+<<<<<<< HEAD
 
     div#menu {
       display: flex;
@@ -142,10 +144,22 @@ div.productCard {
         background-color: $bg-secondary;
         &:hover {
           box-shadow: 0 0.25rem 0.5rem $shadow;
+=======
+  }
+  div#menu{
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    .menuButton{
+        background-color: $shadow;
+        &:hover {
+            box-shadow: 0 .25rem .5rem $shadow;
+>>>>>>> 242cab6dc1476cb8ab1966eac2bedd8710d1c202
         }
       }
     }
-  }
+}
 }
 </style>
 
@@ -154,12 +168,17 @@ import ProductAttribute from "@/components/ProductAttribute.vue";
 
 export default {
   components: { ProductAttribute },
-  props: ["productName", "productImage", "productColors", "productPrice"],
+  props: {
+    product: Object,
+  },
   data: function () {
     return {
-      colors: this.productColors,
+      productName: this.product.name,
+      productImage: this.product.image,
+      colors: this.product.colors,
       showing: true,
-      price: this.productPrice,
+      price: this.product.price,
+      attributes: this.product.attributes,
     };
   },
   methods: {
@@ -168,13 +187,11 @@ export default {
       this.colors.splice(i.index, 1);
     },
     addColor: function (picker) {
-      if (
-        this.colors.indexOf(
-          document.getElementById(picker.productName).value
-        ) == -1
-      ) {
-        this.colors.push(document.getElementById(picker.productName).value);
-      }
+      if (this.colors.indexOf(document.getElementById(picker.productName  + ' Color').value) == -1) {
+        this.colors.push(document.getElementById(picker.productName + ' Color').value);
+      }/* 
+      console.log(picker.productName + ' Color');
+      console.log(this.colors); */
     },
     colorMenu: function () {
       if (this.showing) {
@@ -184,8 +201,14 @@ export default {
       }
     },
     changePrice: function (product) {
+<<<<<<< HEAD
       this.price = document.getElementById(product.productName).value;
     },
+=======
+      this.price = document.getElementById(product.productName + ' Price').value;
+      document.getElementById(product.productName + ' Price').value = '';
+    }
+>>>>>>> 242cab6dc1476cb8ab1966eac2bedd8710d1c202
   },
 };
 </script>
