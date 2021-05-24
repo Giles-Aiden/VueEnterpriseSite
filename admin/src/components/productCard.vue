@@ -36,13 +36,8 @@
         </form>
       </div>
     </div>
-    <ProductAttribute
-      productAttr="lids"
-      :productAttrItems="['lid1', 'lid2', 'lid3']"
-    ></ProductAttribute>
-    <ProductAttribute
-      productAttr="sizes"
-      :productAttrItems="['20oz', '40oz']"
+    <ProductAttribute v-for="(attr, index) in attributes" :key="attr"
+      :attribute="attributes[index]"
     ></ProductAttribute>
     <br />
     <div id="menu">
@@ -61,8 +56,8 @@
 }
 
 div.productCard {
-  background-color: $bodyElementColor;
-  color: $bodyElementTextColor;
+  background-color: $bg-secondary;
+  color: $bodyElementColor;
   min-width: 45%;
   margin-right: 1rem;
   margin-bottom: 1rem;
@@ -137,7 +132,7 @@ div.productCard {
         flex-flow: row wrap;
         justify-content: space-around;
         .menuButton{
-            background-color: $bg-secondary;
+            background-color: $shadow;
             &:hover {
                 box-shadow: 0 .25rem .5rem $shadow;
             }
@@ -152,12 +147,15 @@ import ProductAttribute from "@/components/ProductAttribute.vue";
 
 export default {
   components: { ProductAttribute },
-  props: ["productName", "productImage", "productColors", "productPrice"],
+  props: ["product"],
   data: function () {
     return {
-      colors: this.productColors,
+      productName: this.product.name,
+      productImage: this.product.image,
+      colors: this.product.colors,
       showing: true,
-      price: this.productPrice,
+      price: this.product.price,
+      attributes: this.product.attributes,
     };
   },
   methods: {

@@ -1,6 +1,6 @@
 <template>
   <div id="types">
-    <h2>{{ productAttr.charAt(0).toUpperCase() + productAttr.slice(1) }}:</h2>
+    <h2>{{ attr.charAt(0).toUpperCase() + attr.slice(1) }}:</h2>
     <ul id="typeList">
       <li v-for="(type, index) in types" :key="type" style="listStyleType: none">
         <h4 class="deletion" @click="deleteType({ index })">{{ type }}</h4>
@@ -61,7 +61,7 @@ div#types{
         }
     }
     #addType{
-        background-color: $bg-secondary;
+        background-color: $shadow;
         width: 10rem;
         height: 2rem;
         margin-top: 2rem;
@@ -97,15 +97,15 @@ div#types{
     border: none;
     margin-top: 2rem;
   }
-}
 </style>
 
 <script>
 export default {
-  props: ["productAttr", "productAttrItems"],
+  props: ["attribute"],
   data: function () {
     return {
-      types: this.productAttrItems,
+      attr: this.attribute.attr,
+      types: this.attribute.items,
       adding: true,
       attrInput: "",
     };

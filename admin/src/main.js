@@ -4,10 +4,10 @@ import "./registerServiceWorker";
 import router from "./router";
 import Vuesax from "vuesax";
 
+import PrimeVue from "primevue/config";
 import "primevue/resources/themes/saga-blue/theme.css"; //theme
 import "primevue/resources/primevue.min.css"; //core css
 import "primeicons/primeicons.css";
-import PrimeVue from "primevue/config";
 Vue.use(PrimeVue); //icons
 import Chart from "primevue/chart";
 Vue.component("Chart", Chart);

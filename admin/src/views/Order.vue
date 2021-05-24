@@ -1,16 +1,63 @@
 <template>
   <div id="orders">
     <Sidebar></Sidebar>
-    <OrderComp
-      :totalCost="1999"
-      :items="['Water Bottle', 'Another Water Bottle']"
-      :user="User"
-      :orderID="1"
+    <table>
+      <tr>
+        <td>Email</td>
+        <td>Name</td>
+        <td>Amount</td>
+        <td>Items Purchased</td>
+      </tr>
+    <OrderComp v-for="(order, index) in Orders" :key="order"
+      :user="Orders[index]"
     />
+    </table>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "src/assets/styles/_variables.scss";
+*{
+  padding: 0;
+  margin: 0;
+}
+#orders{
+  margin-left: 4rem;
+  width: 95%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: $bg-main;
+}
+.OrderCard {
+  padding: 0.25rem 1rem;
+  background: $bg-secondary;
+  color: $bodyElementColor;
+  text-align: left;
+  .data {
+    font-weight: bold;
+  }
+}
+  table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+    background-color: $bg-secondary;
+    tr{
+      width: 100%;
+      td{
+        width: 25%;
+        border: white 0.1rem solid;
+        text-align: center;
+        vertical-align: middle;
+        color: $bodyElementColor;
+        ul{
+          margin: 0;
+        }
+      }
+    }
+  }
+</style>
 
 <script>
 // @ is an alias to /src
@@ -25,11 +72,30 @@ export default {
   },
   data() {
     return {
-      User: {
-        name: "Jeff",
-        lastName: "Smith",
-        email: "Email10@gmail.com",
-      },
+      Orders: [
+        {
+          "ID": 1,
+          "name": "Jeff",
+          "lastName": "Smith",
+          "email": "Email10@gmail.com",
+          "cost": 1999,
+          "items": [
+            "Water Bottle",
+            "Another Water Bottle"
+          ]
+        },
+        {
+          "ID": 2,
+          "name": "Ethan",
+          "lastName": "Roldan",
+          "email": "Email20@gmail.com",
+          "cost": 1999,
+          "items": [
+            "Water Bottle",
+            "Another Water Bottle"
+          ]
+        }
+      ],
     };
   },
 };

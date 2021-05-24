@@ -23,7 +23,7 @@ export default {
           datasets: [
               {
                   label: 'Sales',
-                  backgroundColor: '#185CA3',
+                  backgroundColor: '#113F70',
                   data: [65, 59, 80, 81, 56, 55, 40],
               }
           ]

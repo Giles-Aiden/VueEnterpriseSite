@@ -2,42 +2,8 @@
   <div class="productPage">
     <Sidebar></Sidebar>
     <div id="product">
-      <productCard
-        productName="Hydro Flask"
-        productImage="flask.jpg"
-        :productColors="[
-          '#FF0000',
-          '#FF4000',
-          '#FFC800',
-          '#333F35',
-          '#3DA8BC',
-          '#20283A',
-          '#000000',
-          '#372727',
-          '#FFFFFF',
-          '#B6458A',
-          '#3B236D',
-        ]"
-        :productPrice="20"
-      ></productCard>
-
-            <productCard
-        productName="Hydro Flask"
-        productImage="flask.jpg"
-        :productColors="[
-          '#FF0000',
-          '#FF4000',
-          '#FFC800',
-          '#333F35',
-          '#3DA8BC',
-          '#20283A',
-          '#000000',
-          '#372727',
-          '#FFFFFF',
-          '#B6458A',
-          '#3B236D',
-        ]"
-        :productPrice="20"
+      <productCard v-for="(product, index) in products" :key="product"
+        :product="products[index]"
       ></productCard>
     </div>
   </div>
@@ -68,5 +34,73 @@ export default {
     Sidebar,
     productCard,
   },
+  data: function(){
+    return{
+      products: [
+        {
+          "name": 'Hydro Flask',
+          "image": 'flask.jpg',
+          "colors": [
+            '#FF0000',
+            '#FF4000',
+            '#FFC800',
+            '#333F35',
+            '#3DA8BC',
+            '#20283A',
+            '#000000',
+            '#372727',
+            '#FFFFFF',
+            '#B6458A',
+            '#3B236D',
+          ],
+          "price": 20,
+          "attributes": [
+            {
+              "attr": 'lids',
+              "items": [
+                'lid1',
+                'lid2',
+                'lid3',
+              ]
+            },
+            {
+              "attr": 'sizes',
+              "items": [
+                '20oz',
+                '40oz',
+              ]
+            }
+          ]
+        },
+        {
+          "name": 'Hydro Flask',
+          "image": 'flask.jpg',
+          "colors": [
+            '#FF0000',
+            '#FF4000',
+            '#FFC800',
+          ],
+          "price": 20,
+          "attributes": [
+            {
+              "attr": 'lids',
+              "items": [
+                'lid1',
+                'lid2',
+                'lid3',
+              ]
+            },
+            {
+              "attr": 'sizes',
+              "items": [
+                '20oz',
+                '40oz',
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
 };
 </script>

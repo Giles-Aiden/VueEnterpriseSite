@@ -34,6 +34,7 @@
 }
 
 .userCard {
+  background-color: $bg-secondary;
   img.icon {
     border-radius: 0.5;
     height: 3rem;

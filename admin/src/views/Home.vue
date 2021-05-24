@@ -98,8 +98,8 @@ div#sales {
   }
   div.salesData {
     width: 30%;
-    background-color: $bodyElementColor;
-    color: $bodyElementTextColor;
+    background-color: $bg-main;
+    color: $bodyElementColor;
     padding: 1rem;
     border-radius: 0.5rem;
     text-align: left;
@@ -130,7 +130,7 @@ export default {
   },
   data: function () {
     return {
-      earnings: -100,
+      earnings: 0,
       balance: 10000,
     };
   },
