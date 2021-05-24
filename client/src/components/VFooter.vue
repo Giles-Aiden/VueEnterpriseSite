@@ -27,7 +27,7 @@
 
         <div class="icon">
           <vs-button class="button-icon" icon color="twitter">
-            <i class="fa fa-twitter-square"></i>
+            <i class="fa fa-instagram"></i>
             <!--@LaserWfbm-->
           </vs-button>
         </div>
