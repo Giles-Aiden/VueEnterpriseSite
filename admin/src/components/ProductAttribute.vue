@@ -11,10 +11,7 @@
       </li>
     </ul>
     <vs-button id="addType" v-if="adding" @click="addType()"
-      >Add
-      {{
-        attr
-      }}</vs-button
+      >Add {{ attr }}</vs-button
     >
     <div class="inputDiv" v-else>
       <input class="typeInput" v-model="attrInput" />
@@ -33,47 +30,22 @@
   padding: 0;
   margin: 0;
 }
-div#types{
-    display: flex;
-    justify-content: space-between;
-    border: 0.1rem black groove;
-    margin: 0.5rem;
-    padding: 0.25rem;
-    h2{
-        flex-grow: 1;
-    }
-    #typeList{
-        flex-grow: 1;
-        margin-left: 3rem;
-        li{
-            :hover{
-                text-decoration: red solid line-through;
-            }
-        }
-    }
-    .inputDiv{
-        display: flex;
-        justify-content: flex-end;
-        text-align: right;
-        .typeInputButton{
-            background-color: $bg-secondary;
-            height: 2rem;
-            position: relative;
-            top: 2rem;
-            left: -2rem;
-            &:hover {
-                box-shadow: 0 .25rem .5rem $shadow;
-            }
-        }
-    }
-    #addType{
-        background-color: $shadow;
-        width: 10rem;
-        height: 2rem;
-        margin-top: 2rem;
-        &:hover {
-            box-shadow: 0 .25rem .5rem $shadow;
-        }
+div#types {
+  display: flex;
+  justify-content: space-between;
+  border: 0.1rem black groove;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  h2 {
+    flex-grow: 1;
+  }
+  #typeList {
+    flex-grow: 1;
+    margin-left: 3rem;
+    li {
+      :hover {
+        text-decoration: red solid line-through;
+      }
     }
   }
   .inputDiv {
@@ -92,7 +64,7 @@ div#types{
     }
   }
   #addType {
-    background-color: $bg-secondary;
+    background-color: $shadow;
     width: 10rem;
     height: 2rem;
     margin-top: 2rem;
@@ -100,19 +72,44 @@ div#types{
       box-shadow: 0 0.25rem 0.5rem $shadow;
     }
   }
-  #addType {
-    background-color: $sidebarColor;
-    width: 10rem;
+}
+.inputDiv {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  .typeInputButton {
+    background-color: $bg-secondary;
     height: 2rem;
-    margin-top: 2rem;
+    position: relative;
+    top: 2rem;
+    left: -2rem;
+    &:hover {
+      box-shadow: 0 0.25rem 0.5rem $shadow;
+    }
   }
-  .typeInput {
-    width: 10rem;
-    height: 2rem;
-    border-radius: 12px;
-    border: none;
-    margin-top: 2rem;
+}
+#addType {
+  background-color: $bg-secondary;
+  width: 10rem;
+  height: 2rem;
+  margin-top: 2rem;
+  &:hover {
+    box-shadow: 0 0.25rem 0.5rem $shadow;
   }
+}
+#addType {
+  background-color: $sidebarColor;
+  width: 10rem;
+  height: 2rem;
+  margin-top: 2rem;
+}
+.typeInput {
+  width: 10rem;
+  height: 2rem;
+  border-radius: 12px;
+  border: none;
+  margin-top: 2rem;
+}
 </style>
 
 <script>

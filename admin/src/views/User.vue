@@ -8,7 +8,9 @@
       <input type="text" placeholder="Password" id="pass" />
       <vs-button id="registerBtn" @click="createUser">Register</vs-button>
     </div>
-    <userCard v-for="(user, index) in users" :key="index"
+    <userCard
+      v-for="(user, index) in users"
+      :key="index"
       :user="users[index]"
     ></userCard>
   </div>
@@ -63,30 +65,30 @@ export default {
     return {
       users: [
         {
-          "email": "email@email.com",
-          "image": "logo.png",
-          "admin": true,
-          "uname": "username",
-          "pass": "password"
-        }
-      ]
-    }
+          email: "email@email.com",
+          image: "logo.png",
+          admin: true,
+          uname: "username",
+          pass: "password",
+        },
+      ],
+    };
   },
   methods: {
     createUser: function () {
       let user = {
-        "email": document.getElementById('email').value,
-        "uname": document.getElementById('uname').value,
-        "pass": document.getElementById('pass').value,
-        "admin": false,
-        "image": 'logo.png' //placeholder
-      }
+        email: document.getElementById("email").value,
+        uname: document.getElementById("uname").value,
+        pass: document.getElementById("pass").value,
+        admin: false,
+        image: "logo.png", //placeholder
+      };
       this.users.push(user);
 
-      document.getElementById('email').value = '';
-      document.getElementById('uname').value = '';
-      document.getElementById('pass').value = '';
-    }
-  }
+      document.getElementById("email").value = "";
+      document.getElementById("uname").value = "";
+      document.getElementById("pass").value = "";
+    },
+  },
 };
 </script>

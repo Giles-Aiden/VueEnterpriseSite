@@ -2,7 +2,9 @@
   <div class="productPage">
     <Sidebar></Sidebar>
     <div id="product">
-      <productCard v-for="(product, index) in products" :key="index"
+      <productCard
+        v-for="(product, index) in products"
+        :key="index"
         :product="products[index]"
       ></productCard>
     </div>
@@ -34,66 +36,51 @@ export default {
     Sidebar,
     productCard,
   },
-  data: function(){
-    return{
+  data: function () {
+    return {
       products: [
         {
-          "name": 'Hydro Flask',
-          "image": 'flask.jpg',
-          "colors": [
-            '#FF0000',
-            '#FF4000',
-            '#FFC800',
-            '#333F35',
-            '#3DA8BC',
-            '#20283A',
-            '#000000',
-            '#372727',
-            '#FFFFFF',
-            '#B6458A',
-            '#3B236D',
+          name: "Hydro Flask",
+          image: "flask.jpg",
+          colors: [
+            "#FF0000",
+            "#FF4000",
+            "#FFC800",
+            "#333F35",
+            "#3DA8BC",
+            "#20283A",
+            "#000000",
+            "#372727",
+            "#FFFFFF",
+            "#B6458A",
+            "#3B236D",
           ],
-          "price": 20,
-          "attributes": [
+          price: 20,
+          attributes: [
             {
-              "attr": 'lids',
-              "items": [
-                'lid1',
-                'lid2',
-                'lid3',
-              ]
+              attr: "lids",
+              items: ["lid1", "lid2", "lid3"],
             },
             {
-              "attr": 'sizes',
-              "items": [
-                '20oz',
-                '40oz',
-              ]
-            }
-          ]
+              attr: "sizes",
+              items: ["20oz", "40oz"],
+            },
+          ],
         },
         {
-          "name": 'Phone Case',
-          "image": 'case.jpg',
-          "colors": [
-            '#231709',
-            '#3c280d',
-            '#9a7b4f',
-          ],
-          "price": 15,
-          "attributes": [
+          name: "Phone Case",
+          image: "case.jpg",
+          colors: ["#231709", "#3c280d", "#9a7b4f"],
+          price: 15,
+          attributes: [
             {
-              "attr": 'types',
-              "items": [
-                'iPhone8',
-                'iPhone8s',
-                'iPhoneX',
-              ]
+              attr: "types",
+              items: ["iPhone8", "iPhone8s", "iPhoneX"],
             },
-          ]
-        }
-      ]
-    }
-  }
+          ],
+        },
+      ],
+    };
+  },
 };
 </script>

@@ -17,7 +17,7 @@
     </td>
     <td>
       <p>
-        <span class="data">${{ getCorrectPrice( user.cost ) }}</span>
+        <span class="data">${{ getCorrectPrice(user.cost) }}</span>
       </p>
     </td>
     <td>
@@ -39,20 +39,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>  
+<style lang="scss" scoped>
 @import "src/assets/styles/_variables.scss";
-*{
+* {
   padding: 0;
   margin: 0;
 }
-  tr{
-    width: 100%;
-    td{
-      width: 20%;
-      border: white 0.1rem solid;
-      color: $bodyElementColor;
-      text-align: center;
-      vertical-align: middle;
-    }
+tr {
+  width: 100%;
+  td {
+    width: 20%;
+    border: white 0.1rem solid;
+    color: $bodyElementColor;
+    text-align: center;
+    vertical-align: middle;
   }
+}
 </style>

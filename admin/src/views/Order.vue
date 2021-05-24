@@ -9,20 +9,22 @@
         <td>Amount</td>
         <td>Items Purchased</td>
       </tr>
-    <OrderComp v-for="(order, index) in Orders" :key="index"
-      :user="Orders[index]"
-    />
+      <OrderComp
+        v-for="(order, index) in Orders"
+        :key="index"
+        :user="Orders[index]"
+      />
     </table>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import "src/assets/styles/_variables.scss";
-*{
+* {
   padding: 0;
   margin: 0;
 }
-#orders{
+#orders {
   margin-left: 4rem;
   width: 95%;
   padding: 1rem;
@@ -38,26 +40,26 @@
     font-weight: bold;
   }
 }
-  table{
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+  background-color: $bg-secondary;
+  tr {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    text-align: center;
-    background-color: $bg-secondary;
-    tr{
-      width: 100%;
-      td{
-        width: 20%;
-        border: white 0.1rem solid;
-        text-align: center;
-        vertical-align: middle;
-        color: $bodyElementColor;
-        ul{
-          margin: 0;
-        }
+    td {
+      width: 20%;
+      border: white 0.1rem solid;
+      text-align: center;
+      vertical-align: middle;
+      color: $bodyElementColor;
+      ul {
+        margin: 0;
       }
     }
   }
+}
 </style>
 
 <script>
@@ -75,29 +77,23 @@ export default {
     return {
       Orders: [
         {
-          "ID": 1,
-          "firstName": "Jeff",
-          "lastName": "Smith",
-          "email": "Email10@gmail.com",
-          "date": "5-23-21",
-          "cost": 1999,
-          "items": [
-            "Water Bottle",
-            "Another Water Bottle"
-          ]
+          ID: 1,
+          firstName: "Jeff",
+          lastName: "Smith",
+          email: "Email10@gmail.com",
+          date: "5-23-21",
+          cost: 1999,
+          items: ["Water Bottle", "Another Water Bottle"],
         },
         {
-          "ID": 2,
-          "firstName": "Ethan",
-          "lastName": "Roldan",
-          "email": "Email20@gmail.com",
-          "date": "5-24-21",
-          "cost": 1999,
-          "items": [
-            "Water Bottle",
-            "Another Water Bottle"
-          ]
-        }
+          ID: 2,
+          firstName: "Ethan",
+          lastName: "Roldan",
+          email: "Email20@gmail.com",
+          date: "5-24-21",
+          cost: 1999,
+          items: ["Water Bottle", "Another Water Bottle"],
+        },
       ],
     };
   },

@@ -5,15 +5,10 @@
     <br />
     <div id="price">
       <h2>Price: ${{ price }}</h2>
-<<<<<<< HEAD
-      <input type="number" :id="productName" />
+      <input type="number" :id="productName + ' Price'" />
       <vs-button @click="changePrice({ productName })" class="priceButton"
         >Change Price</vs-button
       >
-=======
-      <input type="number" :id="productName + ' Price'">
-      <vs-button @click="changePrice({ productName })" class="priceButton">Change Price</vs-button>
->>>>>>> 242cab6dc1476cb8ab1966eac2bedd8710d1c202
     </div>
     <div id="colors">
       <h2>Colors:</h2>
@@ -43,7 +38,9 @@
         </form>
       </div>
     </div>
-    <ProductAttribute v-for="(attr, index) in attributes" :key="index"
+    <ProductAttribute
+      v-for="(attr, index) in attributes"
+      :key="index"
       :attribute="attributes[index]"
     ></ProductAttribute>
     <br />
@@ -134,32 +131,19 @@ div.productCard {
       width: 1.25rem;
       height: 1.25rem;
     }
-<<<<<<< HEAD
-
-    div#menu {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-      .menuButton {
-        background-color: $bg-secondary;
-        &:hover {
-          box-shadow: 0 0.25rem 0.5rem $shadow;
-=======
   }
-  div#menu{
+  div#menu {
     display: flex;
     width: 100%;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    .menuButton{
-        background-color: $shadow;
-        &:hover {
-            box-shadow: 0 .25rem .5rem $shadow;
->>>>>>> 242cab6dc1476cb8ab1966eac2bedd8710d1c202
-        }
+    .menuButton {
+      background-color: $shadow;
+      &:hover {
+        box-shadow: 0 0.25rem 0.5rem $shadow;
       }
     }
-}
+  }
 }
 </style>
 
@@ -187,9 +171,15 @@ export default {
       this.colors.splice(i.index, 1);
     },
     addColor: function (picker) {
-      if (this.colors.indexOf(document.getElementById(picker.productName  + ' Color').value) == -1) {
-        this.colors.push(document.getElementById(picker.productName + ' Color').value);
-      }/* 
+      if (
+        this.colors.indexOf(
+          document.getElementById(picker.productName + " Color").value
+        ) == -1
+      ) {
+        this.colors.push(
+          document.getElementById(picker.productName + " Color").value
+        );
+      } /* 
       console.log(picker.productName + ' Color');
       console.log(this.colors); */
     },
@@ -201,14 +191,11 @@ export default {
       }
     },
     changePrice: function (product) {
-<<<<<<< HEAD
-      this.price = document.getElementById(product.productName).value;
+      this.price = document.getElementById(
+        product.productName + " Price"
+      ).value;
+      document.getElementById(product.productName + " Price").value = "";
     },
-=======
-      this.price = document.getElementById(product.productName + ' Price').value;
-      document.getElementById(product.productName + ' Price').value = '';
-    }
->>>>>>> 242cab6dc1476cb8ab1966eac2bedd8710d1c202
   },
 };
 </script>

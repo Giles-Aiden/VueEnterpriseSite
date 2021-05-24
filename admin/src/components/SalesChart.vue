@@ -14,14 +14,22 @@ export default {
   data() {
     return {
       basicData: {
-          labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          datasets: [
-              {
-                  label: 'Sales',
-                  backgroundColor: '#113F70',
-                  data: [65, 59, 80, 81, 56, 55, 40],
-              }
-          ]
+        labels: [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        datasets: [
+          {
+            label: "Sales",
+            backgroundColor: "#113F70",
+            data: [65, 59, 80, 81, 56, 55, 40],
+          },
+        ],
       },
       basicOptions: {
         plugins: {
