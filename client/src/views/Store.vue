@@ -32,15 +32,9 @@
 import Navbar from '@/components/Navbar.vue';
 
 export default {
-  name: 'Store',
+  name: 'Home',
   components: {
     Navbar,
-  },
-  methods: {
-    setProgress: (num) => {
-      console.log('called func');
-      this.progress = num;
-    },
   },
   data() {
     return {

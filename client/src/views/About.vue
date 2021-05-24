@@ -3,7 +3,8 @@
     <Navbar title="About" />
     <div class="text">
       <p>
-        Thank you for visiting WFBM Laser Engraving, a family owned and operated business.
+        Thank you for visiting WFBM Laser Engraving, a family owned and operated
+        business.
       </p>
     </div>
     <div class="cards">
@@ -19,23 +20,29 @@
     <div class="images">
       <div class="row">
         <div class="col">
-          <img src="@/assets/aboutPageImages/snowflakes.png" alt="">
-          <img src="@/assets/aboutPageImages/tile.jpg" alt="">
+          <img src="@/assets/aboutPageImages/snowflakes.png" alt="" />
+          <img src="@/assets/aboutPageImages/tile.jpg" alt="" />
         </div>
         <div class="col">
-          <img class="wideImg" style="width: 200%; height: 100%" src="@/assets/aboutPageImages/bottles.jpg" alt="">
+          <img
+            class="wideImg"
+            style="width: 200%; height: 100%"
+            src="@/assets/aboutPageImages/bottles.jpg"
+            alt=""
+          />
         </div>
-        <div class="col"></div><!--dont delete this its important-->
+        <div class="col"></div>
+        <!--dont delete this its important-->
       </div>
       <div class="row">
         <div class="col">
-          <img src="@/assets/aboutPageImages/bottles1.jpg" alt="">
+          <img src="@/assets/aboutPageImages/bottles1.jpg" alt="" />
         </div>
         <div class="col">
-          <img src="@/assets/aboutPageImages/bottles2.jpg" alt="">
+          <img src="@/assets/aboutPageImages/bottles2.jpg" alt="" />
         </div>
         <div class="col">
-          <img src="@/assets/aboutPageImages/bottles3.png" alt="">
+          <img src="@/assets/aboutPageImages/bottles3.png" alt="" />
         </div>
       </div>
     </div>
@@ -47,7 +54,7 @@
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue';
 import AboutCard from '@/components/AboutCard.vue';
-import VFooter from '@/components/VFooter.vue'
+import VFooter from '@/components/VFooter.vue';
 
 export default {
   name: 'About',
@@ -60,70 +67,69 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .text {
-    background: #eee;
-    padding: 4rem;
-    font-size: 110%;
-    p {
-      margin: 0;
-    }
+.text {
+  background: #eee;
+  padding: 4rem;
+  font-size: 110%;
+  p {
+    margin: 0;
   }
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .images {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .row {
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.row {
   display: -ms-flexbox; /* IE10 */
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
   justify-content: center;
   max-width: 2000px;
-  }
+}
 
-  /* Create four equal columns that sits next to each other */
+/* Create four equal columns that sits next to each other */
+.col {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+}
+
+.col img {
+  vertical-align: middle;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .row {
+    flex-direction: column;
+  }
   .col {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-    max-width: 25%;
-  }
-
-  .col img {
-    vertical-align: middle;
-    width: 100%;
-    padding: 10px;
-  }
-
-  /* Responsive layout - makes a two column-layout instead of four columns */
-  @media screen and (max-width: 800px) {
-    .row {
-      flex-direction: column;
-      
-    }
-    .col {
-      -ms-flex: 50%;
-      flex: 100%;
-      max-width: 100%;
-      margin-inline: 5rem;
-      .wideImg {
-        width: 100% !important;
-      }
+    -ms-flex: 50%;
+    flex: 100%;
+    max-width: 100%;
+    margin-inline: 5rem;
+    .wideImg {
+      width: 100% !important;
     }
   }
+}
 
-  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .col {
-      -ms-flex: 100%;
-      flex: 100%;
-      max-width: 100%;
-    }
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
   }
+}
 </style>

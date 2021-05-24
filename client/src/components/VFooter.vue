@@ -1,7 +1,7 @@
 <template>
   <div class="center background">
     <div class="contact item">
-      <h1 style="text-align: center;">Contact Information</h1>
+      <h1 style="text-align: center">Contact Information</h1>
       <h3><i class="fa fa-user"></i> - David Ray</h3>
       <h3><i class="fa fa-phone"></i> - (480)-226-6529</h3>
       <h3><i class="fa fa-envelope"></i> - Sales@WFBMlaserengraving.com</h3>
@@ -11,14 +11,14 @@
     </div>
     <div class="icons item">
       <div class="icon">
-      <vs-button
-        class="button-icon"
-        icon
-        color="facebook"
-        href="http://business.facebook.com/WFBM-Laser-Engraving-102699948274177/"
-      >
-        <i class="fa fa-facebook-square"></i>
-      </vs-button>
+        <vs-button
+          class="button-icon"
+          icon
+          color="facebook"
+          href="http://business.facebook.com/WFBM-Laser-Engraving-102699948274177/"
+        >
+          <i class="fa fa-facebook-square"></i>
+        </vs-button>
 
         <vs-button class="button-icon" icon color="twitter">
           <i class="fa fa-twitter-square"></i>
@@ -57,15 +57,14 @@ export default {
     text-align: left;
     display: flex;
     flex-direction: column;
-    padding-inline: 3rem ;
+    padding-inline: 3rem;
     * {
-      margin-block: .25rem;
+      margin-block: 0.25rem;
     }
   }
   .background {
     background-image: url('../assets/navBackgroundBottles.png');
     opacity: 20%;
-
   }
   background-size: cover;
   background-position: center;
