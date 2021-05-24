@@ -4,7 +4,7 @@
     <div class="info" @click="isOpen = true">
       <h1 class="title">{{ itemName }}</h1>
       <p>{{ itemBody }}</p>
-      <button>Add to cart</button>
+      <button>See more</button>
     </div>
     <ItemView
       v-if="isOpen"
