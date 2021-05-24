@@ -1,6 +1,6 @@
 <template>
   <div id="types">
-    <h2>{{ attr.charAt(0).toUpperCase() + attr.slice(1) }}:</h2>
+    <h2>{{ attr }}:</h2>
     <ul id="typeList">
       <li v-for="(type, index) in types" :key="type" style="listStyleType: none">
         <h4 class="deletion" @click="deleteType({ index })">{{ type }}</h4>
@@ -9,7 +9,7 @@
     <vs-button id="addType" v-if="adding" @click="addType()"
       >Add
       {{
-        productAttr.charAt(0).toUpperCase() + productAttr.slice(1)
+        attr
       }}</vs-button
     >
     <div class="inputDiv" v-else>

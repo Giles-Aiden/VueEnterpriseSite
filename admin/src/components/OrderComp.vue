@@ -7,7 +7,7 @@
     </td>
     <td>
       <p>
-        <span class="data">{{ user.name }} {{ user.lastName }}</span>
+        <span class="data">{{ user.firstName }} {{ user.lastName }}</span>
       </p>
     </td>
     <td>

@@ -2,7 +2,7 @@
   <div class="productPage">
     <Sidebar></Sidebar>
     <div id="product">
-      <productCard v-for="(product, index) in products" :key="product"
+      <productCard v-for="(product, index) in products" :key="index"
         :product="products[index]"
       ></productCard>
     </div>
@@ -73,30 +73,23 @@ export default {
           ]
         },
         {
-          "name": 'Hydro Flask',
-          "image": 'flask.jpg',
+          "name": 'Phone Case',
+          "image": 'case.jpg',
           "colors": [
-            '#FF0000',
-            '#FF4000',
-            '#FFC800',
+            '#231709',
+            '#3c280d',
+            '#9a7b4f',
           ],
-          "price": 20,
+          "price": 15,
           "attributes": [
             {
-              "attr": 'lids',
+              "attr": 'types',
               "items": [
-                'lid1',
-                'lid2',
-                'lid3',
+                'iPhone8',
+                'iPhone8s',
+                'iPhoneX',
               ]
             },
-            {
-              "attr": 'sizes',
-              "items": [
-                '20oz',
-                '40oz',
-              ]
-            }
           ]
         }
       ]

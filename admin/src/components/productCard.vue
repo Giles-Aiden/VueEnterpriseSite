@@ -10,7 +10,7 @@
     </div>
     <div id="colors">
       <h2>Colors:</h2>
-      <div class="color" v-for="(color, index) in colors" :key="color">
+      <div class="color" v-for="(color, index) in colors" :key="index">
         <div
           :style="{ 'background-color': color }"
           style="width: 100%; height: 100%"
@@ -36,7 +36,7 @@
         </form>
       </div>
     </div>
-    <ProductAttribute v-for="(attr, index) in attributes" :key="attr"
+    <ProductAttribute v-for="(attr, index) in attributes" :key="index"
       :attribute="attributes[index]"
     ></ProductAttribute>
     <br />
@@ -59,6 +59,7 @@ div.productCard {
   background-color: $bg-secondary;
   color: $bodyElementColor;
   min-width: 45%;
+  max-width: 45%;
   margin-right: 1rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -147,7 +148,9 @@ import ProductAttribute from "@/components/ProductAttribute.vue";
 
 export default {
   components: { ProductAttribute },
-  props: ["product"],
+  props: {
+    product: Object,
+  },
   data: function () {
     return {
       productName: this.product.name,

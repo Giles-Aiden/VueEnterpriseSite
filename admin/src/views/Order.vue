@@ -8,7 +8,7 @@
         <td>Amount</td>
         <td>Items Purchased</td>
       </tr>
-    <OrderComp v-for="(order, index) in Orders" :key="order"
+    <OrderComp v-for="(order, index) in Orders" :key="index"
       :user="Orders[index]"
     />
     </table>
@@ -75,7 +75,7 @@ export default {
       Orders: [
         {
           "ID": 1,
-          "name": "Jeff",
+          "firstName": "Jeff",
           "lastName": "Smith",
           "email": "Email10@gmail.com",
           "cost": 1999,
@@ -86,7 +86,7 @@ export default {
         },
         {
           "ID": 2,
-          "name": "Ethan",
+          "firstName": "Ethan",
           "lastName": "Roldan",
           "email": "Email20@gmail.com",
           "cost": 1999,
