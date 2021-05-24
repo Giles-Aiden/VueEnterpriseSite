@@ -1,429 +1,135 @@
 <template>
-    <div class="About">
-        <Navbar title="About" />
-        <br />
-        <div class="grid">
-            <vs-row>
-                <vs-col w="4">
-                    <a href="#something">
-                        <div class="blur-collage">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                                id="responsive"
-                            />
-                        </div>
-                        <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-                        <h1 class="collage-text">The Company</h1>
-                    </a>
-                </vs-col>
-                <vs-col w="8">
-                    <a href="#start">
-                        <div class="blur-collage">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                                id="responsive"
-                            />
-                        </div>
-                    </a>
-                    <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-                    <h1 class="collage-text">Where we started</h1>
-                </vs-col>
-            </vs-row>
-
-            <vs-row>
-                <vs-col w="12">
-                    <a href="#journey">
-                        <div class="blur-collage">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                                id="responsive"
-                            />
-                        </div>
-                        <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-                        <h1
-                            class="collage-text"
-                            style="filter: blur(0px); z-index: 2"
-                        >
-                            Our Journey
-                        </h1>
-                    </a>
-                </vs-col>
-            </vs-row>
-            <vs-row>
-                <vs-col w="8">
-                    <a href="#idea">
-                        <div class="blur-collage">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                                id="responsive"
-                            />
-                        </div>
-                        <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-                        <h1 class="collage-text" style="filter: blur(0px)">
-                            Idea Behind the Product
-                        </h1>
-                    </a>
-                </vs-col>
-                <vs-col w="4">
-                    <a href="#future">
-                        <div class="blur-collage">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                                id="responsive"
-                            />
-                        </div>
-                        <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-                        <h1 class="collage-text">Looking to the Future</h1>
-                    </a>
-                </vs-col>
-            </vs-row>
-        </div>
-        <br /><br /><br />
-
-        <!--   <div >
-    <div class="big-card" >
-      <h1 id="something" class="section-header">Something</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div class="About">
+    <Navbar title="About" />
+    <div class="text">
+      <p>
+        Thank you for visiting WFBM Laser Engraving, a family owned and operated
+        business.
+      </p>
     </div>
-    </div>-->
-
-        <hr />
-
-        <div class="big-card">
-            <h1 id="something" class="section-header">Something Here</h1>
-            <p class="big-card-paragraph">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged.
-            </p>
-            <p>
-                It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with
-                desktop publishing software like Aldus PageMaker including
-                versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a
-                type specimen book. It has survived not only five centuries, but
-                also the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <!--:src="require('@assets/bottleCollage.jpg')"-->
-            <img src="somewhere" />
-            <img src="" />
-        </div>
-
-        <br /><br /><br />
-        <div class="big-card">
-            <h1 id="start" class="section-header">Where We Started</h1>
-            <p class="big-card-paragraph">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged.
-            </p>
-            <p>
-                It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with
-                desktop publishing software like Aldus PageMaker including
-                versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a
-                type specimen book. It has survived not only five centuries, but
-                also the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <!--:src="require('@assets/bottleCollage.jpg')"-->
-            <img src="somewhere" />
-            <img src="" />
-        </div>
-        <br /><br /><br />
-        <div class="big-card">
-            <h1 id="journey" class="section-header">Our Journey</h1>
-            <p class="big-card-paragraph">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged.
-            </p>
-            <p>
-                It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with
-                desktop publishing software like Aldus PageMaker including
-                versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a
-                type specimen book. It has survived not only five centuries, but
-                also the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <!--:src="require('@assets/bottleCollage.jpg')"-->
-            <img src="somewhere" />
-            <img src="" />
-        </div>
-        <br /><br /><br />
-        <div class="big-card">
-            <h1 id="idea" class="section-header">Idea Behind the Product</h1>
-            <p class="big-card-paragraph">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged.
-            </p>
-            <p>
-                It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with
-                desktop publishing software like Aldus PageMaker including
-                versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a
-                type specimen book. It has survived not only five centuries, but
-                also the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <!--:src="require('@assets/bottleCollage.jpg')"-->
-            <img src="somewhere" />
-            <img src="" />
-        </div>
-        <br /><br /><br />
-        <div class="big-card">
-            <h1 id="future" class="section-header">Looking to the Future</h1>
-            <p class="big-card-paragraph">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged.
-            </p>
-            <p>
-                It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with
-                desktop publishing software like Aldus PageMaker including
-                versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a
-                type specimen book. It has survived not only five centuries, but
-                also the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <!--:src="require('@assets/bottleCollage.jpg')"-->
-            <img src="somewhere" />
-            <img src="" />
-        </div>
+    <div class="cards">
+      <AboutCard
+        itemName="Who we are:"
+        itemBody="In 2011 our families merged to form Casa de Ray. With five children between us, we dreamt of starting a home business to leave to our kids someday. My wife is a CTE teacher, and her students must fundraise to pay for competitions and travel. A couple years ago, one of her fundraisers was customizable hydro water bottles. Her students sold 24 oz and 40 oz laser engraved water bottles and a portion of the proceeds went to their CTSO. We became very interested in this type of business but were a little nervous to take the first step. After 25 years in the hotel industry and a little nudge from COVID, we decided to pull the trigger and give it a go."
+      />
+      <AboutCard
+        itemName="What we sell:"
+        itemBody="we sell custom laser engraved water bottles and cups. We offer hundreds of custom designed logos and even allow for the uploading of your personal images. These are perfect to grow recognition and support spirit for your cause, school, or event. We are expanding to include other new and unique customizable products."
+      />
     </div>
+    <div class="images">
+      <div class="row">
+        <div class="col">
+          <img src="@/assets/aboutPageImages/snowflakes.png" alt="" />
+          <img src="@/assets/aboutPageImages/tile.jpg" alt="" />
+        </div>
+        <div class="col">
+          <img
+            class="wideImg"
+            style="width: 200%; height: 100%"
+            src="@/assets/aboutPageImages/bottles.jpg"
+            alt=""
+          />
+        </div>
+        <div class="col"></div>
+        <!--dont delete this its important-->
+      </div>
+      <div class="row">
+        <div class="col">
+          <img src="@/assets/aboutPageImages/bottles1.jpg" alt="" />
+        </div>
+        <div class="col">
+          <img src="@/assets/aboutPageImages/bottles2.jpg" alt="" />
+        </div>
+        <div class="col">
+          <img src="@/assets/aboutPageImages/bottles3.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <VFooter />
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue'
+import Navbar from '@/components/Navbar.vue';
+import AboutCard from '@/components/AboutCard.vue';
+import VFooter from '@/components/VFooter.vue';
 
 export default {
-    name: 'About',
-    components: {
-        Navbar,
-    },
-}
+  name: 'About',
+  components: {
+    Navbar,
+    AboutCard,
+    VFooter,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-hr {
-    border: solid #6cacf0 0.05em;
-    border-radius: 10000000em;
-    margin: 0em 2em;
-    box-shadow: black 0em 0.1em 0.1em;
-    margin: 2em auto;
-    width: 85%;
+.text {
+  background: #eee;
+  padding: 4rem;
+  font-size: 110%;
+  p {
+    margin: 0;
+  }
 }
-.grid {
-    width: 85%;
-    margin: 0 auto;
-    //border: solid black 2px;
-    scroll-behavior: smooth;
-    box-shadow: black 0em 0em 0.5em;
-    border-radius: 1em;
-    background-color: #6cacf0;
-    vs-row {
-        align-content: center;
-        text-align: center;
-    }
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-.collage-text {
-    z-index: 2;
-    position: absolute;
-    text-align: center;
-    top: 25%;
-    left: 25%;
-    right: 25%;
-    bottom: 25%;
-    color: #061b31;
-    text-shadow: #6cacf0 -0.05em 0em, #6cacf0 0.05em 0em, #6cacf0 0em 0.05em,
-        #6cacf0 0em -0.05em;
+.images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 2000px;
 }
 
-.big-card {
-    width: 95%;
-    margin: 0 auto;
-    padding: 1em;
-    box-shadow: black 0.2em 0.2em 0.4em;
-    border-radius: 1em;
-    margin: 0.5em 1em;
-    background-color: #185ca3;
-    color: white;
-    line-height: 2em;
-    text-align: middle;
-    text-indent: 2.5em;
-    img {
-        float: left;
-        width: 10em;
-        display: none;
-    }
-    p {
-        display: inline;
-    }
+/* Create four equal columns that sits next to each other */
+.col {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
 }
 
-.section-header {
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
+.col img {
+  vertical-align: middle;
+  width: 100%;
+  padding: 10px;
 }
 
-.blur-collage {
-    z-index: -1;
-    scroll-behavior: smooth;
-    margin: 1em;
-    box-shadow: black 0.1em 0.1em 0.3em;
-    background-color: white;
-    border-radius: 0.5em;
-}
-
-#responsive {
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .row {
+    flex-direction: column;
+  }
+  .col {
+    -ms-flex: 50%;
+    flex: 100%;
     max-width: 100%;
-    height: auto;
-    border: none;
+    margin-inline: 5rem;
+    .wideImg {
+      width: 100% !important;
+    }
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
 }
 </style>

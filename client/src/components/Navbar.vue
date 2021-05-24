@@ -1,257 +1,167 @@
 <template>
     <nav>
-        <input type="checkbox" />
-        <ul class="navBar">
+        <ul class="navbar">
             <router-link to="/" class="link" tag="li"
-                ><li><p>Home</p></li></router-link
+                ><p>Home</p></router-link
             >
             <router-link to="/about" class="link" tag="li"
-                ><li><p>About</p></li></router-link
+                ><p>About</p></router-link
             >
-            <router-link to="/store" class="link" tag="li"
-                ><li><p>Store</p></li></router-link
+            <router-link to="/store/items" class="link" tag="li"
+                ><p>Store</p></router-link
             >
             <router-link to="/fundraising" class="link" tag="li"
-                ><li><p>Fundraising Opportunities</p></li></router-link
+                ><p>Fundraising Opportunities</p></router-link
             >
             <router-link to="/wholesale" class="link" tag="li"
-                ><li><p>Marketing and Business</p></li></router-link
+                ><p>Marketing and Business</p></router-link
             >
         </ul>
-        <h1 class="title">{{ title }}</h1>
+        <input type="checkbox" id="checkbox_id">
         <div class="icons">
-            <i class="fa fa-bars fa-2x bars hidden"></i>
-            <i class="fa fa-close fa-2x close hidden"></i>
+            <label for="checkbox_id"><i class="fa fa-bars fa-2x bars"></i></label>
+            <label for="checkbox_id"><i class="fa fa-close fa-2x close"></i></label>
         </div>
-        <ul class="dropdownNav">
+        <img class="logo" src="../assets/WFBM Logo.png" alt="">
+        <ul class="dropdown">
             <router-link to="/" class="link" tag="li"
-                ><li><p>Home</p></li></router-link
+                ><p>Home</p></router-link
             >
             <router-link to="/about" class="link" tag="li"
-                ><li><p>About</p></li></router-link
+                ><p>About</p></router-link
             >
-            <router-link to="/store" class="link" tag="li"
-                ><li><p>Store</p></li></router-link
+            <router-link to="/store/items" class="link" tag="li"
+                ><p>Store</p></router-link
             >
             <router-link to="/fundraising" class="link" tag="li"
-                ><li><p>Fundraising Opportunities</p></li></router-link
+                ><p>Fundraising Opportunities</p></router-link
             >
             <router-link to="/wholesale" class="link" tag="li"
-                ><li><p>Marketing and Business</p></li></router-link
+                ><p>Marketing and Business</p></router-link
             >
         </ul>
     </nav>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-    props: {
-        title: String,
-    },
-})
-</script>
-
 <style lang="scss" scoped>
-@import "@/assets/styles/_variables.scss";
+@import '@/assets/styles/_variables.scss';
 nav {
-  width: auto;
-  height: calc(30vh + 5px);
-  background-image: url("../assets/navBackgroundBottles.png");
-  background-repeat: no-repeat !important;
-  background-size: auto !important;
-  background-position: center;
-  backdrop-filter: blur(100px);
-  color: $navTextColor;
-  font-size: 2vh;
-  backdrop-filter: blur(100px);
-  background-size: 100%;
-  color: $navTextColor;
-  font-size: 2vh;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  .title {
-    z-index: 0;
-    margin: auto 5rem;
-    font-size: 250%;
-  }
-  .navBar {
-    margin: 0;
-    padding: 0;
-    height: 5vh;
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-    .link {
-      background: $navBackground;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      &:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-      li {
-        color: $navTextColor;
-        font-size: 2vh;
-        height: calc(30vh + 5px);
-        top: 0;
-        left: 0;
-        width: 100%;
+    height: 24rem;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='408' height='49' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222222' stroke-width='12.7' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+    color: $navTextColor;
+    .logo {
+        filter: grayscale(1) invert(1);
+        max-height: calc(100% - 5rem);
+        max-width: 100%;
+        margin-inline: auto;
+    }
+    .navbar {
+        z-index: 100;
         display: flex;
-        flex-direction: column;
-        .title {
-            z-index: 0;
-            margin: auto 5rem;
-            font-size: 250%;
-        }
-        .navBar {
-            margin: 0;
-            padding: 0;
-            height: 5vh;
-            list-style-type: none;
-            display: flex;
-            justify-content: space-around;
-            .link {
-                background: $navBackground;
-                cursor: pointer;
-                width: 100%;
-                height:  100%;
-                display: grid;
-                place-items: center;
-                &:hover {
-                    background: rgba(255,255,255,.2);
-                }
-                li {
-                    color: $navTextColor;
-                    p {
-                        color: $navTextColor;
-                        text-decoration: none;
-                        margin: 0;
-                        padding: 0 1rem;
-                    }
-                }
-            }
-        }
-        .close {
-            opacity: 0;
-        }
-    }
-  }
-    .dropdownNav, .dropdownNav li {
-        display: none;
-    }
-    .dropdownNav {
-        transition: transform 400ms ease-in-out;
-        transform-origin: top;
-        display: block;
-        position: absolute;
-        width: 100%;
-        top: 5vh;
-        margin: 0;
+        flex-direction: row;
         list-style-type: none;
+        justify-content: space-around;
         padding: 0;
+        margin: 0;
         li {
+            width: 100%;
             display: grid;
             place-items: center;
             cursor: pointer;
-            width: 100%;
-            height: 100%;
-            background: $navBackground;
             &:hover {
-                background: rgba(100,100,100,0.9);
-            }
-            p {
-                transition: opacity 100ms ease-in;
-                opacity: 0;
+                background: rgba(255,255,255,.2);
             }
         }
-        transform: scaleY(0);
     }
-    input[type=checkbox]:checked ~ .dropdownNav {
+    .dropdown {
+        display: none;
+
+        position: absolute;
+        top: 4rem;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        background: rgba(0,0,0,.9);
+
+        transition: 250ms transform 250ms ease-in;
+        transform-origin: top;
+
+        transform: scaleY(0);
+        li {
+            height: 4rem;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+
+            transition: opacity 200ms linear;
+            opacity: 0;
+            &:hover {
+                background: rgba(255,255,255,.2);
+            }
+            p {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    }
+    .icons {
+        display: none;
+    }
+    //Hide default browser checkbox
+    input[type=checkbox] {
+        display: none;
+        & ~ .icons {
+            .fa {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 4rem;
+                width: 4rem;
+                font-size: 2.5rem;
+                display: grid;
+                place-items: center;
+            }
+            .bars {
+                transition: opacity 500ms linear;
+            }
+            .close {
+                opacity: 0;
+                transition: opacity 0ms linear;
+            }
+        }
+        &:checked ~ .icons {
+            .bars {
+                opacity: 0;
+                transition: opacity 0ms linear;
+            }
+            .close {
+                opacity: 1;
+                transition: opacity 500ms linear;
+            }
+        }
+    }
+
+    input[type=checkbox]:checked ~ .dropdown {
+        transition: transform 250ms ease-in;
         transform: scaleY(1);
-        li p {
-            transition: opacity 500ms ease-in;
+        li {
+            transition: 250ms opacity 200ms linear;
             opacity: 1;
         }
     }
-    input[type=checkbox] {
-        display: none;
-        z-index: 100;
-    }
-  }
 }
-    @media screen and (min-width: 955px) {
-        .dropdownNav {
-            visibility: hidden;
-            display: none;
-        }
-        .hidden {
-            display: none;
-            visibility: hidden;
-        }
+@media screen and (max-width: 955px) {
+    .navbar {
+        display: none;
+        visibility: hidden;
     }
-    @media screen and (max-width: 955px) {
-        nav {
-            height: calc(36vh + 5px);
-        }
-        nav .title {
-            font-size: 200%;
-            margin: auto 3rem;
-        }
-        nav .navBar {
-            display: none;
-        }
-        input[type=checkbox] {
-            display: block;
-            height: 5vh;
-            width: 5vh;
-            border: none;
-            opacity: 0;
-            cursor: pointer;
-            &:checked ~ .icons .close {
-                opacity: 1;
-                transition: opacity 500ms ease-in;
-            }
-            &:checked ~ .icons .bars {
-                opacity: 0;
-                transition: opacity 0ms ease-in;
-            }
-            & ~ .icons .close {
-                transition: opacity 0ms ease-in;
-            }
-            & ~ .icons .bars {
-                transition: opacity 500ms ease-in;
-            }
-        }
-        i {
-            z-index: 1;
-            display: grid;
-            place-items: center;
-            visibility: visible;
-            position: absolute;
-            width: 5vh;
-            height: 5vh;
-            top: 0;
-            margin: 0.2rem;
-            cursor: pointer;
-        }
-        .cartIcon {
-            right: 0;
-        }
+    nav .dropdown {
+        display: block;
     }
-    @media screen and (max-width: 690px) {
-        nav {
-            background-size: auto 100%;
-        }
+    nav .icons {
+        display: block;
     }
-    @media screen and (max-width: 400px) {
-        nav .title {
-            font-size: 150%;
-            margin: auto 2rem;
-        }
-    }
+}
 </style>

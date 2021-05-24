@@ -77,6 +77,7 @@ export default Vue.extend({
 body,
 html {
   padding: 0;
+  margin: 0;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
