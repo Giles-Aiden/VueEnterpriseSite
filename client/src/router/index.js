@@ -63,6 +63,18 @@ const routes = [
     ],
   },
   {
+    path: '/payment-success',
+    name: 'PaymentSuccess',
+    component: () =>
+      import(/* webpackChunkName: "paymentSuccess" */ '../views/PaymentSuccess.vue'),
+  },
+  {
+    path: '/payment-failure',
+    name: 'PaymentFail',
+    component: () =>
+      import(/* webpackChunkName: "paymentFail" */ '../views/PaymentFail.vue'),
+  },
+  {
     path: '/wholesale',
     name: 'Wholesale',
     component: () =>
