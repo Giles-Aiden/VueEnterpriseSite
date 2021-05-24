@@ -1,57 +1,34 @@
 <template>
   <div class="Fundraising">
     <Navbar title="Fundraising" />
-    <!-- Image Scrolling Section -->
-
-    <div id="imageArea">
-      <div id="imageScroll">
-        <carousel
-          :per-page="2"
-          :navigation-enabled="true"
-          :navigation-next-label="arrows[1]"
-          :navigation-prev-label="arrows[0]"
-          :pagination-active-color="'#113F70'"
-          id="carousel"
-        >
-          <slide
-            data-index="0"
-            data-name="MySlideName"
-            @slideclick="handleSlideClick"
-          >
-            <img :src="items[0]" />
-          </slide>
-          <slide
-            data-index="1"
-            data-name="MySlideName"
-            @slideclick="handleSlideClick"
-          >
-            <img :src="items[1]" />
-          </slide>
-          <slide
-            data-index="2"
-            data-name="MySlideName"
-            @slideclick="handleSlideClick"
-          >
-            <img :src="items[2]" />
-          </slide>
-        </carousel>
-      </div>
-    </div>
-
     <!-- Main Content -->
+    <!-- Will cover the fundraising campaign and all of its necessary details -->
     <div id="contentArea">
       <h2>Fundraising Information</h2>
       <div id="info">
         <div>
-          <h4>Filler Text</h4>
-          <ul>
-            <li>cool stuff</li>
-            <li>amazing things</li>
-            <li>awesome company</li>
-          </ul>
+          <h4>How does it work?</h4>
+          <hr />
+          <p>
+            Your organization can earn money while selling a great product that
+            is popular, customizable, and environmentally friendly.
+          </p>
         </div>
 
         <div>
+          <h4>How do I benefit?</h4>
+          <hr />
+          <p>
+            By participating in a WFBM laser engraving fundraiser, your
+            organization can earn money in a fun and effective way. Based on our
+            recommended sales pricing of $25 for the 24 oz and $40 for the 40
+            oz, your organization will earn $5 or $10 respectively per bottle.
+          </p>
+        </div>
+
+        <div>
+          <h4>Why your organization should participate</h4>
+          <hr />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -64,31 +41,32 @@
         </div>
 
         <div>
+          <h4>Sales &#38; Delivery</h4>
+          <hr />
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            A 2-3 week sales window is recommended for your fundraiser but you
+            are free to set a longer or shorter time frame.
           </p>
         </div>
       </div>
     </div>
 
     <hr />
-    <!-- Reviews/Experience Section -->
+
     <div id="reviewsArea">
+      <h1>Fundraising Experience</h1>
+      <div id="reviews">
+        <div></div>
+      </div>
+    </div>
+    <!-- Reviews/Experience Section -->
+    <!-- <div id="reviewsArea">
       <h2>Fundraising Experience</h2>
       <a href="Fundraising.vue#r5"></a>
       <div id="reviews">
-        <!--<button class="arrows" id="leftArrow2"><img src="img/arrowLeft.png"></button>-->
         <carousel
           :per-page="2"
           :navigation-enabled="true"
-          :navigation-next-label="arrows[1]"
-          :navigation-prev-label="arrows[0]"
           :pagination-active-color="'#113F70'"
           id="carousel2"
         >
@@ -106,15 +84,14 @@
             </div>
           </slide>
         </carousel>
-        <!--<button class="arrows" id="rightArrow2"><img src="img/arrowRight.png"></button>-->
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
-<!-- los stylos -->
+<!-- The style rules for the page -->
 <style lang="scss" scoped>
-// image scrolling stuff
+@import '@/assets/styles/_variables.scss';
 .example-slide {
   align-items: center;
   background-color: #666;
@@ -139,6 +116,11 @@ hr {
   box-shadow: black 0em 0.1em 0.1em;
 }
 /* -- CAROUSEL STYLES -- */
+.VueCarousel-slide {
+  visibility: visible;
+  flex-basis: 50%;
+  width: 100%;
+}
 #imageArea {
   display: flex;
   flex-direction: row;
@@ -147,41 +129,18 @@ hr {
   padding: 0.5em;
 
   #imageScroll {
-    border: #113f70 0.5em solid;
+    border: $bg-main 0.5em solid;
     border-radius: 1em;
-    box-shadow: black 0em 0em 0.5em inset, black 0em 0em 1em;
+    box-shadow: $shadow 0em 0em 0.5em inset, $shadow 0em 0em 1em;
     padding: 0.5em;
     margin: auto;
-  }
-  /* -- first and last div (the arrows for the carousel) -- */
-  .arrows {
-    position: relative;
-    padding: 3em;
-    background-color: #113f70;
-    transition: 0.2s;
-    img {
-      position: absolute;
-      width: 2em;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-  .arrows:first-of-type {
-    border: none;
-    border-radius: 1em 0em 0em 1em;
-    img {
-      transform: translate(-50%, -50%);
-    }
-  }
-  .arrows:last-of-type {
-    border: none;
-    border-radius: 0em 1em 1em 0em;
   }
 }
 #carousel img {
   width: 50%;
   max-width: 50em;
+  border: solid black 1px;
+  z-index: -1;
 }
 @media (max-width: 800px) {
   #imageArea {
@@ -204,26 +163,24 @@ hr {
   .arrows:hover {
     transition: 0.2s;
     transform: translateY(-0.33em);
-    box-shadow: black 0em 0.33em, black 0em 0.33em 0.5em;
+    box-shadow: black 0em 0.33em;
     filter: opacity(0.95);
   }
 }
 
-/* ------ */
+/* Review carousel styles */
 #reviewsArea {
   margin: 0.5em 5em;
   #reviews {
     padding: 0.5em;
     margin: auto;
     max-width: 200em;
-
     #carousel2 {
       background-color: #6cacf0;
       padding: 1em 0em;
       box-shadow: inset 0em 0em 0.5em;
       border: solid #113f70 0.5em;
       border-radius: 1em;
-
       .reviewCards {
         background-color: white;
         color: #113f70;
@@ -236,7 +193,6 @@ hr {
         display: inline-block;
         width: 75%;
         max-width: 40em;
-
         p {
           white-space: wrap;
         }
@@ -253,6 +209,7 @@ hr {
     font-size: 2em;
   }
 }
+
 @media (max-width: 800px) {
   #reviewsArea {
     margin: 0em 1em;
@@ -286,7 +243,7 @@ hr {
       border-radius: 1em;
       padding: 1em;
       margin: 0.5em 1em;
-      flex: 1 1 160px;
+      flex: 1 1 30em;
       background-color: #185ca3;
       color: white;
       line-height: 2em;
@@ -301,9 +258,6 @@ hr {
         list-style: visible;
         text-indent: 0em;
       }
-    }
-    div:last-of-type {
-      flex: 1.5 1 160px;
     }
   }
 }
@@ -322,16 +276,13 @@ hr {
 <!-- functiony things -->
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue';
-//import VueCarousel from 'vue-carousel';
-import { Carousel, Slide } from 'vue-carousel';
+import Navbar from "@/components/Navbar.vue";
 
 export default {
   name: 'Fundraising',
   components: {
     Navbar,
-    Carousel,
-    Slide,
+    //MyCarousel
   },
   data() {
     return {
@@ -342,30 +293,31 @@ export default {
         'img/bottleBlack.JPG',
         'img/bottleGreen.JPG',
       ],
+      // This is the info that gets passed into the v-for elements for the 2nd carousel
       reviewerInfo: [
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Jack F.',
+          '"Fantastic, I\'m totally blown away by Testimonial Generator."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Israel L.',
+          '" I am so pleased with this product. The service was excellent."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Tonnie O.',
+          '"I\'m good to go. You guys rock! The service was excellent."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Jefferson H.',
+          '"I can\'t say enough about Laser Engraved Water Bottles."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Berrie A.',
+          '"WFBM Laser Engraving is exactly what I\'ve been looking for."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Malory J.',
+          '"Best. Product. Ever! The customization aspect really wonderful."',
         ],
       ],
       arrows: [
@@ -374,17 +326,9 @@ export default {
       ],
     };
   },
-  /*
-  data() {
-    return {
-      data: [
-        '<div class="example-slide">Slide 1</div>',
-        '<div class="example-slide">Slide 2</div>',
-        '<div class="example-slide">Slide 3</div>',
-      ],
-    };
-  },
-  */
 };
-//var arrowHeight = document.getElementById("leftArrow").style.height;
+
+var resizeEvent = window.document.createEvent('UIEvents');
+resizeEvent.initUIEvent('resize', true, false, window, 0);
+window.dispatchEvent(resizeEvent);
 </script>

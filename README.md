@@ -31,9 +31,9 @@ Please make sure to update tests as appropriate.
 ---
 
 Credit to...
-| Aiden Giles 	| Ethan Tayloe 	| Ethan Roldan    	| James Blackman 	|
-|-------------	|--------------	|-----------------	|----------------	|
-| Lily Zalit  	| Luke Dujmic  	| Matthew Crowell 	|                	|
+| Aiden Giles 	| Ethan Roldan  | James Blackman |
+|-------------	|--------------	|--------------- |
+| Lily Zalit  	| Luke Dujmic  	| Ethan Tayloe 	 |
 
 ## License
 

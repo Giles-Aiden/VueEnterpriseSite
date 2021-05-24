@@ -1,92 +1,24 @@
 <template>
   <div class="About">
     <Navbar title="About" />
-    <br />
-    <div class="grid">
-      <vs-row>
-        <vs-col w="4">
-          <a href="#something">
-            <div class="blur-collage">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                id="responsive"
-              />
-            </div>
-            <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-            <h1 class="collage-text">The Company</h1>
-          </a>
-        </vs-col>
-        <vs-col w="8">
-          <a href="#start">
-            <div class="blur-collage">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                id="responsive"
-              />
-            </div>
-          </a>
-          <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-          <h1 class="collage-text">Where we started</h1>
-        </vs-col>
-      </vs-row>
 
-      <vs-row>
-        <vs-col w="12">
-          <a href="#journey">
-            <div class="blur-collage">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                id="responsive"
-              />
-            </div>
-            <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-            <h1 class="collage-text" style="filter: blur(0px); z-index: 2">
-              Our Journey
-            </h1>
-          </a>
-        </vs-col>
-      </vs-row>
-      <vs-row>
-        <vs-col w="8">
-          <a href="#idea">
-            <div class="blur-collage">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                id="responsive"
-              />
-            </div>
-            <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-            <h1 class="collage-text" style="filter: blur(0px)">
-              Idea Behind the Product
-            </h1>
-          </a>
-        </vs-col>
-        <vs-col w="4">
-          <a href="#future">
-            <div class="blur-collage">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-a7kQyZYShhLi8sDzorOrUxwJBZIkjB6Xrw&usqp=CAU"
-                id="responsive"
-              />
-            </div>
-            <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3RJxbcTiQMQD4SblEcz4_wGCAc4TDL-M7w&usqp=CAU" class="blur-collage" style="z-index:1;">-->
-            <h1 class="collage-text">Looking to the Future</h1>
-          </a>
-        </vs-col>
-      </vs-row>
-    </div>
-    <br /><br /><br />
+    <AboutCard
+      itemName="The Company"
+      itemBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque ornare aenean euismod elementum nisi quis eleifend."
+      :img="require('@/assets/stock_photo1.jpg')"
+      imgAlt=""
+    />
 
-    <!--   <div >
-    <div class="big-card" >
-      <h1 id="something" class="section-header">Something</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </div>
-    </div>-->
+    <AboutCard
+      itemName="Where We Started"
+      itemBody="Dolor morbi non arcu risus quis varius. Vitae auctor eu augue ut lectus arcu. Sem integer vitae justo eget magna fermentum iaculis. Rhoncus mattis rhoncus urna neque viverra justo. Sit amet risus nullam eget felis eget nunc lobortis. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Sapien faucibus et molestie ac feugiat sed lectus. "
+      :img="require('@/assets/stock_photo2.jpg')"
+      imgAlt=""
+    />
 
     <hr />
 
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="something" class="section-header">Something Here</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -132,7 +64,7 @@
     </div>
 
     <br /><br /><br />
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="start" class="section-header">Where We Started</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -177,7 +109,7 @@
       <img src="" />
     </div>
     <br /><br /><br />
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="journey" class="section-header">Our Journey</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -222,7 +154,7 @@
       <img src="" />
     </div>
     <br /><br /><br />
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="idea" class="section-header">Idea Behind the Product</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -267,7 +199,7 @@
       <img src="" />
     </div>
     <br /><br /><br />
-    <div class="big-card">
+    <div class="big-card" data-aos="fade-up" data-aos-duration="1000">
       <h1 id="future" class="section-header">Looking to the Future</h1>
       <p class="big-card-paragraph">
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -317,11 +249,13 @@
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue';
+import AboutCard from '@/components/AboutCard.vue';
 
 export default {
   name: 'About',
   components: {
     Navbar,
+    AboutCard,
   },
 };
 </script>
@@ -349,6 +283,15 @@ hr {
   }
 }
 
+.card div {
+  margin-inline: auto;
+}
+div.vs-card {
+  margin-inline: auto;
+  width: 350px;
+  height: 250px;
+}
+
 .collage-text {
   z-index: 2;
   position: absolute;
@@ -368,7 +311,6 @@ hr {
   padding: 1em;
   box-shadow: black 0.2em 0.2em 0.4em;
   border-radius: 1em;
-  margin: 0.5em 1em;
   background-color: #185ca3;
   color: white;
   line-height: 2em;
@@ -389,7 +331,7 @@ hr {
   font-weight: bold;
 }
 
-.blur-collage {
+.about-image-collage {
   z-index: -1;
   scroll-behavior: smooth;
   margin: 1em;
@@ -399,8 +341,11 @@ hr {
 }
 
 #responsive {
-  max-width: 100%;
   height: auto;
   border: none;
+}
+
+.center-grid {
+  display: flex;
 }
 </style>
