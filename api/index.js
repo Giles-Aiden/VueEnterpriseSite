@@ -5,7 +5,14 @@ const mongoSession = require('connect-mongodb-session')(session);
 const bcrypt = require('bcrypt');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://localhost/wfbm';
+const stripe = require('stripe')('pk_test_51InaCPAoLvRfzUcyoUMDtDNLlS0uEiAPLoYkv55M4Q87JpSECqNmzavaC8aJ85njgTfDlsKEsp80ykjR147eTSLz00yGLrx9HI')
+if (process.env.NODE_ENV === "production") {
+  var mongoURI = 'mongodb://mongo/wfbm'; 
+  var domain = 'mystudentswork.com';
+} else {
+  var mongoURI = 'mongodb://localhost/wfbm';
+  var domain = 'localhost'
+}
 mongoose.connect(mongoURI);
 let db = mongoose.connection;
 
@@ -231,6 +238,30 @@ app.post('/api/products', (req, res) => {
     }
     else res.status(201).send();
   });
+});
+
+//Products checkout page
+app.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Bottle',
+            images: ['https://i.imgur.com/EHyR2nP.png'],
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${domain}/home`,
+    cancel_url: `${domain}/about`,
+  });
+  res.json({ id: session.id });
 });
 
 app.put('/api/products', async (req, res) => {
