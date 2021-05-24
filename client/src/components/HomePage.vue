@@ -20,8 +20,7 @@
           >
             <router-link to="/store/items" class="link" tag="li"
               >Shop Now!
-            </router-link
-            >
+            </router-link>
           </vs-button>
         </div>
         <div class="card">
@@ -41,9 +40,8 @@
           >
             <router-link to="/about" class="link" tag="li"
               >About Us
-            </router-link
-            >          
-            </vs-button>
+            </router-link>
+          </vs-button>
         </div>
         <div class="card">
           <h2>Precise</h2>
@@ -62,8 +60,8 @@
           >
             <router-link to="/wholesale" class="link" tag="li"
               >Learn More!
-            </router-link
-            >          </vs-button>
+            </router-link>
+          </vs-button>
         </div>
       </div>
     </div>
@@ -75,8 +73,8 @@
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
             placeat amet aliquid repudiandae iure modi libero eveniet
-            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Impedit, nemo!
+            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Impedit, nemo!
           </p>
 
           <vs-button
@@ -87,8 +85,8 @@
           >
             <router-link to="/fundraising" class="link" tag="li"
               >Tell me more!
-            </router-link
-            >          </vs-button>
+            </router-link>
+          </vs-button>
         </div>
         <div class="card">
           <img
@@ -98,7 +96,7 @@
         </div>
       </div>
     </div>
-    
+
     <VFooter />
   </div>
 </template>
@@ -200,6 +198,5 @@ export default Vue.extend({
   margin: 0;
 }
 .link {
-
 }
 </style>

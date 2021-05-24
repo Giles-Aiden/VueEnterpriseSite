@@ -16,7 +16,16 @@
         </div>
 
         <div>
-          <h4>How do I benefit?</h4>
+          <h4>Sales &#38; Delivery</h4>
+          <hr />
+          <p>
+            A 2-3 week sales window is recommended for your fundraiser but you
+            are free to set a longer or shorter time frame.
+          </p>
+        </div>
+
+        <div>
+          <h4>Why your organization should participate</h4>
           <hr />
           <p>
             By participating in a WFBM laser engraving fundraiser, your
@@ -25,33 +34,28 @@
             oz, your organization will earn $5 or $10 respectively per bottle.
           </p>
         </div>
-
-        <div>
-          <h4>Why your organization should participate</h4>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-
-        <div>
-          <h4>Sales &#38; Delivery</h4>
-          <hr />
-          <p>
-            A 2-3 week sales window is recommended for your fundraiser but you
-            are free to set a longer or shorter time frame.
-          </p>
-        </div>
       </div>
     </div>
 
     <hr />
+    <div>
+      <h2>Fundraising Experience</h2>
+      <div class="rotate" >
+        <!-- Using the slider component -->
+        <slider ref="slider" :options="options">
+          <!-- slideritem wrapped package with the components you need -->
+          <slideritem
+            v-for="(item, index) in someList"
+            :key="index"
+            :style="item.style"
+            >{{ item.html }}</slideritem
+          >
+          <!-- Customizable loading -->
+          <div slot="loading">loading...</div>
+        </slider>
+      </div>
+    </div>
+    
     <!-- Reviews/Experience Section -->
     <div id="reviewsArea">
       <h2>Fundraising Experience</h2>
@@ -87,6 +91,12 @@
 <!-- The style rules for the page -->
 <style lang="scss" scoped>
 @import '@/assets/styles/_variables.scss';
+
+.rotate {
+  width: 100%; 
+  margin: 20px auto; 
+  height: 400px
+}
 .example-slide {
   align-items: center;
   background-color: #666;
@@ -273,18 +283,23 @@ hr {
 <!-- functiony things -->
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
+import Navbar from '@/components/Navbar.vue';
+import { slider, slideritem } from 'vue-concise-slider';
 
 export default {
+  el: '#app',
   name: 'Fundraising',
   components: {
     Navbar,
+    slider,
+    slideritem,
     //MyCarousel
   },
   data() {
     return {
       picked: 1,
       imgNum: 1,
+      currentPage: 0,
       items: [
         'img/bottleRed.JPG',
         'img/bottleBlack.JPG',
@@ -320,6 +335,27 @@ export default {
       arrows: [
         '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
         '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
+      ],
+      //data list [array]
+      someList: [
+        {
+          html: 'slide1',
+          style: {
+            background: '#1bbc9b',
+          },
+        },
+        {
+          html: 'slide2',
+          style: {
+            background: '#4bbfc3',
+          },
+        },
+        {
+          html: 'slide3',
+          style: {
+            background: '#7baabe',
+          },
+        },
       ],
     };
   },
