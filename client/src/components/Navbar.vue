@@ -68,6 +68,10 @@ nav {
             width: 100%;
             display: grid;
             place-items: center;
+            cursor: pointer;
+            &:hover {
+                background: rgba(255,255,255,.2);
+            }
         }
     }
     .dropdown {
@@ -89,6 +93,7 @@ nav {
             height: 4rem;
             display: grid;
             place-items: center;
+            cursor: pointer;
 
             transition: opacity 200ms linear;
             opacity: 0;
