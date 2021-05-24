@@ -8,94 +8,8 @@
         <input type="text" placeholder="Password" id="pass" />
         <vs-button id="registerBtn" @click="createUser">Register</vs-button>
     </div>
-    <!--
-    <div class="userCard">
-        <div class="center grid">
-            <vs-row>
-                <vs-col v-if="0" w="1">
-                    <h1>A</h1>
-                </vs-col>
-                <vs-col w="2">
-                    <img src="@/assets/logo.png">
-                </vs-col>
-                <vs-col w="4">
-                    email@gmail.com
-                </vs-col>
-                <vs-col w="4">
-                    username
-                </vs-col>
-                <vs-col w="1">
-                    <button>More Info</button>
-                </vs-col>
-            </vs-row>
-        </div>
-    </div>
-    -->
-    <userCard
-      v-bind:admin="true"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="true"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
-    ></userCard>
-    <userCard
-      v-bind:admin="false"
-      image="logo.png"
-      email="email@email.com"
-      username="username"
+    <userCard v-for="(user, index) in users" :key="index"
+      :user="users[index]"
     ></userCard>
   </div>
 </template>
@@ -149,6 +63,8 @@ export default {
       users: [
         {
           "email": "email@email.com",
+          "image": "logo.png",
+          "admin": true,
           "uname": "username",
           "pass": "password"
         }
@@ -160,11 +76,15 @@ export default {
       let user = {
         "email": document.getElementById('email').value,
         "uname": document.getElementById('uname').value,
-        "pass": document.getElementById('pass').value
+        "pass": document.getElementById('pass').value,
+        "admin": false,
+        "image": 'logo.png' //placeholder
       }
-      console.log(user);
       this.users.push(user);
-      console.log(this.users);
+
+      document.getElementById('email').value = '';
+      document.getElementById('uname').value = '';
+      document.getElementById('pass').value = '';
     }
   }
 };

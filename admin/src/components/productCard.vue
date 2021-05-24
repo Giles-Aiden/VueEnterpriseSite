@@ -5,12 +5,12 @@
     <br />
     <div id="price">
       <h2>Price: ${{ price }}</h2>
-      <input type="number" :id="productName">
+      <input type="number" :id="productName + ' Price'">
       <vs-button @click="changePrice({ productName })" class="priceButton">Change Price</vs-button>
     </div>
     <div id="colors">
       <h2>Colors:</h2>
-      <div class="color" v-for="(color, index) in colors" :key="index">
+      <div class="color" v-for="(color, index) in colors" :key="color">
         <div
           :style="{ 'background-color': color }"
           style="width: 100%; height: 100%"
@@ -22,7 +22,7 @@
           <h2>+</h2>
         </form>
         <form v-else>
-          <input type="color" :id="productName" />
+          <input type="color" :id="productName + ' Color'" />
           <br />
           <vs-button
             type="button"
@@ -127,19 +127,19 @@ div.productCard {
         width: 1.25rem;
         height: 1.25rem;
     }
-   
-    div#menu{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        .menuButton{
-            background-color: $shadow;
-            &:hover {
-                box-shadow: 0 .25rem .5rem $shadow;
-            }
+  }
+  div#menu{
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    .menuButton{
+        background-color: $shadow;
+        &:hover {
+            box-shadow: 0 .25rem .5rem $shadow;
         }
     }
-  }
+}
 }
 </style>
 
@@ -167,13 +167,11 @@ export default {
       this.colors.splice(i.index, 1);
     },
     addColor: function (picker) {
-      if (
-        this.colors.indexOf(
-          document.getElementById(picker.productName).value
-        ) == -1
-      ) {
-        this.colors.push(document.getElementById(picker.productName).value);
-      }
+      if (this.colors.indexOf(document.getElementById(picker.productName  + ' Color').value) == -1) {
+        this.colors.push(document.getElementById(picker.productName + ' Color').value);
+      }/* 
+      console.log(picker.productName + ' Color');
+      console.log(this.colors); */
     },
     colorMenu: function () {
       if (this.showing) {
@@ -183,7 +181,8 @@ export default {
       }
     },
     changePrice: function (product) {
-      this.price = document.getElementById(product.productName).value;
+      this.price = document.getElementById(product.productName + ' Price').value;
+      document.getElementById(product.productName + ' Price').value = '';
     }
   },
 };

@@ -2,6 +2,11 @@
   <tr>
     <td>
       <p>
+        <span class="data">{{ user.date }}</span>
+      </p>
+    </td>
+    <td>
+      <p>
         <span class="data">{{ user.email }}</span>
       </p>
     </td>
@@ -43,7 +48,7 @@ export default {
   tr{
     width: 100%;
     td{
-      width: 25%;
+      width: 20%;
       border: white 0.1rem solid;
       color: $bodyElementColor;
       text-align: center;

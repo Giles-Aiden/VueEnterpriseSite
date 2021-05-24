@@ -25,7 +25,7 @@
 
         <vs-sidebar-item id="sales">
           <template #icon>
-            <h1 style="color: white">$</h1>
+            <i class="pi pi-dollar"></i>
           </template>
           <router-link to="/">
             <h1>Sales</h1>
@@ -36,7 +36,7 @@
 
         <vs-sidebar-item id="products">
           <template #icon>
-            <h1 style="color: white">P</h1>
+            <i class="pi pi-th-large"></i>
           </template>
           <router-link to="/products">
             <h1>Products</h1>
@@ -47,7 +47,7 @@
 
         <vs-sidebar-item id="orders">
           <template #icon>
-            <h1 style="color: white">O</h1>
+            <i class="pi pi-bars"></i>
           </template>
           <router-link to="/orders">
             <h1>Orders</h1>
@@ -58,7 +58,7 @@
 
         <vs-sidebar-item id="users">
           <template #icon>
-            <h1>U</h1>
+            <i class="pi pi-users"></i>
           </template>
           <router-link to="/users">
             <h1>Users</h1>
@@ -69,7 +69,7 @@
 
         <vs-sidebar-item id="mainSite">
           <template #icon>
-            <h1 style="color: white">H</h1>
+            <i class="pi pi-home"></i>
           </template>
           <router-link to="/">
             <h1>Home Site</h1>

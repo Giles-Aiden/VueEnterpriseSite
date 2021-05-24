@@ -2,20 +2,20 @@
   <div class="userCard">
     <div class="center grid">
       <vs-row>
-        <vs-col v-if="admin" w="1">
+        <vs-col v-if="user.admin" w="1">
           <h1>A</h1>
         </vs-col>
         <vs-col v-else w="1">
           <h1></h1>
         </vs-col>
         <vs-col w="2">
-          <img class="icon" :src="require(`../assets/${image}`)" />
+          <img class="icon" :src="require(`../assets/${user.image}`)" />
         </vs-col>
         <vs-col w="4">
-          {{ email }}
+          {{ user.email }}
         </vs-col>
         <vs-col w="4">
-          {{ username }}
+          {{ user.uname }}
         </vs-col>
         <vs-col w="1">
           <button>More Info</button>
@@ -61,6 +61,6 @@
 
 <script>
 export default {
-  props: ["admin", "image", "email", "username"],
+  props: ["user"],
 };
 </script>

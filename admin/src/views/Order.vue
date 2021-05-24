@@ -3,6 +3,7 @@
     <Sidebar></Sidebar>
     <table>
       <tr>
+        <td>Date</td>
         <td>Email</td>
         <td>Name</td>
         <td>Amount</td>
@@ -46,7 +47,7 @@
     tr{
       width: 100%;
       td{
-        width: 25%;
+        width: 20%;
         border: white 0.1rem solid;
         text-align: center;
         vertical-align: middle;
@@ -78,6 +79,7 @@ export default {
           "firstName": "Jeff",
           "lastName": "Smith",
           "email": "Email10@gmail.com",
+          "date": "5-23-21",
           "cost": 1999,
           "items": [
             "Water Bottle",
@@ -89,6 +91,7 @@ export default {
           "firstName": "Ethan",
           "lastName": "Roldan",
           "email": "Email20@gmail.com",
+          "date": "5-24-21",
           "cost": 1999,
           "items": [
             "Water Bottle",
