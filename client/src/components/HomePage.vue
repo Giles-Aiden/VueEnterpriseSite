@@ -63,12 +63,12 @@
       <h1>Fundraising</h1>
       <div class="container">
         <div class="card">
-          <h2>Professional</h2>
+          <h2>Our Fundraisers</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
             placeat amet aliquid repudiandae iure modi libero eveniet
-            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Impedit, nemo!
+            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Impedit, nemo!
           </p>
 
           <vs-button
@@ -88,7 +88,7 @@
         </div>
       </div>
     </div>
-    
+
     <VFooter />
   </div>
 </template>

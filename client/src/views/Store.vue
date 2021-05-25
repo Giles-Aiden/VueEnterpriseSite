@@ -24,17 +24,20 @@
       >
     </div>
     <router-view />
+    <VFooter />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue';
+import VFooter from '@/components/VFooter.vue';
 
 export default {
   name: 'Home',
   components: {
     Navbar,
+    VFooter,
   },
   data() {
     return {

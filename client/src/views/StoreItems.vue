@@ -28,6 +28,7 @@
             :itemBody="item.body"
             :img="item.imgSrc"
             :imgAlt="item.imgAlt"
+            :descriptions="item.description"
           />
         </div>
       </SplitterPanel>
@@ -84,60 +85,14 @@ export default {
           body: 'High quality, long-lasting, freezing cold water bottles.',
           imgSrc: require('@/assets/bottles/flask_black.png'),
           imgAlt: 'Water Bottle Image',
+          description: ['40oz capacity','Vacuum Insulated Bottle','keeps beverages cold up to 24 hours and hot up to 12 hours']
         },
         {
-          name: '40oz Water Bottle',
+          name: '20oz Water Bottle',
           body: 'High quality, long-lasting, freezing cold water bottles.',
           imgSrc: require('@/assets/bottles/flask_brown.png'),
           imgAlt: 'Water Bottle Image',
-        },
-        {
-          name: '40oz Water Bottle',
-          body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/bottles/flask_dark_blue.png'),
-          imgAlt: 'Water Bottle Image',
-        },
-        {
-          name: '40oz Water Bottle',
-          body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/bottles/flask_dark_green.png'),
-          imgAlt: 'Water Bottle Image',
-        },
-        {
-          name: '40oz Water Bottle',
-          body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/bottles/flask_orange.png'),
-          imgAlt: 'Water Bottle Image',
-        },
-        {
-          name: '40oz Water Bottle',
-          body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/bottles/flask_pink.png'),
-          imgAlt: 'Water Bottle Image',
-        },
-        {
-          name: '40oz Water Bottle',
-          body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/bottles/flask_purple.png'),
-          imgAlt: 'Water Bottle Image',
-        },
-        {
-          name: '40oz Water Bottle',
-          body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/bottles/flask_red.png'),
-          imgAlt: 'Water Bottle Image',
-        },
-        {
-          name: '40oz Water Bottle',
-          body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/bottles/flask_white.png'),
-          imgAlt: 'Water Bottle Image',
-        },
-        {
-          name: '40oz Water Bottle',
-          body: 'High quality, long-lasting, freezing cold water bottles.',
-          imgSrc: require('@/assets/bottles/flask_yellow.png'),
-          imgAlt: 'Water Bottle Image',
+          description: ['40oz capacity','Vacuum Insulated Bottle','keeps beverages cold up to 24 hours and hot up to 12 hours']
         },
       ],
       userSelections: {
