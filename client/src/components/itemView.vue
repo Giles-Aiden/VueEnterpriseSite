@@ -8,6 +8,13 @@
       <div class="contentContainer">
         <h1>{{ itemName }}</h1>
         <p>{{ itemBody }}</p>
+        <div class="description">
+          <ul>
+            <li>40oz capacity</li>
+            <li>Vacuum Insulated Bottle</li>
+            <li>keeps beverages cold up to 24 hours and hot up to 12 hours</li>
+          </ul>
+        </div>
       </div>
       <button class="addToCart">Add to cart</button>
     </div>
@@ -55,6 +62,9 @@ export default {
       justify-content: center;
       height: 100%;
       width: 50%;
+    }
+    .description {
+      text-align: left;
     }
     .imgContainer {
       display: flex;

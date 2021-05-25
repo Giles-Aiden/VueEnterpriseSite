@@ -24,23 +24,20 @@
       >
     </div>
     <router-view />
+    <VFooter />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue';
+import VFooter from '@/components/VFooter.vue';
 
 export default {
-  name: 'Store',
+  name: 'Home',
   components: {
     Navbar,
-  },
-  methods: {
-    setProgress: (num) => {
-      console.log('called func');
-      this.progress = num;
-    },
+    VFooter,
   },
   data() {
     return {
@@ -58,6 +55,10 @@ $shadow: #113f70;
 .button-color {
   background-color: $bg-main;
   box-shadow: $shadow;
+}
+.storeLink {
+  display: flex;
+  justify-content: center;
 }
 .storeNav {
   display: flex;
