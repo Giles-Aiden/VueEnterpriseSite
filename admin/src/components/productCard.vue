@@ -5,8 +5,10 @@
     <br />
     <div id="price">
       <h2>Price: ${{ price }}</h2>
-      <input type="number" :id="productName + ' Price'">
-      <vs-button @click="changePrice({ productName })" class="priceButton">Change Price</vs-button>
+      <input type="number" :id="productName + ' Price'" />
+      <vs-button @click="changePrice({ productName })" class="priceButton"
+        >Change Price</vs-button
+      >
     </div>
     <div id="colors">
       <h2>Colors:</h2>
@@ -36,7 +38,9 @@
         </form>
       </div>
     </div>
-    <ProductAttribute v-for="(attr, index) in attributes" :key="index"
+    <ProductAttribute
+      v-for="(attr, index) in attributes"
+      :key="index"
       :attribute="attributes[index]"
     ></ProductAttribute>
     <br />
@@ -66,11 +70,11 @@ div.productCard {
   text-align: center;
   border-radius: 0.5rem;
   display: inline-block;
-  div#price{
+  div#price {
     border: 0.1rem black groove;
     display: flex;
     justify-content: space-evenly;
-    .priceButton{
+    .priceButton {
       background-color: $sidebarColor;
     }
   }
@@ -116,30 +120,30 @@ div.productCard {
         }
       }
     }
-    div.delete{
-        position: relative;
-        top: -2.5rem;
-        left: 1.25rem;
-        background-color: red;
-        color: white;
-        border: black 0.001rem solid;
-        border-radius: 50%;
-        width: 1.25rem;
-        height: 1.25rem;
+    div.delete {
+      position: relative;
+      top: -2.5rem;
+      left: 1.25rem;
+      background-color: red;
+      color: white;
+      border: black 0.001rem solid;
+      border-radius: 50%;
+      width: 1.25rem;
+      height: 1.25rem;
     }
   }
-  div#menu{
+  div#menu {
     display: flex;
     width: 100%;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    .menuButton{
-        background-color: $shadow;
-        &:hover {
-            box-shadow: 0 .25rem .5rem $shadow;
-        }
+    .menuButton {
+      background-color: $shadow;
+      &:hover {
+        box-shadow: 0 0.25rem 0.5rem $shadow;
+      }
     }
-}
+  }
 }
 </style>
 
@@ -167,9 +171,15 @@ export default {
       this.colors.splice(i.index, 1);
     },
     addColor: function (picker) {
-      if (this.colors.indexOf(document.getElementById(picker.productName  + ' Color').value) == -1) {
-        this.colors.push(document.getElementById(picker.productName + ' Color').value);
-      }/* 
+      if (
+        this.colors.indexOf(
+          document.getElementById(picker.productName + " Color").value
+        ) == -1
+      ) {
+        this.colors.push(
+          document.getElementById(picker.productName + " Color").value
+        );
+      } /* 
       console.log(picker.productName + ' Color');
       console.log(this.colors); */
     },
@@ -181,9 +191,11 @@ export default {
       }
     },
     changePrice: function (product) {
-      this.price = document.getElementById(product.productName + ' Price').value;
-      document.getElementById(product.productName + ' Price').value = '';
-    }
+      this.price = document.getElementById(
+        product.productName + " Price"
+      ).value;
+      document.getElementById(product.productName + " Price").value = "";
+    },
   },
 };
 </script>

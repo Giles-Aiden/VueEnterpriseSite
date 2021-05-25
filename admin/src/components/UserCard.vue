@@ -41,7 +41,7 @@
     width: 3rem;
   }
   button {
-    background-color: $sidebarElementColor;
+    background-color: $shadow;
     color: $sidebarTextColor;
     width: 100%;
     height: 2rem;
@@ -49,8 +49,7 @@
     border-radius: 0.5rem;
     border: none;
   }
-  background-color: $bodyElementColor;
-  color: $bodyElementTextColor;
+  color: $bodyElementColor;
   width: 100%;
   padding: 2rem;
   border-radius: 0.5rem;

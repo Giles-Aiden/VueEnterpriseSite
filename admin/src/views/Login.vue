@@ -27,7 +27,7 @@
         <router-link to="/">
           <vs-button id="loginButton"> Login </vs-button>
         </router-link>
-        <br>
+        <br />
         <h2 v-if="wrong">There was an error</h2>
       </div>
     </div>
@@ -93,33 +93,37 @@ div#footer {
 </style>
 
 <script>
-const axios = require('axios');
+const axios = require("axios");
 
 export default {
   name: "Home",
   components: {},
   methods: {
-    login: async function() {
-        // uname: this.document.getElementById(''),
-        // pass: 'stirng
-      axios.get('/api/users/login',
-      {
-        "email": "unique@email.com",
-        "pass": "super secure password"
-      }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(function (response) {
-        // Returned info
-        console.log(response.data);
-        // Response status code
-        console.log(response.status);
-        // Returned message
-        console.log(response.statusText);
-      });
-    },      
-  }
+    login: async function () {
+      // uname: this.document.getElementById(''),
+      // pass: 'stirng
+      axios
+        .get(
+          "/api/users/login",
+          {
+            email: "unique@email.com",
+            pass: "super secure password",
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then(function (response) {
+          // Returned info
+          console.log(response.data);
+          // Response status code
+          console.log(response.status);
+          // Returned message
+          console.log(response.statusText);
+        });
+    },
+  },
 };
 </script>
