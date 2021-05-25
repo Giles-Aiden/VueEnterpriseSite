@@ -21,6 +21,11 @@
       </p>
     </td>
     <td>
+      <p>
+        <span class="data">{{ user.items.length }}</span>
+      </p>
+    </td>
+    <td>
       <p class="data" v-for="item in user.items" :key="item">{{ item }}</p>
     </td>
   </tr>
@@ -48,7 +53,7 @@ export default {
 tr {
   width: 100%;
   td {
-    width: 20%;
+    width: 16%;
     border: white 0.1rem solid;
     color: $bodyElementColor;
     text-align: center;

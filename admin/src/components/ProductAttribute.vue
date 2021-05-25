@@ -42,6 +42,7 @@ div#types {
   #typeList {
     flex-grow: 1;
     margin-left: 3rem;
+    list-style-type: none;
     li {
       :hover {
         text-decoration: red solid line-through;
@@ -75,26 +76,16 @@ div#types {
 }
 .inputDiv {
   display: flex;
-  justify-content: flex-end;
-  text-align: right;
+  justify-content: space-evenly;
+  width: 30%;
   .typeInputButton {
-    background-color: $bg-secondary;
+    background-color: $sidebarColor;
+    width: 2rem;
     height: 2rem;
-    position: relative;
-    top: 2rem;
-    left: -2rem;
-    &:hover {
-      box-shadow: 0 0.25rem 0.5rem $shadow;
-    }
-  }
-}
-#addType {
-  background-color: $bg-secondary;
-  width: 10rem;
-  height: 2rem;
-  margin-top: 2rem;
-  &:hover {
-    box-shadow: 0 0.25rem 0.5rem $shadow;
+    /*       position: relative;
+      top: 2rem;
+      left: -2rem; */
+    position: absolute;
   }
 }
 #addType {

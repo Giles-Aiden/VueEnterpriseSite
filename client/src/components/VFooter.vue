@@ -6,7 +6,7 @@
       <h3><i class="fa fa-envelope"></i> - Sales@WFBMlaserengraving.com</h3>
     </div>
     <div class="logo item">
-      <img src="@/assets/WFBM Logo.png" alt="">
+      <img src="@/assets/WFBM Logo.png" alt="" />
     </div>
     <div class="icons item">
       <div class="icon">

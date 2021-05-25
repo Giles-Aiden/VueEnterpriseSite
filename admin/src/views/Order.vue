@@ -7,6 +7,7 @@
         <td>Email</td>
         <td>Name</td>
         <td>Amount</td>
+        <td>Number of Items Purchased</td>
         <td>Items Purchased</td>
       </tr>
       <OrderComp
@@ -25,10 +26,10 @@
   margin: 0;
 }
 #orders {
-  margin-left: 4rem;
-  width: 95%;
+  margin-left: 50px;
+  width: calc(100% - 50px);
+  height: 100vh;
   padding: 1rem;
-  border-radius: 1rem;
   background-color: $bg-main;
 }
 .OrderCard {
@@ -49,7 +50,7 @@ table {
   tr {
     width: 100%;
     td {
-      width: 20%;
+      width: 16%;
       border: white 0.1rem solid;
       text-align: center;
       vertical-align: middle;

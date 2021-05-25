@@ -61,7 +61,7 @@
       <br />
       <vs-row>
         <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-          <div class="salesData" style="width: 100%">
+          <div class="salesData" style="width: calc(100% - 2rem)">
             <h2>Sales By The Day</h2>
             <hr />
             <div style="backgroundcolor: white; color: black; height: 45rem">
@@ -76,7 +76,7 @@
       <br />
       <vs-row>
         <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
-          <div class="salesData" style="width: 100%">
+          <div class="salesData" style="width: calc(100% - 2rem)">
             <h2>Top Selling Products</h2>
             <hr />
             <div style="backgroundcolor: white; color: black; height: 20rem">
@@ -95,13 +95,15 @@
 div#sales {
   text-align: center;
   margin-left: 50px;
+  background-color: $bg-main;
   #statistics {
     display: flex;
     justify-content: space-between;
   }
   div.salesData {
     width: 30%;
-    background-color: $bg-main;
+    background-color: $bg-secondary;
+    margin: 1rem;
     color: $bodyElementColor;
     padding: 1rem;
     border-radius: 0.5rem;
