@@ -52,16 +52,21 @@
     </div>
 
     <hr />
-    <!-- Reviews/Experience Section -->
+
     <div id="reviewsArea">
+      <h1>Fundraising Experience</h1>
+      <div id="reviews">
+        <div></div>
+      </div>
+    </div>
+    <!-- Reviews/Experience Section -->
+    <!-- <div id="reviewsArea">
       <h2>Fundraising Experience</h2>
       <a href="Fundraising.vue#r5"></a>
       <div id="reviews">
         <carousel
           :per-page="2"
           :navigation-enabled="true"
-          :navigation-next-label="arrows[1]"
-          :navigation-prev-label="arrows[0]"
           :pagination-active-color="'#113F70'"
           id="carousel2"
         >
@@ -80,7 +85,7 @@
           </slide>
         </carousel>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -170,14 +175,12 @@ hr {
     padding: 0.5em;
     margin: auto;
     max-width: 200em;
-
     #carousel2 {
       background-color: #6cacf0;
       padding: 1em 0em;
       box-shadow: inset 0em 0em 0.5em;
       border: solid #113f70 0.5em;
       border-radius: 1em;
-
       .reviewCards {
         background-color: white;
         color: #113f70;
@@ -190,7 +193,6 @@ hr {
         display: inline-block;
         width: 75%;
         max-width: 40em;
-
         p {
           white-space: wrap;
         }
@@ -207,6 +209,7 @@ hr {
     font-size: 2em;
   }
 }
+
 @media (max-width: 800px) {
   #reviewsArea {
     margin: 0em 1em;
@@ -293,28 +296,28 @@ export default {
       // This is the info that gets passed into the v-for elements for the 2nd carousel
       reviewerInfo: [
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Jack F.',
+          '"Fantastic, I\'m totally blown away by Testimonial Generator."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Israel L.',
+          '" I am so pleased with this product. The service was excellent."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Tonnie O.',
+          '"I\'m good to go. You guys rock! The service was excellent."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Jefferson H.',
+          '"I can\'t say enough about Laser Engraved Water Bottles."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Berrie A.',
+          '"WFBM Laser Engraving is exactly what I\'ve been looking for."',
         ],
         [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Malory J.',
+          '"Best. Product. Ever! The customization aspect really wonderful."',
         ],
       ],
       arrows: [

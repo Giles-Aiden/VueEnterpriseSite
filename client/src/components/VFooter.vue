@@ -7,10 +7,9 @@
       <h3><i class="fa fa-envelope"></i> - Sales@WFBMlaserengraving.com</h3>
     </div>
     <div class="logo item">
-      <img src="@/assets/WFBM Logo.png" alt="" />
+      <img src="@/assets/WFBM Logo.png" alt="">
     </div>
     <div class="icons item">
-      <div class="icon">
       <vs-button
         class="button-icon"
         icon
@@ -20,17 +19,15 @@
         <i class="fa fa-facebook-square"></i>
       </vs-button>
 
+      <div class="icon">
         <vs-button class="button-icon" icon color="twitter">
           <i class="fa fa-twitter-square"></i>
           <!--@LaserWfbm-->
         </vs-button>
 
-        <div class="icon">
-          <vs-button class="button-icon" icon color="twitter">
-            <i class="fa fa-twitter-square"></i>
-            <!--@LaserWfbm-->
-          </vs-button>
-        </div>
+      <vs-button class="button-icon" icon color="linkedin">
+        <i class="fa fa-linkedin-square"></i>
+      </vs-button>
 
         <vs-button class="button-icon" icon color="linkedin">
           <i class="fa fa-linkedin-square"></i>
@@ -86,8 +83,6 @@ export default {
 }
 .icons {
   display: flex;
-  align-items: center;
-  flex-direction: column;
   .icon {
     display: flex;
   }

@@ -62,37 +62,6 @@ export default {
         'img/bottleBlack.JPG',
         'img/bottleGreen.JPG',
       ],
-      // This is the info that gets passed into the v-for elements for the 2nd carousel
-      reviewerInfo: [
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-      ],
-      arrows: [
-        '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
-        '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
-      ],
     };
   },
 };
