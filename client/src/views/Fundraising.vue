@@ -13,18 +13,12 @@
             Your organization can earn money while selling a great product that
             is popular, customizable, and environmentally friendly.
           </p>
-        </div>
-
-        <div>
           <h4>Sales &#38; Delivery</h4>
           <hr />
           <p>
             A 2-3 week sales window is recommended for your fundraiser but you
             are free to set a longer or shorter time frame.
           </p>
-        </div>
-
-        <div>
           <h4>Why your organization should participate</h4>
           <hr />
           <p>
@@ -38,51 +32,33 @@
     </div>
 
     <hr />
-    <div>
-      <h2>Fundraising Experience</h2>
-      <div class="rotate" >
-        <!-- Using the slider component -->
-        <slider ref="slider" :options="options">
-          <!-- slideritem wrapped package with the components you need -->
-          <slideritem
-            v-for="(item, index) in someList"
-            :key="index"
-            :style="item.style"
-            >{{ item.html }}</slideritem
-          >
-          <!-- Customizable loading -->
-          <div slot="loading">loading...</div>
-        </slider>
-      </div>
-    </div>
-    
-    <!-- Reviews/Experience Section -->
-    <div id="reviewsArea">
-      <h2>Fundraising Experience</h2>
-      <a href="Fundraising.vue#r5"></a>
-      <div id="reviews">
-        <carousel
-          :per-page="2"
-          :navigation-enabled="true"
-          :navigation-next-label="arrows[1]"
-          :navigation-prev-label="arrows[0]"
-          :pagination-active-color="'#113F70'"
-          id="carousel2"
-        >
-          <slide
-            v-for="item in reviewerInfo"
-            :key="item[0]"
-            data-index="0"
-            data-name="MySlideName"
-            @slideclick="handleSlideClick"
-          >
-            <div id="r1" class="reviewCards">
-              <h4>{{ item[0] }}</h4>
-              <hr />
-              <p>{{ item[1] }}</p>
-            </div>
-          </slide>
-        </carousel>
+    <div id="contentArea">
+      <h2>Fundraising Reviews</h2>
+      <div id="info">
+        <div>          
+          <vs-avatar class="avatar-img">
+            <img src="..\assets\Customer(1).jpeg"/>
+          </vs-avatar>
+          <h4>Sallie H. </h4>
+          <hr />
+          <p>"I love the customizable aspect of this business! It allows creative freedom!"</p>
+        </div>
+        <div>          
+          <vs-avatar class="avatar-img">
+            <img src="..\assets\Customer(2).jpeg"/>
+          </vs-avatar>
+          <h4>Seth J. </h4>
+          <hr />
+          <p>"Quality service and product!"</p>
+        </div>
+        <div>
+          <vs-avatar class="avatar-img">
+            <img src="..\assets\Customer(3).jpeg"/>
+          </vs-avatar>
+          <h4>Marie R.</h4>
+          <hr />
+          <p>"Great product! I love the options that I am given! This is such a great fundraising opportunity"</p>
+        </div>
       </div>
     </div>
   </div>
@@ -92,10 +68,19 @@
 <style lang="scss" scoped>
 @import '@/assets/styles/_variables.scss';
 
-.rotate {
-  width: 100%; 
-  margin: 20px auto; 
-  height: 400px
+.reviewFundraising {
+  display: flex;
+  float: right;
+
+}
+
+.avatar-img {
+  padding: 0 !important;
+}
+
+.mySlides {
+  max-width: 25rem;
+  max-height: 45rem;
 }
 .example-slide {
   align-items: center;
@@ -235,6 +220,7 @@ hr {
 
 #contentArea {
   margin: 3em;
+
   h2 {
     color: #113f70;
     text-shadow: black 0.03em 0.03em 0.05em;
@@ -284,22 +270,38 @@ hr {
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue';
-import { slider, slideritem } from 'vue-concise-slider';
 
 export default {
-  el: '#app',
   name: 'Fundraising',
   components: {
     Navbar,
-    slider,
-    slideritem,
     //MyCarousel
+  },
+  methods: {
+    plusDivs(n) {
+      this.showDivs((this.slideIndex += n));
+    },
+
+    showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName('mySlides');
+      if (n > x.length) {
+        this.slideIndex = 1;
+      }
+      if (n < 1) {
+        this.slideIndex = x.length;
+      }
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = 'none';
+      }
+      x[this.slideIndex - 1].style.display = 'block';
+    },
   },
   data() {
     return {
+      slideIndex: 1,
       picked: 1,
       imgNum: 1,
-      currentPage: 0,
       items: [
         'img/bottleRed.JPG',
         'img/bottleBlack.JPG',
@@ -331,31 +333,6 @@ export default {
           'Review #1',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
-      ],
-      arrows: [
-        '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
-        '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
-      ],
-      //data list [array]
-      someList: [
-        {
-          html: 'slide1',
-          style: {
-            background: '#1bbc9b',
-          },
-        },
-        {
-          html: 'slide2',
-          style: {
-            background: '#4bbfc3',
-          },
-        },
-        {
-          html: 'slide3',
-          style: {
-            background: '#7baabe',
-          },
-        },
       ],
     };
   },
