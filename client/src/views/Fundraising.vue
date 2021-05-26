@@ -32,7 +32,7 @@
     </div>
 
     <hr />
-    <div id="contentArea">
+    <div class="reviewsArea">
       <h2>Fundraising Reviews</h2>
       <div id="info">
         <div>
@@ -78,6 +78,21 @@
           <p>
             "Great product! I love the options that I am given! This is such a
             great fundraising opportunity"
+          </p>
+        </div>
+        <div>
+          <vs-avatar class="avatar-img">
+            <img src="..\assets\Customer(4).jpeg" />
+          </vs-avatar>
+          <h4>Liz K.</h4>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <hr />
+          <p>
+            "An awesome fundraising idea! Fantastic service and product!"
           </p>
         </div>
       </div>
@@ -180,67 +195,54 @@ hr {
   }
 }
 
-/* Review carousel styles */
-#reviewsArea {
-  margin: 0.5em 5em;
-  #reviews {
-    padding: 0.5em;
-    margin: auto;
-    max-width: 200em;
-
-    #carousel2 {
-      background-color: #6cacf0;
-      padding: 1em 0em;
-      box-shadow: inset 0em 0em 0.5em;
-      border: solid #113f70 0.5em;
-      border-radius: 1em;
-
-      .reviewCards {
-        background-color: white;
-        color: #113f70;
-        box-shadow: 0.1em 0.3em 0.5em 0.1em black;
-        border-radius: 0.25em;
-        text-align: center;
-        padding: 1em;
-        text-decoration: none;
-        font-size: 1.5em;
-        display: inline-block;
-        width: 75%;
-        max-width: 40em;
-
-        p {
-          white-space: wrap;
-        }
-        hr {
-          background-color: #113f70;
-          border: solid #113f70 0.05em;
-        }
-      }
-    }
-  }
+#contentArea {
+  margin: 3em;
   h2 {
     color: #113f70;
     text-shadow: black 0.03em 0.03em 0.05em;
     font-size: 2em;
   }
-}
-@media (max-width: 800px) {
-  #reviewsArea {
-    margin: 0em 1em;
-    #reviews {
-      width: 85%;
-      #carousel2 {
-        margin: 0.25em;
-        padding: 0em;
-        .reviewCards {
-          margin: 0em;
-        }
+  #info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    div {
+      box-shadow: black 0.1em 0.3em 0.5em 0.1em;
+      border-radius: 1em;
+      padding: 1em;
+      margin: 0.5em 1em;
+      flex: 1 1 30em;
+      background-color: #185ca3;
+      color: white;
+      line-height: 2em;
+      text-align: left;
+      text-indent: 2.5em;
+      max-width: 50em;
+      h4 {
+        font-size: 1.5em;
+        text-shadow: #113f70 0.05em 0.05em 0.05em;
+      }
+      ul {
+        list-style: visible;
+        text-indent: 0em;
       }
     }
   }
 }
 
-#contentArea {
+@media (max-width: 800px) {
+  #contentArea {
+    margin: 0em;
+    padding: 1em 0em;
+    #info {
+      flex-direction: column;
+      padding: 0em;
+    }
+  }
+}
+
+.reviewsArea {
   margin: 3em;
 
   h2 {
@@ -276,8 +278,9 @@ hr {
     }
   }
 }
+
 @media (max-width: 800px) {
-  #contentArea {
+  .reviewsArea {
     margin: 0em;
     padding: 1em 0em;
     #info {
@@ -286,6 +289,7 @@ hr {
     }
   }
 }
+
 </style>
 
 <!-- functiony things -->
