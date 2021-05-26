@@ -31,8 +31,36 @@
       </div>
     </div>
 
-    <hr />
-    <div class="reviewsArea">
+    <div id="fundraising" data-aos="fade-up" data-aos-duration="1000">
+      <div class="container">
+        <div class="card">
+          <h2>Our Fundraisers</h2>
+          <p>
+            Running a fundraiser through WFBM Laser Engraving is a win-win! Help your organization in a 
+            fun and environmentally friendly way! Reduce plastic waste and raise money by buying wholesale
+            for your fundraisers! Interested? Have questions? Click the button below to get in touch!
+          </p>
+
+          <vs-button
+            :active="active == 1"
+            @click="active = 1"
+            :color="buttonColor"
+            type="filled"
+          >
+            <router-link to="/wholesale" class="link" tag="li"
+              >Learn More!
+            </router-link>          
+          </vs-button>
+        </div>
+        <div class="card">
+          <img
+            src="..\assets\plasticWaterBottles.jpg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="reviewsArea" data-aos="fade-up" data-aos-duration="1000">
       <h2>Fundraising Reviews</h2>
       <div id="info">
         <div>
@@ -97,12 +125,96 @@
         </div>
       </div>
     </div>
+    <VFooter />
   </div>
 </template>
 
-<!-- The style rules for the page -->
+<!-- functiony things -->
+<script>
+import Navbar from '@/components/Navbar.vue';
+import VFooter from '@/components/VFooter.vue';
+
+export default {
+  name: 'Fundraising',
+  components: {
+    Navbar,
+    VFooter,
+  },
+  data() {
+    return {
+      slideIndex: 1,
+      picked: 1,
+      imgNum: 1,
+    };
+  },
+};
+
+var resizeEvent = window.document.createEvent('UIEvents');
+resizeEvent.initUIEvent('resize', true, false, window, 0);
+window.dispatchEvent(resizeEvent);
+</script>
+
 <style lang="scss" scoped>
 @import '@/assets/styles/_variables.scss';
+
+.card {
+  width: 30rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 5px 10px $shadow;
+  border-radius: 1rem;
+  margin-block: 3rem;
+  overflow: hidden;
+  background: white;
+  color: black;
+  p {
+    text-align: left;
+    padding-inline: 2.5rem;
+    margin-bottom: 6rem;
+    &::first-letter {
+      padding-left: 2rem;
+    }
+  }
+  img {
+    max-width: 100%;
+  }
+  button {
+    color: $text-color;
+    padding: 0.25em 0.5em;
+    margin: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+#fundraising {
+  background-image: url('../assets/navBackgroundBottles.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  backdrop-filter: blur(100px);
+  background-size: cover;
+  /*background-color: #999;*/
+  font-size: 2vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 0;
+}
 
 .reviewFundraising {
   display: flex;
@@ -115,53 +227,19 @@
   min-height: 3rem;
 }
 
-.mySlides {
-  max-width: 25rem;
-  max-height: 45rem;
-}
-.example-slide {
-  align-items: center;
-  background-color: #666;
-  color: #999;
-  display: flex;
-  font-size: 1.5rem;
-  justify-content: center;
-  min-height: 10rem;
-}
-
-/* ------ */
-.hidden {
-  opacity: 0;
-}
-.shown {
-  opacity: 1;
-}
 hr {
   border: solid #6cacf0 0.05em;
   border-radius: 1000000em;
   margin: 0em 2em;
   box-shadow: black 0em 0.1em 0.1em;
 }
-/* -- CAROUSEL STYLES -- */
-.VueCarousel-slide {
-  visibility: visible;
-  flex-basis: 50%;
-  width: 100%;
-}
+
 #imageArea {
   display: flex;
   flex-direction: row;
   border-radius: 1em;
   margin: 0.5em 5em;
   padding: 0.5em;
-
-  #imageScroll {
-    border: $bg-main 0.5em solid;
-    border-radius: 1em;
-    box-shadow: $shadow 0em 0em 0.5em inset, $shadow 0em 0em 1em;
-    padding: 0.5em;
-    margin: auto;
-  }
 }
 #carousel img {
   width: 50%;
@@ -173,11 +251,6 @@ hr {
   #imageArea {
     margin: 0.5em 5em;
     padding: 0.5em;
-    #imageScroll {
-      border: gray 0.05em solid;
-      box-shadow: black 0em 0em 0.5em inset;
-      padding: 0.5em;
-    }
     .arrows {
       padding: 1.5em;
     }
@@ -291,80 +364,3 @@ hr {
 }
 
 </style>
-
-<!-- functiony things -->
-<script>
-// @ is an alias to /src
-import Navbar from '@/components/Navbar.vue';
-
-export default {
-  name: 'Fundraising',
-  components: {
-    Navbar,
-    //MyCarousel
-  },
-  methods: {
-    plusDivs(n) {
-      this.showDivs((this.slideIndex += n));
-    },
-
-    showDivs(n) {
-      var i;
-      var x = document.getElementsByClassName('mySlides');
-      if (n > x.length) {
-        this.slideIndex = 1;
-      }
-      if (n < 1) {
-        this.slideIndex = x.length;
-      }
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = 'none';
-      }
-      x[this.slideIndex - 1].style.display = 'block';
-    },
-  },
-  data() {
-    return {
-      slideIndex: 1,
-      picked: 1,
-      imgNum: 1,
-      items: [
-        'img/bottleRed.JPG',
-        'img/bottleBlack.JPG',
-        'img/bottleGreen.JPG',
-      ],
-      // This is the info that gets passed into the v-for elements for the 2nd carousel
-      reviewerInfo: [
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-        [
-          'Review #1',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        ],
-      ],
-    };
-  },
-};
-
-var resizeEvent = window.document.createEvent('UIEvents');
-resizeEvent.initUIEvent('resize', true, false, window, 0);
-window.dispatchEvent(resizeEvent);
-</script>
