@@ -35,29 +35,50 @@
     <div id="contentArea">
       <h2>Fundraising Reviews</h2>
       <div id="info">
-        <div>          
+        <div>
           <vs-avatar class="avatar-img">
-            <img src="..\assets\Customer(1).jpeg"/>
+            <img src="..\assets\Customer(1).jpeg" />
           </vs-avatar>
-          <h4>Sallie H. </h4>
+          <h4>Sallie H.</h4>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
           <hr />
-          <p>"I love the customizable aspect of this business! It allows creative freedom!"</p>
+          <p>
+            "I love the customizable aspect of this business! It allows creative
+            freedom!"
+          </p>
         </div>
-        <div>          
+        <div>
           <vs-avatar class="avatar-img">
-            <img src="..\assets\Customer(2).jpeg"/>
+            <img src="..\assets\Customer(2).jpeg" />
           </vs-avatar>
-          <h4>Seth J. </h4>
+          <h4>Penelope J.</h4>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
           <hr />
           <p>"Quality service and product!"</p>
         </div>
         <div>
           <vs-avatar class="avatar-img">
-            <img src="..\assets\Customer(3).jpeg"/>
+            <img src="..\assets\Customer(3).jpeg" />
           </vs-avatar>
           <h4>Marie R.</h4>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
           <hr />
-          <p>"Great product! I love the options that I am given! This is such a great fundraising opportunity"</p>
+          <p>
+            "Great product! I love the options that I am given! This is such a
+            great fundraising opportunity"
+          </p>
         </div>
       </div>
     </div>
@@ -71,11 +92,12 @@
 .reviewFundraising {
   display: flex;
   float: right;
-
 }
 
 .avatar-img {
   padding: 0 !important;
+  min-width: 3rem;
+  min-height: 3rem;
 }
 
 .mySlides {

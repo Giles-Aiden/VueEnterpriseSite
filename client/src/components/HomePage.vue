@@ -197,5 +197,4 @@ export default Vue.extend({
   color: white;
   margin: 0;
 }
-
 </style>
