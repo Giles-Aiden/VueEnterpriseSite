@@ -1,7 +1,7 @@
 <template>
-  <div id="chart">
-    <div class="card">
-      <Chart type="bar" :data="basicData" :options="basicOptions" />
+  <div id="chart" @loadstart="document.getElementById('salesChart').style.height = '50vh'">
+    <div class="card" style="height: 50vh">
+      <Chart type="bar" :data="basicData" :options="basicOptions" id="salesChart" />
     </div>
   </div>
 </template>
@@ -29,19 +29,48 @@ export default {
             backgroundColor: "#113F70",
             data: [65, 59, 80, 81, 56, 55, 40],
           },
-        ],
+        ]
       },
       basicOptions: {
-        plugins: {
+        responsive: true,
+        maintainAspectRatio: false,
+/*         plugins: {
           legend: {
             labels: {
               display: true,
-              color: "rgb(255, 99, 132)",
+              font: {
+                size: 40
+              }
             },
           },
+        }, */
+        legend: {
+          position: 'bottom',
+          labels: {
+            fontSize: 20,
+            fontColor: 'white'
+          }
         },
+        scales: {
+          yAxes: [{
+            ticks: {
+              fontSize: 15,
+              fontColor: 'white',
+              beginAtZero: true
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              fontSize: 15,
+              fontColor: 'white'
+            }
+          }]
+        }
       },
     };
   },
+  mounted(){
+    document.getElementById("salesChart").style.height = "50vh";
+  }
 };
 </script>

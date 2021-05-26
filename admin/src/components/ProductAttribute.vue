@@ -4,18 +4,20 @@
     <ul id="typeList">
       <li
         v-for="(type, index) in types"
-        :key="type"
+        :key="index"
         style="liststyletype: none"
       >
-        <h4 class="deletion" @click="deleteType({ index })">{{ type }}</h4>
+        <h4 class="deletion" @click="deleteType({ index })" v-if="types[index].priceUp != 0">{{ types[index].attribute }} (+${{types[index].priceUp}})</h4>
+        <h4 class="deletion" @click="deleteType({ index })" v-else>{{ types[index].attribute }}</h4>
       </li>
     </ul>
     <vs-button id="addType" v-if="adding" @click="addType()"
       >Add {{ attr }}</vs-button
     >
     <div class="inputDiv" v-else>
-      <input class="typeInput" v-model="attrInput" />
-      <vs-button @click="addType(attrInput)" class="typeInputButton">
+      <input class="typeInput" v-model="attrInput" :placeholder="'New '+ attr.substring(0,attr.length-1)" />
+      <input class="priceInput" type="number" v-model="priceInput" placeholder="Markup" />
+      <vs-button @click="addType(attrInput, priceInput)" class="typeInputButton">
         +
       </vs-button>
     </div>
@@ -33,17 +35,19 @@
 div#types {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 0.1rem black groove;
   margin: 0.5rem;
   padding: 0.25rem;
   h2 {
-    flex-grow: 1;
+    font-size: calc(1vw + 1vh);
   }
   #typeList {
     flex-grow: 1;
     margin-left: 3rem;
     list-style-type: none;
     li {
+      font-size: calc(0.7vw + 0.7vh);
       :hover {
         text-decoration: red solid line-through;
       }
@@ -54,11 +58,10 @@ div#types {
     justify-content: flex-end;
     text-align: right;
     .typeInputButton {
-      background-color: $bg-secondary;
+      background-color: $shadow;
       height: 2rem;
       position: relative;
       top: 2rem;
-      left: -2rem;
       &:hover {
         box-shadow: 0 0.25rem 0.5rem $shadow;
       }
@@ -66,9 +69,9 @@ div#types {
   }
   #addType {
     background-color: $shadow;
-    width: 10rem;
+    width: 30%;
     height: 2rem;
-    margin-top: 2rem;
+    font-size: calc(0.7vw + 0.7vh);
     &:hover {
       box-shadow: 0 0.25rem 0.5rem $shadow;
     }
@@ -94,9 +97,10 @@ div#types {
   height: 2rem;
   margin-top: 2rem;
 }
-.typeInput {
-  width: 10rem;
+.typeInput, .priceInput {
+  width: 50%;
   height: 2rem;
+  margin-right: 0.1rem;
   border-radius: 12px;
   border: none;
   margin-top: 2rem;
@@ -112,19 +116,24 @@ export default {
       types: this.attribute.items,
       adding: true,
       attrInput: "",
+      priceInput: ""
     };
   },
   methods: {
     deleteType: function (i) {
       this.types.splice(i.index, 1);
     },
-    addType: function (input) {
+    addType: function (attr, price) {
       if (this.adding) {
         this.adding = false;
-      } else if (input !== "" && this.types.indexOf(input) == -1) {
+      } else if (attr !== "" && this.types.indexOf(attr) == -1) {
         this.adding = true;
-        this.types.push(input);
+        this.types.push({
+          "attribute": attr,
+          "priceUp": price
+        });
         this.attrInput = "";
+        this.priceInput = "";
       }
     },
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="productCard">
-    <img height="300rem" :src="require(`../assets/${productImage}`)" />
+    <img height="200vh" :src="require(`../assets/${productImage}`)" />
     <h1>{{ productName }}</h1>
     <br />
     <div id="price">
@@ -21,10 +21,10 @@
       </div>
       <div class="color">
         <form v-if="this.showing" @click="colorMenu()">
-          <h2>+</h2>
+          <h2 style="fontSize: 1.5em">+</h2>
         </form>
         <form v-else>
-          <input type="color" :id="productName + ' Color'" />
+          <input type="color" :id="productName + ' Color'" style="background: none; width: 2rem; height: 2rem" />
           <br />
           <vs-button
             type="button"
@@ -59,13 +59,21 @@
   margin: 0;
 }
 
+h1{
+  font-size: calc(1.5vw + 1.5vh);
+}
+h2{
+  font-size: calc(1vw + 1vh);
+}
+
 div.productCard {
   background-color: $bg-secondary;
   color: $bodyElementColor;
-  min-width: 45%;
-  max-width: 45%;
+  min-width: 300px;
+  width: 45%;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  margin-top: 0.5rem;
   padding: 0.5rem;
   text-align: center;
   border-radius: 0.5rem;
@@ -73,9 +81,18 @@ div.productCard {
   div#price {
     border: 0.1rem black groove;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 0.5rem;
+    input{
+      width: 30%;
+      height: 2rem;
+      border-radius: 12px;
+      border: none;
+    }
     .priceButton {
       background-color: $sidebarColor;
+      width: 30%;
+      font-size: calc(0.7vw + 0.7vh);
     }
   }
   div#colors {
@@ -139,6 +156,7 @@ div.productCard {
     justify-content: space-evenly;
     .menuButton {
       background-color: $shadow;
+      font-size: calc(0.7vw + 0.7vh);
       &:hover {
         box-shadow: 0 0.25rem 0.5rem $shadow;
       }
