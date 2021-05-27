@@ -3,11 +3,11 @@
     <Sidebar></Sidebar>
     <div id="searchBar">
       <h1>Users</h1>
-      <vs-button v-if="addingUser" class="registerBtn" @click="addUser">Add User</vs-button>
+      <vs-button v-if="addingUser" class="registerBtn" style="width: 12%" @click="addUser">Add User</vs-button>
       <div id="addUser" v-else>
         <input type="text" placeholder="Email" id="email" />
         <input type="text" placeholder="Username" id="uname" />
-        <input type="text" placeholder="Password" id="pass" />
+        <input type="password" placeholder="Password" id="pass" />
         <label for="admin">Admin?</label>
         <input type="checkbox" id="admin">
         <vs-button class="registerBtn" @click="createUser(); addUser()">Register</vs-button>
@@ -45,6 +45,9 @@ div.user {
     z-index: 2;
     display: flex;
     justify-content: space-between;
+    h1{
+      font-size: calc(1vw + 1vh);
+    }
     #addUser{
       display: flex;
       justify-content: center;
@@ -52,14 +55,23 @@ div.user {
     }
     input,
     .registerBtn {
-      height: 1.5rem;
+      height: 2.5vh;
+      width: 30%;
+      font-size: calc(0.5vw + 0.5vh);
+
+      margin-right: 0.1rem;
+      border-radius: 12px;
+      border: none;
     }
     .registerBtn{
       background-color: $shadow;
     }
+    label{
+      font-size: calc(0.6vw + 0.6vh);
+    }
     #admin{
-      height: 1rem;
-      width: 1rem;
+      height: 1vw;
+      width: 1vw;
     }
     h1 {
       padding: 0;
@@ -110,11 +122,19 @@ export default {
         admin: document.getElementById("admin").checked,
         image: "logo.png", //placeholder
       };
-      this.users.push(user);
+      let valid = true;
+      for(const info in user){
+        if(user[info] == ''){
+          valid = false;
+        }
+      }
+      if(valid){
+        this.users.push(user);
 
-      document.getElementById("email").value = "";
-      document.getElementById("uname").value = "";
-      document.getElementById("pass").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("uname").value = "";
+        document.getElementById("pass").value = "";
+      }
     },
   },
 };

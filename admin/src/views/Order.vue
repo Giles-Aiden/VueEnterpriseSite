@@ -51,6 +51,7 @@ table {
     width: 100%;
     td {
       width: 16%;
+      font-size: calc(0.8vw + 0.8vh);
       border: white 0.1rem solid;
       text-align: center;
       vertical-align: middle;

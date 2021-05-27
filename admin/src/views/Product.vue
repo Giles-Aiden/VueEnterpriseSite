@@ -15,7 +15,7 @@
 .productPage {
   background: $bg-main;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh; 
 }
 div#product {
   margin-left: 50px;
@@ -59,11 +59,34 @@ export default {
           attributes: [
             {
               attr: "lids",
-              items: ["lid1", "lid2", "lid3"],
+              items: [
+                {
+                  "attribute": "lid1",
+                  "priceUp": "0"
+                },
+                {
+                  "attribute": "lid2",
+                  "priceUp": "0"
+                },
+                {
+                  "attribute": "lid3",
+                  "priceUp": "3"
+                }
+              ],
             },
             {
               attr: "sizes",
-              items: ["20oz", "40oz"],
+              /* items: ["20oz", "40oz"], */
+              items: [
+                {
+                  "attribute": "20oz",
+                  "priceUp": 0
+                },
+                {
+                  "attribute": "40oz",
+                  "priceUp": 10
+                }
+              ]
             },
           ],
         },
@@ -75,7 +98,21 @@ export default {
           attributes: [
             {
               attr: "types",
-              items: ["iPhone8", "iPhone8s", "iPhoneX"],
+              /* items: ["iPhone8", "iPhone8s", "iPhoneX"], */
+              items: [
+                {
+                  "attribute": "iPhone8",
+                  "priceUp": 0
+                },
+                {
+                  "attribute": "iPhone8s",
+                  "priceUp": 0
+                },
+                {
+                  "attribute": "iPhoneX",
+                  "priceUp": 2
+                }
+              ]
             },
           ],
         },

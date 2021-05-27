@@ -58,8 +58,8 @@ div#loginLogo {
 }
 
 div#loginScreen {
-  width: 20%;
-  background-color: $bodyElementColor;
+  width: 30%;
+  background-color: $bg-secondary;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -68,11 +68,16 @@ div#loginScreen {
   box-shadow: 5px 10px 10px #333333;
   text-align: center;
 }
+@media screen and (max-width: 700px) {
+  div#loginScreen{
+    width: 80%;
+  }
+}
 div#buttonPanel {
   #loginButton {
     background-color: $sidebarColor;
-    width: 15%;
-    margin-left: 85%;
+    width: 35%;
+    margin-left: 65%;
   }
 }
 

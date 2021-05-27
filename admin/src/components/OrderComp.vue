@@ -58,6 +58,9 @@ tr {
     color: $bodyElementColor;
     text-align: center;
     vertical-align: middle;
+    p{
+      font-size: calc(0.7vw + 0.7vh);
+    }
   }
 }
 </style>
