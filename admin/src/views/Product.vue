@@ -15,7 +15,7 @@
 .productPage {
   background: $bg-main;
   margin: 0;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 div#product {
   margin-left: 50px;
@@ -61,17 +61,17 @@ export default {
               attr: "lids",
               items: [
                 {
-                  "attribute": "lid1",
-                  "priceUp": "0"
+                  attribute: "lid1",
+                  priceUp: "0",
                 },
                 {
-                  "attribute": "lid2",
-                  "priceUp": "0"
+                  attribute: "lid2",
+                  priceUp: "0",
                 },
                 {
-                  "attribute": "lid3",
-                  "priceUp": "3"
-                }
+                  attribute: "lid3",
+                  priceUp: "3",
+                },
               ],
             },
             {
@@ -79,14 +79,14 @@ export default {
               /* items: ["20oz", "40oz"], */
               items: [
                 {
-                  "attribute": "20oz",
-                  "priceUp": 0
+                  attribute: "20oz",
+                  priceUp: 0,
                 },
                 {
-                  "attribute": "40oz",
-                  "priceUp": 10
-                }
-              ]
+                  attribute: "40oz",
+                  priceUp: 10,
+                },
+              ],
             },
           ],
         },
@@ -101,18 +101,18 @@ export default {
               /* items: ["iPhone8", "iPhone8s", "iPhoneX"], */
               items: [
                 {
-                  "attribute": "iPhone8",
-                  "priceUp": 0
+                  attribute: "iPhone8",
+                  priceUp: 0,
                 },
                 {
-                  "attribute": "iPhone8s",
-                  "priceUp": 0
+                  attribute: "iPhone8s",
+                  priceUp: 0,
                 },
                 {
-                  "attribute": "iPhoneX",
-                  "priceUp": 2
-                }
-              ]
+                  attribute: "iPhoneX",
+                  priceUp: 2,
+                },
+              ],
             },
           ],
         },

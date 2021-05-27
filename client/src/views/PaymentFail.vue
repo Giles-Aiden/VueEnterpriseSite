@@ -1,6 +1,6 @@
 <template>
   <div class="PaymentFail">
-    <Navbar title=""/>
+    <Navbar title="" />
     <h1>Payment Failure</h1>
   </div>
 </template>
@@ -14,11 +14,9 @@ export default {
   components: {
     Navbar,
   },
-  methods: {
-  },
+  methods: {},
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>

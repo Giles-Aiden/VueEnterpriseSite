@@ -21,10 +21,14 @@
       </div>
       <div class="color">
         <form v-if="this.showing" @click="colorMenu()">
-          <h2 style="fontSize: 1.5em">+</h2>
+          <h2 style="fontsize: 1.5em">+</h2>
         </form>
         <form v-else>
-          <input type="color" :id="productName + ' Color'" style="background: none; width: 2rem; height: 2rem" />
+          <input
+            type="color"
+            :id="productName + ' Color'"
+            style="background: none; width: 2rem; height: 2rem"
+          />
           <br />
           <vs-button
             type="button"
@@ -59,10 +63,10 @@
   margin: 0;
 }
 
-h1{
+h1 {
   font-size: calc(1.5vw + 1.5vh);
 }
-h2{
+h2 {
   font-size: calc(1vw + 1vh);
 }
 
@@ -83,7 +87,7 @@ div.productCard {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
-    input{
+    input {
       width: 30%;
       height: 2rem;
       border-radius: 12px;
@@ -97,7 +101,7 @@ div.productCard {
   }
   div#colors {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     height: 6rem;
     overflow-x: auto;

@@ -79,10 +79,16 @@
           <div class="salesData" style="width: calc(100% - 2rem)">
             <h2>Top Selling Products</h2>
             <hr />
-            <div style="color: white; height: 50vh;">
+            <div style="color: white; height: 50vh">
               <ol>
-                <h1 class="topSeller" v-for="(products, index) in topSellers" :key="index"><li>{{topSellers[index]}}</li></h1>
-<!--                 <h1 class="topSeller"><li>Product #1</li></h1>
+                <h1
+                  class="topSeller"
+                  v-for="(products, index) in topSellers"
+                  :key="index"
+                >
+                  <li>{{ topSellers[index] }}</li>
+                </h1>
+                <!--                 <h1 class="topSeller"><li>Product #1</li></h1>
                 <h1 class="topSeller"><li>Product #2</li></h1>
                 <h1 class="topSeller"><li>Product #3</li></h1> -->
               </ol>
@@ -97,10 +103,10 @@
 <style lang="scss" scoped>
 @import "src/assets/styles/_variables.scss";
 
-h1{
+h1 {
   font-size: calc(1.5vw + 1.5vh);
 }
-h2{
+h2 {
   font-size: calc(1vw + 1vh);
 }
 
@@ -125,13 +131,13 @@ div#sales {
     h1 {
       text-align: center;
     }
-    h1.topSeller{
+    h1.topSeller {
       text-align: left;
       padding-left: 10%;
     }
   }
   @media screen and (max-width: 600px) {
-    div.salesData{
+    div.salesData {
       width: 100%;
     }
   }
@@ -159,11 +165,7 @@ export default {
     return {
       earnings: 0,
       balance: 10000,
-      topSellers: [
-        'Product #1',
-        'Product #2',
-        'Product #3'
-      ]
+      topSellers: ["Product #1", "Product #2", "Product #3"],
     };
   },
 };

@@ -7,17 +7,37 @@
         :key="index"
         style="liststyletype: none"
       >
-        <h4 class="deletion" @click="deleteType({ index })" v-if="types[index].priceUp != 0">{{ types[index].attribute }} (+${{types[index].priceUp}})</h4>
-        <h4 class="deletion" @click="deleteType({ index })" v-else>{{ types[index].attribute }}</h4>
+        <h4
+          class="deletion"
+          @click="deleteType({ index })"
+          v-if="types[index].priceUp != 0"
+        >
+          {{ types[index].attribute }} (+${{ types[index].priceUp }})
+        </h4>
+        <h4 class="deletion" @click="deleteType({ index })" v-else>
+          {{ types[index].attribute }}
+        </h4>
       </li>
     </ul>
     <vs-button id="addType" v-if="adding" @click="addType()"
       >Add {{ attr }}</vs-button
     >
     <div class="inputDiv" v-else>
-      <input class="typeInput" v-model="attrInput" :placeholder="'New '+ attr.substring(0,attr.length-1)" />
-      <input class="priceInput" type="number" v-model="priceInput" placeholder="Markup" />
-      <vs-button @click="addType(attrInput, priceInput)" class="typeInputButton">
+      <input
+        class="typeInput"
+        v-model="attrInput"
+        :placeholder="'New ' + attr.substring(0, attr.length - 1)"
+      />
+      <input
+        class="priceInput"
+        type="number"
+        v-model="priceInput"
+        placeholder="Markup"
+      />
+      <vs-button
+        @click="addType(attrInput, priceInput)"
+        class="typeInputButton"
+      >
         +
       </vs-button>
     </div>
@@ -97,7 +117,8 @@ div#types {
   height: 2rem;
   margin-top: 2rem;
 }
-.typeInput, .priceInput {
+.typeInput,
+.priceInput {
   width: 50%;
   height: 2rem;
   margin-right: 0.1rem;
@@ -116,7 +137,7 @@ export default {
       types: this.attribute.items,
       adding: true,
       attrInput: "",
-      priceInput: ""
+      priceInput: "",
     };
   },
   methods: {
@@ -129,8 +150,8 @@ export default {
       } else if (attr !== "" && this.types.indexOf(attr) == -1) {
         this.adding = true;
         this.types.push({
-          "attribute": attr,
-          "priceUp": price
+          attribute: attr,
+          priceUp: price,
         });
         this.attrInput = "";
         this.priceInput = "";

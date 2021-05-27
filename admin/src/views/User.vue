@@ -3,14 +3,27 @@
     <Sidebar></Sidebar>
     <div id="searchBar">
       <h1>Users</h1>
-      <vs-button v-if="addingUser" class="registerBtn" style="width: 12%" @click="addUser">Add User</vs-button>
+      <vs-button
+        v-if="addingUser"
+        class="registerBtn"
+        style="width: 12%"
+        @click="addUser"
+        >Add User</vs-button
+      >
       <div id="addUser" v-else>
         <input type="text" placeholder="Email" id="email" />
         <input type="text" placeholder="Username" id="uname" />
         <input type="password" placeholder="Password" id="pass" />
         <label for="admin">Admin?</label>
-        <input type="checkbox" id="admin">
-        <vs-button class="registerBtn" @click="createUser(); addUser()">Register</vs-button>
+        <input type="checkbox" id="admin" />
+        <vs-button
+          class="registerBtn"
+          @click="
+            createUser();
+            addUser();
+          "
+          >Register</vs-button
+        >
       </div>
     </div>
     <userCard
@@ -45,10 +58,10 @@ div.user {
     z-index: 2;
     display: flex;
     justify-content: space-between;
-    h1{
+    h1 {
       font-size: calc(1vw + 1vh);
     }
-    #addUser{
+    #addUser {
       display: flex;
       justify-content: center;
       width: 50%;
@@ -63,13 +76,13 @@ div.user {
       border-radius: 12px;
       border: none;
     }
-    .registerBtn{
+    .registerBtn {
       background-color: $shadow;
     }
-    label{
+    label {
       font-size: calc(0.6vw + 0.6vh);
     }
-    #admin{
+    #admin {
       height: 1vw;
       width: 1vw;
     }
@@ -107,10 +120,10 @@ export default {
     };
   },
   methods: {
-    addUser: function() {
-      if(this.addingUser){
+    addUser: function () {
+      if (this.addingUser) {
         this.addingUser = false;
-      }else{
+      } else {
         this.addingUser = true;
       }
     },
@@ -123,12 +136,12 @@ export default {
         image: "logo.png", //placeholder
       };
       let valid = true;
-      for(const info in user){
-        if(user[info] == ''){
+      for (const info in user) {
+        if (user[info] == "") {
           valid = false;
         }
       }
-      if(valid){
+      if (valid) {
         this.users.push(user);
 
         document.getElementById("email").value = "";

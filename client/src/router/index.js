@@ -66,7 +66,9 @@ const routes = [
     path: '/payment-success',
     name: 'PaymentSuccess',
     component: () =>
-      import(/* webpackChunkName: "paymentSuccess" */ '../views/PaymentSuccess.vue'),
+      import(
+        /* webpackChunkName: "paymentSuccess" */ '../views/PaymentSuccess.vue'
+      ),
   },
   {
     path: '/payment-failure',

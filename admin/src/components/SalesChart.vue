@@ -1,7 +1,15 @@
 <template>
-  <div id="chart" @loadstart="document.getElementById('salesChart').style.height = '50vh'">
+  <div
+    id="chart"
+    @loadstart="document.getElementById('salesChart').style.height = '50vh'"
+  >
     <div class="card" style="height: 50vh">
-      <Chart type="bar" :data="basicData" :options="basicOptions" id="salesChart" />
+      <Chart
+        type="bar"
+        :data="basicData"
+        :options="basicOptions"
+        id="salesChart"
+      />
     </div>
   </div>
 </template>
@@ -29,12 +37,12 @@ export default {
             backgroundColor: "#113F70",
             data: [65, 59, 80, 81, 56, 55, 40],
           },
-        ]
+        ],
       },
       basicOptions: {
         responsive: true,
         maintainAspectRatio: false,
-/*         plugins: {
+        /*         plugins: {
           legend: {
             labels: {
               display: true,
@@ -45,32 +53,36 @@ export default {
           },
         }, */
         legend: {
-          position: 'bottom',
+          position: "bottom",
           labels: {
             fontSize: 20,
-            fontColor: 'white'
-          }
+            fontColor: "white",
+          },
         },
         scales: {
-          yAxes: [{
-            ticks: {
-              fontSize: 15,
-              fontColor: 'white',
-              beginAtZero: true
-            }
-          }],
-          xAxes: [{
-            ticks: {
-              fontSize: 15,
-              fontColor: 'white'
-            }
-          }]
-        }
+          yAxes: [
+            {
+              ticks: {
+                fontSize: 15,
+                fontColor: "white",
+                beginAtZero: true,
+              },
+            },
+          ],
+          xAxes: [
+            {
+              ticks: {
+                fontSize: 15,
+                fontColor: "white",
+              },
+            },
+          ],
+        },
       },
     };
   },
-  mounted(){
+  mounted() {
     document.getElementById("salesChart").style.height = "50vh";
-  }
+  },
 };
 </script>

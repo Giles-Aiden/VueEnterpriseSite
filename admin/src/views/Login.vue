@@ -69,7 +69,7 @@ div#loginScreen {
   text-align: center;
 }
 @media screen and (max-width: 700px) {
-  div#loginScreen{
+  div#loginScreen {
     width: 80%;
   }
 }

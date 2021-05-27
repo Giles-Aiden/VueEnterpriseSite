@@ -1,6 +1,6 @@
 <template>
   <div class="userCard">
-<!--     <div class="center grid">
+    <!--     <div class="center grid">
       <vs-row>
         <vs-col v-if="user.admin" w="1">
           <h1>A</h1>
@@ -52,11 +52,11 @@
     min-width: 80px;
     min-height: 80px;
   }
-  h1{
+  h1 {
     width: 10%;
     min-width: 80px;
   }
-  p{
+  p {
     width: 20%;
     min-width: 200px;
   }
