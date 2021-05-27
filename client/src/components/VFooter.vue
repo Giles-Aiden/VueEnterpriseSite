@@ -1,25 +1,36 @@
 <template>
   <div class="center background">
     <div class="contact item">
-      <h3><i class="fa fa-user-circle"></i>- David Ray</h3>
-      <h3><i class="fa fa-phone-square"></i>- (123)-456-7890</h3>
-      <h3><i class="fa fa-envelope"></i>- sales@WFBMlaserengraving.com</h3>
+      <h1 style="text-align: center;">Contact Information</h1>
+      <h3><i class="fa fa-user"></i> - David Ray</h3>
+      <h3><i class="fa fa-phone"></i> - (480)-226-6529</h3>
+      <h3><i class="fa fa-envelope"></i> - Sales@WFBMlaserengraving.com</h3>
     </div>
     <div class="logo item">
       <img src="@/assets/WFBM Logo.png" alt="" />
     </div>
     <div class="icons item">
+      <vs-button
+        class="button-icon"
+        icon
+        color="facebook"
+        href="http://business.facebook.com/WFBM-Laser-Engraving-102699948274177/"
+      >
+        <i class="fa fa-facebook-square"></i>
+      </vs-button>
+
       <div class="icon">
         <vs-button class="button-icon" icon color="twitter">
           <i class="fa fa-twitter-square"></i>
           <!--@LaserWfbm-->
         </vs-button>
-      </div>
 
-      <div class="icon">
-        <vs-button class="button-icon" icon color="instagram">
-          <i class="fa fa-instagram"></i>
-          <!--@wfbmlaserengraving-->
+      <vs-button class="button-icon" icon color="linkedin">
+        <i class="fa fa-linkedin-square"></i>
+      </vs-button>
+
+        <vs-button class="button-icon" icon color="linkedin">
+          <i class="fa fa-linkedin-square"></i>
         </vs-button>
       </div>
     </div>
@@ -33,8 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shadow: grey;
-$text-color: white;
+@import '@/assets/styles/_variables.scss';
 
 .center {
   display: flex;
@@ -59,8 +69,6 @@ $text-color: white;
 .item {
   flex: 1 1 0px;
   justify-content: center;
-  align-items: center;
-  margin-inline: 1rem;
 }
 .logo {
   display: flex;
@@ -71,12 +79,11 @@ $text-color: white;
     max-width: 100%;
     min-width: 250px;
     max-height: 100px;
+    filter: grayscale(1) invert(1);
   }
 }
 .icons {
   display: flex;
-  align-items: center;
-  flex-direction: column;
   .icon {
     display: flex;
   }

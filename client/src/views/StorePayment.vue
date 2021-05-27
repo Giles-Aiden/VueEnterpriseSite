@@ -37,7 +37,7 @@ export default {
         },
       ],
       successURL: `${process.env.VUE_APP_DOMAIN}/payment-success`,
-      cancelURL: `${process.env.VUE_APP_DOMAIN}/payment-cancel`,
+      cancelURL: `${process.env.VUE_APP_DOMAIN}/payment-failure`,
     };
   },
 };
