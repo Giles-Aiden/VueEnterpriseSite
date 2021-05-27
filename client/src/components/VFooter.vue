@@ -10,15 +10,6 @@
       <img src="@/assets/WFBM Logo.png" alt="" />
     </div>
     <div class="icons item">
-      <vs-button
-        class="button-icon"
-        icon
-        color="facebook"
-        href="http://business.facebook.com/WFBM-Laser-Engraving-102699948274177/"
-      >
-        <i class="fa fa-facebook-square"></i>
-      </vs-button>
-
       <div class="icon">
         <vs-button class="button-icon" icon color="twitter">
           <i class="fa fa-twitter-square"></i>

@@ -18,7 +18,9 @@
             :color="buttonColor"
             type="filled"
           >
-            Shop Now!
+            <router-link to="/store/items" class="link" tag="li"
+              >Shop Now!
+            </router-link>
           </vs-button>
         </div>
         <div class="card">
@@ -36,7 +38,9 @@
             :color="buttonColor"
             type="filled"
           >
-            Shop Now!
+            <router-link to="/about" class="link" tag="li"
+              >About Us
+            </router-link>
           </vs-button>
         </div>
         <div class="card">
@@ -54,7 +58,9 @@
             :color="buttonColor"
             type="filled"
           >
-            Shop Now!
+            <router-link to="/wholesale" class="link" tag="li"
+              >Learn More!
+            </router-link>
           </vs-button>
         </div>
       </div>
@@ -77,7 +83,9 @@
             :color="buttonColor"
             type="filled"
           >
-            Shop Now!
+            <router-link to="/fundraising" class="link" tag="li"
+              >Tell me more!
+            </router-link>
           </vs-button>
         </div>
         <div class="card">

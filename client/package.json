@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vue-stripe/vue-stripe": "^4.2.4",
+    "@egjs/flicking": "^3.8.2",
     "aos": "^2.3.4",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
