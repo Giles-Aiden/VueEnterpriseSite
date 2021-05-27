@@ -9,23 +9,6 @@
       <img src="@/assets/WFBM Logo.png" alt="" />
     </div>
     <div class="icons item">
-<<<<<<< HEAD
-      <div class="icon">
-        <vs-button
-          class="button-icon"
-          icon
-          color="facebook"
-          href="http://business.facebook.com/WFBM-Laser-Engraving-102699948274177/"
-        >
-          <i class="fa fa-facebook-square"></i>
-        </vs-button>
-
-        <vs-button class="button-icon" icon color="twitter">
-          <i class="fa fa-twitter-square"></i>
-          <!--@LaserWfbm-->
-        </vs-button>
-<<<<<<< HEAD
-
       <div class="icon">
         <vs-button class="button-icon" icon color="twitter">
           <i class="fa fa-twitter-square"></i>
@@ -61,7 +44,6 @@ $text-color: white;
     text-align: left;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     padding-inline: 3rem;
     * {
       margin-block: 0.25rem;
