@@ -112,7 +112,7 @@
           <vs-avatar class="avatar-img">
             <img src="..\assets\Customer(4).jpeg" />
           </vs-avatar>
-          <h4>Liz K.</h4>
+          <h4>Emma T.</h4>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -145,6 +145,7 @@ export default {
       slideIndex: 1,
       picked: 1,
       imgNum: 1,
+      buttonColor: '#185ca3',
     };
   },
 };
