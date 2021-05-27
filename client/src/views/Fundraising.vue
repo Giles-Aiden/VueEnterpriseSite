@@ -14,76 +14,37 @@
             is popular, customizable, and environmentally friendly.
           </p>
         </div>
-
-        <div>
-          <h4>How do I benefit?</h4>
-          <hr />
-          <p>
-            By participating in a WFBM laser engraving fundraiser, your
-            organization can earn money in a fun and effective way. Based on our
-            recommended sales pricing of $25 for the 24 oz and $40 for the 40
-            oz, your organization will earn $5 or $10 respectively per bottle.
-          </p>
-        </div>
-
-        <div>
-          <h4>Why your organization should participate</h4>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-
-        <div>
-          <h4>Sales &#38; Delivery</h4>
-          <hr />
-          <p>
-            A 2-3 week sales window is recommended for your fundraiser but you
-            are free to set a longer or shorter time frame.
-          </p>
-        </div>
       </div>
-    </div>
 
-    <hr />
-
-    <div id="reviewsArea">
-      <h1>Fundraising Experience</h1>
-      <div id="reviews">
-        <div></div>
-      </div>
-    </div>
-    <!-- Reviews/Experience Section -->
-    <!-- <div id="reviewsArea">
-      <h2>Fundraising Experience</h2>
-      <a href="Fundraising.vue#r5"></a>
-      <div id="reviews">
-        <carousel
-          :per-page="2"
-          :navigation-enabled="true"
-          :pagination-active-color="'#113F70'"
-          id="carousel2"
-        >
-          <slide
-            v-for="item in reviewerInfo"
-            :key="item[0]"
-            data-index="0"
-            data-name="MySlideName"
-            @slideclick="handleSlideClick"
+      <hr />
+      <!-- Reviews/Experience Section -->
+      <div id="reviewsArea">
+        <h2>Fundraising Experience</h2>
+        <a href="Fundraising.vue#r5"></a>
+        <div id="reviews">
+          <carousel
+            :per-page="2"
+            :navigation-enabled="true"
+            :navigation-next-label="arrows[1]"
+            :navigation-prev-label="arrows[0]"
+            :pagination-active-color="'#113F70'"
+            id="carousel2"
           >
-            <div id="r1" class="reviewCards">
-              <h4>{{ item[0] }}</h4>
-              <hr />
-              <p>{{ item[1] }}</p>
-            </div>
-          </slide>
-        </carousel>
+            <slide
+              v-for="item in reviewerInfo"
+              :key="item[0]"
+              data-index="0"
+              data-name="MySlideName"
+              @slideclick="handleSlideClick"
+            >
+              <div id="r1" class="reviewCards">
+                <h4>{{ item[0] }}</h4>
+                <hr />
+                <p>{{ item[1] }}</p>
+              </div>
+            </slide>
+          </carousel>
+        </div>
       </div>
     </div> -->
   </div>
@@ -275,8 +236,7 @@ hr {
 
 <!-- functiony things -->
 <script>
-// @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
+import Navbar from '@/components/Navbar.vue';
 
 export default {
   name: 'Fundraising',
