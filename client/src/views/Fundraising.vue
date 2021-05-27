@@ -36,9 +36,11 @@
         <div class="card">
           <h2>Our Fundraisers</h2>
           <p>
-            Running a fundraiser through WFBM Laser Engraving is a win-win! Help your organization in a 
-            fun and environmentally friendly way! Reduce plastic waste and raise money by buying wholesale
-            for your fundraisers! Interested? Have questions? Click the button below to get in touch!
+            Running a fundraiser through WFBM Laser Engraving is a win-win! Help
+            your organization in a fun and environmentally friendly way! Reduce
+            plastic waste and raise money by buying wholesale for your
+            fundraisers! Interested? Have questions? Click the button below to
+            get in touch!
           </p>
 
           <vs-button
@@ -49,13 +51,11 @@
           >
             <router-link to="/wholesale" class="link" tag="li"
               >Learn More!
-            </router-link>          
+            </router-link>
           </vs-button>
         </div>
         <div class="card">
-          <img
-            src="..\assets\plasticWaterBottles.jpg"
-          />
+          <img :src="require('@/assets/plasticWaterBottles.jpg')" />
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@
       <div id="info">
         <div>
           <vs-avatar class="avatar-img">
-            <img src="..\assets\Customer(1).jpeg" />
+            <img :src="require('@/assets/Customer(1).jpeg')" />
           </vs-avatar>
           <h4>Sallie H.</h4>
           <i class="fas fa-star"></i>
@@ -81,7 +81,7 @@
         </div>
         <div>
           <vs-avatar class="avatar-img">
-            <img src="..\assets\Customer(2).jpeg" />
+            <img :src="require('@/assets/Customer(2).jpeg')" />
           </vs-avatar>
           <h4>Penelope J.</h4>
           <i class="fas fa-star"></i>
@@ -94,7 +94,7 @@
         </div>
         <div>
           <vs-avatar class="avatar-img">
-            <img src="..\assets\Customer(3).jpeg" />
+            <img :src="require('@/assets/Customer(3).jpeg')" />
           </vs-avatar>
           <h4>Marie R.</h4>
           <i class="fas fa-star"></i>
@@ -110,7 +110,7 @@
         </div>
         <div>
           <vs-avatar class="avatar-img">
-            <img src="..\assets\Customer(4).jpeg" />
+            <img :src="require('../assets/Customer(4).jpeg')" />
           </vs-avatar>
           <h4>Emma T.</h4>
           <i class="fas fa-star"></i>
@@ -119,9 +119,7 @@
           <i class="fas fa-star"></i>
           <i class="fas fa-star-half-alt"></i>
           <hr />
-          <p>
-            "An awesome fundraising idea! Fantastic service and product!"
-          </p>
+          <p>"An awesome fundraising idea! Fantastic service and product!"</p>
         </div>
       </div>
     </div>
@@ -363,5 +361,4 @@ hr {
     }
   }
 }
-
 </style>
