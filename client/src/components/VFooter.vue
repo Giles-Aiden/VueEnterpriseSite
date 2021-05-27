@@ -6,7 +6,7 @@
       <h3><i class="fa fa-envelope"></i>- sales@WFBMlaserengraving.com</h3>
     </div>
     <div class="logo item">
-      <img src="@/assets/WFBM Logo.png" alt="">
+      <img src="@/assets/WFBM Logo.png" alt="" />
     </div>
     <div class="icons item">
       <vs-button
@@ -34,12 +34,12 @@
         </vs-button>
       </div>
 
-        <div class="icon">
-          <vs-button class="button-icon" icon color="twitter">
-            <i class="fa fa-twitter-square"></i>
-            <!--@LaserWfbm-->
-          </vs-button>
-        </div>
+      <div class="icon">
+        <vs-button class="button-icon" icon color="twitter">
+          <i class="fa fa-twitter-square"></i>
+          <!--@LaserWfbm-->
+        </vs-button>
+      </div>
 
       <div class="icon">
         <vs-button class="button-icon" icon color="instagram">
@@ -70,7 +70,7 @@ $text-color: white;
     display: flex;
     flex-direction: column;
     * {
-      margin-block: .25rem;
+      margin-block: 0.25rem;
     }
   }
   .background {
