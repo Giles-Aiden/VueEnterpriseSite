@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const session = require('express-session');
 const mongoSession = require('connect-mongodb-session')(session);
 const bcrypt = require('bcrypt');
@@ -30,6 +31,7 @@ const users = [];
 
 // Setup express 
 app.use(helmet());
+app.use(cors());
 app.use(express.json());
 
 // Sesion authentication setup
@@ -55,6 +57,7 @@ app.use(
 const User = require('./models/user.js');
 const Product = require('./models/product.js');
 const Admin = require('./models/admin.js');
+const Whole = require('./models/whole.js');
 
 const isUser = (req, res, next) => {
   if (req.session.isAuth) next();
@@ -89,7 +92,7 @@ app.get('/', (req, res) => {
 // app.get('/api/users', isAdmin, (req, res) => {
 app.get('/api/users', (req, res) => {
   if (req.body.uid) {
-    req.body._id = req.body.uid
+    req.body._id = req.body.uid;
     delete req.body.uid;
   }
   User.find(req.body, (err, users) => {
@@ -110,31 +113,37 @@ const passGen = async (pass) => {
 app.post('/api/users/register', async (req, res) => {
   var user = await User.findOne({ email: req.body.email });
   if (user) res.status(406).send("User Exists");
-  else {
-    try {
-      req.body.hash = await passGen(req);
-      delete req.body.pass;
-      user = new User(req.body);
-      user.save(err => {
-        if (err) res.status(406).json(err).send();
-        else res.status(201).send(user._id);
-      })
-    } catch (err) {
-      console.error(err);
-      res.status(500).json(err).send();
-    }
+  else try {
+    console.log(req.body.pass);
+    req.body.hash = await passGen(req.body.pass);
+    delete req.body.pass;
+    user = new User(req.body);
+    user.save(err => {
+      if (err) res.status(406).json(err).send();
+      else res.status(201).send(user._id);
+    })
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err).send();
   }
 });
 
 app.post('/api/users/login', async (req, res) => {
-  const user = User.findOne(user => user.email = req.body.email);
+  const user = await User.findOne({ email: req.body.email });
   if (user == null) res.status(400).send('Cound not find user');
-  try {
-    if (await bcrypt.compare(req.body.pass, user.pass)) {
-      req.session.isAuth = true;
-      res.status(200).send(user._id);
-    }
-    else res.status(401).send('Not allowed');
+  else try {
+    bcrypt.compare(req.body.pass, user.hash, (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(401).send('Not allowed');
+      }
+      else if(result) {
+        req.session.isAuth = true;
+        req.session.uid = user._id;
+        console.log(`|    User: ${user.email}\n|    logged in at\n|    ${new Date()}`);
+        res.status(200).send(user._id);
+      }
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send();
@@ -222,7 +231,7 @@ app.get('/api/products/id/:id', (req, res) => {
   });
 });
 
-app.post('/api/products', (req, res) => {
+app.post('/api/products', async (req, res) => {
   console.log(req.body);
   let product = new Product();
   let { name, cost, img, attrs } = req.body
@@ -230,7 +239,7 @@ app.post('/api/products', (req, res) => {
   product.cost = cost;
   product.img = img;
   product.attrs = attrs;
-  product.save((err) => {
+  await product.save((err) => {
     if (err) {
       console.error(err);
       res.status(400).send();
@@ -247,10 +256,33 @@ app.put('/api/products', async (req, res) => {
     else res
       .status(200)
       .json(Product.find({ _id: res.body.id }, (err, response) => {
-        if (err) return;
+        if (err) console.error(err);
         else return response;
       }))
-      .send();
+  });
+});
+
+// Wholesale site 
+app.get('/wholesale/:key', async (req, res) => {
+  console.log('Wholesale request for key: '+req.params.key);
+  Whole.findOne({ key: req.params.key }, (err, client) => {
+    console.log("client: " + client);
+    if (err != null) {
+      console.error(err);
+      res.status(500).send();
+    }
+    else res.status(200).send(JSON.stringify(client));
+  });
+});
+
+app.post('/wholesale', async (req, res) => {
+  let whole = new Whole(req.body);
+  await whole.save((err) => {
+    if(err) {
+      console.error(err);
+      res.status(500).send();
+    }
+    else res.status(201).send();
   });
 });
 
