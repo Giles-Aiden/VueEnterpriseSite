@@ -1,10 +1,10 @@
 <template>
   <div id="types">
-    <h2>{{ attr }}:</h2>
+    <h2>{{ name }}:</h2>
     <ul id="typeList">
       <li
-        v-for="(type, index) in types"
-        :key="index"
+        v-for="(type, index) in attrs"
+        :key="type"
         style="liststyletype: none"
       >
         <h4
@@ -19,9 +19,7 @@
         </h4>
       </li>
     </ul>
-    <vs-button id="addType" v-if="adding" @click="addType()"
-      >Add {{ attr }}</vs-button
-    >
+    <vs-button id="addType" v-if="adding" @click="addType()"> Add </vs-button>
     <div class="inputDiv" v-else>
       <input
         class="typeInput"
@@ -130,11 +128,9 @@ div#types {
 
 <script>
 export default {
-  props: ["attribute"],
+  props: ["attrs", "name"],
   data: function () {
     return {
-      attr: this.attribute.attr,
-      types: this.attribute.items,
       adding: true,
       attrInput: "",
       priceInput: "",
@@ -142,20 +138,25 @@ export default {
   },
   methods: {
     deleteType: function (i) {
-      this.types.splice(i.index, 1);
+      this.attrs.splice(i.index, 1);
+      this.update();
     },
     addType: function (attr, price) {
       if (this.adding) {
         this.adding = false;
-      } else if (attr !== "" && this.types.indexOf(attr) == -1) {
+      } else if (attr !== "" && this.attrs.indexOf(attr) == -1) {
         this.adding = true;
         this.types.push({
           attribute: attr,
           priceUp: price,
         });
         this.attrInput = "";
-        this.priceInput = "";
+        this.update();
       }
+    },
+    update: function () {
+      console.log(this.attrs);
+      this.$emit("update", [this.name, this.attrs]);
     },
   },
 };

@@ -1,11 +1,15 @@
+require('dotenv').config({path: `${__dirname}/.env`});
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const session = require('express-session');
 const mongoSession = require('connect-mongodb-session')(session);
 const bcrypt = require('bcrypt');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
-const stripe = require('stripe')('pk_test_51InaCPAoLvRfzUcyoUMDtDNLlS0uEiAPLoYkv55M4Q87JpSECqNmzavaC8aJ85njgTfDlsKEsp80ykjR147eTSLz00yGLrx9HI')
+const Stripe = require('stripe');
+const stripe = Stripe(process.env.STRIPE_SK);
+console.log(process.env.STRIPE_SK);
 if (process.env.NODE_ENV === "production") {
   var mongoURI = 'mongodb://mongo/wfbm'; 
   var domain = 'mystudentswork.com';
@@ -30,6 +34,7 @@ const users = [];
 
 // Setup express 
 app.use(helmet());
+app.use(cors());
 app.use(express.json());
 
 // Sesion authentication setup
@@ -55,6 +60,7 @@ app.use(
 const User = require('./models/user.js');
 const Product = require('./models/product.js');
 const Admin = require('./models/admin.js');
+const Whole = require('./models/whole.js');
 
 const isUser = (req, res, next) => {
   if (req.session.isAuth) next();
@@ -89,7 +95,7 @@ app.get('/', (req, res) => {
 // app.get('/api/users', isAdmin, (req, res) => {
 app.get('/api/users', (req, res) => {
   if (req.body.uid) {
-    req.body._id = req.body.uid
+    req.body._id = req.body.uid;
     delete req.body.uid;
   }
   User.find(req.body, (err, users) => {
@@ -110,31 +116,37 @@ const passGen = async (pass) => {
 app.post('/api/users/register', async (req, res) => {
   var user = await User.findOne({ email: req.body.email });
   if (user) res.status(406).send("User Exists");
-  else {
-    try {
-      req.body.hash = await passGen(req);
-      delete req.body.pass;
-      user = new User(req.body);
-      user.save(err => {
-        if (err) res.status(406).json(err).send();
-        else res.status(201).send(user._id);
-      })
-    } catch (err) {
-      console.error(err);
-      res.status(500).json(err).send();
-    }
+  else try {
+    console.log(req.body.pass);
+    req.body.hash = await passGen(req.body.pass);
+    delete req.body.pass;
+    user = new User(req.body);
+    user.save(err => {
+      if (err) res.status(406).json(err).send();
+      else res.status(201).send(user._id);
+    })
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err).send();
   }
 });
 
 app.post('/api/users/login', async (req, res) => {
-  const user = User.findOne(user => user.email = req.body.email);
+  const user = await User.findOne({ email: req.body.email });
   if (user == null) res.status(400).send('Cound not find user');
-  try {
-    if (await bcrypt.compare(req.body.pass, user.pass)) {
-      req.session.isAuth = true;
-      res.status(200).send(user._id);
-    }
-    else res.status(401).send('Not allowed');
+  else try {
+    bcrypt.compare(req.body.pass, user.hash, (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(401).send('Not allowed');
+      }
+      else if(result) {
+        req.session.isAuth = true;
+        req.session.uid = user._id;
+        console.log(`|    User: ${user.email}\n|    logged in at\n|    ${new Date()}`);
+        res.status(200).send(user._id);
+      }
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send();
@@ -199,7 +211,7 @@ app.delete('/api/users', isAdmin, (req, res) => {
   }
 });
 
-// Products requests
+//Get all Products
 app.get('/api/products', (req, res) => {
   Product.find({}, function(err, products) {
     console.log(products);
@@ -208,6 +220,7 @@ app.get('/api/products', (req, res) => {
   });
 });
 
+//Get product by name
 app.get('/api/products/name/:name', (req, res) => {
   Product.find({ name: req.params.name }, (err, products) => {
     if (err) console.error(err);
@@ -215,6 +228,7 @@ app.get('/api/products/name/:name', (req, res) => {
   });
 });
 
+//Get product by id
 app.get('/api/products/id/:id', (req, res) => {
   Product.find({ _id: req.params.id }, (err, products) => {
     if (err) console.error(err);
@@ -222,24 +236,38 @@ app.get('/api/products/id/:id', (req, res) => {
   });
 });
 
-app.post('/api/products', (req, res) => {
-  console.log(req.body);
-  let product = new Product();
-  let { name, cost, img, attrs } = req.body
-  product.name = name;
-  product.cost = cost;
-  product.img = img;
-  product.attrs = attrs;
-  product.save((err) => {
-    if (err) {
-      console.error(err);
-      res.status(400).send();
-      return;
-    }
-    else res.status(201).send();
-  });
+//New Product
+app.post('/api/products', async (req, res) => {
+  if (await Product.findOne({name: req.body.name})) {
+    console.log('We found one that exists!');
+    let err = `Product with name "${req.body.name}" already exists`;
+    res.status(409).send(err);
+  } else {
+    let product = new Product();
+    let { name, cost, img, attrs } = req.body
+    product.name = name;
+    product.img = img;
+    product.attrs = attrs;
+    product.key = await stripe.prices.create({
+      unit_amount: cost,
+      currency: 'usd',
+      product_data: {
+        name: name,
+      },
+    });
+    console.log(product);
+    await product.save((err) => {
+      if (err) {
+        console.error(err);
+        res.status(400).send();
+        return;
+      }
+      else res.status(201).send();
+    });
+  }
 });
 
+//Update Product
 app.put('/api/products', async (req, res) => {
   let update = await Product.findOneAndUpdate({ _id: req.body.id }, req.body.update);
   update.save((err) => {
@@ -247,10 +275,44 @@ app.put('/api/products', async (req, res) => {
     else res
       .status(200)
       .json(Product.find({ _id: res.body.id }, (err, response) => {
-        if (err) return;
+        if (err) console.error(err);
         else return response;
-      }))
-      .send();
+      }));
+  });
+});
+
+// Get all wholesale sites
+app.get('/wholesale', async (req, res) => {
+  Whole.find({}, (err, sites) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+    } else res.status(200).json(sites);
+  })
+});
+
+// Get site by get
+app.get('/wholesale/:key', async (req, res) => {
+  console.log('Wholesale request for key: '+req.params.key);
+  Whole.findOne({ key: req.params.key }, (err, client) => {
+    console.log("client: " + client);
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+    }
+    else res.status(200).send(JSON.stringify(client));
+  });
+});
+
+// Create new wholesale site
+app.post('/wholesale', async (req, res) => {
+  let whole = new Whole(req.body);
+  await whole.save((err) => {
+    if(err) {
+      console.error(err);
+      res.status(500).send();
+    }
+    else res.status(201).send();
   });
 });
 

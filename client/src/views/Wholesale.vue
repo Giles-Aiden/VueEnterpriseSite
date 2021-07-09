@@ -1,13 +1,12 @@
 <template>
   <div class="Wholesale">
     <Navbar />
-    <div class="text">
-      <p>
-        If you are interested in Wholesale business, please get in contact with
-        me using the form below.
-      </p>
-    </div>
-    <div class="form">
+    <h1>Want to sell custom water bottles at your event?</h1>
+    <h2>
+      Leave your information and a description of what your looking for below
+      and we will get back to you!
+    </h2>
+    <div id="contact">
       <form
         action="mailto:sales@wfbmlaserengraving.com"
         method="POST"
@@ -53,26 +52,16 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_variables.scss';
 .Wholesale {
-  .text {
-    background: #eee;
-    padding: 4rem;
-    font-size: 110%;
-    p {
-      margin: 0;
-    }
-  }
-  .form {
+  #contact {
     display: flex;
-    align-items: center;
+    flex-flow: row nowrap;
     justify-content: center;
-    width: 100%;
     form {
       display: flex;
-      flex-direction: column;
+      flex-flow: column nowrap;
       justify-content: center;
-      margin-inline: 5rem;
-      width: 1200px;
-      max-width: 100vw;
+      width: 100%;
+      max-width: 1200px;
       input,
       textarea {
         height: 5rem;

@@ -41,7 +41,7 @@ const routes = [
         name: 'StoreItems',
         component: () =>
           import(
-            /* webpackChunkName: "storeitems" */ '../views/StoreItems.vue'
+            /* webpackChunkName: "storeItems" */ '../views/StoreItems.vue'
           ),
       },
       {
@@ -49,7 +49,7 @@ const routes = [
         name: 'StoreEditor',
         component: () =>
           import(
-            /* webpackChunkName: "storeeditor" */ '../views/StoreEditor.vue'
+            /* webpackChunkName: "storeEditor" */ '../views/StoreEditor.vue'
           ),
       },
       {
@@ -81,6 +81,14 @@ const routes = [
     name: 'Wholesale',
     component: () =>
       import(/* webpackChunkName: "wholesale" */ '../views/Wholesale.vue'),
+  },
+  {
+    path: '/wholesale/:id',
+    name: 'WholesaleClient',
+    component: () =>
+      import(
+        /* webpackChunkName: "wholesaleclient" */ '../views/WholesaleClient.vue'
+      ),
   },
 ];
 

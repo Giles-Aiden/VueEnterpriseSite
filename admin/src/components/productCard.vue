@@ -1,6 +1,6 @@
 <template>
   <div class="productCard">
-    <img height="200vh" :src="require(`../assets/${productImage}`)" />
+    <img height="200vh" :src="productImage" />
     <h1>{{ productName }}</h1>
     <br />
     <div id="price">
@@ -12,7 +12,7 @@
     </div>
     <div id="colors">
       <h2>Colors:</h2>
-      <div class="color" v-for="(color, index) in colors" :key="color">
+      <div class="color" v-for="(color, index) in colors" :key="index">
         <div
           :style="{ 'background-color': color }"
           style="width: 100%; height: 100%"
@@ -37,20 +37,23 @@
               colorMenu();
             "
             id="add"
-            >Add</vs-button
           >
+            Add
+          </vs-button>
         </form>
       </div>
     </div>
     <ProductAttribute
-      v-for="(attr, index) in attributes"
+      v-for="(value, title, index) in attributes"
+      v-on:update="attributeUpdate"
       :key="index"
-      :attribute="attributes[index]"
+      :attrs="value"
+      :name="title"
     ></ProductAttribute>
     <br />
-    <div id="menu">
-      <vs-button class="menuButton">Delete</vs-button>
-      <vs-button class="menuButton">Save</vs-button>
+    <div id="menu" :v-if="editing">
+      <vs-button class="menuButton" @click="deleteProduct">Delete</vs-button>
+      <vs-button class="menuButton" @click="saveProduct">Save</vs-button>
     </div>
   </div>
 </template>
@@ -170,26 +173,36 @@ div.productCard {
 </style>
 
 <script>
+const axios = require("axios");
 import ProductAttribute from "@/components/ProductAttribute.vue";
 
 export default {
   components: { ProductAttribute },
   props: {
     product: Object,
+    editing: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: function () {
     return {
       productName: this.product.name,
-      productImage: this.product.image,
-      colors: this.product.colors,
+      productImage: this.product.img,
+      attributes: undefined,
+      colors: undefined,
       showing: true,
       price: this.product.price,
-      attributes: this.product.attributes,
     };
+  },
+  mounted() {
+    var store = this.product.attrs;
+    this.colors = store.colors;
+    delete store.colors;
+    this.attributes = store;
   },
   methods: {
     deleteColor: function (i) {
-      console.log(this.colors);
       this.colors.splice(i.index, 1);
     },
     addColor: function (picker) {
@@ -201,9 +214,7 @@ export default {
         this.colors.push(
           document.getElementById(picker.productName + " Color").value
         );
-      } /* 
-      console.log(picker.productName + ' Color');
-      console.log(this.colors); */
+      }
     },
     colorMenu: function () {
       if (this.showing) {
@@ -218,6 +229,22 @@ export default {
       ).value;
       document.getElementById(product.productName + " Price").value = "";
     },
+    attributeUpdate: function (updated) {
+      try {
+        this.attributes[updated[0]] = updated[1];
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    saveProduct: function () {
+      console.log("saved " + this.product);
+      axios.put("/api/products", {
+        data: {
+          id: this.product,
+        },
+      });
+    },
+    deleteProduct: function () {},
   },
 };
 </script>

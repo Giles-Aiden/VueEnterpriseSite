@@ -5,7 +5,10 @@ const productSchemea = mongoose.Schema({
     type: String,
     required: true
   },
-  cost: Number,
+  body: {
+    type: String,
+    default: "",
+  },
   img: {
     type: String,
     required: true
@@ -15,7 +18,11 @@ const productSchemea = mongoose.Schema({
     default: {
       "colors": [],
       "sizes": [],
-    }
+    },
+  },
+  key: {
+    type: Object,
+    required: true,
   },
 });
 

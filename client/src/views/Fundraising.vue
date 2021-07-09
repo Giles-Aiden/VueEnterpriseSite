@@ -362,3 +362,63 @@ hr {
   }
 }
 </style>
+
+<!-- functiony things -->
+<script>
+// @ is an alias to /src
+import Navbar from '@/components/Navbar.vue';
+
+export default {
+  name: 'Fundraising',
+  components: {
+    Navbar,
+    //MyCarousel
+  },
+  data() {
+    return {
+      picked: 1,
+      imgNum: 1,
+      items: [
+        'img/bottleRed.JPG',
+        'img/bottleBlack.JPG',
+        'img/bottleGreen.JPG',
+      ],
+      // This is the info that gets passed into the v-for elements for the 2nd carousel
+      reviewerInfo: [
+        [
+          'Jack F.',
+          '"Fantastic, I\'m totally blown away by Testimonial Generator."',
+        ],
+        [
+          'Israel L.',
+          '" I am so pleased with this product. The service was excellent."',
+        ],
+        [
+          'Tonnie O.',
+          '"I\'m good to go. You guys rock! The service was excellent."',
+        ],
+        [
+          'Jefferson H.',
+          '"I can\'t say enough about Laser Engraved Water Bottles."',
+        ],
+        [
+          'Berrie A.',
+          '"WFBM Laser Engraving is exactly what I\'ve been looking for."',
+        ],
+        [
+          'Malory J.',
+          '"Best. Product. Ever! The customization aspect really wonderful."',
+        ],
+      ],
+      arrows: [
+        '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
+        '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
+      ],
+    };
+  },
+};
+
+var resizeEvent = window.document.createEvent('UIEvents');
+resizeEvent.initUIEvent('resize', true, false, window, 0);
+window.dispatchEvent(resizeEvent);
+</script>
