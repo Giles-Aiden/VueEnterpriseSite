@@ -69,11 +69,22 @@
 
         <vs-sidebar-item id="mainSite">
           <template #icon>
+            <i class="pi pi-camera"></i>
+          </template>
+          <a :href="imgSite">
+            <h1>Images</h1>
+          </a>
+        </vs-sidebar-item>
+
+        <br />
+
+        <vs-sidebar-item id="mainSite">
+          <template #icon>
             <i class="pi pi-home"></i>
           </template>
-          <router-link to="/">
+          <a :href="clientSite">
             <h1>Home Site</h1>
-          </router-link>
+          </a>
         </vs-sidebar-item>
 
         <template #footer>
@@ -165,6 +176,8 @@ export default {
     return {
       user: "David Ray",
       sidebarOpen: true,
+      clientSite: process.env.VUE_APP_DOMAIN,
+      imgSite: process.env.VUE_APP_PIWIGO,
     };
   },
   methods: {

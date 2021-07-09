@@ -7,7 +7,16 @@
           <button @click="searchLibrary()">Search</button>
         </div>
         <h3>OR</h3>
-        <FileUpload mode="basic" name="demo[]" :customUpload="true" @uploader="onUpload" />
+        <FileUpload
+          mode="basic"
+          :showCancelButton="true"
+          accept="image/*"
+          :fileLimit="1"
+          name="demo[]"
+          :auto="true"
+          :customUpload="true"
+          @uploader="onUpload"
+        />
       </div>
       <div>
         <div v-for="image in imgLibrary.images" :key="image.id">

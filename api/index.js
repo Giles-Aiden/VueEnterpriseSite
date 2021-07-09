@@ -1,3 +1,4 @@
+require('dotenv').config({path: `${__dirname}/.env`});
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -6,7 +7,9 @@ const mongoSession = require('connect-mongodb-session')(session);
 const bcrypt = require('bcrypt');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
-const stripe = require('stripe')('pk_test_51InaCPAoLvRfzUcyoUMDtDNLlS0uEiAPLoYkv55M4Q87JpSECqNmzavaC8aJ85njgTfDlsKEsp80ykjR147eTSLz00yGLrx9HI')
+const Stripe = require('stripe');
+const stripe = Stripe(process.env.STRIPE_SK);
+console.log(process.env.STRIPE_SK);
 if (process.env.NODE_ENV === "production") {
   var mongoURI = 'mongodb://mongo/wfbm'; 
   var domain = 'mystudentswork.com';
@@ -208,7 +211,7 @@ app.delete('/api/users', isAdmin, (req, res) => {
   }
 });
 
-// Products requests
+//Get all Products
 app.get('/api/products', (req, res) => {
   Product.find({}, function(err, products) {
     console.log(products);
@@ -217,6 +220,7 @@ app.get('/api/products', (req, res) => {
   });
 });
 
+//Get product by name
 app.get('/api/products/name/:name', (req, res) => {
   Product.find({ name: req.params.name }, (err, products) => {
     if (err) console.error(err);
@@ -224,6 +228,7 @@ app.get('/api/products/name/:name', (req, res) => {
   });
 });
 
+//Get product by id
 app.get('/api/products/id/:id', (req, res) => {
   Product.find({ _id: req.params.id }, (err, products) => {
     if (err) console.error(err);
@@ -231,24 +236,38 @@ app.get('/api/products/id/:id', (req, res) => {
   });
 });
 
+//New Product
 app.post('/api/products', async (req, res) => {
-  console.log(req.body);
-  let product = new Product();
-  let { name, cost, img, attrs } = req.body
-  product.name = name;
-  product.cost = cost;
-  product.img = img;
-  product.attrs = attrs;
-  await product.save((err) => {
-    if (err) {
-      console.error(err);
-      res.status(400).send();
-      return;
-    }
-    else res.status(201).send();
-  });
+  if (await Product.findOne({name: req.body.name})) {
+    console.log('We found one that exists!');
+    let err = `Product with name "${req.body.name}" already exists`;
+    res.status(409).send(err);
+  } else {
+    let product = new Product();
+    let { name, cost, img, attrs } = req.body
+    product.name = name;
+    product.img = img;
+    product.attrs = attrs;
+    product.key = await stripe.prices.create({
+      unit_amount: cost,
+      currency: 'usd',
+      product_data: {
+        name: name,
+      },
+    });
+    console.log(product);
+    await product.save((err) => {
+      if (err) {
+        console.error(err);
+        res.status(400).send();
+        return;
+      }
+      else res.status(201).send();
+    });
+  }
 });
 
+//Update Product
 app.put('/api/products', async (req, res) => {
   let update = await Product.findOneAndUpdate({ _id: req.body.id }, req.body.update);
   update.save((err) => {
@@ -258,16 +277,26 @@ app.put('/api/products', async (req, res) => {
       .json(Product.find({ _id: res.body.id }, (err, response) => {
         if (err) console.error(err);
         else return response;
-      }))
+      }));
   });
 });
 
-// Wholesale site 
+// Get all wholesale sites
+app.get('/wholesale', async (req, res) => {
+  Whole.find({}, (err, sites) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+    } else res.status(200).json(sites);
+  })
+});
+
+// Get site by get
 app.get('/wholesale/:key', async (req, res) => {
   console.log('Wholesale request for key: '+req.params.key);
   Whole.findOne({ key: req.params.key }, (err, client) => {
     console.log("client: " + client);
-    if (err != null) {
+    if (err) {
       console.error(err);
       res.status(500).send();
     }
@@ -275,6 +304,7 @@ app.get('/wholesale/:key', async (req, res) => {
   });
 });
 
+// Create new wholesale site
 app.post('/wholesale', async (req, res) => {
   let whole = new Whole(req.body);
   await whole.save((err) => {

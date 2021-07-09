@@ -312,7 +312,7 @@ export default {
           this.clientData.items.forEach((e) => {
             let options = new Map();
             for (let item of this.clientData.options) {
-              for(let o in item) {
+              for (let o in item) {
                 console.log(`Test:${o}`);
                 //console.log(`${key}: ${value}`);
               }

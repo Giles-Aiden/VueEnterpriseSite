@@ -11,15 +11,16 @@
             reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
             sit amet consectetur adipisicing elit. Impedit, nemo!
           </p>
-
-          <vs-button
-            :active="active == 1"
-            @click="active = 1"
-            :color="buttonColor"
-            type="filled"
-          >
-            Shop Now!
-          </vs-button>
+          <router-link to="/store/items">
+            <vs-button
+              :active="active == 1"
+              @click="active = 1"
+              :color="buttonColor"
+              type="filled"
+            >
+              Shop Now!
+            </vs-button>
+          </router-link>
         </div>
         <div class="card">
           <h2>Professional</h2>
@@ -30,14 +31,16 @@
             sit amet consectetur adipisicing elit. Impedit, nemo!
           </p>
 
-          <vs-button
-            :active="active == 2"
-            @click="active = 2"
-            :color="buttonColor"
-            type="filled"
-          >
-            Shop Now!
-          </vs-button>
+          <router-link to="/store/items">
+            <vs-button
+              :active="active == 1"
+              @click="active = 1"
+              :color="buttonColor"
+              type="filled"
+            >
+              Shop Now!
+            </vs-button>
+          </router-link>
         </div>
         <div class="card">
           <h2>Precise</h2>
@@ -48,14 +51,16 @@
             sit amet consectetur adipisicing elit. Impedit, nemo!
           </p>
 
-          <vs-button
-            :active="active == 3"
-            @click="active = 3"
-            :color="buttonColor"
-            type="filled"
-          >
-            Shop Now!
-          </vs-button>
+          <router-link to="/store/items">
+            <vs-button
+              :active="active == 1"
+              @click="active = 1"
+              :color="buttonColor"
+              type="filled"
+            >
+              Shop Now!
+            </vs-button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -71,14 +76,16 @@
             sit amet consectetur adipisicing elit. Impedit, nemo!
           </p>
 
-          <vs-button
-            :active="active == 1"
-            @click="active = 1"
-            :color="buttonColor"
-            type="filled"
-          >
-            Shop Now!
-          </vs-button>
+          <router-link to="/store/items">
+            <vs-button
+              :active="active == 1"
+              @click="active = 1"
+              :color="buttonColor"
+              type="filled"
+            >
+              Shop Now!
+            </vs-button>
+          </router-link>
         </div>
         <div class="card">
           <img
