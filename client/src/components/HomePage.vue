@@ -6,10 +6,20 @@
         <div class="card">
           <h2>Custom</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
-            placeat amet aliquid repudiandae iure modi libero eveniet
-            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Impedit, nemo!
+            Laser engraving allows for a quick and precise customization of an endless amount of  products, with the ability to engrave materials including...
+            <ul>
+              <li>Wood</li>
+              <li>Extruded or Cast Acrylic</li>
+              <li>Fabric</li>
+              <li>Glass</li>
+              <li>Stone, Marble, and Granite</li>
+              <li>Leather</li>
+              <li>Anodized Aluminum</li>
+              <li>Paper and Cardboard</li>
+              <li>Stamp Rubber</li>
+              <li>And Many More!</li>
+            </ul>
+            Custom logos, name, quotes and pictures can be engraved too!
           </p>
           <router-link to="/store/items">
             <vs-button
@@ -25,10 +35,7 @@
         <div class="card">
           <h2>Professional</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
-            placeat amet aliquid repudiandae iure modi libero eveniet
-            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Impedit, nemo!
+            Lasers allow for a high degree of precision. With a high resolution of 1200DPI we are able to engrave with precision unmatched by traditional engraving processes.  Laser machines are capable of cutting and engraving very complex and intricate designs on paper, acrylic, wood or MDF, and more. You can cut custom greeting cards, parts for 3D models and prototypes, rubber stamps, wooden inlays, (intarsia), and much more. With our laser machine, the only limit is your imagination.
           </p>
 
           <router-link to="/store/items">
@@ -45,10 +52,7 @@
         <div class="card">
           <h2>Precise</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
-            placeat amet aliquid repudiandae iure modi libero eveniet
-            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Impedit, nemo!
+            With over 25 year in the hospitality industry we are professional and will always work with the customer to make sure they are always satisfied with the end product.  We are here to make creative and lasting products that you will cherish for years to come.
           </p>
 
           <router-link to="/store/items">
@@ -70,10 +74,7 @@
         <div class="card">
           <h2>Our Fundraisers</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint
-            placeat amet aliquid repudiandae iure modi libero eveniet
-            reprehenderit. Quo. Lorem ipsum dolor sit amet. Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Impedit, nemo!
+            Running a fundraiser through WFBM Laser Engraving is a win-win! Help your organization in a fun and environmentally friendly way! Reduce plastic waste and raise money by buying wholesale for your fundraisers! Interested? Have questions? Click the button below to get in touch!
           </p>
 
           <router-link to="/store/items">

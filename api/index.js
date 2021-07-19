@@ -11,13 +11,16 @@ const Stripe = require('stripe');
 const stripe = Stripe(process.env.STRIPE_SK);
 console.log(process.env.STRIPE_SK);
 if (process.env.NODE_ENV === "production") {
-  var mongoURI = 'mongodb://mongo/wfbm'; 
-  var domain = 'mystudentswork.com';
+  var mongoURI = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@mongo:27017/wfbm?authSource=admin`; 
 } else {
-  var mongoURI = 'mongodb://localhost/wfbm';
-  var domain = 'localhost'
+  var mongoURI = `mongodb://localhost:27017/wfbm`; 
 }
-mongoose.connect(mongoURI);
+console.log(mongoURI);
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 let db = mongoose.connection;
 
 // Check connection
@@ -244,15 +247,17 @@ app.post('/api/products', async (req, res) => {
     res.status(409).send(err);
   } else {
     let product = new Product();
-    let { name, cost, img, attrs } = req.body
+    let { name, cost, img, colors, attrs } = req.body;
     product.name = name;
     product.img = img;
+    product.colors = colors;
     product.attrs = attrs;
     product.key = await stripe.prices.create({
       unit_amount: cost,
       currency: 'usd',
       product_data: {
-        name: name,
+        name: req.body.name,
+        active: true
       },
     });
     console.log(product);
@@ -269,16 +274,31 @@ app.post('/api/products', async (req, res) => {
 
 //Update Product
 app.put('/api/products', async (req, res) => {
-  let update = await Product.findOneAndUpdate({ _id: req.body.id }, req.body.update);
-  update.save((err) => {
-    if (err) res.status(500).send();
-    else res
-      .status(200)
-      .json(Product.find({ _id: res.body.id }, (err, response) => {
-        if (err) console.error(err);
-        else return response;
-      }));
+  console.log(req.body);
+  //delete req.body.update.key;
+  await Product.updateOne({ _id: req.body.id }, req.body.update, (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+    }
+    else res.status(200).send();
   });
+});
+
+//Delete Product
+app.delete('/api/products', async (req, res) => {
+  if(await Product.findOne({ _id: req.body.id })) {
+    await Product.deleteOne({ _id: req.body.id }, (err, removed) => {
+      console.log('Deleteing Product with id :' + req.body.id);
+      if(err) {
+        console.error(err);
+        console.log('Error');
+        res.status(500).send();
+      } else res.status(200).send(removed);
+    });
+  } else {
+    res.status(404).send('Product doesn\'t exist');
+  }
 });
 
 // Get all wholesale sites

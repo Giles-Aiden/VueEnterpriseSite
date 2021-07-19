@@ -53,6 +53,7 @@
     <br />
     <div id="menu" :v-if="editing">
       <vs-button class="menuButton" @click="deleteProduct">Delete</vs-button>
+      <vs-button class="menuButton" @click="addProductAttr">Add Attr</vs-button>
       <vs-button class="menuButton" @click="saveProduct">Save</vs-button>
     </div>
   </div>
@@ -189,17 +190,11 @@ export default {
     return {
       productName: this.product.name,
       productImage: this.product.img,
-      attributes: undefined,
-      colors: undefined,
+      attributes: this.product.attrs,
+      colors: this.product.colors,
       showing: true,
       price: this.product.price,
     };
-  },
-  mounted() {
-    var store = this.product.attrs;
-    this.colors = store.colors;
-    delete store.colors;
-    this.attributes = store;
   },
   methods: {
     deleteColor: function (i) {
@@ -237,14 +232,38 @@ export default {
       }
     },
     saveProduct: function () {
-      console.log("saved " + this.product);
-      axios.put("/api/products", {
+      console.log("saved :");
+      console.log(this.product);
+      let update = new Object({
+        colors: this.colors,
+        attrs: this.attributes,
+      });
+      console.log(update);
+      axios.put(process.env.VUE_APP_API + "/api/products", {
         data: {
-          id: this.product,
+          id: this.product._id,
+          update: update,
         },
       });
     },
-    deleteProduct: function () {},
+    addProductAttr: function () {
+      console.log("Test");
+    },
+    deleteProduct: function () {
+      console.log(this.product._id);
+      axios
+        .delete(process.env.VUE_APP_API + "/api/products", {
+          data: {
+            id: this.product._id,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
   },
 };
 </script>

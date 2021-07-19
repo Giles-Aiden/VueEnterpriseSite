@@ -2,7 +2,7 @@
   <div class="storeItems">
     <div class="shopDisplay">
       <ShopItem
-        v-for="(item) in shopItems"
+        v-for="item in shopItems"
         :key="item._id"
         class="shopDisplayItem"
         :itemName="item.name"
@@ -45,12 +45,14 @@ export default {
     ShopItem,
   },
   methods: {
-    load: async function() {
+    load: async function () {
       try {
-        let { data } = await axios.get(process.env.VUE_APP_API + "/api/products");
-        data.forEach((e,i) => {
+        let { data } = await axios.get(
+          process.env.VUE_APP_API + '/api/products',
+        );
+        data.forEach((e, i) => {
           //this.shopItems.push(e)
-          this.$set(this.shopItems, i, e)
+          this.$set(this.shopItems, i, e);
         });
         this.$forceUpdate();
         console.log(this.shopItems);
@@ -117,5 +119,5 @@ export default {
       ],
     };
   },
-}
+};
 </script>

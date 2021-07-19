@@ -13,8 +13,13 @@
       />
       <span class="p-float-label">
         <InputText id="name" type="text" v-model="newProduct.name" />
-        <label for="username">Username</label>
+        <label for="productName">Product Name</label>
       </span>
+      <span class="p-float-label">
+        <InputText id="price" type="number" v-model="newProduct.price" />
+        <label for="productPrice">Cost</label>
+      </span>
+      <Button icon="pi pi-check" iconPos="right" @click="createProduct()" />
     </div>
     <div id="product">
       <productCard
@@ -54,6 +59,7 @@ div#product {
 <script>
 const axios = require("axios");
 // @ is an alias to /src
+import Button from "primevue/button";
 import Menubar from "primevue/menubar";
 import Sidebar from "@/components/Sidebar.vue";
 import productCard from "@/components/productCard.vue";
@@ -62,6 +68,7 @@ import FileUpload from "primevue/fileupload";
 export default {
   name: "Home",
   components: {
+    Button,
     Menubar,
     Sidebar,
     productCard,
@@ -82,6 +89,12 @@ export default {
       reader.addEventListener("load", () => (this.uploadImg = reader.result));
       reader.readAsDataURL(event.files[0]);
       console.log(event.files[0]);
+    },
+    createProduct: function () {
+      axios
+        .post(process.env.VUE_APP_API + "/api/products", this.newProduct)
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err));
     },
   },
   mounted() {
@@ -132,15 +145,22 @@ export default {
         attrs: [
           {
             attr: "lids",
-            items: ["lid1", "lid2", "lid3"],
+            items: [
+              { name: "lid1", upcharge: "0" },
+              { name: "lid2", upcharge: "0" },
+              { name: "lid3", upcharge: "0" },
+            ],
           },
           {
             attr: "sizes",
-            items: ["20oz", "40oz"],
+            sizes: [
+              { name: "10oz", upcharge: "5" },
+              { name: "20oz", upcharge: "10" },
+            ],
           },
         ],
       },
-      newProduct: undefined,
+      newProduct: {},
       products: [],
     };
   },

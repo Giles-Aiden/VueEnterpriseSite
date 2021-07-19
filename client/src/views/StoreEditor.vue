@@ -3,7 +3,7 @@
     <div id="imgDisplay">
       <div id="imgPicker">
         <div>
-          <input id="search" type="search" />
+          <input id="search" type="search" v-model="searchTerm" />
           <button @click="searchLibrary()">Search</button>
         </div>
         <h3>OR</h3>
@@ -64,6 +64,7 @@ export default {
     return {
       imgLibrary: [],
       uploadImg: undefined,
+      searchTerm: new String(),
     };
   },
   methods: {
@@ -95,31 +96,16 @@ export default {
       console.log(event.files[0]);
     },
     searchLibrary: function () {
-      /*
-      axios.get('http://69.164.194.217:8000/ws.php?format=json&method=pwg.categories.getImages&cat_id=2', {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-type': 'application/json',
-        },
-      })
-        .catch((err) => console.error(err))
-        .then((res) => console.log(res));
-      */
       axios
-        .get('http://localhost:8000', {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-type': 'application/json',
-          },
+        .get('http://piwigo.wfbmlaserengraving.com/ws.php', {
           params: {
-            // Catalog ID
-            // Number corolates to the album creation order
-            cat_id: 2,
-            recursive: true,
+            format: 'json',
+            method: 'pwg.images.search',
+            query: this.searchTerm,
           },
         })
         .catch((err) => console.error(err))
-        .then((res) => (this.imgLibrary = res));
+        .then((res) => console.log(res));
     },
   },
 };

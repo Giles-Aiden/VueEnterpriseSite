@@ -4,28 +4,24 @@
     <ul id="typeList">
       <li
         v-for="(type, index) in attrs"
-        :key="type"
+        :key="index"
         style="liststyletype: none"
       >
         <h4
           class="deletion"
           @click="deleteType({ index })"
-          v-if="types[index].priceUp != 0"
+          v-if="attrs[index].priceUp != 0"
         >
-          {{ types[index].attribute }} (+${{ types[index].priceUp }})
+          {{ attrs[index].name }} (+${{ attrs[index].upcharge }})
         </h4>
         <h4 class="deletion" @click="deleteType({ index })" v-else>
-          {{ types[index].attribute }}
+          {{ attrs[index].name }}
         </h4>
       </li>
     </ul>
     <vs-button id="addType" v-if="adding" @click="addType()"> Add </vs-button>
     <div class="inputDiv" v-else>
-      <input
-        class="typeInput"
-        v-model="attrInput"
-        :placeholder="'New ' + attr.substring(0, attr.length - 1)"
-      />
+      <input class="typeInput" v-model="attrInput" placeholder="Name" />
       <input
         class="priceInput"
         type="number"
@@ -146,9 +142,9 @@ export default {
         this.adding = false;
       } else if (attr !== "" && this.attrs.indexOf(attr) == -1) {
         this.adding = true;
-        this.types.push({
-          attribute: attr,
-          priceUp: price,
+        this.attrs.push({
+          name: attr,
+          upcharge: price,
         });
         this.attrInput = "";
         this.update();
