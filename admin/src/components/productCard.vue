@@ -60,7 +60,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 
 * {
   padding: 0;
@@ -125,13 +125,13 @@ div.productCard {
       }
       form {
         width: 100%;
-        input[type="color"] {
+        input[type='color'] {
           -webkit-appearance: none;
           border: none;
           width: 2rem;
           height: 2rem;
         }
-        input[type="color"]::-webkit-color-swatch {
+        input[type='color']::-webkit-color-swatch {
           border: none;
         }
         #add {
@@ -174,8 +174,8 @@ div.productCard {
 </style>
 
 <script>
-const axios = require("axios");
-import ProductAttribute from "@/components/ProductAttribute.vue";
+const axios = require('axios');
+import ProductAttribute from '@/components/ProductAttribute.vue';
 
 export default {
   components: { ProductAttribute },
@@ -203,11 +203,11 @@ export default {
     addColor: function (picker) {
       if (
         this.colors.indexOf(
-          document.getElementById(picker.productName + " Color").value
+          document.getElementById(picker.productName + ' Color').value,
         ) == -1
       ) {
         this.colors.push(
-          document.getElementById(picker.productName + " Color").value
+          document.getElementById(picker.productName + ' Color').value,
         );
       }
     },
@@ -220,9 +220,9 @@ export default {
     },
     changePrice: function (product) {
       this.price = document.getElementById(
-        product.productName + " Price"
+        product.productName + ' Price',
       ).value;
-      document.getElementById(product.productName + " Price").value = "";
+      document.getElementById(product.productName + ' Price').value = '';
     },
     attributeUpdate: function (updated) {
       try {
@@ -232,14 +232,14 @@ export default {
       }
     },
     saveProduct: function () {
-      console.log("saved :");
+      console.log('saved :');
       console.log(this.product);
       let update = new Object({
         colors: this.colors,
         attrs: this.attributes,
       });
       console.log(update);
-      axios.put(process.env.VUE_APP_API + "/api/products", {
+      axios.put(process.env.VUE_APP_API + '/api/products', {
         data: {
           id: this.product._id,
           update: update,
@@ -247,12 +247,12 @@ export default {
       });
     },
     addProductAttr: function () {
-      console.log("Test");
+      console.log('Test');
     },
     deleteProduct: function () {
       console.log(this.product._id);
       axios
-        .delete(process.env.VUE_APP_API + "/api/products", {
+        .delete(process.env.VUE_APP_API + '/api/products', {
           data: {
             id: this.product._id,
           },

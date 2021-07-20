@@ -93,12 +93,12 @@
               <tr>
                 <td>
                   <h3 v-if="sidebarOpen">
-                    {{ user.split(" ")[0] + " " + user.split(" ")[1] }}
+                    {{ user.split(' ')[0] + ' ' + user.split(' ')[1] }}
                   </h3>
                   <h1 v-else>
                     {{
-                      user.split(" ")[0].substring(0, 1) +
-                      user.split(" ")[1].substring(0, 1)
+                      user.split(' ')[0].substring(0, 1) +
+                      user.split(' ')[1].substring(0, 1)
                     }}
                   </h1>
                 </td>
@@ -118,12 +118,12 @@
 </template>
 
 <style lang="scss">
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 
 body,
 html {
   padding: 0;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .vs-sidebar__logo {
@@ -171,10 +171,10 @@ div#sidebar {
 
 <script>
 export default {
-  name: "sidebar",
+  name: 'sidebar',
   data: function () {
     return {
-      user: "David Ray",
+      user: 'David Ray',
       sidebarOpen: true,
       clientSite: process.env.VUE_APP_DOMAIN,
       imgSite: process.env.VUE_APP_PIWIGO,

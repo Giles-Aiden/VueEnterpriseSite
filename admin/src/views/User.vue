@@ -35,7 +35,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 
 body {
   margin: 0;
@@ -97,10 +97,10 @@ div.user {
 <script>
 // @ is an alias to /src
 
-import Sidebar from "@/components/Sidebar.vue";
-import UserCard from "@/components/UserCard.vue";
+import Sidebar from '@/components/Sidebar.vue';
+import UserCard from '@/components/UserCard.vue';
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Sidebar,
     UserCard,
@@ -109,11 +109,11 @@ export default {
     return {
       users: [
         {
-          email: "email@email.com",
-          image: "logo.png",
+          email: 'email@email.com',
+          image: 'logo.png',
           admin: true,
-          uname: "username",
-          pass: "password",
+          uname: 'username',
+          pass: 'password',
         },
       ],
       addingUser: true,
@@ -129,24 +129,24 @@ export default {
     },
     createUser: function () {
       let user = {
-        email: document.getElementById("email").value,
-        uname: document.getElementById("uname").value,
-        pass: document.getElementById("pass").value,
-        admin: document.getElementById("admin").checked,
-        image: "logo.png", //placeholder
+        email: document.getElementById('email').value,
+        uname: document.getElementById('uname').value,
+        pass: document.getElementById('pass').value,
+        admin: document.getElementById('admin').checked,
+        image: 'logo.png', //placeholder
       };
       let valid = true;
       for (const info in user) {
-        if (user[info] == "") {
+        if (user[info] == '') {
           valid = false;
         }
       }
       if (valid) {
         this.users.push(user);
 
-        document.getElementById("email").value = "";
-        document.getElementById("uname").value = "";
-        document.getElementById("pass").value = "";
+        document.getElementById('email').value = '';
+        document.getElementById('uname').value = '';
+        document.getElementById('pass').value = '';
       }
     },
   },

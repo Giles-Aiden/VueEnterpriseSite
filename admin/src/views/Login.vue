@@ -39,7 +39,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 
 div#login {
   margin-top: 10%;
@@ -98,10 +98,10 @@ div#footer {
 </style>
 
 <script>
-const axios = require("axios");
+const axios = require('axios');
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {},
   methods: {
     login: async function () {
@@ -109,16 +109,16 @@ export default {
       // pass: 'stirng
       axios
         .get(
-          "/api/users/login",
+          '/api/users/login',
           {
-            email: "unique@email.com",
-            pass: "super secure password",
+            email: 'unique@email.com',
+            pass: 'super secure password',
           },
           {
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
-          }
+          },
         )
         .then(function (response) {
           // Returned info

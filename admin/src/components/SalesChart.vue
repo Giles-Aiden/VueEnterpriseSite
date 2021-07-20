@@ -18,23 +18,23 @@
 
 <script>
 export default {
-  props: ["dates", "sales"],
+  props: ['dates', 'sales'],
   data() {
     return {
       basicData: {
         labels: [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
         ],
         datasets: [
           {
-            label: "Sales",
-            backgroundColor: "#113F70",
+            label: 'Sales',
+            backgroundColor: '#113F70',
             data: [65, 59, 80, 81, 56, 55, 40],
           },
         ],
@@ -53,10 +53,10 @@ export default {
           },
         }, */
         legend: {
-          position: "bottom",
+          position: 'bottom',
           labels: {
             fontSize: 20,
-            fontColor: "white",
+            fontColor: 'white',
           },
         },
         scales: {
@@ -64,7 +64,7 @@ export default {
             {
               ticks: {
                 fontSize: 15,
-                fontColor: "white",
+                fontColor: 'white',
                 beginAtZero: true,
               },
             },
@@ -73,7 +73,7 @@ export default {
             {
               ticks: {
                 fontSize: 15,
-                fontColor: "white",
+                fontColor: 'white',
               },
             },
           ],
@@ -82,7 +82,7 @@ export default {
     };
   },
   mounted() {
-    document.getElementById("salesChart").style.height = "50vh";
+    document.getElementById('salesChart').style.height = '50vh';
   },
 };
 </script>

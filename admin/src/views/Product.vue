@@ -32,7 +32,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 .newItem {
   display: flex;
   flex-flow: row wrap;
@@ -57,16 +57,16 @@ div#product {
 </style>
 
 <script>
-const axios = require("axios");
+const axios = require('axios');
 // @ is an alias to /src
-import Button from "primevue/button";
-import Menubar from "primevue/menubar";
-import Sidebar from "@/components/Sidebar.vue";
-import productCard from "@/components/productCard.vue";
-import InputText from "primevue/inputtext";
-import FileUpload from "primevue/fileupload";
+import Button from 'primevue/button';
+import Menubar from 'primevue/menubar';
+import Sidebar from '@/components/Sidebar.vue';
+import productCard from '@/components/productCard.vue';
+import InputText from 'primevue/inputtext';
+import FileUpload from 'primevue/fileupload';
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Button,
     Menubar,
@@ -78,7 +78,7 @@ export default {
   methods: {
     loadProducts: function () {
       axios
-        .get(process.env.VUE_APP_API + "/api/products")
+        .get(process.env.VUE_APP_API + '/api/products')
         .then((res) => (this.products = res.data))
         .catch((err) => console.error(err));
     },
@@ -86,13 +86,13 @@ export default {
       let reader = new FileReader();
       this.uploadImg = event.files;
       console.log(event);
-      reader.addEventListener("load", () => (this.uploadImg = reader.result));
+      reader.addEventListener('load', () => (this.uploadImg = reader.result));
       reader.readAsDataURL(event.files[0]);
       console.log(event.files[0]);
     },
     createProduct: function () {
       axios
-        .post(process.env.VUE_APP_API + "/api/products", this.newProduct)
+        .post(process.env.VUE_APP_API + '/api/products', this.newProduct)
         .then((res) => console.log(res))
         .catch((err) => console.error(err));
     },
@@ -107,18 +107,18 @@ export default {
       creating: false,
       menu: [
         {
-          label: "New",
-          icon: "pi pi-fw pi-plus",
+          label: 'New',
+          icon: 'pi pi-fw pi-plus',
           command: () => (this.creating = !this.creating),
         },
         {
-          label: "Edit",
-          icon: "pi pi-fw pi-pencil",
+          label: 'Edit',
+          icon: 'pi pi-fw pi-pencil',
           command: () => (this.edit = !this.edit),
         },
         {
-          label: "Quit",
-          icon: "pi pi-fw pi-power-off",
+          label: 'Quit',
+          icon: 'pi pi-fw pi-power-off',
           command: () => {
             this.creating = false;
             this.edit = false;
@@ -126,36 +126,36 @@ export default {
         },
       ],
       productTemplate: {
-        name: "",
-        img: "",
+        name: '',
+        img: '',
         colors: [
-          "#FF0000",
-          "#FF4000",
-          "#FFC800",
-          "#333F35",
-          "#3DA8BC",
-          "#20283A",
-          "#000000",
-          "#372727",
-          "#FFFFFF",
-          "#B6458A",
-          "#3B236D",
+          '#FF0000',
+          '#FF4000',
+          '#FFC800',
+          '#333F35',
+          '#3DA8BC',
+          '#20283A',
+          '#000000',
+          '#372727',
+          '#FFFFFF',
+          '#B6458A',
+          '#3B236D',
         ],
         price: 10,
         attrs: [
           {
-            attr: "lids",
+            attr: 'lids',
             items: [
-              { name: "lid1", upcharge: "0" },
-              { name: "lid2", upcharge: "0" },
-              { name: "lid3", upcharge: "0" },
+              { name: 'lid1', upcharge: '0' },
+              { name: 'lid2', upcharge: '0' },
+              { name: 'lid3', upcharge: '0' },
             ],
           },
           {
-            attr: "sizes",
+            attr: 'sizes',
             sizes: [
-              { name: "10oz", upcharge: "5" },
-              { name: "20oz", upcharge: "10" },
+              { name: '10oz', upcharge: '5' },
+              { name: '20oz', upcharge: '10' },
             ],
           },
         ],

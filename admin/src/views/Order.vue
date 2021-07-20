@@ -20,7 +20,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 * {
   padding: 0;
   margin: 0;
@@ -66,11 +66,11 @@ table {
 
 <script>
 // @ is an alias to /src
-import Sidebar from "@/components/Sidebar.vue";
-import OrderComp from "@/components/OrderComp.vue";
+import Sidebar from '@/components/Sidebar.vue';
+import OrderComp from '@/components/OrderComp.vue';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Sidebar,
     OrderComp,
@@ -80,21 +80,21 @@ export default {
       Orders: [
         {
           ID: 1,
-          firstName: "Jeff",
-          lastName: "Smith",
-          email: "Email10@gmail.com",
-          date: "5-23-21",
+          firstName: 'Jeff',
+          lastName: 'Smith',
+          email: 'Email10@gmail.com',
+          date: '5-23-21',
           cost: 1999,
-          items: ["Water Bottle", "Another Water Bottle"],
+          items: ['Water Bottle', 'Another Water Bottle'],
         },
         {
           ID: 2,
-          firstName: "Ethan",
-          lastName: "Roldan",
-          email: "Email20@gmail.com",
-          date: "5-24-21",
+          firstName: 'Ethan',
+          lastName: 'Roldan',
+          email: 'Email20@gmail.com',
+          date: '5-24-21',
           cost: 1999,
-          items: ["Water Bottle", "Another Water Bottle"],
+          items: ['Water Bottle', 'Another Water Bottle'],
         },
       ],
     };

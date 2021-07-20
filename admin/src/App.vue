@@ -63,22 +63,22 @@
 </template>
 
 <script>
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
   data: () => ({
-    active: "home",
+    active: 'home',
   }),
 });
 </script>
 
 <style lang="scss">
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 
 body,
 html {
   padding: 0;
   margin: 0;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .vs-sidebar__logo {

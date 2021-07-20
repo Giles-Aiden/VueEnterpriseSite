@@ -32,7 +32,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 
 * {
   padding: 0;
@@ -83,6 +83,6 @@
 
 <script>
 export default {
-  props: ["user"],
+  props: ['user'],
 };
 </script>

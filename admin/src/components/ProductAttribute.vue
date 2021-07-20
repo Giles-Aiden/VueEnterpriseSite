@@ -40,7 +40,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 
 * {
   padding: 0;
@@ -124,12 +124,12 @@ div#types {
 
 <script>
 export default {
-  props: ["attrs", "name"],
+  props: ['attrs', 'name'],
   data: function () {
     return {
       adding: true,
-      attrInput: "",
-      priceInput: "",
+      attrInput: '',
+      priceInput: '',
     };
   },
   methods: {
@@ -140,19 +140,19 @@ export default {
     addType: function (attr, price) {
       if (this.adding) {
         this.adding = false;
-      } else if (attr !== "" && this.attrs.indexOf(attr) == -1) {
+      } else if (attr !== '' && this.attrs.indexOf(attr) == -1) {
         this.adding = true;
         this.attrs.push({
           name: attr,
           upcharge: price,
         });
-        this.attrInput = "";
+        this.attrInput = '';
         this.update();
       }
     },
     update: function () {
       console.log(this.attrs);
-      this.$emit("update", [this.name, this.attrs]);
+      this.$emit('update', [this.name, this.attrs]);
     },
   },
 };

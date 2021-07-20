@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 * {
   padding: 0;
   margin: 0;

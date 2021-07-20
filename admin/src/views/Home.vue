@@ -101,7 +101,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/_variables.scss";
+@import 'src/assets/styles/_variables.scss';
 
 h1 {
   font-size: calc(1.5vw + 1.5vh);
@@ -152,11 +152,11 @@ div#sales {
 <script>
 // @ is an alias to /src
 
-import Sidebar from "@/components/Sidebar.vue";
-import SalesChart from "@/components/SalesChart.vue";
+import Sidebar from '@/components/Sidebar.vue';
+import SalesChart from '@/components/SalesChart.vue';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Sidebar,
     SalesChart,
@@ -165,7 +165,7 @@ export default {
     return {
       earnings: 0,
       balance: 10000,
-      topSellers: ["Product #1", "Product #2", "Product #3"],
+      topSellers: ['Product #1', 'Product #2', 'Product #3'],
     };
   },
 };
