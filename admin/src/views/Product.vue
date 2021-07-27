@@ -92,7 +92,7 @@ export default {
     },
     createProduct: function () {
       axios
-        .post(process.env.VUE_APP_API + '/api/products', this.newProduct)
+        .put(process.env.VUE_APP_API + '/api/products', this.newProduct)
         .then((res) => console.log(res))
         .catch((err) => console.error(err));
     },

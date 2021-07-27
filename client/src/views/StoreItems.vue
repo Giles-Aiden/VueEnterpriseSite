@@ -5,10 +5,7 @@
         v-for="item in shopItems"
         :key="item._id"
         class="shopDisplayItem"
-        :itemName="item.name"
-        :itemBody="item.body"
-        :img="item.img"
-        :imgAlt="item.imgAlt"
+        :item="item"
       />
     </div>
   </div>
@@ -44,25 +41,17 @@ export default {
   components: {
     ShopItem,
   },
-  methods: {
-    load: async function () {
-      try {
-        let { data } = await axios.get(
-          process.env.VUE_APP_API + '/api/products',
-        );
-        data.forEach((e, i) => {
-          //this.shopItems.push(e)
-          this.$set(this.shopItems, i, e);
-        });
-        this.$forceUpdate();
-        console.log(this.shopItems);
-      } catch (err) {
-        console.error(err);
-      }
-    },
-  },
-  created() {
-    this.load();
+  async created() {
+    try {
+      let { data } = await axios.get(process.env.VUE_APP_API + '/api/products');
+      data.forEach((e, i) => {
+        //this.shopItems.push(e)
+        this.$set(this.shopItems, i, e);
+      });
+      this.$forceUpdate();
+    } catch (err) {
+      console.error(err);
+    }
   },
   data() {
     return {

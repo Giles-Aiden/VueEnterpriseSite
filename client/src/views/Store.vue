@@ -1,30 +1,9 @@
 <template>
   <div class="Store">
     <Navbar title="Store" />
-    <ProgressBar :value="progress" />
-    <div class="storeNav">
-      <router-link
-        to="/store/items"
-        @click.native="progress = 10"
-        class="storeLink"
-        ><vs-button class="button-color">Shop for Items</vs-button></router-link
-      >
-      <router-link
-        to="/store/editor"
-        @click.native="progress = 50"
-        class="storeLink"
-      >
-        <vs-button class="button-color">Edit Logo Image</vs-button>
-      </router-link>
-      <router-link
-        to="/store/checkout"
-        @click.native="progress = 90"
-        class="storeLink"
-        ><vs-button class="button-color">Purchase</vs-button></router-link
-      >
-    </div>
+    <ProgressBar :value="progress" @shop="console.log('shopCalled')" />
     <router-view />
-    <VFooter />
+    <VFooter id="footer" />
   </div>
 </template>
 
@@ -43,6 +22,12 @@ export default {
     return {
       progress: 0,
     };
+  },
+  methods: {
+    pUpdate: function (value) {
+      console.log('pUpdate');
+      this.progress = value;
+    },
   },
 };
 </script>

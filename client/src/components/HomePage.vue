@@ -7,6 +7,8 @@
           <h2>Custom</h2>
           <p>
             Laser engraving allows for a quick and precise customization of an endless amount of  products, with the ability to engrave materials including...
+          </p>
+          <p>
             <ul>
               <li>Wood</li>
               <li>Extruded or Cast Acrylic</li>
@@ -19,6 +21,8 @@
               <li>Stamp Rubber</li>
               <li>And Many More!</li>
             </ul>
+          </p>
+          <p>
             Custom logos, name, quotes and pictures can be engraved too!
           </p>
           <router-link to="/store/items">
@@ -77,14 +81,14 @@
             Running a fundraiser through WFBM Laser Engraving is a win-win! Help your organization in a fun and environmentally friendly way! Reduce plastic waste and raise money by buying wholesale for your fundraisers! Interested? Have questions? Click the button below to get in touch!
           </p>
 
-          <router-link to="/store/items">
+          <router-link to="/fundraising">
             <vs-button
               :active="active == 1"
               @click="active = 1"
               :color="buttonColor"
               type="filled"
             >
-              Shop Now!
+              Learn More!
             </vs-button>
           </router-link>
         </div>
@@ -149,13 +153,13 @@ export default Vue.extend({
   box-shadow: 5px 5px 10px $shadow;
   border-radius: 1rem;
   margin-block: 3rem;
+  padding-bottom: 3rem;
   overflow: hidden;
   background: white;
   color: black;
   p {
     text-align: left;
     padding-inline: 2.5rem;
-    margin-bottom: 6rem;
     &::first-letter {
       padding-left: 2rem;
     }

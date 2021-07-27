@@ -16,7 +16,9 @@
           </ul>
         </div>
       </div>
-      <button class="addToCart">Add to cart</button>
+      <router-link :to="`/store/editor/${this.itemID}`">
+        <button class="addToCart">Edit Logo</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -27,6 +29,7 @@ export default {
   props: {
     itemName: String,
     itemBody: String,
+    itemID: String,
     img: String,
     imgAlt: String,
   },

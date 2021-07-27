@@ -26,11 +26,6 @@ const routes = [
       import(/* webpackChunkName: "fundraiding" */ '../views/Fundraising.vue'),
   },
   {
-    path: '/cart',
-    name: 'Cart',
-    component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue'),
-  },
-  {
     path: '/store',
     name: 'Store',
     component: () =>
@@ -45,7 +40,7 @@ const routes = [
           ),
       },
       {
-        path: 'editor',
+        path: 'editor/:id',
         name: 'StoreEditor',
         component: () =>
           import(
@@ -53,12 +48,10 @@ const routes = [
           ),
       },
       {
-        path: 'checkout',
-        name: 'StoreCheckout',
+        path: 'cart',
+        name: 'StoreCart',
         component: () =>
-          import(
-            /* webpackChunkName: "storecheckout" */ '../views/StorePayment.vue'
-          ),
+          import(/* webpackChunkName: "storeCart" */ '../views/Cart.vue'),
       },
     ],
   },
@@ -96,6 +89,15 @@ const router = new VueRouter({
   //mode: 'history',
   base: process.env.BASE_URL,
   routes,
+  scrollBehavior(to) {
+    //, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+        behavior: 'smooth',
+      };
+    }
+  },
 });
 
 export default router;

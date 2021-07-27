@@ -3,10 +3,10 @@ module.exports = {
   // options...
   pwa: {
     workboxOptions: {
-      skipWaiting: true
-    }
-  }
-/*
+      skipWaiting: true,
+    },
+  },
+  /*
   devServer: {
     proxy: 'https://piwigo.wfbmlaserengraving.com/',
   },

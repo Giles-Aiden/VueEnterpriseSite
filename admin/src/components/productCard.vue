@@ -53,7 +53,14 @@
     <br />
     <div id="menu" :v-if="editing">
       <vs-button class="menuButton" @click="deleteProduct">Delete</vs-button>
-      <vs-button class="menuButton" @click="addProductAttr">Add Attr</vs-button>
+      <vs-button class="menuButton" @click="attrPopup">Add Attribute</vs-button>
+      <OverlayPanel ref="op">
+        <span class="p-float-label">
+          <InputText id="newAttrName" type="text" v-model="newAttrName" />
+          <label for="newAttrName">Attribute Name</label>
+        </span>
+        <vs-button class="menuButton" @click="createAttr" />
+      </OverlayPanel>
       <vs-button class="menuButton" @click="saveProduct">Save</vs-button>
     </div>
   </div>
@@ -176,9 +183,15 @@ div.productCard {
 <script>
 const axios = require('axios');
 import ProductAttribute from '@/components/ProductAttribute.vue';
+import OverlayPanel from 'primevue/overlaypanel';
+import InputText from 'primevue/inputtext';
 
 export default {
-  components: { ProductAttribute },
+  components: {
+    ProductAttribute,
+    OverlayPanel,
+    InputText,
+  },
   props: {
     product: Object,
     editing: {
@@ -191,6 +204,7 @@ export default {
       productName: this.product.name,
       productImage: this.product.img,
       attributes: this.product.attrs,
+      newAttrName: '',
       colors: this.product.colors,
       showing: true,
       price: this.product.price,
@@ -232,22 +246,29 @@ export default {
       }
     },
     saveProduct: function () {
-      console.log('saved :');
-      console.log(this.product);
       let update = new Object({
         colors: this.colors,
         attrs: this.attributes,
       });
-      console.log(update);
       axios.put(process.env.VUE_APP_API + '/api/products', {
-        data: {
-          id: this.product._id,
-          update: update,
-        },
+        id: this.product._id,
+        update: update,
       });
     },
-    addProductAttr: function () {
-      console.log('Test');
+    attrPopup: function (event) {
+      this.$refs.op.toggle(event);
+    },
+    createAttr: function () {
+      console.log(this.attributes);
+      if (this.attributes[this.newAttrName] == undefined) {
+        this.$set(this.attribues, this.newAttrName, {
+          name: 'Name',
+          upcharge: '5',
+        });
+      } else {
+        console.error(`Attribute "${this.newAttrName}" already exists`);
+      }
+      this.newAttrName = '';
     },
     deleteProduct: function () {
       console.log(this.product._id);

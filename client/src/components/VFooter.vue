@@ -1,10 +1,12 @@
 <template>
   <div class="center background">
     <div class="contact item">
-      <h1 style="text-align: center">Contact Information</h1>
-      <h3><i class="fa fa-user"></i> - David Ray</h3>
-      <h3><i class="fa fa-phone"></i> - (480)-226-6529</h3>
-      <h3><i class="fa fa-envelope"></i> - Sales@WFBMlaserengraving.com</h3>
+      <h3 class="ctitle" style="text-align: center">Contact Information</h3>
+      <h5><i class="cname fa fa-user"></i> - David Ray</h5>
+      <h5><i class="cphone fa fa-phone"></i> - (480)-226-6529</h5>
+      <h5>
+        <i class="cmail fa fa-envelope"></i> - Sales@WFBMlaserengraving.com
+      </h5>
     </div>
     <div class="logo item">
       <img src="@/assets/WFBM Logo.png" alt="" />
@@ -45,9 +47,17 @@ export default {
     text-align: left;
     display: flex;
     flex-direction: column;
-    padding-inline: 3rem;
     * {
       margin-block: 0.25rem;
+    }
+    .ctitle {
+      font-size: 1.4em;
+    }
+    .cname,
+    .cphone,
+    .cmail {
+      margin-left: 2vw;
+      white-space: nowrap;
     }
   }
   .background {

@@ -49,8 +49,8 @@
             :color="buttonColor"
             type="filled"
           >
-            <router-link to="/wholesale" class="link" tag="li"
-              >Learn More!
+            <router-link to="/wholesale" class="link" tag="li">
+              Learn More!
             </router-link>
           </vs-button>
         </div>

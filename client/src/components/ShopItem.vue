@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img :src="img" :alt="imgAlt" />
+    <img :src="img" :alt="itemName" />
     <div class="info" @click="isOpen = true">
       <h1 class="title">{{ itemName }}</h1>
       <p>{{ itemBody }}</p>
@@ -11,8 +11,9 @@
       @close="close()"
       :itemName="itemName"
       :itemBody="itemBody"
+      :itemID="item._id"
       :img="img"
-      :imgAlt="imgAlt"
+      :imgAlt="itemName"
     />
   </div>
 </template>
@@ -25,14 +26,14 @@ export default {
     ItemView,
   },
   props: {
-    itemName: String,
-    itemBody: String,
-    img: String,
-    imgAlt: String,
+    item: Object,
   },
   data() {
     return {
       isOpen: false,
+      itemName: this.item.name,
+      itemBody: this.item.body,
+      img: this.item.img,
     };
   },
   methods: {

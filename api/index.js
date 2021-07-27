@@ -20,6 +20,7 @@ mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
+  useFindAndModify: false,
 });
 let db = mongoose.connection;
 
@@ -274,14 +275,16 @@ app.post('/api/products', async (req, res) => {
 
 //Update Product
 app.put('/api/products', async (req, res) => {
-  console.log(req.body);
   //delete req.body.update.key;
-  await Product.updateOne({ _id: req.body.id }, req.body.update, (err) => {
+  console.log(req.body);
+  await Product.findByIdAndUpdate(mongoose.Types.ObjectId(req.body.id), req.body.update, (err, prod) => {
     if (err) {
       console.error(err);
-      res.status(500).send();
+      res.status(500).send;
+    } else {
+      console.log(`Updated ${prod.name} with id of ${prod._id}`);
+      res.status(200).send();
     }
-    else res.status(200).send();
   });
 });
 

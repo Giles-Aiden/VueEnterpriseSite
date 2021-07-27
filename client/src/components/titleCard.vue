@@ -48,7 +48,7 @@ $text-color: #fefefe;
   position: relative;
   h1 {
     padding: 0 0.25rem;
-    font-size: 2vw;
+    font-size: calc(2vw * 2vh);
   }
   .title {
     display: flex;
