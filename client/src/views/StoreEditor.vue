@@ -3,17 +3,21 @@
     <div id="imgDisplay">
       <h1>Pick Your Logo!</h1>
       <div id="imgPicker">
-        <FileUpload
-          mode="basic"
-          :showCancelButton="true"
-          accept="image/*"
-          :fileLimit="1"
-          chooseLabel="Upload"
-          name="demo[]"
-          :auto="true"
-          :customUpload="true"
-          @uploader="onUpload"
-        />
+        <div id="customPicker">
+          <FileUpload 
+            name="demo[]"
+            mode="basic"
+            :auto="true"
+            :customUpload="true"
+            @uploader="onUpload($event)"
+            ref="upload"
+          />
+          <Button 
+            icon="pi pi-times"
+            @click="clearUpload"
+            class="p-button-danger"
+          />
+        </div>
         <h3>OR</h3>
         <div id="searchBox">
           <input
@@ -62,12 +66,13 @@
       <Toast position="center" />
       <br />
       <div v-if="uploadImg">
-        <router-link to="/store/items"
-          ><vs-button>Shop More</vs-button></router-link
-        >
-        <router-link to="/store/cart"
-          ><vs-button>Checkout</vs-button></router-link
-        >
+        <vs-button @click="addToCart('/store/cart')">Checkout</vs-button>
+        <!--router-link @click="addToCart" to="/store/items">
+          <vs-button>Shop More</vs-button>
+        </router-link>
+        <router-link @click="addToCart" to="/store/cart">
+          <vs-button>Checkout</vs-button>
+        </router-link-->
       </div>
     </div>
   </div>
@@ -103,6 +108,11 @@
     flex-basis: 30vw;
     margin-bottom: 4em;
     margin: auto;
+    #customPicker {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+    }
   }
 }
 
@@ -125,6 +135,7 @@
 import * as marker from 'markerjs2';
 import FileUpload from 'primevue/fileupload';
 import Toast from 'primevue/toast';
+import Button from 'primevue/button';
 import VueLoadImage from 'vue-load-image';
 const axios = require('axios');
 export default {
@@ -132,6 +143,7 @@ export default {
   components: {
     FileUpload,
     Toast,
+    Button,
     VueLoadImage,
   },
   data() {
@@ -149,9 +161,20 @@ export default {
     },
   },
   mounted() {
-    this.$emit('shop', 10);
+    this.$emit('shop', 20);
+    let cur = JSON.parse(window.sessionStorage.getItem('currentItem'));
+    if (cur.img) this.uploadImg = cur.img;
   },
   methods: {
+    addToCart: function (redirect) {
+      let store = window.sessionStorage;
+      let cart = [];
+      if (!store.getItem('cart')) store.setItem('cart', JSON.stringify([]));
+      else cart = JSON.parse(store.getItem('cart'));
+      cart.push(JSON.parse(store.getItem('currentItem')));
+      store.setItem('cart', JSON.stringify(cart));
+      this.$router.push(redirect);
+    },
     editImg: function () {
       let editor = new marker.MarkerArea(this.$refs.editor);
       editor.crossOrigin = 'Anonymous';
@@ -169,13 +192,19 @@ export default {
       editor.settings.defaultColor = 'white';
       editor.settings.defaultFillColor = 'white';
       editor.settings.defaultHighlightColor = 'white';
-      editor.addRenderEventListener((dataUrl) => {
-        this.$refs.editor.src = dataUrl;
+      let store = window.sessionStorage;
+      let cur = JSON.parse(store.getItem('currentItem'));
+      editor.addRenderEventListener((imgURL, state) => {
+        cur.img = imgURL;
+        this.uploadImg = imgURL;
+        cur.editorState = state;
+        store.setItem('currentItem', JSON.stringify(cur));
       });
       editor.show();
+      if(cur.editorState) editor.restoreState(cur.editorState);
       console.log(editor);
     },
-    onUpload: function (event) {
+    onUpload: async function (event) {
       let reader = new FileReader();
       this.uploadImg = event.files;
       this.$toast.add({
@@ -183,15 +212,31 @@ export default {
         summary: 'Edit your image by clicking!',
         life: '2500',
       });
-      reader.addEventListener('load', async () =>
-        this.uploadImg = await this.grayscaleImg(reader.result));
-      reader.readAsDataURL(event.files[0]);
+      await reader.addEventListener(
+        'load',
+        async () => {
+          this.uploadImg = await this.grayscaleImg(reader.result);
+          let store = window.sessionStorage;
+          let cur = JSON.parse(store.getItem('currentItem'));
+          cur.img = this.uploadImg;
+          store.setItem('currentItem', JSON.stringify(cur));
+        },
+      );
+      await reader.readAsDataURL(event.files[0]);
+      this.$emit('shop', 40);
+    },
+    clearUpload: function () {
+      this.$refs.upload.clear();
+      this.uploadImg = '';
+      let cur = JSON.parse(window.sessionStorage.getItem('currentItem'));
+      if(cur.img) delete cur.img;
+      if(cur.ediorState) delete cur.editorState;
+      window.sessionStorage.setItem('currentItem', JSON.stringify(cur));
     },
     //grayscales each individual pixel in the image by calculating average (slow)
     grayscaleImg: async function (imgData) {
       let img = new Image();
       img.src = imgData;
-      console.log('called');
       var canvas = document.createElement('canvas');
       var canvasContext = canvas.getContext('2d');
 
@@ -201,7 +246,7 @@ export default {
       canvas.height = imgH;
 
       canvasContext.drawImage(img, 0, 0);
-      var imgPixels = await canvasContext.getImageData(0, 0, imgW, imgH);
+      var imgPixels = canvasContext.getImageData(0, 0, imgW, imgH);
       for (var y = 0; y < imgPixels.height; y++) {
         for (var x = 0; x < imgPixels.width; x++) {
           var i = y * 4 * imgPixels.width + x * 4;
@@ -237,7 +282,7 @@ export default {
       );
       this.imgLibrary = res.data.result;
       this.paginatorEnabled = true;
-      console.log(this.imgLibrary);
+      this.$emit('shop', 30);
     },
     imgPages: function () {
       if (this.imgLibrary == {}) return 1;
@@ -256,6 +301,10 @@ export default {
         summary: 'Edit your image by clicking on it!',
         life: '2500',
       });
+      this.$emit('shop', 40);
+      let cur = JSON.parse(window.sessionStorage.getItem('currentItem'));
+      cur.img = this.uploadImg;
+      window.sessionStorage.setItem('currentItem', JSON.stringify(cur));
     },
     base64Img: async function (url) {
       var promise = await new Promise(function (resolve) {

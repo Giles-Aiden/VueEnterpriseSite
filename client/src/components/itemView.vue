@@ -3,39 +3,64 @@
     <div class="itemView">
       <i class="closeButton fa fa-close" @click="close"></i>
       <div class="imgContainer">
-        <img :src="img" :alt="imgAlt" />
+        <img :src="item.img" :alt="item.name" />
       </div>
       <div class="contentContainer">
-        <h1>{{ itemName }}</h1>
-        <p>{{ itemBody }}</p>
+        <h1>{{ item.name }}</h1>
+        <p>{{ item.body }}</p>
         <div class="description">
-          <ul>
-            <li>40oz capacity</li>
-            <li>Vacuum Insulated Bottle</li>
-            <li>keeps beverages cold up to 24 hours and hot up to 12 hours</li>
-          </ul>
+          <div v-for="(attr, key, index) in item.attrs" :key="index">
+            <h3>{{ capitalize(key) }}</h3>
+            <div v-for="(item, i) in attr" :key="i">
+              <RadioButton :value="item.name" v-model="attributes[key]" />
+              {{ item.name }} (+${{ item.upcharge }})
+            </div>
+          </div>
         </div>
       </div>
-      <router-link :to="`/store/editor/${this.itemID}`">
-        <button class="addToCart">Edit Logo</button>
-      </router-link>
+      <button class="addToCart" @click="saveInfo">Edit Logo</button>
     </div>
   </div>
 </template>
 
 <script>
+import RadioButton from 'primevue/radiobutton';
+
 export default {
   name: 'itemView',
+  components: {
+    RadioButton,
+  },
   props: {
-    itemName: String,
-    itemBody: String,
-    itemID: String,
-    img: String,
-    imgAlt: String,
+    item: Object,
+  },
+  data() {
+    return {
+      attributes: {},
+    };
+  },
+  created() {
+    let store = window.sessionStorage;
+    if (store.getItem('currentItem'))
+      store.setItem('currentItem', JSON.stringify({}));
   },
   methods: {
     close() {
       this.$emit('close');
+    },
+    capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    },
+    saveInfo() {
+      let store = window.sessionStorage;
+      store.setItem(
+        'currentItem',
+        JSON.stringify({
+          item: this.item,
+          attrs: this.attributes,
+        }),
+      );
+      this.$router.push('/store/editor');
     },
   },
 };

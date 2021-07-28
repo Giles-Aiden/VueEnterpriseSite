@@ -6,15 +6,7 @@
       <p>{{ itemBody }}</p>
       <button>See more</button>
     </div>
-    <ItemView
-      v-if="isOpen"
-      @close="close()"
-      :itemName="itemName"
-      :itemBody="itemBody"
-      :itemID="item._id"
-      :img="img"
-      :imgAlt="itemName"
-    />
+    <ItemView v-if="isOpen" @close="close()" :item="item" />
   </div>
 </template>
 

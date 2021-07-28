@@ -40,7 +40,7 @@ const routes = [
           ),
       },
       {
-        path: 'editor/:id',
+        path: 'editor',
         name: 'StoreEditor',
         component: () =>
           import(
@@ -53,21 +53,23 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "storeCart" */ '../views/Cart.vue'),
       },
+      {
+        path: '/payment-success',
+        name: 'PaymentSuccess',
+        component: () =>
+          import(
+            /* webpackChunkName: "paymentSuccess" */ '../views/PaymentSuccess.vue'
+          ),
+      },
+      {
+        path: '/payment-failure',
+        name: 'PaymentFail',
+        component: () =>
+          import(
+            /* webpackChunkName: "paymentFail" */ '../views/PaymentFail.vue'
+          ),
+      },
     ],
-  },
-  {
-    path: '/payment-success',
-    name: 'PaymentSuccess',
-    component: () =>
-      import(
-        /* webpackChunkName: "paymentSuccess" */ '../views/PaymentSuccess.vue'
-      ),
-  },
-  {
-    path: '/payment-failure',
-    name: 'PaymentFail',
-    component: () =>
-      import(/* webpackChunkName: "paymentFail" */ '../views/PaymentFail.vue'),
   },
   {
     path: '/wholesale',

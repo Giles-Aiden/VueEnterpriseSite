@@ -1,8 +1,8 @@
 <template>
   <div class="Store">
     <Navbar title="Store" />
-    <ProgressBar :value="progress" @shop="console.log('shopCalled')" />
-    <router-view />
+    <ProgressBar :value="progress" />
+    <router-view @shop="pUpdate" />
     <VFooter id="footer" />
   </div>
 </template>
@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     pUpdate: function (value) {
-      console.log('pUpdate');
       this.progress = value;
     },
   },
