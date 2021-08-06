@@ -11,6 +11,8 @@ import 'primeicons/primeicons.css';
 Vue.use(PrimeVue); //icons
 import Chart from 'primevue/chart';
 Vue.component('Chart', Chart);
+import ToastService from 'primevue/toastservice';
+Vue.use(ToastService);
 
 import 'vuesax/dist/vuesax.css'; //Vuesax styles
 Vue.use(Vuesax, {

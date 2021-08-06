@@ -6,12 +6,12 @@
       <router-link to="/store/items" class="link" tag="li"
         ><p>Store</p></router-link
       >
-      <router-link to="/fundraising" class="link" tag="li"
-        ><p>Fundraising Opportunities</p></router-link
-      >
-      <router-link to="/wholesale" class="link" tag="li"
-        ><p>Marketing and Business</p></router-link
-      >
+      <router-link to="/fundraising" class="link" tag="li">
+        <p>Fundraising Opportunities</p>
+      </router-link>
+      <router-link to="/store/cart" class="link" tag="li">
+        <i class="pi pi-shopping-cart" />
+      </router-link>
     </ul>
     <input type="checkbox" id="checkbox_id" />
     <div class="icons">
@@ -23,16 +23,15 @@
       <router-link to="/" class="link" tag="li"><p>Home</p></router-link>
       <router-link to="/about" class="link" tag="li"><p>About</p></router-link>
       <router-link to="/store/items" class="link" tag="li"> Store </router-link>
-      <router-link to="/fundraising" class="link" tag="li"
-        ><p>Fundraising Opportunities</p></router-link
-      >
-      <router-link to="/wholesale" class="link" tag="li"
-        ><p>Marketing and Business</p></router-link
-      >
+      <router-link to="/fundraising" class="link" tag="li">
+        <p>Fundraising Opportunities</p>
+      </router-link>
+      <router-link to="/store/cart" class="link" tag="li">
+        <i class="pi pi-shopping-cart" />
+      </router-link>
     </ul>
   </nav>
 </template>
-
 <style lang="scss" scoped>
 @import '@/assets/styles/_variables.scss';
 nav {

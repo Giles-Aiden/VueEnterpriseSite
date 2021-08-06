@@ -1,6 +1,6 @@
 <template>
   <div id="types">
-    <h2>{{ name }}:</h2>
+    <h2 @click="deleteAttr()" id="attrName">{{ name }}:</h2>
     <ul id="typeList">
       <li
         v-for="(type, index) in attrs"
@@ -46,6 +46,9 @@
   padding: 0;
   margin: 0;
 }
+#attrName:hover {
+  text-decoration: red solid line-through;
+}
 div#types {
   display: flex;
   justify-content: space-between;
@@ -62,7 +65,7 @@ div#types {
     list-style-type: none;
     li {
       font-size: calc(0.7vw + 0.7vh);
-      :hover {
+      &:hover {
         text-decoration: red solid line-through;
       }
     }
@@ -135,24 +138,22 @@ export default {
   methods: {
     deleteType: function (i) {
       this.attrs.splice(i.index, 1);
-      this.update();
+    },
+    deleteAttr: function () {
+      this.$emit('delete', this.name);
     },
     addType: function (attr, price) {
       if (this.adding) {
         this.adding = false;
-      } else if (attr !== '' && this.attrs.indexOf(attr) == -1) {
+      } else if (attr !== '' && this.attrs.indexOf(attr)) {
         this.adding = true;
         this.attrs.push({
           name: attr,
           upcharge: price,
         });
         this.attrInput = '';
-        this.update();
+        this.$emit('update', [attr, this.name, price]);
       }
-    },
-    update: function () {
-      console.log(this.attrs);
-      this.$emit('update', [this.name, this.attrs]);
     },
   },
 };

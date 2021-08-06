@@ -48,7 +48,7 @@
 import { Carousel, Slide } from 'vue-carousel';
 
 export default {
-  name: 'Fundraising',
+  name: 'Carousel',
   components: {
     Carousel,
     Slide,

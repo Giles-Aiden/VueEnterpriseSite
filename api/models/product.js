@@ -10,16 +10,19 @@ const productSchemea = mongoose.Schema({
     default: "",
   },
   img: {
-    type: String,
+    type: Array,
     required: true
+  },
+  colors: {
+    type: Array,
+    default: ['#000', '#FFF'],
   },
   attrs: {
     type: Object,
     default: {
-      "colors": [],
       "sizes": [],
     },
-  },
+  }, 
   key: {
     type: Object,
     required: true,

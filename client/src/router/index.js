@@ -54,7 +54,7 @@ const routes = [
           import(/* webpackChunkName: "storeCart" */ '../views/Cart.vue'),
       },
       {
-        path: '/payment-success',
+        path: 'payment-success',
         name: 'PaymentSuccess',
         component: () =>
           import(
@@ -62,7 +62,7 @@ const routes = [
           ),
       },
       {
-        path: '/payment-failure',
+        path: 'payment-failure',
         name: 'PaymentFail',
         component: () =>
           import(

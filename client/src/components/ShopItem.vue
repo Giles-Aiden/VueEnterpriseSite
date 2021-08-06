@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img :src="img" :alt="itemName" />
+    <img :src="img[0]" :alt="itemName" style="width: 100%" />
     <div class="info" @click="isOpen = true">
       <h1 class="title">{{ itemName }}</h1>
       <p>{{ itemBody }}</p>

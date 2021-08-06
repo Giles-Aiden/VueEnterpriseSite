@@ -4,7 +4,7 @@
       <h1>Pick Your Logo!</h1>
       <div id="imgPicker">
         <div id="customPicker">
-          <FileUpload 
+          <FileUpload
             name="demo[]"
             mode="basic"
             :auto="true"
@@ -12,7 +12,7 @@
             @uploader="onUpload($event)"
             ref="upload"
           />
-          <Button 
+          <Button
             icon="pi pi-times"
             @click="clearUpload"
             class="p-button-danger"
@@ -66,13 +66,7 @@
       <Toast position="center" />
       <br />
       <div v-if="uploadImg">
-        <vs-button @click="addToCart('/store/cart')">Checkout</vs-button>
-        <!--router-link @click="addToCart" to="/store/items">
-          <vs-button>Shop More</vs-button>
-        </router-link>
-        <router-link @click="addToCart" to="/store/cart">
-          <vs-button>Checkout</vs-button>
-        </router-link-->
+        <vs-button @click="addToCart">Add To Cart</vs-button>
       </div>
     </div>
   </div>
@@ -166,14 +160,14 @@ export default {
     if (cur.img) this.uploadImg = cur.img;
   },
   methods: {
-    addToCart: function (redirect) {
+    addToCart: function () {
       let store = window.sessionStorage;
       let cart = [];
       if (!store.getItem('cart')) store.setItem('cart', JSON.stringify([]));
       else cart = JSON.parse(store.getItem('cart'));
       cart.push(JSON.parse(store.getItem('currentItem')));
       store.setItem('cart', JSON.stringify(cart));
-      this.$router.push(redirect);
+      this.$router.push('/store/cart');
     },
     editImg: function () {
       let editor = new marker.MarkerArea(this.$refs.editor);
@@ -201,7 +195,7 @@ export default {
         store.setItem('currentItem', JSON.stringify(cur));
       });
       editor.show();
-      if(cur.editorState) editor.restoreState(cur.editorState);
+      if (cur.editorState) editor.restoreState(cur.editorState);
       console.log(editor);
     },
     onUpload: async function (event) {
@@ -212,16 +206,13 @@ export default {
         summary: 'Edit your image by clicking!',
         life: '2500',
       });
-      await reader.addEventListener(
-        'load',
-        async () => {
-          this.uploadImg = await this.grayscaleImg(reader.result);
-          let store = window.sessionStorage;
-          let cur = JSON.parse(store.getItem('currentItem'));
-          cur.img = this.uploadImg;
-          store.setItem('currentItem', JSON.stringify(cur));
-        },
-      );
+      await reader.addEventListener('load', async () => {
+        this.uploadImg = await this.grayscaleImg(reader.result);
+        let store = window.sessionStorage;
+        let cur = JSON.parse(store.getItem('currentItem'));
+        cur.img = this.uploadImg;
+        store.setItem('currentItem', JSON.stringify(cur));
+      });
       await reader.readAsDataURL(event.files[0]);
       this.$emit('shop', 40);
     },
@@ -229,8 +220,8 @@ export default {
       this.$refs.upload.clear();
       this.uploadImg = '';
       let cur = JSON.parse(window.sessionStorage.getItem('currentItem'));
-      if(cur.img) delete cur.img;
-      if(cur.ediorState) delete cur.editorState;
+      if (cur.img) delete cur.img;
+      if (cur.ediorState) delete cur.editorState;
       window.sessionStorage.setItem('currentItem', JSON.stringify(cur));
     },
     //grayscales each individual pixel in the image by calculating average (slow)

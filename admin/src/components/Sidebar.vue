@@ -27,9 +27,10 @@
           <template #icon>
             <i class="pi pi-dollar"></i>
           </template>
-          <router-link to="/">
+          <!--router-link to="/"-->
+          <a href="https://dashboard.stripe.com">
             <h1>Sales</h1>
-          </router-link>
+          </a>
         </vs-sidebar-item>
 
         <br />
@@ -38,7 +39,7 @@
           <template #icon>
             <i class="pi pi-th-large"></i>
           </template>
-          <router-link to="/products">
+          <router-link to="/">
             <h1>Products</h1>
           </router-link>
         </vs-sidebar-item>

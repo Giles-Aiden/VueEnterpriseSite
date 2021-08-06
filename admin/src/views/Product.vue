@@ -5,26 +5,39 @@
     <br />
     <div class="newItem" v-show="creating">
       <FileUpload
-        mode="basic"
         name="demo[]"
-        :auto="true"
         :customUpload="true"
+        :multiple="true"
+        accept="image/*"
         @uploader="onUpload"
+        class="fileUpload"
       />
-      <span class="p-float-label">
-        <InputText id="name" type="text" v-model="newProduct.name" />
-        <label for="productName">Product Name</label>
-      </span>
-      <span class="p-float-label">
-        <InputText id="price" type="number" v-model="newProduct.price" />
-        <label for="productPrice">Cost</label>
-      </span>
-      <Button icon="pi pi-check" iconPos="right" @click="createProduct()" />
+      <div class="newItemAttrContainer">
+        <div class="newItemAttr">
+          <span class="p-float-label">
+            <InputText id="name" type="text" v-model="newProduct.name" />
+            <label for="productName">Product Name</label>
+          </span>
+        </div>
+        <div class="newItemAttr">
+          <span class="p-float-label">
+            <InputText id="body" type="textarea" v-model="newProduct.body" />
+            <label for="productBody">Body</label>
+          </span>
+        </div>
+        <div class="newItemAttr">
+          <span class="p-float-label">
+            <InputText id="cost" type="number" v-model="newProduct.cost" />
+            <label for="productPrice">Cost</label>
+          </span>
+        </div>
+      </div>
     </div>
     <div id="product">
       <productCard
         v-for="(product, index) in products"
         :key="index"
+        @delete="deleteProduct($event)"
         :product="products[index]"
         :editing="edit"
       />
@@ -35,13 +48,23 @@
 @import 'src/assets/styles/_variables.scss';
 .newItem {
   display: flex;
-  flex-flow: row wrap;
+  width: 70%;
+  flex-flow: column wrap;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  .newItemAttrContainer {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 .productPage {
   background: $bg-main;
   margin: 0;
   min-height: 100vh;
+}
+.fileUpload {
+  margin-bottom: 1.5em;
 }
 div#product {
   margin-left: 50px;
@@ -59,7 +82,7 @@ div#product {
 <script>
 const axios = require('axios');
 // @ is an alias to /src
-import Button from 'primevue/button';
+//import Button from 'primevue/button';
 import Menubar from 'primevue/menubar';
 import Sidebar from '@/components/Sidebar.vue';
 import productCard from '@/components/productCard.vue';
@@ -68,7 +91,7 @@ import FileUpload from 'primevue/fileupload';
 export default {
   name: 'Home',
   components: {
-    Button,
+    //Button,
     Menubar,
     Sidebar,
     productCard,
@@ -76,25 +99,53 @@ export default {
     FileUpload,
   },
   methods: {
-    loadProducts: function () {
-      axios
+    loadProducts: async function () {
+      await axios
         .get(process.env.VUE_APP_API + '/api/products')
-        .then((res) => (this.products = res.data))
+        .then((res) => {
+          this.products = res.data;
+        })
         .catch((err) => console.error(err));
     },
     onUpload: function (event) {
-      let reader = new FileReader();
       this.uploadImg = event.files;
-      console.log(event);
-      reader.addEventListener('load', () => (this.uploadImg = reader.result));
-      reader.readAsDataURL(event.files[0]);
-      console.log(event.files[0]);
+      let imgs = new Array();
+      for (let index = 0; index < event.files.length; index++) {
+        let reader = new FileReader();
+        if (index !== event.files.length - 1)
+          reader.addEventListener('load', () => imgs.push(reader.result));
+        // Last item
+        else
+          reader.addEventListener('load', () => {
+            imgs.push(reader.result);
+            this.uploadImg = imgs;
+            this.newProduct.img = this.uploadImg;
+            this.createProduct();
+          });
+        reader.readAsDataURL(event.files[index]);
+      }
     },
-    createProduct: function () {
-      axios
-        .put(process.env.VUE_APP_API + '/api/products', this.newProduct)
+    createProduct: async function () {
+      console.log(this.newProduct.img);
+      await axios
+        .post(process.env.VUE_APP_API + '/api/products', this.newProduct)
+        .then(async (res) => {
+          console.log(res);
+          await this.loadProducts();
+        })
+        .catch((err) => console.error(err));
+    },
+    deleteProduct: async function (id) {
+      console.log(id);
+      await axios
+        .delete(process.env.VUE_APP_API + '/api/products', {
+          data: {
+            id: id,
+          },
+        })
         .then((res) => console.log(res))
         .catch((err) => console.error(err));
+      await this.loadProducts();
     },
   },
   mounted() {
@@ -105,17 +156,18 @@ export default {
     return {
       edit: false,
       creating: false,
+      recompute: false,
       menu: [
         {
           label: 'New',
           icon: 'pi pi-fw pi-plus',
           command: () => (this.creating = !this.creating),
         },
-        {
+        /*{
           label: 'Edit',
           icon: 'pi pi-fw pi-pencil',
           command: () => (this.edit = !this.edit),
-        },
+        },*/
         {
           label: 'Quit',
           icon: 'pi pi-fw pi-power-off',
@@ -141,24 +193,18 @@ export default {
           '#B6458A',
           '#3B236D',
         ],
-        price: 10,
-        attrs: [
-          {
-            attr: 'lids',
-            items: [
-              { name: 'lid1', upcharge: '0' },
-              { name: 'lid2', upcharge: '0' },
-              { name: 'lid3', upcharge: '0' },
-            ],
-          },
-          {
-            attr: 'sizes',
-            sizes: [
-              { name: '10oz', upcharge: '5' },
-              { name: '20oz', upcharge: '10' },
-            ],
-          },
-        ],
+        cost: 1000,
+        attrs: {
+          lids: [
+            { name: 'lid1', upcharge: '0' },
+            { name: 'lid2', upcharge: '0' },
+            { name: 'lid3', upcharge: '0' },
+          ],
+          sizes: [
+            { name: '10oz', upcharge: '0' },
+            { name: '20oz', upcharge: '0' },
+          ],
+        },
       },
       newProduct: {},
       products: [],

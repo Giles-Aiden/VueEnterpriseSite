@@ -1,14 +1,15 @@
 <template>
   <div class="productCard">
-    <img height="200vh" :src="productImage" />
+    <Toast position="center" :group="product.key.id" />
+    <Galleria :value="product.img">
+      <template #item="slotProps">
+        <img :src="slotProps.item" style="width: 100%" />
+      </template>
+    </Galleria>
     <h1>{{ productName }}</h1>
     <br />
     <div id="price">
-      <h2>Price: ${{ price }}</h2>
-      <input type="number" :id="productName + ' Price'" />
-      <vs-button @click="changePrice({ productName })" class="priceButton"
-        >Change Price</vs-button
-      >
+      <h2>Price: ${{ product.key.price / 100 }}</h2>
     </div>
     <div id="colors">
       <h2>Colors:</h2>
@@ -45,10 +46,11 @@
     </div>
     <ProductAttribute
       v-for="(value, title, index) in attributes"
-      v-on:update="attributeUpdate"
       :key="index"
       :attrs="value"
       :name="title"
+      @update="attributeUpdate($event)"
+      @delete="removeAttr($event)"
     ></ProductAttribute>
     <br />
     <div id="menu" :v-if="editing">
@@ -56,10 +58,14 @@
       <vs-button class="menuButton" @click="attrPopup">Add Attribute</vs-button>
       <OverlayPanel ref="op">
         <span class="p-float-label">
-          <InputText id="newAttrName" type="text" v-model="newAttrName" />
+          <InputText
+            id="newAttrName"
+            type="text"
+            v-model="newAttrName"
+            @keydown.enter="createAttr"
+          />
           <label for="newAttrName">Attribute Name</label>
         </span>
-        <vs-button class="menuButton" @click="createAttr" />
       </OverlayPanel>
       <vs-button class="menuButton" @click="saveProduct">Save</vs-button>
     </div>
@@ -182,14 +188,17 @@ div.productCard {
 
 <script>
 const axios = require('axios');
+import Galleria from 'primevue/galleria';
 import ProductAttribute from '@/components/ProductAttribute.vue';
 import OverlayPanel from 'primevue/overlaypanel';
+import Toast from 'primevue/toast';
 import InputText from 'primevue/inputtext';
-
 export default {
   components: {
+    Galleria,
     ProductAttribute,
     OverlayPanel,
+    Toast,
     InputText,
   },
   props: {
@@ -208,6 +217,16 @@ export default {
       colors: this.product.colors,
       showing: true,
       price: this.product.price,
+      galleriaOptions: [
+        {
+          breakpoint: '768px',
+          numVisible: 3,
+        },
+        {
+          breakpoint: '560px',
+          numVisible: 1,
+        },
+      ],
     };
   },
   methods: {
@@ -232,58 +251,74 @@ export default {
         this.showing = true;
       }
     },
-    changePrice: function (product) {
-      this.price = document.getElementById(
-        product.productName + ' Price',
-      ).value;
-      document.getElementById(product.productName + ' Price').value = '';
+    attributeUpdate: async function (updated) {
+      await axios
+        .post(process.env.VUE_APP_API + '/api/products/attribute', {
+          id: this.product._id,
+          name: updated[0],
+          key: updated[1],
+          cost: updated[2],
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err));
     },
-    attributeUpdate: function (updated) {
-      try {
-        this.attributes[updated[0]] = updated[1];
-      } catch (err) {
-        console.error(err);
-      }
-    },
-    saveProduct: function () {
-      let update = new Object({
+    saveProduct: async function () {
+      let update = {
         colors: this.colors,
         attrs: this.attributes,
-      });
-      axios.put(process.env.VUE_APP_API + '/api/products', {
-        id: this.product._id,
-        update: update,
-      });
+      };
+      await axios
+        .put(process.env.VUE_APP_API + '/api/products', {
+          id: this.product._id,
+          update: update,
+        })
+        .then((res) => {
+          this.$toast.add({
+            severity: 'success',
+            summary: `Saved Product: ${this.product.name}`,
+            group: this.product.key.id,
+            closable: false,
+            life: 3000,
+          });
+          console.log(res);
+        })
+        .catch((err) => {
+          this.$toast.add({
+            severity: 'error',
+            summary: 'Error saving product',
+            group: this.product.key.id,
+            closable: false,
+            life: 3000,
+          });
+          console.error(err);
+        });
     },
     attrPopup: function (event) {
       this.$refs.op.toggle(event);
     },
     createAttr: function () {
       console.log(this.attributes);
-      if (this.attributes[this.newAttrName] == undefined) {
-        this.$set(this.attribues, this.newAttrName, {
-          name: 'Name',
-          upcharge: '5',
-        });
+      if (!this.attributes) {
+        console.log('new arr');
+        this.attributes = new Object();
+      }
+      if (!this.attributes[this.newAttrName]) {
+        console.log('new sub arr');
+        this.attributes[this.newAttrName] = new Array();
+        console.log(this.attributes[this.newAttrName]);
       } else {
         console.error(`Attribute "${this.newAttrName}" already exists`);
       }
       this.newAttrName = '';
     },
+    removeAttr: function (name) {
+      if (this.attributes[name]) {
+        delete this.attributes[name];
+        this.$forceUpdate();
+      }
+    },
     deleteProduct: function () {
-      console.log(this.product._id);
-      axios
-        .delete(process.env.VUE_APP_API + '/api/products', {
-          data: {
-            id: this.product._id,
-          },
-        })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+      this.$emit('delete', this.product._id);
     },
   },
 };

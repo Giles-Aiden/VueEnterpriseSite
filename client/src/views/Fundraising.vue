@@ -1,6 +1,6 @@
 <template>
   <div class="Fundraising">
-    <Navbar title="Fundraising" />
+    <Navbar />
     <!-- Main Content -->
     <!-- Will cover the fundraising campaign and all of its necessary details -->
     <div id="contentArea">
@@ -39,20 +39,9 @@
             Running a fundraiser through WFBM Laser Engraving is a win-win! Help
             your organization in a fun and environmentally friendly way! Reduce
             plastic waste and raise money by buying wholesale for your
-            fundraisers! Interested? Have questions? Click the button below to
+            fundraisers! Interested? Have questions? Fill out the form below to
             get in touch!
           </p>
-
-          <vs-button
-            :active="active == 1"
-            @click="active = 1"
-            :color="buttonColor"
-            type="filled"
-          >
-            <router-link to="/wholesale" class="link" tag="li">
-              Learn More!
-            </router-link>
-          </vs-button>
         </div>
         <div class="card">
           <img :src="require('@/assets/plasticWaterBottles.jpg')" />
@@ -123,39 +112,125 @@
         </div>
       </div>
     </div>
-    <VFooter />
+    <h1>Want to sell custom water bottles at your event?</h1>
+    <h2>
+      Leave your information and a description of what your looking for below
+      and we will get back to you!
+    </h2>
+    <div id="contact">
+      <form :action="formAction"
+        method="POST"
+        enctype="multipart/form-data"
+        name="EmailForm"
+      >
+        <input type="text" id="name" placeholder="Name" v-model="formName" />
+
+        <input
+          type="text"
+          id="org"
+          placeholder="Business/Organization"
+          v-model="formOrg"
+        />
+
+        <input type="text" placeholder="Phone Number" v-model="formNumber" />
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Email"
+          v-model="formEmail"
+        />
+
+        <textarea
+          id="subject"
+          cols="30"
+          rows="10"
+          placeholder="Message"
+          v-model="formBody"
+        ></textarea>
+
+        <vs-button color="#185ca3" type="submit">Send</vs-button>
+      </form>
+    </div>
   </div>
 </template>
 
 <!-- functiony things -->
 <script>
-import Navbar from '@/components/Navbar.vue';
-import VFooter from '@/components/VFooter.vue';
+import Navbar from '../components/Navbar.vue';
 
 export default {
   name: 'Fundraising',
   components: {
     Navbar,
-    VFooter,
   },
   data() {
     return {
-      slideIndex: 1,
-      picked: 1,
-      imgNum: 1,
-      buttonColor: '#185ca3',
+      //slideIndex: 1,
+      //picked: 1,
+      //imgNum: 1,
+      formName: '',
+      formOrg: '',
+      formNumber: '',
+      formEmail: '',
+      formBody: '',
     };
   },
+  computed: {
+    formAction: function () {
+      return `mailto:sales@wfbmlaserengraving.com
+        ?subject=WFBM user ${this.formName} requeted help from your website!
+        &body=
+        Name: ${this.formName}
+        %0D%0A
+        Company/Buisness: ${this.formOrg}
+        %0D%0A
+        Phone Number: ${this.formNumber}
+        %0D%0A
+        Email: ${this.formEmail}
+        %0D%0A
+        ${this.formBody}
+        `
+    },
+  },
 };
-
-var resizeEvent = window.document.createEvent('UIEvents');
-resizeEvent.initUIEvent('resize', true, false, window, 0);
-window.dispatchEvent(resizeEvent);
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/styles/_variables.scss';
 
+#contact {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 80%;
+    max-width: 1200px;
+    input,
+    textarea {
+      height: 5rem;
+      font-size: 1.5rem;
+      resize: none;
+      outline: none;
+      border: none;
+      border-bottom: 2px solid $shadow;
+    }
+    textarea {
+      padding-top: 1rem;
+    }
+    button {
+      font-size: 1.5rem;
+      display: inline-block;
+      width: 5rem;
+      border: none;
+      outline: none;
+      margin-left: auto;
+    }
+  }
+}
 .card {
   width: 30rem;
   position: relative;
@@ -362,63 +437,3 @@ hr {
   }
 }
 </style>
-
-<!-- functiony things -->
-<script>
-// @ is an alias to /src
-import Navbar from '@/components/Navbar.vue';
-
-export default {
-  name: 'Fundraising',
-  components: {
-    Navbar,
-    //MyCarousel
-  },
-  data() {
-    return {
-      picked: 1,
-      imgNum: 1,
-      items: [
-        'img/bottleRed.JPG',
-        'img/bottleBlack.JPG',
-        'img/bottleGreen.JPG',
-      ],
-      // This is the info that gets passed into the v-for elements for the 2nd carousel
-      reviewerInfo: [
-        [
-          'Jack F.',
-          '"Fantastic, I\'m totally blown away by Testimonial Generator."',
-        ],
-        [
-          'Israel L.',
-          '" I am so pleased with this product. The service was excellent."',
-        ],
-        [
-          'Tonnie O.',
-          '"I\'m good to go. You guys rock! The service was excellent."',
-        ],
-        [
-          'Jefferson H.',
-          '"I can\'t say enough about Laser Engraved Water Bottles."',
-        ],
-        [
-          'Berrie A.',
-          '"WFBM Laser Engraving is exactly what I\'ve been looking for."',
-        ],
-        [
-          'Malory J.',
-          '"Best. Product. Ever! The customization aspect really wonderful."',
-        ],
-      ],
-      arrows: [
-        '<div style="background-color: "#113F70""><img src="img/arrowLeft.png" width="75" height="75"></div>',
-        '<div style="background-color: "#113F70""><img src="img/arrowRight.png" width="75" height="75"></div>',
-      ],
-    };
-  },
-};
-
-var resizeEvent = window.document.createEvent('UIEvents');
-resizeEvent.initUIEvent('resize', true, false, window, 0);
-window.dispatchEvent(resizeEvent);
-</script>

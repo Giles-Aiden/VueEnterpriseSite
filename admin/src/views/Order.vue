@@ -1,21 +1,54 @@
 <template>
   <div id="orders">
     <Sidebar></Sidebar>
-    <table>
-      <tr>
-        <td>Date</td>
-        <td>Email</td>
-        <td>Name</td>
-        <td>Amount</td>
-        <td>Number of Items Purchased</td>
-        <td>Items Purchased</td>
-      </tr>
-      <OrderComp
-        v-for="(order, index) in Orders"
-        :key="index"
-        :user="Orders[index]"
-      />
-    </table>
+    <DataTable :value="orders">
+      <Column field="_id" header="OrderID"></Column>
+      <Column field="date" header="Date"></Column>
+      <Column field="productNames" header="Products">
+        <template #body="slotProps">
+          <ol>
+            <li v-for="(item, index) in slotProps.data.productNames" :key="index">
+              {{item}}
+            </li>
+          </ol>
+        </template>
+      </Column>
+      <Column field="productAttrs" header="Attributes">
+        <template #body="slotProps">
+          <ol>
+            <li v-for="(item, index) in slotProps.data.productAttrs" :key="index">
+              <div v-for="(value, key, index) in item" :key="index">
+                <h3>{{key}}:</h3><h4>{{value}}</h4>
+              </div>
+            </li>
+          </ol>
+        </template>
+      </Column>
+      <Column field="productImgs" header="Images">
+        <template #body="slotProps">
+          <ol>
+            <li v-for="(item, index) in slotProps.data.productImgs" :key="index">
+              <img v-for="(img, index) in item" :key="index" :src="img" style="width: 70%" />
+            </li>
+          </ol>
+        </template>
+      </Column>
+      <Column field="color" header="Color">
+        <template #body="slotProps">
+          <ol>
+            <li 
+              v-for="(item, index) in slotProps.data.products" 
+              :key="index"
+            >
+              {{item.color.slice(1)}}
+              <div
+                :style="{ backgroundColor: item.color, 'width': '3rem', 'height': '3rem' }"
+              />
+            </li>
+          </ol>
+        </template>
+      </Column>
+    </DataTable>
   </div>
 </template>
 
@@ -65,15 +98,18 @@ table {
 </style>
 
 <script>
-// @ is an alias to /src
+const axios = require('axios');
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+//import ColumnGroup from 'primevue/columngroup';
 import Sidebar from '@/components/Sidebar.vue';
-import OrderComp from '@/components/OrderComp.vue';
 
 export default {
   name: 'Home',
   components: {
+    DataTable,
+    Column,
     Sidebar,
-    OrderComp,
   },
   data() {
     return {
@@ -97,7 +133,13 @@ export default {
           items: ['Water Bottle', 'Another Water Bottle'],
         },
       ],
+      orders: undefined,
     };
+  },
+  async mounted() {
+    let orders = await axios.get(process.env.VUE_APP_API + '/api/order');
+    this.orders = orders.data;
+    console.log(this.orders);
   },
 };
 </script>
